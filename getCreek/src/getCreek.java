@@ -1,3 +1,8 @@
+// getCreek
+// read the i2c port
+// has two command line arguments
+// p - print out the data
+// i - insert the data into the mysql table
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -43,8 +48,10 @@ public class getCreek {
 
     I2CBus bus = I2CFactory.getInstance(I2CBus.BUS_1);
 	I2CDevice dev;
-	dev = bus.getDevice(0x8);
+	dev = bus.getDevice(0x8); // the psoc slave address is set to 8
 
+	// the values are in a 2byte buffer
+	// the buffer in the psoc is little endian
 	dev.read(0,buffer,0,2);
 	for(int i =0 ; i<2 ; i++)
 	    {
@@ -52,17 +59,22 @@ public class getCreek {
 		    System.out.println( i + " = " + buffer[i]);
 	    }
 
+	// the second byte is the MSB ... so shift it and add the first byte to get the 16 bit
 	Integer adcval = (buffer[1] << 8) + buffer[0];
 	if(printInfo)
 	    System.out.println("val = " + adcval);
 
 	Double ad1 = new Double(adcval);
 
+	// the ADC converter is +-1.024 and 16 bits = 65536
 	Double volts = 1.0234 * 2 * ad1 / 65536.0;
 	if(printInfo)
 	    System.out.println("Volts = " + volts);
 
-	// psi
+	// psi is calculate by
+	// 15 psi is the full range
+	// 4->20 ma current loop
+	// the last -0.004 is to offset the voltage range
 	Double psi = 15 * ((volts - (51.1*0.004)) / (51.1 * (0.02 - 0.004)));
 	if(psi<0)
 	    psi=0.0;
@@ -70,7 +82,7 @@ public class getCreek {
 	if(printInfo)
 	    System.out.println("PSI = " + psi);
        
-	// feet
+	// feet is 0.43 feet/psi - fresh water at 60 degrees
 	Double feet = psi / 0.43 ;
 	Integer ft = new Integer(feet.intValue());
 	Double inches = (feet-ft)*12;
@@ -93,7 +105,8 @@ public class getCreek {
 	    }
 	
     }
-    
+   
+ // connect to the database and insert the 'sql statement'
  public static void insertString(String insert)
  {
     String url = "jdbc:mysql://192.168.15.83/creekdata";

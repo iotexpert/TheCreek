@@ -1,4 +1,4 @@
-<project name="getCreek" basedir="." default="main">
+<project name="getCreek" basedir="." default="build">
 
     <property name="src.dir"     value="src"/>
 
@@ -37,18 +37,7 @@
     </target>
 
 
-<target name="run" depends="jar">
-        <java fork="true" classname="${main-class}">
-            <classpath>
-                <path refid="classpath"/>
-                <path location="${jar.dir}/${ant.project.name}.jar"/>
-            </classpath>
-        </java>
-</target>
-
 <target name="build" depends="compile,jar"/>
     <target name="clean-build" depends="clean,jar"/>
-
-    <target name="main" depends="clean,run"/>
 
 </project>
