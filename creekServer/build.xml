@@ -57,5 +57,8 @@
 		  />
 
 	</target>
+
+	<target name="all" depends="compile,war,install"></target>
+	  
 	
 </project>
