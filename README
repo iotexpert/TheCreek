@@ -12,3 +12,22 @@ the username and password is hardcoded in the build file
 creekFirmware
 -------------
 a zip file of the firmware running on the psoc
+
+
+----------
+getCreek
+---------
+The program that runs on the rasperry PI.
+reads the i2c
+figures out what the adc value means
+writes the data into the database on the RPI
+
+to build
+ant build
+
+to install - (which basically copies the directory into the right place
+ant install 
+
+To make the program run on the RPI you need to have 
+crontab -l
+* * * * * /home/pi/getCreek/printData
