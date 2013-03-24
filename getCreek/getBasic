@@ -1,2 +1,0 @@
-#!/bin/sh
-java -cp bin:lib/mysql-connector-java-5.1.6-bin.jar basicChart 
