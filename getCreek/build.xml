@@ -46,6 +46,15 @@
         </java>
 </target>
 
+<target name="install">
+
+  <exec executable="scp"> 
+    <arg value="-r"/>
+    <arg value="../getCreek"/>
+    <arg value="pi@pi:"/> 
+</exec>
+</target>
+
 <target name="build" depends="compile,jar"/>
     <target name="clean-build" depends="clean,jar"/>
 
