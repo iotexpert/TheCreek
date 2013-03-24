@@ -1,0 +1,14 @@
+-----------
+creekServer
+-----------
+jsp that displays the output of the creek database
+
+to build it use 'ant compile' or 'ant'
+to deploy it type 'and install'
+the username and password is hardcoded in the build file
+
+
+-------------
+creekFirmware
+-------------
+a zip file of the firmware running on the psoc
