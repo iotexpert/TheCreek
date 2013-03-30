@@ -1,4 +1,4 @@
-<project name="getCreek" basedir="." default="main">
+<project name="getCreek" basedir="." default="compile">
 
     <property name="src.dir"     value="src"/>
 
