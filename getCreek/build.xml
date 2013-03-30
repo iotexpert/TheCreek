@@ -45,11 +45,17 @@
             </classpath>
         </java>
 </target>
+	
+	<target name="install">
+	  <exec executable="scp">
+	    <arg value="-r"/>
+	    <arg value="."/>
+	    <arg value="pi@pi:getCreek"/>
+	  </exec>
+	</target>
 
-<target name="install">
-  <scp todir="pi:pi@pi:">
-    <fileset dir="../getCreek"/>
-  </scp>
+<target name="i1">
+  <scp file="build.xml" todir="pi:pi@pi:/home/pi"/>
 
 </target>
 
