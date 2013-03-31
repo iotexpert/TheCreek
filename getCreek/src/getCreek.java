@@ -19,7 +19,7 @@ public class getCreek {
 
 	static boolean printInfo=false;
 	static boolean insertData=false;
-	static boolean repeatRead=true;
+	static boolean repeatRead=false;
 	static I2CBus bus;
 	static I2CDevice dev;
 
