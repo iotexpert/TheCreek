@@ -106,22 +106,44 @@ public class getCreek {
 	}
 	public static void readI2C() throws IOException
 	{
+
+
 		byte[] buffer;
 		buffer = new byte[10];
+		//System.out.println("preparing to write");
+		//byte b;
+		//b=0;
+		//dev.write(0,b); // write a 0
 
+		System.out.println("preparing to read");
 		// address, buffer, offset, size
 		dev.read(0,buffer,0,4);
-		for(int i =0 ; i<4 ; i++)
-		{
-			if(printInfo)
-			{
-				System.out.println( i + " = " + buffer[i]);
-			}
-		}
 
-		Integer filterval = (buffer[1] << 8) + buffer[0];
 
-		Integer adcval = (buffer[3] << 8) + buffer[2];
+		Byte b1 = new Byte(buffer[0]);
+		int i1;
+		i1 = b1 & 0xFF;
+		System.out.println("0 = " + i1 + " Hex " + Integer.toHexString(i1));
+
+
+		Byte b2 = new Byte(buffer[1]);
+		int i2;
+		i2 = b2 & 0xFF;
+		System.out.println("1 = " + i2+ " Hex " + Integer.toHexString(i2));
+
+		Byte b3 =  new Byte(buffer[2]);
+		int i3;
+		i3 = b3 & 0xFF;
+		System.out.println("2 = " + i3+ " Hex " + Integer.toHexString(i3));
+
+		Byte b4 = new Byte(buffer[3]);
+		int i4;
+		i4 = b4 & 0xFF;
+		System.out.println("3 = " + i4+ " Hex " + Integer.toHexString(i4));
+
+		Integer filterval = (i1 * 256) + i2;
+
+		Integer adcval = (i3 * 256) + i4;
 		if(printInfo)
 		{
 			System.out.println("filter val = " + filterval + " adcval =" + adcval);
