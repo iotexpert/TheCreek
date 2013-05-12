@@ -169,7 +169,7 @@ public class CreateChart extends HttpServlet {
 
 //			String sql = "SELECT ts,depth,60min FROM ddata where ts>\"" + sdate + "\" order by ts limit " + amount +";";
 			amount = 8 * 60;
-			String sql = "SELECT ts,filter FROM ddata order by ts desc limit "+ amount + ";" ;
+			String sql = "SELECT ts,depth FROM ddata order by ts desc limit "+ amount + ";" ;
 
 			data.executeQuery(sql);
 

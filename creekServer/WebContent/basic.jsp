@@ -36,7 +36,7 @@ con.close();
 
 </jsp:scriptlet>
 
-
+<img src="creeklevel.png" />
 </body>
 </html>
 
