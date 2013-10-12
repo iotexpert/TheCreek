@@ -29,7 +29,7 @@ public class makeChart {
 			JFreeChart chart = ChartFactory.createTimeSeriesChart(
 					"Elkhorn Creek Water Level", // chart title
 					"Timestamp",				// x-axis label
-					"Depth - Feet",            // y-axis label
+					"Depth - Inches",            // y-axis label
 					data,                       // data
 					true,                       // include legend
 					true,                      // generate tool tips
@@ -72,9 +72,12 @@ static XYDataset readData(Integer amount,String sdate) {
 
 		data = new JDBCXYDataset(con);
 
-		//			String sql = "SELECT ts,depth,60min FROM ddata where ts>\"" + sdate + "\" order by ts limit " + amount +";";
+		//			String sql = "SELECT ts,(filter-408)/12,60min FROM ddata where ts>\"" + sdate + "\" order by ts limit " + amount +";";
 		amount = 8 * 60;
-		String sql = "SELECT ts,filter FROM ddata order by ts desc limit "+ amount + ";" ;
+
+		// max=51.1ohm*0.020a=1.022v min=51.1*0.004a mv_volt_range=max-min=817.6 psi/mv=15/817.6=0.018.. ft/mv=0.51199 count/mv=2 count/inch=3.906311  
+		String sql = "SELECT ts,round((filter-408.8)/3.906311,1) FROM ddata order by ts desc limit "+ amount + ";" ;
+		System.out.println(sql);
 
 		data.executeQuery(sql);
 
