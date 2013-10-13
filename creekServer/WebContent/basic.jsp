@@ -70,14 +70,13 @@ out.print("</table>");
 con.close();
 
 %>
-
+<br>
+<a href="http://www.elkhorn-creek.org/creek/excel.jsp">CSV Data</a>
+<br>
 <img src="creeklevel.png" />
 </body>
 </html>
 
-
-
-<HTML>
 
 
 
