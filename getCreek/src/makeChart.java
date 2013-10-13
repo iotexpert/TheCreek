@@ -8,6 +8,13 @@ import java.sql.SQLException;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.ChartUtilities.*;
+import org.jfree.chart.axis.CategoryAxis;
+import org.jfree.chart.axis.NumberAxis;
+import org.jfree.chart.axis.NumberTickUnit;
+import org.jfree.chart.axis.ValueAxis;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.Plot;
+import org.jfree.chart.plot.XYPlot;
 import org.jfree.chart.JFreeChart;
 import org.jfree.data.jdbc.JDBCXYDataset;
 import org.jfree.data.xy.XYDataset;
@@ -36,8 +43,22 @@ public class makeChart {
 					false                     // generate URLs
 					);
 
+			
+			
+			XYPlot plot= (XYPlot)chart.getPlot();
+			
+
+			NumberAxis axis= (NumberAxis)plot.getRangeAxis();
+			
+			
+			axis.setRange(0.0,12.0*15.0);
+			
+			axis.setTickUnit(new NumberTickUnit(12));
+			
+			//axis.setRange(0,12*15);
+			
 			File creekchart=new File("xxx1.PNG");
-			ChartUtilities.saveChartAsPNG(creekchart, chart, 1400, 1000);
+			ChartUtilities.saveChartAsPNG(creekchart, chart, 1000, 700);
 			
 	            
 
