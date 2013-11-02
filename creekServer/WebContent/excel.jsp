@@ -7,9 +7,8 @@ Connection con;
 
 Integer id;
 Timestamp ts;
-Integer adc;
 Integer filter;
-Integer adcp5;
+Integer temp;
 
 
 String url = "jdbc:mysql://192.168.15.83/creekdata";
@@ -21,9 +20,9 @@ con = DriverManager.getConnection(url, "creek", "creek");
 stmt = con.createStatement();
 
 
-ResultSet rs  = stmt.executeQuery("select * from creekdata.ddata order by ts desc limit 10000");
+ResultSet rs  = stmt.executeQuery("select id,ts,filter,temp from creekdata.ddata order by ts desc limit 10000");
 
-out.print("id,time,adc,filter,adcp5\n");
+out.print("id,time,filter,temp\n");
 
 
 while(rs.next())
@@ -31,11 +30,12 @@ while(rs.next())
 
 	id = rs.getInt("id");
 	ts = rs.getTimestamp("ts");
-	adc = rs.getInt("adc");
 	filter = rs.getInt("filter");
-	adcp5 = rs.getInt("adcp5");
+	temp = rs.getInt("temp");
 
-	out.print(id + "," + ts + "," + adc + "," + filter + "," + adcp5 + "\n");
+
+
+	out.print(id + "," + ts + "," + filter + "," + temp + "\n");
 
 }
 
