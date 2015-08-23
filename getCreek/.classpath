@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="build/jar/getCreek.jar"/>
+	<classpathentry kind="lib" path="lib/mysql-connector-java-5.1.6-bin.jar"/>
+	<classpathentry kind="lib" path="lib/pi4j-core-0.0.3-SNAPSHOT.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="lib/jfreechart-1.0.13.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
