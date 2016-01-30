@@ -2,3 +2,6 @@
 .metadata
 .history
 getCreek.old
+*.b#*
+*.s#*
+#*#

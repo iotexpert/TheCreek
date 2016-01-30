@@ -65,15 +65,17 @@ public class i2cdb {
 			Integer regaddress = new Integer(prop.getProperty("v"+i+"regaddress"));
 			Integer nbytes = new Integer(prop.getProperty("v"+i+"nbytes"));
 
-			Integer[] rawvals = readi2c(i2cbus,i2caddress,regaddress,nbytes);
+			Byte[] rawvals = readi2c(i2cbus,i2caddress,regaddress,nbytes);
 			
 			String vtype = prop.getProperty("v"+i+"type");
 			
 			String vendian = prop.getProperty("v"+i+"endian"); 
+
+			String vsign  = prop.getProperty("v"+i+"sign"); 
 			
 			if(vtype.equals("int"))
 			{
-				insertVals[i] = convertInteger(rawvals,vendian,nbytes); 
+			    insertVals[i] = convertInteger(rawvals,vendian,vsign, nbytes); 
 			}
 			/*
 			if(vtype.equals("float"))
@@ -120,9 +122,12 @@ public class i2cdb {
 		insertStringDatabase(insertString);
 	}
 	
-	static public Integer convertInteger(Integer []rawvals, String vendian, Integer nbytes)
+    static public Integer convertInteger(Byte []b, String vendian, String vsign,Integer nbytes)
 	{
 		Integer rval = 0;
+		System.out.println("Running conversion endian="+vendian +" sign = "+vsign +" bytes="+nbytes);
+
+		/*
 		for(int i=0;i<nbytes;i++)
 		{
 			if(vendian.equals("big"))
@@ -138,12 +143,40 @@ public class i2cdb {
 			}
 			
 		}
-		
+		*/
+
+
+		if(nbytes == 2 && vsign.equals("yes") && vendian.equals("big"))
+		{
+		    rval = (   ((b[0] ) << 8) | ((b[1] & 0xFF) << 0));
+		}
+
+		if(nbytes == 2 && vsign.equals("yes") && !vendian.equals("big"))
+		{
+		    rval = (   ((b[1] ) << 8) | ((b[0] & 0xFF) << 0));
+		}
+
+		    if(nbytes == 2 && (!vsign.equals("yes")) && vendian.equals("big"))
+		{
+		    rval = (   ((b[0] & 0xFF) << 8) | ((b[1] & 0xFF) << 0));
+
+		}
+
+	    if(nbytes == 2 && (!vsign.equals("yes")) && !vendian.equals("big"))
+		{
+		    rval = (   ((b[1] & 0xFF) << 8) | ((b[0] & 0xFF) << 0));
+		}
+
+	   if(debug)
+		       {
+			   System.out.println("Rval =" + rval);
+		       }
+
 		
 		return rval;
 	}
 	
-	static public Integer[]readi2c(int i2cbus, int i2caddress, int regaddress, int numbytes)
+	static public Byte[]readi2c(int i2cbus, int i2caddress, int regaddress, int numbytes)
 	{
 		if(debug)
 			System.out.println("Reading i2c");
@@ -153,8 +186,8 @@ public class i2cdb {
 		byte buffer[] = new byte[numbytes];
 		
 		
-		Integer [] rval;
-		rval = new Integer[numbytes];
+		Byte [] rval;
+		rval = new Byte[numbytes];
 		
 		try {
 	
@@ -200,9 +233,18 @@ public class i2cdb {
 		
 		for(int i=0;i<numbytes;i++)
 		{
-			rval[i]=buffer[i] & 0xFF;
+		    rval[i]=new Byte(buffer[i]);
+
+		    /*
+		     System.out.println("Val = " + i + " = " + buffer[i] + " +128 " + buffer[i]+128+ " 2comp = " + ( ~(buffer[i] & 0xFF) + 1));
+
+		    //rval[i]=buffer[i] + 128;
 			if(debug)
-				System.out.println("Byte["+i+"]="+rval[i].toHexString(rval[i]));
+			    {
+				System.out.println("Rval["+i+"]="+rval[i].toHexString(rval[i]));
+				//	System.out.println("Buffer["+i+"]="+buffer[i].toHexString(buffer[i]));
+			    }
+		    */
 		}
 		
 		
