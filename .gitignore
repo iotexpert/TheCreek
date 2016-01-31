@@ -5,3 +5,5 @@ getCreek.old
 *.b#*
 *.s#*
 *#*#
+*.DS_Store
+*/*.DS_Store
