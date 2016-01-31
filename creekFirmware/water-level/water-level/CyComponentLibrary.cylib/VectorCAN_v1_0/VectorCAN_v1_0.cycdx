@@ -1,0 +1,568 @@
+<?xml version="1.0" encoding="us-ascii"?>
+
+<deviceData version="1"
+  xmlns="http://cypress.com/xsd/cydevicedata"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://cypress.com/xsd/cydevicedata cydevicedata.xsd">
+
+<block name="`$INSTANCE_NAME`" desc="" visible="true">
+
+    <register name="CAN_CSR_INT_SR" address="`$INSTANCE_NAME``[CanIP]`_CSR_INT_SR" bitWidth="32" 
+        desc="The interrupt status register stores internal interrupt events. Once a bit is set it remains set until 
+              it is cleared by writing a '1' to it. The interrupt enable register has no effect on the interrupt status 
+              register. A pending interrupt occurs when the flag is set to '1'. To acknowledge an interrupt, set the 
+              flag to '1'">
+        <field name="ARB_LOSS" from="2" to="2" access="RW" desc="Arbitration Loss">            
+        </field>
+        <field name="OVR_LOAD" from="3" to="3" access="RW" desc="Overload Interrupt">            
+        </field>
+        <field name="BIT_ERR" from="4" to="4" access="RW" desc="Bit Error Interrupt">            
+        </field>
+        <field name="STUF_ERR" from="5" to="5" access="RW" desc="Stuff Error Interrupt">            
+        </field>
+        <field name="ACK_ERR" from="6" to="6" access="RW" desc="Ack Error Interrupt">            
+        </field>
+        <field name="FORM_ERR" from="7" to="7" access="RW" desc="Form Error Interrupt">            
+        </field>
+        <field name="CRC_ERR" from="8" to="8" access="RW" desc="CRC Error Interrupt">            
+        </field>
+        <field name="BUS_OFF" from="9" to="9" access="RW" desc="Bus Off State">            
+        </field>
+        <field name="RX_MSG_LOSS" from="10" to="10" access="RW" desc="Rx msg loss Interrupt">            
+        </field>
+        <field name="TX_MSG" from="11" to="11" access="RW" desc="Tx msg Sent">            
+        </field>
+        <field name="RX_MSG" from="12" to="12" access="RW" desc="Msg Recieved">            
+        </field>
+    </register>
+    
+    <register name="CAN_CSR_BUF_SR" address="`$INSTANCE_NAME``[CanIP]`_CSR_BUF_SR" bitWidth="32" 
+        desc="These status indicators bundle the respective flags from all RxMessage and TxMessage buffers. Note All
+              flags are read only. To acknowledge a MsgAv flag, the CPU must write to the respective RxMessage buffer">
+        <field name="RX_MSG0" from="0" to="0" access="RW" desc="Rx Msg0 Available">            
+        </field>
+        <field name="RX_MSG1" from="1" to="1" access="RW" desc="Rx Msg1 Available">            
+        </field>
+        <field name="RX_MSG2" from="2" to="2" access="RW" desc="Rx Msg2 Available">            
+        </field>
+        <field name="RX_MSG3" from="3" to="3" access="RW" desc="Rx Msg3 Available">            
+        </field>
+        <field name="RX_MSG4" from="4" to="4" access="RW" desc="Rx Msg4 Available">            
+        </field>
+        <field name="RX_MSG5" from="5" to="5" access="RW" desc="Rx Msg5 Available">            
+        </field>
+        <field name="RX_MSG6" from="6" to="6" access="RW" desc="Rx Msg6 Available">            
+        </field>
+        <field name="RX_MSG7" from="7" to="7" access="RW" desc="Rx Msg7 Available">            
+        </field>
+        <field name="RX_MSG8" from="8" to="8" access="RW" desc="Rx Msg8 Available">            
+        </field>
+        <field name="RX_MSG9" from="9" to="9" access="RW" desc="Rx Msg9 Available">            
+        </field>
+        <field name="RX_MSG10" from="10" to="10" access="RW" desc="Rx Msg10 Available">            
+        </field>
+        <field name="RX_MSG11" from="11" to="11" access="RW" desc="Rx Msg11 Available">            
+        </field>
+        <field name="RX_MSG12" from="12" to="12" access="RW" desc="Rx Msg12 Available">            
+        </field>
+        <field name="RX_MSG13" from="13" to="13" access="RW" desc="Rx Msg13 Available">            
+        </field>
+        <field name="RX_MSG14" from="14" to="14" access="RW" desc="Rx Msg14 Available">            
+        </field>
+        <field name="RX_MSG15" from="15" to="15" access="RW" desc="Rx Msg15 Available">            
+        </field>
+        <field name="TX_MSG0" from="16" to="16" access="RW" desc="Tx req Pending for Tx Msg0">            
+        </field>
+        <field name="TX_MSG1" from="17" to="17" access="RW" desc="Tx req Pending for Tx Msg1">            
+        </field>
+        <field name="TX_MSG2" from="18" to="18" access="RW" desc="Tx req Pending for Tx Msg2">            
+        </field>
+        <field name="TX_MSG3" from="19" to="19" access="RW" desc="Tx req Pending for Tx Msg3">            
+        </field>
+        <field name="TX_MSG4" from="20" to="20" access="RW" desc="Tx req Pending for Tx Msg4">            
+        </field>
+        <field name="TX_MSG5" from="21" to="21" access="RW" desc="Tx req Pending for Tx Msg5">            
+        </field>
+        <field name="TX_MSG6" from="22" to="22" access="RW" desc="Tx req Pending for Tx Msg6">            
+        </field>
+        <field name="TX_MSG7" from="23" to="23" access="RW" desc="Tx req Pending for Tx Msg7">            
+        </field>
+    </register>
+    
+    <register name="CAN_CSR_ERR_SR" address="`$INSTANCE_NAME``[CanIP]`_CSR_ERR_SR" bitWidth="32" 
+        desc="Status indicators are provided to report the CAN controller error state, receive error count, and 
+              transmit error count. Special flags report error counter values equal to or in excess of 96 errors are 
+              available to indicate heavily disturbed bus situations. The transmitter error counter according to the 
+              CAN standard. When it is greater than 255 Decomal, it is fixed at 255 Decimal.">
+        <field name="TX_ERR_CNT" from="7" to="0" access="RW" desc="Tx error Count">            
+        </field>
+        <field name="RX_ERR_CNT" from="15" to="8" access="RW" 
+            desc="Rx error Count. When in bus-off state,this counter is used to count 128 groups of 11 recessive bits">            
+        </field>
+        <field name="ERR_STATE" from="17" to="16" access="RW" 
+            desc="Error State of CAN node, 00 error active, 01 error passive, 1x bus off">            
+        </field>
+        <field name="TXGTE96" from="18" to="18" access="RW" desc="Tx Error Count is greater or equal to 96 Decimal">            
+        </field>
+        <field name="RXGTE96" from="19" to="19" access="RW" desc="Rx Error Count is greater or equal to 96 Decimal">            
+        </field>       
+    </register>
+    
+    <register name="CAN0_TX0_ID" address="`$INSTANCE_NAME``[CanIP]`_TX0_ID" bitWidth="32" desc="CAN Tx Msg Identifier">
+        <field name="ID" from="31" to="3" access="RW" desc="Tx Msg Indentifier">            
+        </field>        
+    </register>
+    
+    <register name="CAN0_TX1_ID" address="`$INSTANCE_NAME``[CanIP]`_TX1_ID" bitWidth="32" desc="CAN Tx Msg Identifier">
+        <field name="ID" from="31" to="3" access="RW" desc="Tx Msg Indentifier">            
+        </field>        
+    </register>
+    
+    <register name="CAN0_TX2_ID" address="`$INSTANCE_NAME``[CanIP]`_TX2_ID" bitWidth="32" desc="CAN Tx Msg Identifier">
+        <field name="ID" from="31" to="3" access="RW" desc="Tx Msg Indentifier">            
+        </field>        
+    </register>
+    
+     <register name="CAN0_TX3_ID" address="`$INSTANCE_NAME``[CanIP]`_TX3_ID" bitWidth="32" desc="CAN Tx Msg Identifier">
+        <field name="ID" from="31" to="3" access="RW" desc="Tx Msg Indentifier">            
+        </field>        
+    </register>
+    
+    <register name="CAN0_TX4_ID" address="`$INSTANCE_NAME``[CanIP]`_TX4_ID" bitWidth="32" desc="CAN Tx Msg Identifier">
+        <field name="ID" from="31" to="3" access="RW" desc="Tx Msg Indentifier">            
+        </field>        
+    </register>
+    
+    <register name="CAN0_TX5_ID" address="`$INSTANCE_NAME``[CanIP]`_TX5_ID" bitWidth="32" desc="CAN Tx Msg Identifier">
+        <field name="ID" from="31" to="3" access="RW" desc="Tx Msg Indentifier">            
+        </field>        
+    </register>
+    
+    <register name="CAN0_TX6_ID" address="`$INSTANCE_NAME``[CanIP]`_TX6_ID" bitWidth="32" desc="CAN Tx Msg Identifier">
+        <field name="ID" from="31" to="3" access="RW" desc="Tx Msg Indentifier">            
+        </field>        
+    </register>
+    
+    <register name="CAN0_TX7_ID" address="`$INSTANCE_NAME``[CanIP]`_TX7_ID" bitWidth="32" desc="CAN Tx Msg Identifier">
+        <field name="ID" from="31" to="3" access="RW" desc="Tx Msg Indentifier">            
+        </field>        
+    </register>
+    
+    <register name="CAN0_TX0_DH" address="`$INSTANCE_NAME``[CanIP]`_TX0_DH" bitWidth="32" 
+        desc="CAN Tx Msg Upper Data Bytes">
+        <field name="DATA_HIGH" from="31" to="0" access="RW" desc="Upper Data Bytes">            
+        </field>        
+    </register>
+    
+    <register name="CAN0_TX1_DH" address="`$INSTANCE_NAME``[CanIP]`_TX1_DH" bitWidth="32" 
+        desc="CAN Tx Msg Upper Data Bytes">
+        <field name="DATA_HIGH" from="31" to="0" access="RW" desc="Upper Data Bytes">            
+        </field>        
+    </register>
+    
+    <register name="CAN0_TX2_DH" address="`$INSTANCE_NAME``[CanIP]`_TX2_DH" bitWidth="32" 
+        desc="CAN Tx Msg Upper Data Bytes">
+        <field name="DATA_HIGH" from="31" to="0" access="RW" desc="Upper Data Bytes">            
+        </field>        
+    </register>
+    
+    <register name="CAN0_TX3_DH" address="`$INSTANCE_NAME``[CanIP]`_TX3_DH" bitWidth="32" 
+        desc="CAN Tx Msg Upper Data Bytes">
+        <field name="DATA_HIGH" from="31" to="0" access="RW" desc="Upper Data Bytes">            
+        </field>        
+    </register>
+    
+    <register name="CAN0_TX4_DH" address="`$INSTANCE_NAME``[CanIP]`_TX4_DH" bitWidth="32" 
+        desc="CAN Tx Msg Upper Data Bytes">
+        <field name="DATA_HIGH" from="31" to="0" access="RW" desc="Upper Data Bytes">            
+        </field>        
+    </register>
+    
+    <register name="CAN0_TX5_DH" address="`$INSTANCE_NAME``[CanIP]`_TX5_DH" bitWidth="32" 
+        desc="CAN Tx Msg Upper Data Bytes">
+        <field name="DATA_HIGH" from="31" to="0" access="RW" desc="Upper Data Bytes">            
+        </field>        
+    </register>
+    
+    <register name="CAN0_TX6_DH" address="`$INSTANCE_NAME``[CanIP]`_TX6_DH" bitWidth="32" 
+        desc="CAN Tx Msg Upper Data Bytes">
+        <field name="DATA_HIGH" from="31" to="0" access="RW" desc="Upper Data Bytes">            
+        </field>        
+    </register>
+    
+    <register name="CAN0_TX7_DH" address="`$INSTANCE_NAME``[CanIP]`_TX7_DH" bitWidth="32" 
+        desc="CAN Tx Msg Upper Data Bytes">
+        <field name="DATA_HIGH" from="31" to="0" access="RW" desc="Upper Data Bytes">            
+        </field>        
+    </register>
+    
+    <register name="CAN0_TX0_DL" address="`$INSTANCE_NAME``[CanIP]`_TX0_DL" bitWidth="32" 
+        desc="CAN Tx Msg Lower Data Bytes">
+        <field name="DATA_LOW" from="31" to="0" access="RW" desc="Lower Data Bytes">            
+        </field>        
+    </register>
+    
+    <register name="CAN0_TX1_DL" address="`$INSTANCE_NAME``[CanIP]`_TX1_DL" bitWidth="32" 
+        desc="CAN Tx Msg Lower Data Bytes">
+        <field name="DATA_LOW" from="31" to="0" access="RW" desc="Lower Data Bytes">            
+        </field>        
+    </register>
+    
+    <register name="CAN0_TX2_DL" address="`$INSTANCE_NAME``[CanIP]`_TX2_DL" bitWidth="32" 
+        desc="CAN Tx Msg Lower Data Bytes">
+        <field name="DATA_LOW" from="31" to="0" access="RW" desc="Lower Data Bytes">            
+        </field>        
+    </register>
+    
+    <register name="CAN0_TX3_DL" address="`$INSTANCE_NAME``[CanIP]`_TX3_DL" bitWidth="32" 
+        desc="CAN Tx Msg Lower Data Bytes">
+        <field name="DATA_LOW" from="31" to="0" access="RW" desc="Lower Data Bytes">            
+        </field>        
+    </register>
+    
+    <register name="CAN0_TX4_DL" address="`$INSTANCE_NAME``[CanIP]`_TX4_DL" bitWidth="32" 
+        desc="CAN Tx Msg Lower Data Bytes">
+        <field name="DATA_LOW" from="31" to="0" access="RW" desc="Lower Data Bytes">            
+        </field>        
+    </register>
+    
+    <register name="CAN0_TX5_DL" address="`$INSTANCE_NAME``[CanIP]`_TX5_DL" bitWidth="32" 
+        desc="CAN Tx Msg Lower Data Bytes">
+        <field name="DATA_LOW" from="31" to="0" access="RW" desc="Lower Data Bytes">            
+        </field>        
+    </register>
+    
+    <register name="CAN0_TX6_DL" address="`$INSTANCE_NAME``[CanIP]`_TX6_DL" bitWidth="32" 
+        desc="CAN Tx Msg Lower Data Bytes">
+        <field name="DATA_LOW" from="31" to="0" access="RW" desc="Lower Data Bytes">            
+        </field>        
+    </register>
+    
+    <register name="CAN0_TX7_DL" address="`$INSTANCE_NAME``[CanIP]`_TX7_DL" bitWidth="32" 
+        desc="CAN Tx Msg Lower Data Bytes">
+        <field name="DATA_LOW" from="31" to="0" access="RW" desc="Lower Data Bytes">            
+        </field>        
+    </register>
+    
+    <register name="CAN0_RX0_ID" address="`$INSTANCE_NAME``[CanIP]`_RX0_ID" bitWidth="32" 
+        desc="The register contains Rx Msg Identifier">
+        <field name="ZEROES" from="2" to="0" access="RW" desc="zeros">
+        </field>
+        <field name="ID" from="31" to="3" access="RW" desc="Rx Msg Indentifier">            
+        </field>
+    </register>
+    
+    <register name="CAN0_RX1_ID" address="`$INSTANCE_NAME``[CanIP]`_RX1_ID" bitWidth="32" 
+        desc="The register contains Rx Msg Identifier">
+        <field name="ZEROES" from="2" to="0" access="RW" desc="zeros">
+        </field>
+        <field name="ID" from="31" to="3" access="RW" desc="Rx Msg Indentifier">            
+        </field>
+    </register>
+    
+    <register name="CAN0_RX2_ID" address="`$INSTANCE_NAME``[CanIP]`_RX2_ID" bitWidth="32" 
+        desc="The register contains Rx Msg Identifier">
+        <field name="ZEROES" from="2" to="0" access="RW" desc="zeros">
+        </field>
+        <field name="ID" from="31" to="3" access="RW" desc="Rx Msg Indentifier">            
+        </field>
+    </register>
+    
+    <register name="CAN0_RX3_ID" address="`$INSTANCE_NAME``[CanIP]`_RX3_ID" bitWidth="32" 
+        desc="The register contains Rx Msg Identifier">
+        <field name="ZEROES" from="2" to="0" access="RW" desc="zeros">
+        </field>
+        <field name="ID" from="31" to="3" access="RW" desc="Rx Msg Indentifier">            
+        </field>
+    </register>
+    
+    <register name="CAN0_RX4_ID" address="`$INSTANCE_NAME``[CanIP]`_RX4_ID" bitWidth="32" 
+        desc="The register contains Rx Msg Identifier">
+        <field name="ZEROES" from="2" to="0" access="RW" desc="zeros">
+        </field>
+        <field name="ID" from="31" to="3" access="RW" desc="Rx Msg Indentifier">            
+        </field>
+    </register>
+    
+    <register name="CAN0_RX5_ID" address="`$INSTANCE_NAME``[CanIP]`_RX5_ID" bitWidth="32" 
+        desc="The register contains Rx Msg Identifier">
+        <field name="ZEROES" from="2" to="0" access="RW" desc="zeros">
+        </field>
+        <field name="ID" from="31" to="3" access="RW" desc="Rx Msg Indentifier">            
+        </field>
+    </register>
+    
+    <register name="CAN0_RX6_ID" address="`$INSTANCE_NAME``[CanIP]`_RX6_ID" bitWidth="32" 
+        desc="The register contains Rx Msg Identifier">
+        <field name="ZEROES" from="2" to="0" access="RW" desc="zeros">
+        </field>
+        <field name="ID" from="31" to="3" access="RW" desc="Rx Msg Indentifier">            
+        </field>
+    </register>
+    
+    <register name="CAN0_RX7_ID" address="`$INSTANCE_NAME``[CanIP]`_RX7_ID" bitWidth="32" 
+        desc="The register contains Rx Msg Identifier">
+        <field name="ZEROES" from="2" to="0" access="RW" desc="zeros">
+        </field>
+        <field name="ID" from="31" to="3" access="RW" desc="Rx Msg Indentifier">            
+        </field>
+    </register>
+    
+    <register name="CAN0_RX8_ID" address="`$INSTANCE_NAME``[CanIP]`_RX8_ID" bitWidth="32" 
+        desc="The register contains Rx Msg Identifier">
+        <field name="ZEROES" from="2" to="0" access="RW" desc="zeros">
+        </field>
+        <field name="ID" from="31" to="3" access="RW" desc="Rx Msg Indentifier">            
+        </field>
+    </register>
+    
+    <register name="CAN0_RX9_ID" address="`$INSTANCE_NAME``[CanIP]`_RX9_ID" bitWidth="32" 
+        desc="The register contains Rx Msg Identifier">
+        <field name="ZEROES" from="2" to="0" access="RW" desc="zeros">
+        </field>
+        <field name="ID" from="31" to="3" access="RW" desc="Rx Msg Indentifier">            
+        </field>
+    </register>
+    
+    <register name="CAN0_RX10_ID" address="`$INSTANCE_NAME``[CanIP]`_RX10_ID" bitWidth="32" 
+        desc="The register contains Rx Msg Identifier">
+        <field name="ZEROES" from="2" to="0" access="RW" desc="zeros">
+        </field>
+        <field name="ID" from="31" to="3" access="RW" desc="Rx Msg Indentifier">            
+        </field>
+    </register>
+    
+    <register name="CAN0_RX11_ID" address="`$INSTANCE_NAME``[CanIP]`_RX11_ID" bitWidth="32" 
+        desc="The register contains Rx Msg Identifier">
+        <field name="ZEROES" from="2" to="0" access="RW" desc="zeros">
+        </field>
+        <field name="ID" from="31" to="3" access="RW" desc="Rx Msg Indentifier">            
+        </field>
+    </register>
+    
+    <register name="CAN0_RX12_ID" address="`$INSTANCE_NAME``[CanIP]`_RX12_ID" bitWidth="32" 
+        desc="The register contains Rx Msg Identifier">
+        <field name="ZEROES" from="2" to="0" access="RW" desc="zeros">
+        </field>
+        <field name="ID" from="31" to="3" access="RW" desc="Rx Msg Indentifier">            
+        </field>
+    </register>
+    
+    <register name="CAN0_RX13_ID" address="`$INSTANCE_NAME``[CanIP]`_RX13_ID" bitWidth="32" 
+        desc="The register contains Rx Msg Identifier">
+        <field name="ZEROES" from="2" to="0" access="RW" desc="zeros">
+        </field>
+        <field name="ID" from="31" to="3" access="RW" desc="Rx Msg Indentifier">            
+        </field>
+    </register>
+    
+    <register name="CAN0_RX14_ID" address="`$INSTANCE_NAME``[CanIP]`_RX14_ID" bitWidth="32" 
+        desc="The register contains Rx Msg Identifier">
+        <field name="ZEROES" from="2" to="0" access="RW" desc="zeros">
+        </field>
+        <field name="ID" from="31" to="3" access="RW" desc="Rx Msg Indentifier">            
+        </field>
+    </register>
+    
+    <register name="CAN0_RX15_ID" address="`$INSTANCE_NAME``[CanIP]`_RX15_ID" bitWidth="32" 
+        desc="The register contains Rx Msg Identifier">
+        <field name="ZEROES" from="2" to="0" access="RW" desc="zeros">
+        </field>
+        <field name="ID" from="31" to="3" access="RW" desc="Rx Msg Indentifier">            
+        </field>
+    </register>
+    
+    <register name="CAN0_RX0_DH" address="`$INSTANCE_NAME``[CanIP]`_RX0_DH" bitWidth="32" 
+        desc="The register contains the Rx Msg Upper Data Bytes">
+        <field name="DATA_HIGH" from="31" to="0" access="RW" desc="Upper Data Bytes">            
+        </field>        
+    </register>
+    
+    <register name="CAN0_RX1_DH" address="`$INSTANCE_NAME``[CanIP]`_RX1_DH" bitWidth="32" 
+        desc="The register contains the Rx Msg Upper Data Bytes">
+        <field name="DATA_HIGH" from="31" to="0" access="RW" desc="Upper Data Bytes">            
+        </field>        
+    </register>
+    
+    <register name="CAN0_RX2_DH" address="`$INSTANCE_NAME``[CanIP]`_RX2_DH" bitWidth="32" 
+        desc="The register contains the Rx Msg Upper Data Bytes">
+        <field name="DATA_HIGH" from="31" to="0" access="RW" desc="Upper Data Bytes">            
+        </field>        
+    </register>
+    
+    <register name="CAN0_RX3_DH" address="`$INSTANCE_NAME``[CanIP]`_RX3_DH" bitWidth="32" 
+        desc="The register contains the Rx Msg Upper Data Bytes">
+        <field name="DATA_HIGH" from="31" to="0" access="RW" desc="Upper Data Bytes">            
+        </field>        
+    </register>
+    
+    <register name="CAN0_RX4_DH" address="`$INSTANCE_NAME``[CanIP]`_RX4_DH" bitWidth="32" 
+        desc="The register contains the Rx Msg Upper Data Bytes">
+        <field name="DATA_HIGH" from="31" to="0" access="RW" desc="Upper Data Bytes">            
+        </field>        
+    </register>
+    
+    <register name="CAN0_RX5_DH" address="`$INSTANCE_NAME``[CanIP]`_RX5_DH" bitWidth="32" 
+        desc="The register contains the Rx Msg Upper Data Bytes">
+        <field name="DATA_HIGH" from="31" to="0" access="RW" desc="Upper Data Bytes">            
+        </field>        
+    </register>
+    
+    <register name="CAN0_RX6_DH" address="`$INSTANCE_NAME``[CanIP]`_RX6_DH" bitWidth="32" 
+        desc="The register contains the Rx Msg Upper Data Bytes">
+        <field name="DATA_HIGH" from="31" to="0" access="RW" desc="Upper Data Bytes">            
+        </field>        
+    </register>
+    
+    <register name="CAN0_RX7_DH" address="`$INSTANCE_NAME``[CanIP]`_RX7_DH" bitWidth="32" 
+        desc="The register contains the Rx Msg Upper Data Bytes">
+        <field name="DATA_HIGH" from="31" to="0" access="RW" desc="Upper Data Bytes">            
+        </field>        
+    </register>
+    
+    <register name="CAN0_RX8_DH" address="`$INSTANCE_NAME``[CanIP]`_RX8_DH" bitWidth="32" 
+        desc="The register contains the Rx Msg Upper Data Bytes">
+        <field name="DATA_HIGH" from="31" to="0" access="RW" desc="Upper Data Bytes">            
+        </field>        
+    </register>
+    
+    <register name="CAN0_RX9_DH" address="`$INSTANCE_NAME``[CanIP]`_RX9_DH" bitWidth="32" 
+        desc="The register contains the Rx Msg Upper Data Bytes">
+        <field name="DATA_HIGH" from="31" to="0" access="RW" desc="Upper Data Bytes">            
+        </field>        
+    </register>
+    
+    <register name="CAN0_RX10_DH" address="`$INSTANCE_NAME``[CanIP]`_RX10_DH" bitWidth="32" 
+        desc="The register contains the Rx Msg Upper Data Bytes">
+        <field name="DATA_HIGH" from="31" to="0" access="RW" desc="Upper Data Bytes">            
+        </field>        
+    </register>
+    
+    <register name="CAN0_RX11_DH" address="`$INSTANCE_NAME``[CanIP]`_RX11_DH" bitWidth="32" 
+        desc="The register contains the Rx Msg Upper Data Bytes">
+        <field name="DATA_HIGH" from="31" to="0" access="RW" desc="Upper Data Bytes">            
+        </field>        
+    </register>
+    
+    <register name="CAN0_RX12_DH" address="`$INSTANCE_NAME``[CanIP]`_RX12_DH" bitWidth="32" 
+        desc="The register contains the Rx Msg Upper Data Bytes">
+        <field name="DATA_HIGH" from="31" to="0" access="RW" desc="Upper Data Bytes">            
+        </field>        
+    </register>
+    
+    <register name="CAN0_RX13_DH" address="`$INSTANCE_NAME``[CanIP]`_RX13_DH" bitWidth="32" 
+        desc="The register contains the Rx Msg Upper Data Bytes">
+        <field name="DATA_HIGH" from="31" to="0" access="RW" desc="Upper Data Bytes">            
+        </field>        
+    </register>
+    
+    <register name="CAN0_RX14_DH" address="`$INSTANCE_NAME``[CanIP]`_RX14_DH" bitWidth="32" 
+        desc="The register contains the Rx Msg Upper Data Bytes">
+        <field name="DATA_HIGH" from="31" to="0" access="RW" desc="Upper Data Bytes">            
+        </field>        
+    </register>
+    
+    <register name="CAN0_RX15_DH" address="`$INSTANCE_NAME``[CanIP]`_RX15_DH" bitWidth="32" 
+        desc="The register contains the Rx Msg Upper Data Bytes">
+        <field name="DATA_HIGH" from="31" to="0" access="RW" desc="Upper Data Bytes">            
+        </field>        
+    </register>    
+
+    <register name="CAN0_RX0_DL" address="`$INSTANCE_NAME``[CanIP]`_RX0_DL" bitWidth="32" 
+        desc="The register contains the Rx Msg Lover Data Bytes">
+        <field name="DATA_LOW" from="31" to="0" access="RW" desc="Lower Data Bytes">            
+        </field>        
+    </register>
+    
+    <register name="CAN0_RX1_DL" address="`$INSTANCE_NAME``[CanIP]`_RX1_DL" bitWidth="32" 
+        desc="The register contains the Rx Msg Lover Data Bytes">
+        <field name="DATA_LOW" from="31" to="0" access="RW" desc="Lower Data Bytes">            
+        </field>        
+    </register>
+    
+    <register name="CAN0_RX2_DL" address="`$INSTANCE_NAME``[CanIP]`_RX2_DL" bitWidth="32" 
+        desc="The register contains the Rx Msg Lover Data Bytes">
+        <field name="DATA_LOW" from="31" to="0" access="RW" desc="Lower Data Bytes">            
+        </field>        
+    </register>
+    
+    <register name="CAN0_RX3_DL" address="`$INSTANCE_NAME``[CanIP]`_RX3_DL" bitWidth="32" 
+        desc="The register contains the Rx Msg Lover Data Bytes">
+        <field name="DATA_LOW" from="31" to="0" access="RW" desc="Lower Data Bytes">            
+        </field>        
+    </register>
+    
+    <register name="CAN0_RX4_DL" address="`$INSTANCE_NAME``[CanIP]`_RX4_DL" bitWidth="32" 
+        desc="The register contains the Rx Msg Lover Data Bytes">
+        <field name="DATA_LOW" from="31" to="0" access="RW" desc="Lower Data Bytes">            
+        </field>        
+    </register>
+    
+    <register name="CAN0_RX5_DL" address="`$INSTANCE_NAME``[CanIP]`_RX5_DL" bitWidth="32" 
+        desc="The register contains the Rx Msg Lover Data Bytes">
+        <field name="DATA_LOW" from="31" to="0" access="RW" desc="Lower Data Bytes">            
+        </field>        
+    </register>
+    
+    <register name="CAN0_RX6_DL" address="`$INSTANCE_NAME``[CanIP]`_RX6_DL" bitWidth="32" 
+        desc="The register contains the Rx Msg Lover Data Bytes">
+        <field name="DATA_LOW" from="31" to="0" access="RW" desc="Lower Data Bytes">            
+        </field>        
+    </register>
+    
+    <register name="CAN0_RX7_DL" address="`$INSTANCE_NAME``[CanIP]`_RX7_DL" bitWidth="32" 
+        desc="The register contains the Rx Msg Lover Data Bytes">
+        <field name="DATA_LOW" from="31" to="0" access="RW" desc="Lower Data Bytes">            
+        </field>        
+    </register>
+    
+    <register name="CAN0_RX8_DL" address="`$INSTANCE_NAME``[CanIP]`_RX8_DL" bitWidth="32" 
+        desc="The register contains the Rx Msg Lover Data Bytes">
+        <field name="DATA_LOW" from="31" to="0" access="RW" desc="Lower Data Bytes">            
+        </field>        
+    </register>
+    
+    <register name="CAN0_RX9_DL" address="`$INSTANCE_NAME``[CanIP]`_RX9_DL" bitWidth="32" 
+        desc="The register contains the Rx Msg Lover Data Bytes">
+        <field name="DATA_LOW" from="31" to="0" access="RW" desc="Lower Data Bytes">            
+        </field>        
+    </register>
+    
+    <register name="CAN0_RX10_DL" address="`$INSTANCE_NAME``[CanIP]`_RX10_DL" bitWidth="32" 
+        desc="The register contains the Rx Msg Lover Data Bytes">
+        <field name="DATA_LOW" from="31" to="0" access="RW" desc="Lower Data Bytes">            
+        </field>        
+    </register>
+    
+    <register name="CAN0_RX11_DL" address="`$INSTANCE_NAME``[CanIP]`_RX11_DL" bitWidth="32" 
+        desc="The register contains the Rx Msg Lover Data Bytes">
+        <field name="DATA_LOW" from="31" to="0" access="RW" desc="Lower Data Bytes">            
+        </field>        
+    </register>
+    
+    <register name="CAN0_RX12_DL" address="`$INSTANCE_NAME``[CanIP]`_RX12_DL" bitWidth="32" 
+        desc="The register contains the Rx Msg Lover Data Bytes">
+        <field name="DATA_LOW" from="31" to="0" access="RW" desc="Lower Data Bytes">            
+        </field>        
+    </register>
+    
+    <register name="CAN0_RX13_DL" address="`$INSTANCE_NAME``[CanIP]`_RX13_DL" bitWidth="32" 
+        desc="The register contains the Rx Msg Lover Data Bytes">
+        <field name="DATA_LOW" from="31" to="0" access="RW" desc="Lower Data Bytes">            
+        </field>        
+    </register>
+    
+    <register name="CAN0_RX14_DL" address="`$INSTANCE_NAME``[CanIP]`_RX14_DL" bitWidth="32" 
+        desc="The register contains the Rx Msg Lover Data Bytes">
+        <field name="DATA_LOW" from="31" to="0" access="RW" desc="Lower Data Bytes">            
+        </field>        
+    </register>
+    
+    <register name="CAN0_RX15_DL" address="`$INSTANCE_NAME``[CanIP]`_RX15_DL" bitWidth="32" 
+        desc="The register contains the Rx Msg Lover Data Bytes">
+        <field name="DATA_LOW" from="31" to="0" access="RW" desc="Lower Data Bytes">            
+        </field>        
+    </register>    
+    
+  </block>
+</deviceData>

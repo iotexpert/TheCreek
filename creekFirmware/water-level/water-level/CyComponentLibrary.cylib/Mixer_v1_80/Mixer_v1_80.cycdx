@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="us-ascii"?>
+
+<deviceData version="1"
+  xmlns="http://cypress.com/xsd/cydevicedata"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://cypress.com/xsd/cydevicedata cydevicedata.xsd">
+
+  <block name="`$INSTANCE_NAME`" desc="" visible="true">
+
+    <block name="`$INSTANCE_NAME`" desc="" visible="true"> 
+          <register name="Control_Register0"
+          address="`$INSTANCE_NAME`_SC__CR0" bitWidth="8" desc="SC_CR0 Register">
+          </register>
+          <register name="Control_Register1"
+          address="`$INSTANCE_NAME`_SC__CR1" bitWidth="8" desc="SC_CR1 Register">
+          </register>
+          <register name="Control_Register2"
+          address="`$INSTANCE_NAME`_SC__CR2" bitWidth="8" desc="SC_CR2 Register">
+          </register>
+          <register name="Active_Power_Manager_Register"
+          address="`$INSTANCE_NAME`_SC__PM_ACT_CFG" bitWidth="8" desc="SC Active Power Manager Register">
+          </register>
+          <register name="Standby_Power_Manager_Register"
+          address="`$INSTANCE_NAME`_SC__PM_STBY_CFG" bitWidth="8" desc="SC StandBy power Manager Register">
+          </register>
+          <register name="Boost_Register"
+          address="`$INSTANCE_NAME`_SC__BST" bitWidth="8" desc="SC__BST Register">
+          </register>
+          <register name="Clock_Register"
+          address="`$INSTANCE_NAME`_SC__CLK" bitWidth="8" desc="SC_CLK Register">
+          </register>
+          <register name="Miscallaneous_Register"
+          address="CYDEV_ANAIF_RT_SC_MISC" bitWidth="8" desc="SC_MISC Register">
+          </register>
+      </block>
+    
+  </block>
+</deviceData>

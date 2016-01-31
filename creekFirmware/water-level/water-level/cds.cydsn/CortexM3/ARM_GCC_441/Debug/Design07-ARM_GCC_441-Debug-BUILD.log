@@ -1,0 +1,25 @@
+--------------- Build Started: 12/09/2012 13:00:26 Project: Design07, Configuration: ARM GCC 4.4.1 Debug ---------------
+cydsfit.exe "-.appdatapath" "C:\Users\arh\AppData\Local\Cypress Semiconductor\PSoC Creator\2.1" "-.fdsnotice" "-.fdswarpdepfile=warp_dependencies.txt" "-.fdselabdepfile=elab_dependencies.txt" "-.fdsbldfile=generated_files.txt" "-p" "C:\Users\arh\Documents\PSoC Creator\Design07\Design07.cydsn\Design07.cyprj" "-d" "CY8C5568AXI-060" "-s" "C:\Users\arh\Documents\PSoC Creator\Design07\Design07.cydsn\Generated_Source\PSoC5" "--" "-yv2" "-v3" "-ygs" "-q10" "-o2" "-.fftcfgtype=LE"
+Elaborating Design...
+ADD: pft.M0035: information: Voltage Reference Information: Vref '1.024V' is connected to terminal 'BinTerm0' of 'amux' but no direct hardware connection exists.
+ * C:\Users\arh\Documents\PSoC Creator\Design07\Design07.cydsn\TopDesign\TopDesign.cysch (Instance 'vRef_1')
+ * C:\Users\arh\Documents\PSoC Creator\Design07\Design07.cydsn\TopDesign\TopDesign.cysch (Instance 'amux')
+ADD: pft.M0035: information: Voltage Reference Information: Vref '1.024V' is connected to terminal 'AinTerm1' of 'amux' but no direct hardware connection exists.
+ * C:\Users\arh\Documents\PSoC Creator\Design07\Design07.cydsn\TopDesign\TopDesign.cysch (Instance 'vRef_1')
+ * C:\Users\arh\Documents\PSoC Creator\Design07\Design07.cydsn\TopDesign\TopDesign.cysch (Instance 'amux')
+ADD: pft.M0035: information: Voltage Reference Information: Vref '1.024V' is connected to terminal 'BinTerm1' of 'amux' but no direct hardware connection exists.
+ * C:\Users\arh\Documents\PSoC Creator\Design07\Design07.cydsn\TopDesign\TopDesign.cysch (Instance 'vRef_1')
+ * C:\Users\arh\Documents\PSoC Creator\Design07\Design07.cydsn\TopDesign\TopDesign.cysch (Instance 'amux')
+HDL Generation ...
+Synthesis ...
+Place and Route ...
+Tech mapping ...
+Error: mpr.M0104: Auto-enabled Vref 'vRef_1' has to be the only connection on net 'Net_13' connected to AMux 'amux_CYAMUXSIDE_A'.  (App=cydsfit)
+Error: mpr.M0104: Auto-enabled Vref 'vRef_1' has to be the only connection on net 'Net_13' connected to AMux 'amux_CYAMUXSIDE_B'.  (App=cydsfit)
+Error: mpr.M0104: Auto-enabled Vref 'vRef_1' has to be the only connection on net 'Net_13' connected to AMux 'amux_CYAMUXSIDE_B'.  (App=cydsfit)
+ADD: pft.M0040: information: The following 8 pin(s) will be assigned a location by the fitter: \lcd:LCDPort(0)\, \lcd:LCDPort(1)\, \lcd:LCDPort(2)\, \lcd:LCDPort(3)\, \lcd:LCDPort(4)\, \lcd:LCDPort(5)\, \lcd:LCDPort(6)\, Pin_1(0)
+Info: mpr.M0037: Unused pieces of the design have been optimized out. See the Tech mapping section of the report file for details. (App=cydsfit)
+Dependency Generation ...
+Clean Temporary Files ...
+Error: cdf.M0005: CyDsFit aborted due to errors, please address all errors and rerun CyDsFit. (App=cydsfit)
+--------------- Build Failed: 12/09/2012 13:00:39 ---------------

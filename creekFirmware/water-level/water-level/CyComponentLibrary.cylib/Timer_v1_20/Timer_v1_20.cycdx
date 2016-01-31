@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="us-ascii"?>
+
+<deviceData version="1"
+  xmlns="http://cypress.com/xsd/cydevicedata"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://cypress.com/xsd/cydevicedata cydevicedata.xsd">
+
+  <block name="`$INSTANCE_NAME`" desc="" visible="true">
+
+	<block name="`$INSTANCE_NAME`" desc="" visible="`$FF8`"> 
+		<!-- Fixed Function Configuration Specific Registers -->
+		<register name="CONTROL"
+		address="`$INSTANCE_NAME`_TimerHW__CFG0" bitWidth="8" desc="TMRx.CFG0">
+		</register>
+		<register name="CONTROL2"
+		address="`$INSTANCE_NAME`_TimerHW__CFG1" bitWidth="8" desc="TMRx.CFG1">
+		</register>
+		<!-- Cannot Add Status register because it has clear on Read Bits -->
+		
+		<!-- Fixed Function Parameter Specific Registers -->
+		<register name="PERIOD"
+		address="`$INSTANCE_NAME`_TimerHW__PER0" bitWidth="8" desc="TMRx.PER0 - Assigned Period">
+		</register>
+		<register name="COUNTER"
+		address="`$INSTANCE_NAME`_TimerHW__CNT_CMP0" bitWidth="8" desc="TMRx.CNT_CMP0 - Current Down Counter Value">
+		</register>
+		<!-- Cannot Add FIFO registers because they pop from FIFO -->
+		
+		<!-- TMR Fixed Function Power Management Register -->
+		<register name="GLOBAL_ENABLE"
+		address="`$INSTANCE_NAME`_TimerHW__PM_ACT_CFG" bitWidth="8" desc="PM.ACT.CFG">
+		</register>
+	</block>
+	
+	<block name="`$INSTANCE_NAME`" desc="" visible="`$FF16`"> 
+		<!-- Fixed Function Configuration Specific Registers -->
+		<register name="CONTROL"
+		address="`$INSTANCE_NAME`_TimerHW__CFG0" bitWidth="8" desc="TMRx.CFG0">
+		</register>
+		<register name="CONTROL2"
+		address="`$INSTANCE_NAME`_TimerHW__CFG1" bitWidth="8" desc="TMRx.CFG1">
+		</register>
+		<!-- Cannot Add Status register because it has clear on Read Bits -->
+		
+		<!-- Fixed Function Parameter Specific Registers -->
+		<register name="PERIOD"
+		address="`$INSTANCE_NAME`_TimerHW__PER0" bitWidth="16" desc="TMRx.PER0 - Assigned Period">
+		</register>
+		<register name="COUNTER"
+		address="`$INSTANCE_NAME`_TimerHW__CNT_CMP0" bitWidth="16" desc="TMRx.CNT_CMP0 - Current Down Counter Value">
+		</register>
+		<!-- Cannot Add FIFO registers because they pop from FIFO -->
+		
+		<!-- TMR Fixed Function Power Management Register -->
+		<register name="GLOBAL_ENABLE"
+		address="`$INSTANCE_NAME`_TimerHW__PM_ACT_CFG" bitWidth="8" desc="PM.ACT.CFG">
+		</register>
+	</block>
+	
+	<block name="`$INSTANCE_NAME`" desc="" visible="`$UDB8`"> 
+		<!-- UDB Configuration Specific Registers -->
+		<register name="CONTROL"
+		address="`$INSTANCE_NAME`_TimerUDB_ctrlreg__CONTROL_REG" bitWidth="8" desc="UDB Control Register">
+		</register>
+		<register name="STATUS_MASK"
+		address="`$INSTANCE_NAME`_TimerUDB_stsreg__MASK_REG" bitWidth="8" desc="UDB Status bits Interrupt Mask Enable Register">
+		</register>
+		<register name="STATUS_AUX_CTRL"
+		address="`$INSTANCE_NAME`_TimerUDB_stsreg__STATUS_AUX_CTL_REG" bitWidth="8" desc="UDB Auxilliary Control Register">
+		</register>
+		<!-- Cannot Add Status register because it has clear on Read Bits -->
+		
+		<!-- UDB Parameter Specific Registers -->
+		<register name="PERIOD"
+		address="`$INSTANCE_NAME`_TimerUDB_`$VerilogSectionReplacementString`_timerdp_u0__D0_REG" bitWidth="8" desc="UDB.D0 - Assigned Period">
+		</register>
+		<register name="COUNTER"
+		address="`$INSTANCE_NAME`_TimerUDB_`$VerilogSectionReplacementString`_timerdp_u0__A0_REG" bitWidth="8" desc="UDB.A0 - Current Down Counter Value">
+		</register>
+		<!-- Cannot Add FIFO registers because they pop from FIFO -->
+	</block>
+	
+	<block name="`$INSTANCE_NAME`" desc="" visible="`$UDB16`"> 
+		<!-- UDB Configuration Specific Registers -->
+		<register name="CONTROL"
+		address="`$INSTANCE_NAME`_TimerUDB_ctrlreg__CONTROL_REG" bitWidth="8" desc="UDB Control Register">
+		</register>
+		<register name="STATUS_MASK"
+		address="`$INSTANCE_NAME`_TimerUDB_stsreg__MASK_REG" bitWidth="8" desc="UDB Status bits Interrupt Mask Enable Register">
+		</register>
+		<register name="STATUS_AUX_CTRL"
+		address="`$INSTANCE_NAME`_TimerUDB_stsreg__STATUS_AUX_CTL_REG" bitWidth="8" desc="UDB Auxilliary Control Register">
+		</register>
+		<!-- Cannot Add Status register because it has clear on Read Bits -->
+		
+		<!-- UDB Parameter Specific Registers -->
+		<register name="PERIOD"
+		address="`$INSTANCE_NAME`_TimerUDB_`$VerilogSectionReplacementString`_timerdp_u0__D0_REG" bitWidth="16" desc="UDB.D0 - Assigned Period">
+		</register>
+		<register name="COUNTER"
+		address="`$INSTANCE_NAME`_TimerUDB_`$VerilogSectionReplacementString`_timerdp_u0__A0_REG" bitWidth="16" desc="UDB.A0 - Current Down Counter Value">
+		</register>
+		<!-- Cannot Add FIFO registers because they pop from FIFO -->
+	</block>
+	
+	<block name="`$INSTANCE_NAME`" desc="" visible="`$UDB24`"> 
+		<!-- UDB Configuration Specific Registers -->
+		<register name="CONTROL"
+		address="`$INSTANCE_NAME`_TimerUDB_ctrlreg__CONTROL_REG" bitWidth="8" desc="UDB Control Register">
+		</register>
+		<register name="STATUS_MASK"
+		address="`$INSTANCE_NAME`_TimerUDB_stsreg__MASK_REG" bitWidth="8" desc="UDB Status bits Interrupt Mask Enable Register">
+		</register>
+		<register name="STATUS_AUX_CTRL"
+		address="`$INSTANCE_NAME`_TimerUDB_stsreg__STATUS_AUX_CTL_REG" bitWidth="8" desc="UDB Auxilliary Control Register">
+		</register>
+		<!-- Cannot Add Status register because it has clear on Read Bits -->
+		
+		<!-- UDB Parameter Specific Registers -->
+		<register name="PERIOD"
+		address="`$INSTANCE_NAME`_TimerUDB_`$VerilogSectionReplacementString`_timerdp_u0__D0_REG" bitWidth="24" desc="UDB.D0 - Assigned Period">
+		</register>
+		<register name="COUNTER"
+		address="`$INSTANCE_NAME`_TimerUDB_`$VerilogSectionReplacementString`_timerdp_u0__A0_REG" bitWidth="24" desc="UDB.A0 - Current Down Counter Value">
+		</register>
+		<!-- Cannot Add FIFO registers because they pop from FIFO -->
+	</block>
+	
+	<block name="`$INSTANCE_NAME`" desc="" visible="`$UDB32`"> 
+		<!-- UDB Configuration Specific Registers -->
+		<register name="CONTROL"
+		address="`$INSTANCE_NAME`_TimerUDB_ctrlreg__CONTROL_REG" bitWidth="8" desc="UDB Control Register">
+		</register>
+		<register name="STATUS_MASK"
+		address="`$INSTANCE_NAME`_TimerUDB_stsreg__MASK_REG" bitWidth="8" desc="UDB Status bits Interrupt Mask Enable Register">
+		</register>
+		<register name="STATUS_AUX_CTRL"
+		address="`$INSTANCE_NAME`_TimerUDB_stsreg__STATUS_AUX_CTL_REG" bitWidth="8" desc="UDB Auxilliary Control Register">
+		</register>
+		<!-- Cannot Add Status register because it has clear on Read Bits -->
+		
+		<!-- UDB Parameter Specific Registers -->
+		<register name="PERIOD"
+		address="`$INSTANCE_NAME`_TimerUDB_`$VerilogSectionReplacementString`_timerdp_u0__D0_REG" bitWidth="32" desc="UDB.D0 - Assigned Period">
+		</register>
+		<register name="COUNTER"
+		address="`$INSTANCE_NAME`_TimerUDB_`$VerilogSectionReplacementString`_timerdp_u0__A0_REG" bitWidth="32" desc="UDB.A0 - Current Down Counter Value">
+		</register>
+		<!-- Cannot Add FIFO registers because they pop from FIFO -->
+	</block>
+
+  </block>
+</deviceData>

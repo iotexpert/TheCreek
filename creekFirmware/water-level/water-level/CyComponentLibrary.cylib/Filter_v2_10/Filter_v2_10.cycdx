@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="us-ascii"?>
+
+<deviceData version="1"
+  xmlns="http://cypress.com/xsd/cydevicedata"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://cypress.com/xsd/cydevicedata cydevicedata.xsd">
+
+  <block name="`$INSTANCE_NAME`" desc="" visible="true"> 
+
+    <block name="`$INSTANCE_NAME`" desc="" visible="true"> 
+          <register name="Control_Register"
+                    address="`$INSTANCE_NAME`_DFB__CR" bitWidth="8" desc="DFB Control Register">
+          
+              <field name="CORECLK_DISABLE" from="2" to="2" access="RW" 
+                     desc="This bit when set high disables (gates off) the clock to the entire core of the block. This includes all FFs except those used for the AHB interface and CSRs and all 6 RAMs. When disabled (set high) the AHB interface to the CSR is still fully functional. This bit is ANDed with the primary input signal dfb_clk_en to control the clock gate. dfb_clk_en must be high and CoreCLK_Disable must be low for the clock to run.">         
+                  <value name="CORECLK_DISABLE_LOW" value="0" desc="Core Clock is Enabled"/>
+                  <value name="CORECLK_DISABLE_HIGH" value="1" desc="Core Clock is Disabled (gated)"/>
+              </field>
+              
+              <field name="ADD6" from="1" to="1" access="RW" 
+                     desc="This bit is literally address bit 5 (6th bit) of the FSM RAM when addressed by the DFB Controller. It has no affect on the FSM RAM when addressed on the AHB interface. It controls the Banking feature of the FSM.">         
+                  <value name="ADDR6_LOW" value="0" desc="ADDR6 is Low"/>
+                  <value name="ADDR6_HIGH" value="1" desc="ADDR6 is HIGH"/>
+              </field>
+              
+              <field name="RUN" from="0" to="0" access="RW" 
+                     desc="Setting this bit to 1 enables the DFB to run. Setting it to 0 forces the next state address of the FSM to zero of the active Bank, reinitializes the ACU's and PC's and clears the round flag, saturation flag, saturation detect flag and all 6 extended Enables in the Controller.">         
+                  <value name="RUN_DIS" value="0" desc="DFB operation is halted"/>
+                  <value name="RUN_EN" value="1" desc="DFB is enabled to operate."/>
+                 </field>
+          </register>
+          
+          <register name="Status_Register"
+                    address="`$INSTANCE_NAME`_DFB__SR" bitWidth="8" desc="DFB Status Register">
+          
+              <field name="INTR_SEM2" from="7" to="7" access="RW" 
+                     desc="If this bit is high, semaphore register bit 2 is a source of the current interrupt. Write a '1' to this bit to clear it.">         
+                  <value name="SEM2_OFF" value="0" desc="Indicates no pending Semaphore 2 Interrupt."/>
+                  <value name="SEM2_ON" value="1" desc="Indicates a pending Semaphore 2 Interrupt."/>
+              </field>
+              
+              <field name="INTR_SEM1" from="6" to="6" access="RW" 
+                     desc="If this bit is high, semaphore register bit 1 is a source of the current interrupt. Write a '1' to this bit to clear it.">         
+                  <value name="SEM1_OFF" value="0" desc="Indicates no pending Semaphore 1 Interrupt."/>
+                  <value name="SEM1_ON" value="1" desc="Indicates a pending Semaphore 1 Interrupt."/>
+              </field>
+              
+              <field name="INTR_SEM0" from="5" to="5" access="RW" 
+                     desc="If this bit is high, semaphore register bit 0 is a source of the current interrupt. Write a '1' to this bit to clear it.">         
+                  <value name="SEM0_OFF" value="0" desc="Indicates no pending Semaphore 0 Interrupt."/>
+                  <value name="SEM0_ON" value="1" desc="Indicates a pending Semaphore 0 Interrupt."/>
+              </field>
+              
+              <field name="INTR_HOLDB" from="4" to="4" access="RW" 
+                     desc="If this bit is high, Holding register B is a source of the current interrupt. Write a '1' to this bit to clear it. Reading the Holding register B also clears this bit.">         
+                  <value name="HOLDB_OFF" value="0" desc="Indicates no pending Holding B Register Interrupt."/>
+                  <value name="HOLDB_ON" value="1" desc="Indicates a pending Holding B Register Interrupt."/>
+              </field>
+              
+              <field name="INTR_HOLDA" from="3" to="3" access="RW" 
+                     desc="If this bit is high, Holding register A is a source of the current interrupt. Write a '1' to this bit to clear it. Reading the Holding register A also clears this bit.">         
+                  <value name="HOLDA_OFF" value="0" desc="Indicates no pending Holding A Register Interrupt."/>
+                  <value name="HOLDA_ON" value="1" desc="Indicates a pending Holding A Register Interrupt."/>
+              </field>
+              
+              <field name="RND_MODE" from="2" to="2" access="R" 
+                     desc="Indicates that the DP is in Round mode - meaning that any result passing out of the DP unit is being rounded to a 16-bit value.">         
+                  <value name="RND_OFF" value="0" desc="Indicates Round Mode is off."/>
+                  <value name="RND_ON" value="1" desc="Indicates Round Mode is on."/>
+              </field>
+              
+              <field name="SAT_MODE" from="1" to="1" access="R" 
+                     desc="Indicates that the DP unit is in Saturation mode.">         
+                  <value name="SAT_OFF" value="0" desc="Indicates Saturation mode is off."/>
+                  <value name="SAT_ON" value="1" desc="Indicates Saturation mode is on."/>
+              </field>
+              
+              <field name="RAM_SEL" from="0" to="0" access="R" 
+                     desc="This bit indicates which Control Store memory is in use, RAM A or RAM B.">         
+                  <value name="RAMSEL_LOW" value="0" desc="Control Store memory A is in use."/>
+                  <value name="RAMSEL_HIGH" value="1" desc="Control Store memory B is in use."/>
+              </field>
+          </register>
+          
+          <register name="Interrupt_Control_Register"
+                    address="`$INSTANCE_NAME`_DFB__INT_CTRL" bitWidth="8" desc="DFB Interrupt Control Register">
+          
+              <field name="SEMA2_EN" from="4" to="4" access="RW" 
+                     desc="If this bit is set high, an interrupt is generated each time a 1 is written into the semaphore register bit 2.">         
+                  <value name="ENABLE_SEMAPHORE_2_IRQ_DIS" value="0" desc="Semaphore register interrupt masked."/>
+                  <value name="ENABLE_SEMAPHORE_2_IRQ_EN" value="1" desc="Interrupt is generated each time a 1 is written to the semaphore register."/>
+              </field>
+              
+              <field name="SEMA1_EN" from="3" to="3" access="RW" 
+                     desc="If this bit is set high, an interrupt is generated each time a 1 is written into the semaphore register bit 1.">         
+                  <value name="ENABLE_SEMAPHORE_1_IRQ_DIS" value="0" desc="Semaphore register interrupt masked."/>
+                  <value name="ENABLE_SEMAPHORE_1_IRQ_EN" value="1" desc="Interrupt is generated each time a 1 is written to the semaphore register."/>
+              </field>
+              
+              <field name="SEMA0_EN" from="2" to="2" access="RW" 
+                     desc="If this bit is set high, an interrupt is generated each time a 1 is written into the semaphore register bit 0.">         
+                  <value name="ENABLE_SEMAPHORE_0_IRQ_DIS" value="0" desc="Semaphore register interrupt masked."/>
+                  <value name="ENABLE_SEMAPHORE_0_IRQ_EN" value="1" desc="Interrupt is generated each time a 1 is written to the semaphore register."/>
+              </field>
+              
+              <field name="HOLDB_EN" from="1" to="1" access="RW" 
+                     desc="If this bit is set high, an interrupt is generated each time new valid data is written into the output Holding register B.">         
+                  <value name="ENABLE_HOLDING_B_IRQ_DIS" value="0" desc="Holding register interrupt masked."/>
+                  <value name="ENABLE_HOLDING_B_IRQ_EN" value="1" desc="Interrupt is generated each time new valid data is written inot the output Holding B register."/>
+              </field>
+              
+              <field name="HOLDA_EN" from="0" to="0" access="RW" 
+                     desc="If this bit is set high, an interrupt is generated each time new valid data is written into the output Holding register A.">         
+                  <value name="ENABLE_HOLDING_A_IRQ_DIS" value="0" desc="Holding register interrupt masked."/>
+                  <value name="ENABLE_HOLDING_A_IRQ_EN" value="1" desc="Interrupt is generated each time new valid data is written inot the output Holding A register."/>
+              </field>
+          </register>
+          
+          <register name="DMA_Control_Register"
+                    address="`$INSTANCE_NAME`_DFB__DMA_CTRL" bitWidth="8" desc="DFB DMAREQ Control Register">
+          
+              <field name="DMAREQ2" from="3" to="2" access="RW" 
+                     desc="The value in these two bits selects which event drives dma_req2.">         
+                  <value name="DMAREQ2_DISABLED" value="0" desc="Disabled"/>
+                  <value name="DMAREQ2_HOLDING_REG_B" value="1" desc="New data in Holding Register B."/>
+                  <value name="DMAREQ2_SEMAPHORE_0" value="10" desc="Semaphore 0."/>
+                  <value name="DMAREQ2_SEMAPHORE_1" value="11" desc="Semaphore 1."/>
+              </field>
+              
+              <field name="DMAREQ1" from="1" to="0" access="RW" 
+                     desc="The value in these two bits selects which event drives dma_req1.">         
+                  <value name="DMAREQ1_DISABLED" value="0" desc="Disabled"/>
+                  <value name="DMAREQ1_HOLDING_REG_A" value="1" desc="New data in Holding Register A."/>
+                  <value name="DMAREQ1_SEMAPHORE_0" value="10" desc="Semaphore 0."/>
+                  <value name="DMAREQ1_SEMAPHORE_1" value="11" desc="Semaphore 1."/>
+              </field>
+          </register>
+          
+          <register name="RAM_DIR_Register"
+                    address="`$INSTANCE_NAME`_DFB__RAM_DIR" bitWidth="8" 
+                    desc="DFB RAM Direction Register. This register controls the DFB memory direction. These bits control if each RAM of this block is embedded to the DFB function or mapped in the system address space on the AHB bus. ">
+          
+              <field name="SNP_DABLE" from="6" to="6" access="RW" 
+                     desc="The CS and DP RAMs (optionally the FSM) have address snooping logic that watches for redundant back-to-back RD cycles and disables the RAM to conserve power. Writing a 1 to this bit disables this logic for all RAMs.">         
+                  <value name="SNP_ENABLE" value="0" desc="Enabled"/>
+                  <value name="SNP_DISABLE" value="1" desc="Disabled"/>
+              </field>
+              
+              <field name="DPB_DIR" from="5" to="5" access="RW" 
+                     desc="Datapath RAM B RAM Direction.">         
+                  <value name="RAM_DFB" value="0" desc="DFB"/>
+                  <value name="RAM_AHB" value="1" desc="System Bus"/>
+              </field>
+              
+              <field name="DPA_DIR" from="4" to="4" access="RW" 
+                     desc="Datapath RAM A RAM Direction.">         
+                  <value name="RAM_DFB" value="0" desc="DFB"/>
+                  <value name="RAM_AHB" value="1" desc="System Bus"/>
+              </field>
+              
+              <field name="ACU_DIR" from="3" to="3" access="RW" 
+                     desc="ACU RAM RAM Direction.">         
+                  <value name="RAM_DFB" value="0" desc="DFB"/>
+                  <value name="RAM_AHB" value="1" desc="System Bus"/>
+              </field>
+              
+              <field name="CSB_DIR" from="2" to="2" access="RW" 
+                     desc="Control Store RAM B RAM Direction.">         
+                  <value name="RAM_DFB" value="0" desc="DFB"/>
+                  <value name="RAM_AHB" value="1" desc="System Bus"/>
+              </field>
+              
+              <field name="CSA_DIR" from="1" to="1" access="RW" 
+                     desc="Control Store RAM B RAM Direction.">         
+                  <value name="RAM_DFB" value="0" desc="DFB"/>
+                  <value name="RAM_AHB" value="1" desc="System Bus"/>
+              </field>
+              
+              <field name="FSM_DIR" from="0" to="0" access="RW" 
+                     desc="FSM RAM RAM Direction.">         
+                  <value name="RAM_DFB" value="0" desc="DFB"/>
+                  <value name="RAM_AHB" value="1" desc="System Bus"/>
+              </field>
+          </register>
+          
+          <register name="DSI_Control_Register"
+                    address="`$INSTANCE_NAME`_DFB__DSI_CTRL" bitWidth="8" desc="DFB Global Cotrol Register">
+          
+              <field name="GBL2_OUT" from="3" to="2" access="RW" 
+                     desc="These bits are used to control what internal signals are mapped to the primary output signal dfb_globalo2.">         
+                  <value name="SEM2" value="0" desc="Semaphore Bit 2. This is the same signal described in the DFB0_SEMA CSR."/>
+                  <value name="DPSIGN" value="1" desc="Datapath Sign. This signal asserts anytime the output of the ALU in the Datapath unit is negative. It will remain high for each cycle this condition is true."/>
+                  <value name="DPTHREASH" value="10" desc="Datapath Threashold Crossed. This signal asserts anytime the threashold of 0 is crossed in the ALU when one of the following instructions is executing: TDECA, TSUBA, TSUBB, TADDABSA, TADDABSB. It will remain high for each cycle this condition is true."/>
+                  <value name="DPEQ" value="11" desc="Datapath ALU=0. This signal asserts high when the output of the ALU in the Datapath unit equals 0 and one of the following ALU commands is executing: TDECA, TSUBA, TSUBB, TADDABSA, TADDABSB. It will remain high for each cycle this condition is true."/>
+              </field>
+              
+              <field name="GBL1_OUT" from="1" to="0" access="RW" 
+                     desc="These bits are used to control what internal signals are mapped to the primary output signal dfb_globalo1.">         
+                  <value name="DFB_RUN" value="0" desc="DFB RUN Bit. This is the same bit as the RUN bit in the DFB0_CR register."/>
+                  <value name="SEM0" value="1" desc="Semaphore Bit 0. This is the same signal described in the DFB0_SEMA CSR."/>
+                  <value name="SEM1" value="10" desc="Semaphore Bit 1. This is the same signal described in the DFB0_SEMA CSR."/>
+                  <value name="DFB_INTR" value="11" desc="DFB Interrupt. This is the same signal as the primary dfb_intr output signal."/>
+              </field>
+          </register>
+          
+          <register name="HOLDA_Register"
+                    address="`$INSTANCE_NAME`_DFB__HOLDA" bitWidth="8" desc="DFB_HOLDA (Output Low Byte) Register">
+          
+              <field name="HOLDA_LOW" from="7" to="0" access="R" 
+                     desc="This is the low byte of the output Holding Register - Port A.">         
+              </field>
+          </register>
+          
+          <register name="HOLDAH_Register"
+                    address="`$INSTANCE_NAME`_DFB__HOLDAH" bitWidth="8" desc="DFB_HOLDAH (Output High Byte) Register">
+          
+              <field name="HOLDA_HIGH" from="7" to="0" access="R" 
+                     desc="This is the high byte of the output Holding Register - Port A.">         
+              </field>
+          </register>
+          
+          <register name="HOLDAM_Register"
+                    address="`$INSTANCE_NAME`_DFB__HOLDAM" bitWidth="8" desc="DFB_HOLDAM (Output Middle Byte) Register">
+          
+              <field name="HOLDA_MID" from="7" to="0" access="R" 
+                     desc="This is the middle byte of the output Holding Register - Port A.">         
+              </field>
+          </register>
+          
+          <register name="HOLDB_Register"
+                    address="`$INSTANCE_NAME`_DFB__HOLDB" bitWidth="8" desc="DFB_HOLDB (Output Low Byte) Register">
+          
+              <field name="HOLDB_LOW" from="7" to="0" access="R" 
+                     desc="This is the low byte of the output Holding Register - Port B.">         
+              </field>
+          </register>
+          
+          <register name="HOLDBH_Register"
+                    address="`$INSTANCE_NAME`_DFB__HOLDBH" bitWidth="8" desc="DFB_HOLDBH (Output High Byte) Register">
+          
+              <field name="HOLDB_HIGH" from="7" to="0" access="R" 
+                     desc="This is the high byte of the output Holding Register - Port B.">         
+              </field>
+          </register>
+          
+          <register name="HOLDBM_Register"
+                    address="`$INSTANCE_NAME`_DFB__HOLDBM" bitWidth="8" desc="DFB_HOLDBM (Output Middle Byte) Register">
+          
+              <field name="HOLDB_MID" from="7" to="0" access="R" 
+                     desc="This is the middle byte of the output Holding Register - Port B.">         
+              </field>
+          </register>
+          
+          <register name="STAGEA_Register"
+                    address="`$INSTANCE_NAME`_DFB__STAGEA" bitWidth="8" desc="DFB_STAGEA (Input Low Byte) Register">
+          
+              <field name="STGA_LOW" from="7" to="0" access="RW" 
+                     desc="This is the low byte of the Streaming input Staging Register - Port A.">         
+              </field>
+          </register>
+          
+          <register name="STAGEAH_Register"
+                    address="`$INSTANCE_NAME`_DFB__STAGEAH" bitWidth="8" desc="DFB_STAGEAH (Input High Byte) Register">
+          
+              <field name="STGA_HIGH" from="7" to="0" access="RW" 
+                     desc="This is the high byte of the Streaming input Staging Register - Port A.">         
+              </field>
+          </register>
+          
+          <register name="STAGEAM_Register"
+                    address="`$INSTANCE_NAME`_DFB__STAGEAM" bitWidth="8" desc="DFB_STAGEAM (Input Middle Byte) Register">
+          
+              <field name="STGA_MID" from="7" to="0" access="RW" 
+                     desc="This is the middle byte of the Streaming input Staging Register - Port A.">         
+              </field>
+          </register>
+          
+          <register name="STAGEB_Register"
+                    address="`$INSTANCE_NAME`_DFB__STAGEB" bitWidth="8" desc="DFB_STAGEB (Input Low Byte) Register">
+          
+              <field name="STGB_LOW" from="7" to="0" access="RW" 
+                     desc="This is the low byte of the Streaming input Staging Register - Port B.">         
+              </field>
+          </register>
+          
+          <register name="STAGEBH_Register"
+                    address="`$INSTANCE_NAME`_DFB__STAGEBH" bitWidth="8" desc="DFB_STAGEBH (Input High Byte) Register">
+          
+              <field name="STGB_HIGH" from="7" to="0" access="RW" 
+                     desc="This is the high byte of the Streaming input Staging Register - Port B.">         
+              </field>
+          </register>
+          
+          <register name="STAGEBM_Register"
+                    address="`$INSTANCE_NAME`_DFB__STAGEBM" bitWidth="8" desc="DFB_STAGEBM (Input Middle Byte) Register">
+          
+              <field name="STGB_MID" from="7" to="0" access="RW" 
+                     desc="This is the middle byte of the Streaming input Staging Register - Port B.">         
+              </field>
+          </register>
+          
+          <register name="DFB_PM_ACT_CFG_Register"
+                    address="`$INSTANCE_NAME`_DFB__PM_ACT_CFG" bitWidth="8" desc="Active Mode Power Control Register">
+          
+              <field name="en_dfb" from="4" to="4" access="RW" 
+                     desc="Enable DFB(s). Populated subsystems are counted from the LSB.">         
+                  <value name="Enable_dfb" value="1" desc="Enable Power to DFB"/>
+                  <value name="Disable_dfb" value="0" desc="Disable Power to DFB"/>
+              </field>
+          </register>
+          
+          <register name="DFB_PM_STBY_CFG_Register"
+                    address="`$INSTANCE_NAME`_DFB__PM_STBY_CFG" bitWidth="8" desc="Alternate Active Mode Power Control Register">
+          
+              <field name="en_dfb" from="4" to="4" access="RW" 
+                     desc="Enable DFB(s). Populated subsystems are counted from the LSB.">         
+                  <value name="Enable_dfb" value="1" desc="Enable Power to DFB during standby power mode"/>
+                  <value name="Disable_dfb" value="0" desc="Disable Power to DFB"/>
+              </field>
+          </register>
+          
+          <register name="DFB_RAM_EN_Register"
+                    address="`$INSTANCE_NAME`_DFB__RAM_EN" bitWidth="8" desc="DFB Ram Enable Register">
+          
+              <field name="RAMWR_ADDRING" from="7" to="6" access="RW" 
+                     desc="These two bits control the write addressing of the 4 largest RAMs embedded in the DFB (CS-A, CS-B, Data-A, Data-B). The setting of these bits allows overlaid writes to occur to these memories when it is desired to fill them with like data.">         
+                  <value name="NO_OVERLAY" value="0" desc="No overlay mapping."/>
+                  <value name="OVERLAY_CS_A_CS_B" value="1" desc="Overlay CS A with CS B."/>
+                  <value name="OVERLAY_DATA_A_DATA_B" value="10" desc="Overlay Data A with Data B."/>
+                  <value name="OVERLAY_CS_AB_DATA_AB" value="11" desc="Overlay CS A/B with Data A with DATA B."/>
+              </field>
+              
+              <field name="DPB_EN" from="5" to="5" access="RW" 
+                     desc="Datapath RAM B RAM enable / disable.">         
+                  <value name="RAM_DIS" value="0" desc="RAM is disabled."/>
+                  <value name="RAM_EN" value="1" desc="RAM is enabled."/>
+              </field>
+              
+              <field name="DPA_EN" from="4" to="4" access="RW" 
+                     desc="Datapath RAM A RAM enable / disable.">         
+                  <value name="RAM_DIS" value="0" desc="RAM is disabled."/>
+                  <value name="RAM_EN" value="1" desc="RAM is enabled."/>
+              </field>
+              
+              <field name="ACU_EN" from="3" to="3" access="RW" 
+                     desc="ACU RAM RAM enable / disable.">         
+                  <value name="RAM_DIS" value="0" desc="RAM is disabled."/>
+                  <value name="RAM_EN" value="1" desc="RAM is enabled."/>
+              </field>
+              
+              <field name="CSB_EN" from="2" to="2" access="RW" 
+                     desc="Control Store RAM B RAM enable / disable.">         
+                  <value name="RAM_DIS" value="0" desc="RAM is disabled."/>
+                  <value name="RAM_EN" value="1" desc="RAM is enabled."/>
+              </field>
+              
+              <field name="CSA_EN" from="1" to="1" access="RW" 
+                     desc="Control Store RAM A RAM enable / disable.">         
+                  <value name="RAM_DIS" value="0" desc="RAM is disabled."/>
+                  <value name="RAM_EN" value="1" desc="RAM is enabled."/>
+              </field>
+              
+              <field name="FSM_EN" from="0" to="0" access="RW" 
+                     desc="FSM RAM RAM enable / disable.">         
+                  <value name="RAM_DIS" value="0" desc="RAM is disabled."/>
+                  <value name="RAM_EN" value="1" desc="RAM is enabled."/>
+              </field>
+          </register>
+          
+          <register name="DFB_COHER_Register"
+                    address="`$INSTANCE_NAME`_DFB__COHER" bitWidth="8" desc="DFB Coherency Register">
+          
+              <field name="holdb_key" from="7" to="6" access="RW" 
+                     desc="Sets the Key Coherency Byte of the Holding B register">         
+                  <value name="HOLDB_KEY_LOW" value="0" desc="Key Byte is low byte."/>
+                  <value name="HOLDB_KEY_MID" value="1" desc="Key Byte is middle byte."/>
+                  <value name="HOLDB_KEY_HIGH" value="10" desc="Key Byte is high byte."/>
+              </field>
+              
+              <field name="holda_key" from="5" to="4" access="RW" 
+                     desc="Sets the Key Coherency Byte of the Holding A register">         
+                  <value name="HOLDA_KEY_LOW" value="0" desc="Key Byte is low byte."/>
+                  <value name="HOLDA_KEY_MID" value="1" desc="Key Byte is middle byte."/>
+                  <value name="HOLDA_KEY_HIGH" value="10" desc="Key Byte is high byte."/>
+              </field>
+              
+              <field name="stgb_key" from="3" to="2" access="RW" 
+                     desc="Sets the Key Coherency Byte of the Staging B register.">         
+                  <value name="STGB_KEY_LOW" value="0" desc="Key Byte is low byte."/>
+                  <value name="STGB_KEY_MID" value="1" desc="Key Byte is middle byte."/>
+                  <value name="STGB_KEY_HIGH" value="10" desc="Key Byte is high byte."/>
+              </field>
+              
+              <field name="stga_key" from="1" to="0" access="RW" 
+                     desc="Sets the Key Coherency Byte of the Staging A register.">         
+                  <value name="STGA_KEY_LOW" value="0" desc="Key Byte is low byte."/>
+                  <value name="STGA_KEY_MID" value="1" desc="Key Byte is middle byte."/>
+                  <value name="STGA_KEY_HIGH" value="10" desc="Key Byte is high byte."/>
+              </field>               
+          </register>
+          
+          <register name="DFB_DALIGN_Register"
+                    address="`$INSTANCE_NAME`_DFB__DALIGN" bitWidth="8" desc="DFB Data Align Register">
+          
+              <field name="holdb_dalign" from="3" to="3" access="RW" 
+                     desc="Shifts the read right by a byte.">         
+                  <value name="HOLDB_DALIGN_LOW" value="0" desc="Reads normally."/>
+                  <value name="HOLDB_DALIGN_HIGH" value="1" desc="Reads shifted right by 8-bits."/>
+              </field>
+              
+              <field name="holda_dalign" from="2" to="2" access="RW" 
+                     desc="Shifts the read right by a byte.">         
+                  <value name="HOLDA_DALIGN_LOW" value="0" desc="Reads normally."/>
+                  <value name="HOLDA_DALIGN_HIGH" value="1" desc="Reads shifted right by 8-bits."/>
+              </field>
+              
+              <field name="stgb_dalign" from="1" to="1" access="RW" 
+                     desc="Shifts the write left by a byte.">         
+                  <value name="STGB_DALIGN_LOW" value="0" desc="Writes normally."/>
+                  <value name="STGB_DALIGN_HIGH" value="1" desc="Writes shifted left by 8-bits."/>
+              </field>
+              
+              <field name="stga_dalign" from="0" to="0" access="RW" 
+                     desc="Shifts the write left by a byte.">         
+                  <value name="STGA_DALIGN_LOW" value="0" desc="Writes normally."/>
+                  <value name="STGA_DALIGN_HIGH" value="1" desc="Writes shifted left by 8-bits."/>
+              </field>              
+          </register>
+          
+          <register name="DFB_SEMA_Register"
+                    address="`$INSTANCE_NAME`_DFB__SEMA" bitWidth="8" desc="DFB Semaphore Register">
+          
+              <field name="SEMA_MASK" from="6" to="4" access="W" 
+                     desc="These bits are used to mask writes to bits 2-0. They are write-only. If bit 4 is a 1 then the value on bit 0 will be written to SEM0, otherwise SEM0 will not be altered. Likewise for MASK1 and SEM1, and MASK2 and SEM2.">         
+              </field>
+              
+              <field name="SEMA" from="2" to="0" access="RW" 
+                     desc="These bits are used to pass semaphores between the DFB Controller and the System SW. Their definition is user defined. There is no HW implementing an arbitration methodology should both the System and Control access the same SEM bit at the same time.">         
+              </field>
+          </register>
+      </block>
+  </block>
+</deviceData>

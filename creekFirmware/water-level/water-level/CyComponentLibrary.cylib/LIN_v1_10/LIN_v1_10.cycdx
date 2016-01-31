@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="us-ascii"?>
+
+<deviceData version="1"
+  xmlns="http://cypress.com/xsd/cydevicedata"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://cypress.com/xsd/cydevicedata cydevicedata.xsd">
+
+    <block name="`$INSTANCE_NAME`" desc="" visible="true">
+
+        <register name="`$INSTANCE_NAME`_CONTROL_REG"
+            address="`$INSTANCE_NAME`_bLIN_`$CtlModeReplacementString`_CtrlReg__CONTROL_REG" 
+            bitWidth="8" desc="Control Register">
+            <field name="`$INSTANCE_NAME`_CONTROL_RX_DIS" from="3" to="3" access="RW" desc="Disconnect RX from LIN bus">
+            </field>
+            <field name="`$INSTANCE_NAME`_CONTROL_TX_DIS" from="1" to="1" access="RW" desc="Force TX pin low">
+            </field>
+            <field name="`$INSTANCE_NAME`_CONTROL_ENABLE" from="0" to="0" access="RW" desc="Enable base LIN operation">
+            </field>
+        </register>
+
+        <register name="`$INSTANCE_NAME`_BREAK_THRESHOLD_REG"
+            address="`$INSTANCE_NAME`_bLIN_LINDp_u0__D0_REG" 
+            bitWidth="8" desc="Break Threshold Register">
+            <field name="`$INSTANCE_NAME`_BREAK_THRESHOLD" from="8" to="0" access="RW" desc="Break threshold detection value assuming 16x oversampling">
+            </field>
+        </register>
+
+        <register name="`$INSTANCE_NAME`_INT_MASK_REG"
+            address="`$INSTANCE_NAME`_bLIN_StsReg__MASK_REG" 
+            bitWidth="8" desc="Status Mask Register">
+            <field name="`$INSTANCE_NAME`_INT_MASK_SYNC" from="4" to="4" access="RW" desc="Sync field detected mask">
+            </field>
+            <field name="`$INSTANCE_NAME`_INT_MASK_EDGE" from="1" to="1" access="RW" desc="Edge detected mask">
+            </field>
+            <field name="`$INSTANCE_NAME`_INT_MASK_BREAK" from="0" to="0" access="RW" desc="Break field threshold detected mask">
+            </field>
+        </register>
+
+        <block name="`$INSTANCE_NAME`_INACTIVITY" desc="" visible="`$BusInactivityEnabled`">
+
+            <register name="`$INSTANCE_NAME`_INACTIVITY_DIV0_REG"
+                address="`$INSTANCE_NAME`_bLIN_InactFSM_BusInactDp_u0__D0_REG" 
+                bitWidth="8" desc="Bus Inactivity Divider 0 Register">
+                <field name="`$INSTANCE_NAME`_INACTIVITY_DIV0" from="8" to="0" access="RW" desc="((Baud Rate * 16 (oversampling) / 10 (100 ms)) / 256) - 1">
+                </field>
+            </register>
+
+            <register name="`$INSTANCE_NAME`_INACTIVITY_DIV1_REG"
+                address="`$INSTANCE_NAME`_bLIN_InactFSM_BusInactDp_u0__D1_REG" 
+                bitWidth="8" desc="Bus Inactivity Divider 1 Register">
+                <field name="`$INSTANCE_NAME`_INACTIVITY_DIV1" from="8" to="0" access="RW" desc="(Baud Rate * 16 (oversampling) / 10 (100 ms)) % 256">
+                </field>
+            </register>
+        </block>
+    
+    </block>
+
+</deviceData>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="us-ascii"?>
+
+<deviceData version="1"
+  xmlns="http://cypress.com/xsd/cydevicedata"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://cypress.com/xsd/cydevicedata cydevicedata.xsd">
+
+  <block name="`$INSTANCE_NAME`" desc="" visible="true">
+    <block name="`$INSTANCE_NAME`" desc="" visible="true"> 
+	      <register name="VDAC8_CR0"
+          address="`$INSTANCE_NAME`_viDAC8__CR0" bitWidth="8" desc="VDAC8_CR0">
+          </register>
+	      <register name="VDAC8_CR1"
+          address="`$INSTANCE_NAME`_viDAC8__CR1" bitWidth="8" desc="VDAC8_CR1">
+          </register>	
+		  <register name="VDAC8_D"
+          address="`$INSTANCE_NAME`_viDAC8__D" bitWidth="8" desc="VDAC8_D">
+          </register>	 
+		  <register name="VDAC8_TR"
+          address="`$INSTANCE_NAME`_viDAC8__TR" bitWidth="8" desc="VDAC8_TR">
+          </register>
+		  <register name="VDAC8_PM_ACT_CFG"
+          address="`$INSTANCE_NAME`_viDAC8__PM_ACT_CFG" bitWidth="8" desc="VDAC8_PM_ACT_CFG">
+          </register>
+		  <register name="VDAC8_PM_STBY_CFG"
+          address="`$INSTANCE_NAME`_viDAC8__PM_STBY_CFG" bitWidth="8" desc="VDAC8_PM_STBY_CFG">
+          </register>
+     </block>
+    
+  </block>
+</deviceData>

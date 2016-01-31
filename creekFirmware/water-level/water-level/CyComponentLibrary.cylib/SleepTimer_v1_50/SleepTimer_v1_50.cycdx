@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="us-ascii"?>
+
+<deviceData version="1"
+  xmlns="http://cypress.com/xsd/cydevicedata"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://cypress.com/xsd/cydevicedata cydevicedata.xsd">
+
+    <block name="`$INSTANCE_NAME`" desc="The Sleep Timer" visible="true">
+        
+<!--
+        
+        <register name="PM_TW_CFG1"
+			address="CYREG_PM_TW_CFG1"
+            
+			bitWidth="8" 
+			desc="CTW interval configuration register">
+
+
+            <field name="RESERVED" from="7" to="4" access="RW" desc="RESERVED">
+            </field>
+
+            <field name="CTW interval" from="3" to="0" access="RW" desc="The central timewheel (CTW) interval.">
+                    <value name="2 ms"    value="0"  desc="CTW interval is 2 ms."    />
+                    <value name="2 ms"    value="1"  desc="CTW interval is 2 ms."    />
+                    <value name="4 ms"    value="2"  desc="CTW interval is 4 ms."    />
+                    <value name="8 ms"    value="3"  desc="CTW interval is 8 ms."    />
+                    <value name="16 ms"   value="4"  desc="CTW interval is 16 ms."   />
+                    <value name="32 ms"   value="5"  desc="CTW interval is 32 ms."   />
+                    <value name="64 ms"   value="6"  desc="CTW interval is 64 ms."   />
+                    <value name="128 ms"  value="7"  desc="CTW interval is 128 ms."  />
+                    <value name="256 ms"  value="8"  desc="CTW interval is 256 ms."  />
+                    <value name="512 ms"  value="9"  desc="CTW interval is 512 ms."  />
+                    <value name="1024 ms" value="10" desc="CTW interval is 1024 ms." />
+                    <value name="2048 ms" value="11" desc="CTW interval is 2048 ms." />
+                    <value name="4096 ms" value="12" desc="CTW interval is 4096 ms." />
+			</field>
+	    </register>
+
+
+        <register name="PM_TW_CFG2"
+			address="CYREG_PM_TW_CFG2" 
+			bitWidth="8" 
+			desc="Power timers enable and interrupt enable configuration register">
+
+            <field name="RESERVED" from="7" to="6" access="RW" desc="RESERVED">
+            </field>
+
+            <field name="CTW interrupt enable" from="3" to="3" access="RW" 
+                    desc="An interrupt issue when the CTW reaches the selected interval">
+				<value name="Enabled"    value="1" 
+                    desc="The CTW interrupt is issued. Only if CTW is enabled." />
+                <value name="Disabled"    value="0" 
+                    desc="No CTW interrupt is issued." /> 
+			</field>
+
+            <field name="CTW enable" from="2" to="2" access="RW" desc="CTW enable">
+				<value name="Enabled"   value="1" desc="The CTW is enabled." />
+                <value name="Disabled"  value="0" desc="The CTW is disabled." />
+			</field>
+        </register>
+
+        <register name="SLOWCLK_ILO_CR0"
+			address="CYREG_SLOWCLK_ILO_CR0" 
+			bitWidth="8" 
+			desc="Internal Low-speed Oscillator Control Register 0"> 
+
+            <field name="RESERVED" from="7" to="6" access="RW" desc="RESERVED">
+            </field>
+
+            <field name="ILO 1 kHz" from="1" to="1" access="RW" 
+                    desc="Enables/disable 1kHz ILO clock output.">
+				<value name="Enabled"    value="1" desc="Enables 1kHz ILO clock output." />
+                <value name="Disabled"   value="0" desc="When clear, clock output is low." /> 
+			</field>
+        </register>
+
+-->
+        <!-- Cannot Add "Power Manager Interrupt Status Register" because it has clear on Read Bits -->
+
+    </block>
+    
+</deviceData>

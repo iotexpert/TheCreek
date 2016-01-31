@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="us-ascii"?>
+
+<deviceData version="1"
+  xmlns="http://cypress.com/xsd/cydevicedata"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://cypress.com/xsd/cydevicedata cydevicedata.xsd">
+
+  <block name="`$INSTANCE_NAME`" desc="">
+      <block name="SINGLE_CYCLE" desc="" visible="!`$TimeMultiplexing`">  
+          <register name="POLYNOMIAL" address="`$INSTANCE_NAME`_`$VerilogSectionReplacementString`_PRSdp_u0__D0_REG" bitWidth="`$Resolution`" desc="Current polynomial value" />   
+          <register name="COPY" address="`$INSTANCE_NAME`_`$VerilogSectionReplacementString`_PRSdp_u0__F0_REG" bitWidth="`$Resolution`" desc="Copy seed value" />   
+          <register name="SEED" address="`$INSTANCE_NAME`_`$VerilogSectionReplacementString`_PRSdp_u0__A0_REG" bitWidth="`$Resolution`" desc="Current seed value" />   
+      </block>
+     
+      <block name="TDM_16" desc="" visible="((`$Resolution` &lt;= 16) &amp;&amp; `$TimeMultiplexing`)">      
+            <register name="POLYNOMIAL_1" address="`$INSTANCE_NAME`_b0_PRSdp_a__D1_REG" bitWidth="8"  desc="Current polynomial value" />   
+            <register name="POLYNOMIAL_0" address="`$INSTANCE_NAME`_b0_PRSdp_a__D0_REG" bitWidth="8"  desc="Current polynomial value" />   
+            <register name="COPY_1" address="`$INSTANCE_NAME`_b0_PRSdp_a__F1_REG" bitWidth="8"  desc="Copy seed value" /> 
+            <register name="COPY_0" address="`$INSTANCE_NAME`_b0_PRSdp_a__F0_REG" bitWidth="8"  desc="Copy seed value" />   
+            <register name="SEED_1" address="`$INSTANCE_NAME`_b0_PRSdp_a__A1_REG" bitWidth="8"  desc="Current seed value" />      
+            <register name="SEED_0" address="`$INSTANCE_NAME`_b0_PRSdp_a__A0_REG" bitWidth="8"  desc="Current seed value" />     
+      </block>       
+      
+      <block name="TDM_24" desc="" visible="((`$Resolution` &gt; 16) &amp;&amp; (`$Resolution` &lt;= 24) &amp;&amp; `$TimeMultiplexing`)">      
+          <register name="POLYNOMIAL_2" address="`$INSTANCE_NAME`_b1_PRSdp_b__D1_REG" bitWidth="8"  desc="Current polynomial value" />   
+          <register name="POLYNOMIAL_1" address="`$INSTANCE_NAME`_b1_PRSdp_b__D0_REG" bitWidth="8"  desc="Current polynomial value" />   
+          <register name="POLYNOMIAL_0" address="`$INSTANCE_NAME`_b0_PRSdp_a__D0_REG" bitWidth="8"  desc="Current polynomial value" />   
+          <register name="COPY_2" address="`$INSTANCE_NAME`_b1_PRSdp_b__F1_REG" bitWidth="8"  desc="Copy seed value" />      
+          <register name="COPY_1" address="`$INSTANCE_NAME`_b1_PRSdp_b__F0_REG" bitWidth="8"  desc="Copy seed value" />   
+          <register name="COPY_0" address="`$INSTANCE_NAME`_b0_PRSdp_a__F0_REG" bitWidth="8"  desc="Copy seed value" />   
+          <register name="SEED_2" address="`$INSTANCE_NAME`_b1_PRSdp_b__A1_REG" bitWidth="8"  desc="Current seed value" />    
+          <register name="SEED_1" address="`$INSTANCE_NAME`_b1_PRSdp_b__A0_REG" bitWidth="8"  desc="Current seed value" />    
+          <register name="SEED_0" address="`$INSTANCE_NAME`_b0_PRSdp_a__A0_REG" bitWidth="8"  desc="Current seed value" />     
+      </block> 
+
+      <block name="TDM_32" desc="" visible="(((`$Resolution` &gt; 24) &amp;&amp; (`$Resolution` &lt;= 32)) &amp;&amp; `$TimeMultiplexing`)">      
+          <register name="POLYNOMIAL_3" address="`$INSTANCE_NAME`_b1_PRSdp_b__D1_REG" bitWidth="8"  desc="Current polynomial value" />   
+          <register name="POLYNOMIAL_2" address="`$INSTANCE_NAME`_b0_PRSdp_a__D1_REG" bitWidth="8"  desc="Current polynomial value" />   
+          <register name="POLYNOMIAL_1" address="`$INSTANCE_NAME`_b1_PRSdp_b__D0_REG" bitWidth="8"  desc="Current polynomial value" />   
+          <register name="POLYNOMIAL_0" address="`$INSTANCE_NAME`_b0_PRSdp_a__D0_REG" bitWidth="8"  desc="Current polynomial value" />   
+          <register name="COPY_3" address="`$INSTANCE_NAME`_b1_PRSdp_b__F1_REG" bitWidth="8"  desc="Copy seed value" />    
+          <register name="COPY_2" address="`$INSTANCE_NAME`_b0_PRSdp_a__F1_REG" bitWidth="8"  desc="Copy seed value" />    
+          <register name="COPY_1" address="`$INSTANCE_NAME`_b1_PRSdp_b__F0_REG" bitWidth="8"  desc="Copy seed value" />    
+          <register name="COPY_0" address="`$INSTANCE_NAME`_b0_PRSdp_a__F0_REG" bitWidth="8"  desc="Copy seed value" />    
+          <register name="SEED_3" address="`$INSTANCE_NAME`_b1_PRSdp_b__A1_REG" bitWidth="8"  desc="Current seed value" /> 
+          <register name="SEED_2" address="`$INSTANCE_NAME`_b0_PRSdp_a__A1_REG" bitWidth="8"  desc="Current seed value" /> 
+          <register name="SEED_1" address="`$INSTANCE_NAME`_b1_PRSdp_b__A0_REG" bitWidth="8"  desc="Current seed value" /> 
+          <register name="SEED_0" address="`$INSTANCE_NAME`_b0_PRSdp_a__A0_REG" bitWidth="8"  desc="Current seed value" /> 
+      </block>        
+
+      <block name="TDM_40" desc="" visible="((`$Resolution` &gt; 32) &amp;&amp; (`$Resolution` &lt;= 40) &amp;&amp; `$TimeMultiplexing`)">      
+          <register name="POLYNOMIAL_4" address="`$INSTANCE_NAME`_b2_PRSdp_c__D1_REG" bitWidth="8"  desc="Current polynomial value" />   
+          <register name="POLYNOMIAL_3" address="`$INSTANCE_NAME`_b1_PRSdp_b__D1_REG" bitWidth="8"  desc="Current polynomial value" />   
+          <register name="POLYNOMIAL_2" address="`$INSTANCE_NAME`_b2_PRSdp_c__D0_REG" bitWidth="8"  desc="Current polynomial value" />   
+          <register name="POLYNOMIAL_1" address="`$INSTANCE_NAME`_b1_PRSdp_b__D0_REG" bitWidth="8"  desc="Current polynomial value" />   
+          <register name="POLYNOMIAL_0" address="`$INSTANCE_NAME`_b0_PRSdp_a__D0_REG" bitWidth="8"  desc="Current polynomial value" />   
+          <register name="COPY_4" address="`$INSTANCE_NAME`_b2_PRSdp_c__F1_REG" bitWidth="8"  desc="Copy seed value" />    
+          <register name="COPY_3" address="`$INSTANCE_NAME`_b1_PRSdp_b__F1_REG" bitWidth="8"  desc="Copy seed value" />    
+          <register name="COPY_2" address="`$INSTANCE_NAME`_b2_PRSdp_c__F0_REG" bitWidth="8"  desc="Copy seed value" />     
+          <register name="COPY_1" address="`$INSTANCE_NAME`_b1_PRSdp_b__F0_REG" bitWidth="8"  desc="Copy seed value" />   
+          <register name="COPY_0" address="`$INSTANCE_NAME`_b0_PRSdp_a__F0_REG" bitWidth="8"  desc="Copy seed value" />    
+          <register name="SEED_4" address="`$INSTANCE_NAME`_b2_PRSdp_c__A1_REG" bitWidth="8"  desc="Current seed value" />  
+          <register name="SEED_3" address="`$INSTANCE_NAME`_b1_PRSdp_b__A1_REG" bitWidth="8"  desc="Current seed value" />  
+          <register name="SEED_2" address="`$INSTANCE_NAME`_b2_PRSdp_c__A0_REG" bitWidth="8"  desc="Current seed value" />  
+          <register name="SEED_1" address="`$INSTANCE_NAME`_b1_PRSdp_b__A0_REG" bitWidth="8"  desc="Current seed value" />   
+          <register name="SEED_0" address="`$INSTANCE_NAME`_b0_PRSdp_a__A0_REG" bitWidth="8"  desc="Current seed value" />   
+      </block>        
+
+      <block name="TDM_48" desc="" visible="((`$Resolution` &gt; 40) &amp;&amp; (`$Resolution` &lt;= 48) &amp;&amp; `$TimeMultiplexing`)">      
+          <register name="POLYNOMIAL_5" address="`$INSTANCE_NAME`_b2_PRSdp_c__D1_REG" bitWidth="8"  desc="Current polynomial value" />   
+          <register name="POLYNOMIAL_4" address="`$INSTANCE_NAME`_b1_PRSdp_b__D1_REG" bitWidth="8"  desc="Current polynomial value" />   
+          <register name="POLYNOMIAL_3" address="`$INSTANCE_NAME`_b0_PRSdp_a__D1_REG" bitWidth="8"  desc="Current polynomial value" />   
+          <register name="POLYNOMIAL_2" address="`$INSTANCE_NAME`_b2_PRSdp_c__D0_REG" bitWidth="8"  desc="Current polynomial value" />   
+          <register name="POLYNOMIAL_1" address="`$INSTANCE_NAME`_b1_PRSdp_b__D0_REG" bitWidth="8"  desc="Current polynomial value" />   
+          <register name="POLYNOMIAL_0" address="`$INSTANCE_NAME`_b0_PRSdp_a__D0_REG" bitWidth="8"  desc="Current polynomial value" />   
+          <register name="COPY_5" address="`$INSTANCE_NAME`_b2_PRSdp_c__F1_REG" bitWidth="8"  desc="Copy seed value" /> 
+          <register name="COPY_4" address="`$INSTANCE_NAME`_b1_PRSdp_b__F1_REG" bitWidth="8"  desc="Copy seed value" />   
+          <register name="COPY_3" address="`$INSTANCE_NAME`_b0_PRSdp_a__F1_REG" bitWidth="8"  desc="Copy seed value" />   
+          <register name="COPY_2" address="`$INSTANCE_NAME`_b2_PRSdp_c__F0_REG" bitWidth="8"  desc="Copy seed value" />   
+          <register name="COPY_1" address="`$INSTANCE_NAME`_b1_PRSdp_b__F0_REG" bitWidth="8"  desc="Copy seed value" />   
+          <register name="COPY_0" address="`$INSTANCE_NAME`_b0_PRSdp_a__F0_REG" bitWidth="8"  desc="Copy seed value" />   
+          <register name="SEED_5" address="`$INSTANCE_NAME`_b2_PRSdp_c__A1_REG" bitWidth="8"  desc="Current seed value" />   
+          <register name="SEED_4" address="`$INSTANCE_NAME`_b1_PRSdp_b__A1_REG" bitWidth="8"  desc="Current seed value" />   
+          <register name="SEED_3" address="`$INSTANCE_NAME`_b0_PRSdp_a__A1_REG" bitWidth="8"  desc="Current seed value" />   
+          <register name="SEED_2" address="`$INSTANCE_NAME`_b2_PRSdp_c__A0_REG" bitWidth="8"  desc="Current seed value" />   
+          <register name="SEED_1" address="`$INSTANCE_NAME`_b1_PRSdp_b__A0_REG" bitWidth="8"  desc="Current seed value" />   
+          <register name="SEED_0" address="`$INSTANCE_NAME`_b0_PRSdp_a__A0_REG" bitWidth="8"  desc="Current seed value" />   
+      </block>        
+      
+      <block name="TDM_56" desc="" visible="((`$Resolution` &gt; 48) &amp;&amp; (`$Resolution` &lt;= 56) &amp;&amp; `$TimeMultiplexing`)">      
+         <register name="POLYNOMIAL_6" address="`$INSTANCE_NAME`_b3_PRSdp_d__D1_REG" bitWidth="8"  desc="Current polynomial value" />   
+         <register name="POLYNOMIAL_5" address="`$INSTANCE_NAME`_b2_PRSdp_c__D1_REG" bitWidth="8"  desc="Current polynomial value" />   
+         <register name="POLYNOMIAL_4" address="`$INSTANCE_NAME`_b1_PRSdp_b__D1_REG" bitWidth="8"  desc="Current polynomial value" />   
+         <register name="POLYNOMIAL_3" address="`$INSTANCE_NAME`_b3_PRSdp_d__D0_REG" bitWidth="8"  desc="Current polynomial value" />   
+         <register name="POLYNOMIAL_2" address="`$INSTANCE_NAME`_b2_PRSdp_c__D0_REG" bitWidth="8"  desc="Current polynomial value" />   
+         <register name="POLYNOMIAL_1" address="`$INSTANCE_NAME`_b1_PRSdp_b__D0_REG" bitWidth="8"  desc="Current polynomial value" />   
+         <register name="POLYNOMIAL_0" address="`$INSTANCE_NAME`_b0_PRSdp_a__D0_REG" bitWidth="8"  desc="Current polynomial value" />   
+         <register name="COPY_6" address="`$INSTANCE_NAME`_b3_PRSdp_d__F1_REG" bitWidth="8"  desc="Copy seed value" />   
+         <register name="COPY_5" address="`$INSTANCE_NAME`_b2_PRSdp_c__F1_REG" bitWidth="8"  desc="Copy seed value" />   
+         <register name="COPY_4" address="`$INSTANCE_NAME`_b1_PRSdp_b__F1_REG" bitWidth="8"  desc="Copy seed value" />   
+         <register name="COPY_3" address="`$INSTANCE_NAME`_b3_PRSdp_d__F0_REG" bitWidth="8"  desc="Copy seedvalue" />   
+         <register name="COPY_2" address="`$INSTANCE_NAME`_b2_PRSdp_c__F0_REG" bitWidth="8"  desc="Copy seed value" />   
+         <register name="COPY_1" address="`$INSTANCE_NAME`_b1_PRSdp_b__F0_REG" bitWidth="8"  desc="Copy seed value" />   
+         <register name="COPY_0" address="`$INSTANCE_NAME`_b0_PRSdp_a__F0_REG" bitWidth="8"  desc="Copy seed value" />   
+         <register name="SEED_6" address="`$INSTANCE_NAME`_b3_PRSdp_d__A1_REG" bitWidth="8"  desc="Current seed value" />   
+         <register name="SEED_5" address="`$INSTANCE_NAME`_b2_PRSdp_c__A1_REG" bitWidth="8"  desc="Current seed value" />   
+         <register name="SEED_4" address="`$INSTANCE_NAME`_b1_PRSdp_b__A1_REG" bitWidth="8"  desc="Current seed value" />   
+         <register name="SEED_3" address="`$INSTANCE_NAME`_b3_PRSdp_d__A0_REG" bitWidth="8"  desc="Current seed value" />   
+         <register name="SEED_2" address="`$INSTANCE_NAME`_b2_PRSdp_c__A0_REG" bitWidth="8"  desc="Current seed value" />   
+         <register name="SEED_1" address="`$INSTANCE_NAME`_b1_PRSdp_b__A0_REG" bitWidth="8"  desc="Current seed value" />   
+         <register name="SEED_0" address="`$INSTANCE_NAME`_b0_PRSdp_a__A0_REG" bitWidth="8"  desc="Current seed value" />   
+      </block>        
+
+      <block name="TDM_64" desc="" visible="((`$Resolution` &gt; 56) &amp;&amp; (`$Resolution` &lt;= 64) &amp;&amp; `$TimeMultiplexing`)">      
+         <register name="POLYNOMIAL_7" address="`$INSTANCE_NAME`_b3_PRSdp_d__D1_REG" bitWidth="8"  desc="Current polynomial value" />   
+         <register name="POLYNOMIAL_6" address="`$INSTANCE_NAME`_b2_PRSdp_c__D1_REG" bitWidth="8"  desc="Current polynomial value" />   
+         <register name="POLYNOMIAL_5" address="`$INSTANCE_NAME`_b1_PRSdp_b__D1_REG" bitWidth="8"  desc="Current polynomial value" />   
+         <register name="POLYNOMIAL_4" address="`$INSTANCE_NAME`_b0_PRSdp_a__D1_REG" bitWidth="8"  desc="Current polynomial value" />   
+         <register name="POLYNOMIAL_3" address="`$INSTANCE_NAME`_b3_PRSdp_d__D0_REG" bitWidth="8"  desc="Current polynomial value" />   
+         <register name="POLYNOMIAL_2" address="`$INSTANCE_NAME`_b2_PRSdp_c__D0_REG" bitWidth="8"  desc="Current polynomial value" />   
+         <register name="POLYNOMIAL_1" address="`$INSTANCE_NAME`_b1_PRSdp_b__D0_REG" bitWidth="8"  desc="Current polynomial value" />   
+         <register name="POLYNOMIAL_0" address="`$INSTANCE_NAME`_b0_PRSdp_a__D0_REG" bitWidth="8"  desc="Current polynomial value" />   
+         <register name="COPY_7" address="`$INSTANCE_NAME`_b3_PRSdp_d__F1_REG" bitWidth="8"  desc="Current polynomial value" />   
+         <register name="COPY_6" address="`$INSTANCE_NAME`_b2_PRSdp_c__F1_REG" bitWidth="8"  desc="Current polynomial value" />   
+         <register name="COPY_5" address="`$INSTANCE_NAME`_b1_PRSdp_b__F1_REG" bitWidth="8"  desc="Current polynomial value" />   
+         <register name="COPY_4" address="`$INSTANCE_NAME`_b0_PRSdp_a__F1_REG" bitWidth="8"  desc="Current polynomial value" />   
+         <register name="COPY_3" address="`$INSTANCE_NAME`_b3_PRSdp_d__F0_REG" bitWidth="8"  desc="Current polynomial value" />   
+         <register name="COPY_2" address="`$INSTANCE_NAME`_b2_PRSdp_c__F0_REG" bitWidth="8"  desc="Current polynomial value" />   
+         <register name="COPY_1" address="`$INSTANCE_NAME`_b1_PRSdp_b__F0_REG" bitWidth="8"  desc="Current polynomial value" />   
+         <register name="COPY_0" address="`$INSTANCE_NAME`_b0_PRSdp_a__F0_REG" bitWidth="8"  desc="Current polynomial value" />   
+         <register name="SEED_7" address="`$INSTANCE_NAME`_b3_PRSdp_d__A1_REG" bitWidth="8"  desc="Current seed value" />   
+         <register name="SEED_6" address="`$INSTANCE_NAME`_b2_PRSdp_c__A1_REG" bitWidth="8"  desc="Current seed value" />   
+         <register name="SEED_5" address="`$INSTANCE_NAME`_b1_PRSdp_b__A1_REG" bitWidth="8"  desc="Current seed value" />   
+         <register name="SEED_4" address="`$INSTANCE_NAME`_b0_PRSdp_a__A1_REG" bitWidth="8"  desc="Current seed value" />   
+         <register name="SEED_3" address="`$INSTANCE_NAME`_b3_PRSdp_d__A0_REG" bitWidth="8"  desc="Current seed value" />   
+         <register name="SEED_2" address="`$INSTANCE_NAME`_b2_PRSdp_c__A0_REG" bitWidth="8"  desc="Current seed value" />   
+         <register name="SEED_1" address="`$INSTANCE_NAME`_b1_PRSdp_b__A0_REG" bitWidth="8"  desc="Current seed value" />   
+         <register name="SEED_0" address="`$INSTANCE_NAME`_b0_PRSdp_a__A0_REG" bitWidth="8"  desc="Current seed value" />   
+      </block>        
+  </block>
+</deviceData>

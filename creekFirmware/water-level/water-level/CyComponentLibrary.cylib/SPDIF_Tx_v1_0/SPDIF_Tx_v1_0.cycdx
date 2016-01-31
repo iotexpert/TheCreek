@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="us-ascii"?>
+
+<deviceData version="1"
+  xmlns="http://cypress.com/xsd/cydevicedata"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://cypress.com/xsd/cydevicedata cydevicedata.xsd">
+
+  <block name="`$INSTANCE_NAME`" desc="" visible="true">   
+  
+      <register name="STATUS_REG"
+        address="`$INSTANCE_NAME`_bSPDIF_Tx_StatusReg__STATUS_REG"
+        bitWidth="8" desc="">
+        <field name="INT" from="7" to="7" access="R" desc="Interrupt bit">
+        </field>
+        <field name="CST_F1" from="5" to="5" access="R" desc="Channel Status FIFO 1 state">
+        <value name="FULL" value="0" desc="" />
+        <value name="NOT_FULL" value="1" desc="" />
+        </field>
+        <field name="CST_F0" from="4" to="4" access="R" desc="Channel Status FIFO 0 state">
+        <value name="FULL" value="0" desc="" />
+        <value name="NOT_FULL" value="1" desc="" />
+        </field>
+        <field name="CST_ERR" from="3" to="3" access="R" desc="Channel Status FIFOs underflow">
+        <value name="NO_UNDERFLOW" value="0" desc="" />
+        <value name="UNDERFLOW" value="1" desc="" />
+        </field>
+        <field name="TX_F1" from="2" to="2" access="R" desc="Audio FIFO 1 state">
+        <value name="FULL" value="0" desc="" />
+        <value name="NOT_FULL" value="1" desc="" />
+        </field>
+        <field name="TX_F0" from="1" to="1" access="R" desc="Audio FIFO 0 state">
+        <value name="FULL" value="0" desc="" />
+        <value name="NOT_FULL" value="1" desc="" />
+        </field>
+        <field name="TX_ERR" from="0" to="0" access="R" desc="Audio FIFOs Underflow">
+        <value name="NO_UNDERFLOW" value="0" desc="" />
+        <value name="UNDERFLOW" value="1" desc="" />
+        </field>
+      </register>
+      
+      <register name="CONTROL_REG"
+        address="`$INSTANCE_NAME`_bSPDIF_Tx_`$CtlModeReplacementString`_ControlReg__CONTROL_REG"
+        bitWidth="8" desc="">
+        <field name="ENBL" from="1" to="1" access="RW" desc="Starts the generation of the S/PDIF output, but the audio data is set to all 0’s">
+        <value name="ENABLED" value="1" desc="" />
+        <value name="DISABLED" value="0" desc="" />
+        </field>
+        <field name="TX_ENBL" from="0" to="0" access="RW" desc="Enables the audio data output in the S/PDIF bit stream">
+        <value name="ENABLED" value="1" desc="" />
+        <value name="DISABLED" value="0" desc="" />
+        </field>
+      </register>   
+      
+    </block>
+     
+</deviceData>

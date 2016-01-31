@@ -1,0 +1,418 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CustFunctError" xml:space="preserve">
+    <value>The parameter '{0}' passed to the function '{1}' contains the following error: '{2}'.</value>
+  </data>
+  <data name="Err_CannotEnableIBufAndAnalogHiZ" xml:space="preserve">
+    <value>Pin {0}: Cannot enable the input buffer with a drive mode of Analog High-Z.</value>
+  </data>
+  <data name="Err_CannotUseAnalogAndSIO" xml:space="preserve">
+    <value>Pin {0}: SIO features have been used by this pin therefore analog cannot be used. (SIO features include: HotSwap set to true, ThresholdLevels set to anything but LVTTL or CMOS, OutputDriveLevel set to Vref, and/or DriveCurrents set to a 25mA sink)</value>
+  </data>
+  <data name="Err_CannotUseLVTTLAndSIO" xml:space="preserve">
+    <value>Pin {0}: SIO features have been used by this pin therefore LVTTL cannot be used for its threshold level. (SIO features include: HotSwap set to true, ThresholdLevels set to anything but LVTTL or CMOS, OutputDriveLevel set to Vref, and/or DriveCurrents set to a 25mA sink)</value>
+  </data>
+  <data name="Err_TooManySingleSIOInARow" xml:space="preserve">
+    <value>Cannot be contiguous and have more than 2 single SIO pins in a row. Making them contiguous means they will have to share an SIO pair on the device. Either group the single SIO pins or change the LayoutMode to remove the contiguous restriction.</value>
+  </data>
+  <data name="Err_TooManySingleSIONextToSIOPair" xml:space="preserve">
+    <value>This configuration will not be placeable. Cannot have two single SIO pins next to an SIO pair if the component is set to be contiguous. Either remove the contiguous constraint or group the single SIO pins.</value>
+  </data>
+  <data name="ParamCntErr_CalculateSIOGroupCount" xml:space="preserve">
+    <value>Incorrect number of arguments to call function '{0}' (two arguments are expected: `=CalculateSIOGroupCount($sio_info, $width)`).</value>
+  </data>
+  <data name="ParamCntErr_CreateCSVFromBitVector" xml:space="preserve">
+    <value>Incorrect number of arguments to call function '{0}' (expected `=CreateCSVFromBitVector(bitVectorParamName, bitVectorString, $NumPins)`).</value>
+  </data>
+  <data name="ParamCntErr_CreateCSVFromInputOnlyBitVector" xml:space="preserve">
+    <value>Incorrect number of arguments to call function '{0}' (expected `=CreateCSVFromInputOnlyBitVector(bitVectorParamName, bitVectorString, $PinTypes, $NumPins)`).</value>
+  </data>
+  <data name="ParamCntErr_CreateCSVFromOutputOnlyBitVector" xml:space="preserve">
+    <value>Incorrect number of arguments to call function '{0}' (expected `=CreateCSVFromOutputOnlyBitVector(bitVectorParamName, bitVectorString, $PinTypes, $NumPins)`).</value>
+  </data>
+  <data name="ParamCntErr_CreateDriveModesCSV" xml:space="preserve">
+    <value>Incorrect number of arguments to call function '{0}' (expected `=CreateDriveModesCSV($DriveModes, $PinTypes, $NumPins)`).</value>
+  </data>
+  <data name="ParamCntErr_CreateHysteresisCSV" xml:space="preserve">
+    <value>Incorrect number of arguments to call function '{0}'(four arguments are expected: `=CreateHysteresisCSV($ThresholdLevels, $sio_info, $PinTypes, $NumPins)`).</value>
+  </data>
+  <data name="ParamCntErr_CreateInitialDriveStatesCSV" xml:space="preserve">
+    <value>Incorrect number of arguments to call function '{0}' (expected `=CreateInitialDriveStatesCSV($InitialDriveStates, $DriveModes, $PinTypes, $NumPins)`).</value>
+  </data>
+  <data name="ParamCntErr_CreateInputBufferBitVector" xml:space="preserve">
+    <value>Incorrect number of arguments to call function '{0}' (three arguments are expected: `=CreateInputBufferBitVector($ThresholdLevels, $sio_info, $PinTypes, $NumPins)`).</value>
+  </data>
+  <data name="ParamCntErr_CreateInputBufferesEnabledCSV" xml:space="preserve">
+    <value>Incorrect number of arguments to call function '{0}' (expected `=CreateInputBufferesEnabledCSV($InputBuffersEnabled, $PinTypes, $NumPins)`).</value>
+  </data>
+  <data name="ParamCntErr_CreateIOVoltagesCSV" xml:space="preserve">
+    <value>Incorrect number of arguments to call function '{0}' (expected `=CreateIOVoltagesCSV($IOVoltages, $NumPins)`).</value>
+  </data>
+  <data name="ParamCntErr_CreateOutputBufferBitVector" xml:space="preserve">
+    <value>Incorrect number of arguments to call function '{0}' (four arguments are expected: `=CreateOutputBufferBitVector($OutputDriveLevels, $sio_info, $PinTypes, $width)`).</value>
+  </data>
+  <data name="ParamCntErr_CreatePinAliasesCSV" xml:space="preserve">
+    <value>Incorrect number of arguments to call function '{0}' (expected `=CreatePinAliasesCSV($PinAliases, $NumPins)`).</value>
+  </data>
+  <data name="ParamCntErr_CreatePinModeString" xml:space="preserve">
+    <value>Incorrect number of arguments to call function '{0}' (two arguments is expected: `=CreatePinModeString($PinTypes, $NumPins)`).</value>
+  </data>
+  <data name="ParamCntErr_CreateSIOInfoCVS" xml:space="preserve">
+    <value>Incorrect number of arguments to call function '{0}' (seven arguments are expected: `=CreateSIOInfoCSV($SIOGroups, $HotSwaps, $ThresholdLevels, $OutputDriveLevels, $DriveCurrents, $PinTypes, $width)`).</value>
+  </data>
+  <data name="ParamCntErr_CreateSIORefSelCSV" xml:space="preserve">
+    <value>Incorrect number of arguments to call function '{0}' (five arguments are expected: `=CreateSIORefSelBitVector($OutputDriveLevels, $ThresholdLevels, $sio_info, $PinTypes, $width)`).</value>
+  </data>
+  <data name="ParamCntErr_CreateSIOVTripBitVector" xml:space="preserve">
+    <value>Incorrect number of arguments to call function '{0}' (four arguments are expected: `=CreateSIOVTripBitVector($ThresholdLevels, $sio_info, $PinTypes, $width)`).</value>
+  </data>
+  <data name="ParamCntErr_CreateVTripCSV" xml:space="preserve">
+    <value>Incorrect number of arguments to call function '{0}' (three arguments are expected: `=CreateVTripCSV($ThresholdLevels, $PinTypes, $width)`).</value>
+  </data>
+  <data name="ParamCntErr_IsHomogeneous" xml:space="preserve">
+    <value>Incorrect number of arguments to call function '{0}' (five arguments are expected: `=IsHomogeneous($PinTypes, $sio_info, $sio_refsel, $NumPins, $sio_group_cnt)`).</value>
+  </data>
+  <data name="ParamCntErr_UsesInterrupts" xml:space="preserve">
+    <value>Incorrect number of arguments to call function '{0}' (three arguments are expected: `=UsesInterrupts($InterruptModes, $PinTypes, $NumPins)`).</value>
+  </data>
+  <data name="TermNotFound" xml:space="preserve">
+    <value>Associated terminal not found.</value>
+  </data>
+  <data name="UnhandledLayoutMode" xml:space="preserve">
+    <value>Unhandled layout mode '{0}'.</value>
+  </data>
+  <data name="UnhandledOutputDriveLevel" xml:space="preserve">
+    <value>Unhandled output drive level type '{0}'.</value>
+  </data>
+  <data name="UnhandledPinType" xml:space="preserve">
+    <value>Unhandled pin type '{0}'</value>
+  </data>
+  <data name="UnhandledSIOGroup" xml:space="preserve">
+    <value>Unhandled SIO group value '{0}'.</value>
+  </data>
+  <data name="UnhandledSIOInfo" xml:space="preserve">
+    <value>Unhandled sio info '{0}'</value>
+  </data>
+  <data name="UnhandledSIORefSel" xml:space="preserve">
+    <value>Unhandled sio ref sel value '{0}'</value>
+  </data>
+  <data name="UnhandledThreshold" xml:space="preserve">
+    <value>Unhandled threshold level '{0}'.</value>
+  </data>
+  <data name="UnknownParam" xml:space="preserve">
+    <value>Unknown parameter '{0}'</value>
+  </data>
+  <data name="UnknownTerm" xml:space="preserve">
+    <value>Unknown terminal name '{0}'.</value>
+  </data>
+  <data name="Err_AliasRepeated" xml:space="preserve">
+    <value>Alias names cannot be repeated. '{0}' has been used {1} times.</value>
+  </data>
+  <data name="Err_BitVectorValueIncorrectLength" xml:space="preserve">
+    <value>Pin {0}: Invalid number of characters entered; all entries must contain {1} characters. '{2}' is {3} characters long.</value>
+  </data>
+  <data name="Err_BitVectorValueInvalidOption" xml:space="preserve">
+    <value>Pin {0}: '{1}' is not a valid option.</value>
+  </data>
+  <data name="Err_BitVectorValueOnlyOnesAndZeros" xml:space="preserve">
+    <value>Pin {0}: Invalid character found. Valid values must only contain 0's and 1's. '{1}' is not a valid character.</value>
+  </data>
+  <data name="Err_InvalidIOVoltagePercision" xml:space="preserve">
+    <value>Pin {0}: '{1}' contains more precision than is supported. Only one decimal place of precision is supported.</value>
+  </data>
+  <data name="Err_InvalidNumFormat" xml:space="preserve">
+    <value>Pin {0}: '{1}' is not in a valid number format.</value>
+  </data>
+  <data name="Err_NotInIOVoltageRange" xml:space="preserve">
+    <value>Pin {0}: '{1}' is not between the legal range of 1.7 volts to 5.5 volts.</value>
+  </data>
+  <data name="Err_NotValidCIdentifier" xml:space="preserve">
+    <value>Pin {0}: '{1}' is not a valid alias. An alias must be a valid C/C++ identifier name. {2}</value>
+  </data>
+  <data name="UnhandledBitVectorParamType" xml:space="preserve">
+    <value>Unhandled bit vector param type '{0}'.</value>
+  </data>
+  <data name="UnhandledDriveMode" xml:space="preserve">
+    <value>Unhandled drive mode '{0}'.</value>
+  </data>
+  <data name="UnhandledInputOnlyBitVectorParamType" xml:space="preserve">
+    <value>Unhandled input only bit vector param type '{0}'.</value>
+  </data>
+  <data name="UnhandledOutputBitVectorParamType" xml:space="preserve">
+    <value>Unhandled output only bit vector param type '{0}'.</value>
+  </data>
+  <data name="UnhandledParamName" xml:space="preserve">
+    <value>Unhandled param name '{0}'.</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="PinImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\pin_image.PNG;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SIOPinImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\sio_image.PNG;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AllPins" xml:space="preserve">
+    <value>[All Pins]</value>
+  </data>
+  <data name="SIOPair" xml:space="preserve">
+    <value>SIO Pair</value>
+  </data>
+  <data name="DeleteImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\delete.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MoveDownImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\movedown.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MoveUpImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\moveup.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Indeterminate" xml:space="preserve">
+    <value>&lt;Indeterminate&gt;</value>
+  </data>
+  <data name="PairSIOsImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\pair_sio.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PinAliasImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\port_alias.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UnpairSIOsImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\unpair_sio.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ErrorImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\small_circle_exclaim.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="HiImpedanceAnalogEMF" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\hi_analog.emf;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="HiImpedanceDigitalEMF" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\hi_digital.emf;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="OpenDrainDrivesHighEMF" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\od_drive_high.emf;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="OpenDrainDrivesLowEMF" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\od_drive_low.emf;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ResPullDownEMF" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\res_pull_down.emf;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ResPullUpDownEMF" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\res_pull_up_down.emf;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ResPullUpEMF" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\res_pull_up.emf;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="StrongDriveEMF" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\strong_drive.emf;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="DefaultDriveModesEMF" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\conv_types.emf;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="AnalogEMF" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\analog.emf;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="BidirEMF" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\bidir.emf;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="DigInAnalogEMF" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\dig_in_analog.emf;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="DigInEMF" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\dig_in.emf;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="DigInNCAnalogEMF" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\dig_in_nc_analog.emf;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="DigInNCEMF" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\dig_in_nc.emf;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="DigOutEMF" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\dig_out.emf;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="DigOutNCEMF" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\dig_out_nc.emf;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="DigOutNCOEEMF" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\dig_out_nc_oe.emf;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="DigOutOEEMF" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\dig_out_oe.emf;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Err_CannotBeContiguousAndAnalog" xml:space="preserve">
+    <value>Pin {0}: The component cannot use analog if it is set to be Contiguous (and the number of pins is greater than one), either remove the use of analog from the 'Pins/Type' tab or remove the Contiguous restriction on the 'Mapping' tab.</value>
+  </data>
+  <data name="Err_SIOPairInputsDontMatch" xml:space="preserve">
+    <value>Pin {0}: When SIO's are paired their Input Thresholds must match.</value>
+  </data>
+  <data name="Err_SIOPairOutputsDontMatch" xml:space="preserve">
+    <value>Pin {0}: When SIO's are paired their Output Drive Levels must match.</value>
+  </data>
+  <data name="ParamCntErr_IsHomogeneous_v2" xml:space="preserve">
+    <value>Incorrect number of arguments to call function '{0}' (seven arguments are expected: `=IsHomogeneous($PinTypes, $sio_info, $sio_refsel, $DisplayOutputHWConnections, $DisplayInputHWConnections, $NumPins, $sio_group_cnt)`).</value>
+  </data>
+  <data name="ParamCntErr_CreateOutputConnVisibleBitVector" xml:space="preserve">
+    <value>Incorrect number of arguments to call function '{0}' (three arguments are expected: `=CreateOutputConnVisibleBitVector($PinTypes, $DisplayOutputHWConnections, $NumPins)`).</value>
+  </data>
+  <data name="UnhandledDisplayHWConnection" xml:space="preserve">
+    <value>Unhandled display HW connection value '{0}'.</value>
+  </data>
+  <data name="UnhandledSlewRate" xml:space="preserve">
+    <value>Unhandled slew rate '{0}'</value>
+  </data>
+  <data name="Err_M0S8_Invalid_POR" xml:space="preserve">
+    <value>The selected Power-On-Reset is not compatible with the selected device. </value>
+  </data>
+  <data name="Err_Gen4_Analog" xml:space="preserve">
+    <value>Pin '{0}' is selected to be analog. The selected device does not support analog pins</value>
+  </data>
+  <data name="Err_M0S8_InputBufferDisabled" xml:space="preserve">
+    <value>Input buffer selected as disabled on pin '{0}'. Input buffer is automatically enabled.</value>
+  </data>
+  <data name="Err_M0S8_SlewRateContiguousMismatch" xml:space="preserve">
+    <value>The Slew Rates of all pins must match if the component is set as Contiguous.</value>
+  </data>
+  <data name="Err_ThresholdContiguousMismatch" xml:space="preserve">
+    <value>The Input Thresholds are not compatible if the component is set as Contiguous.</value>
+  </data>
+  <data name="UnhandledInputThreshold" xml:space="preserve">
+    <value>Unhandled input threshold '{0}'</value>
+  </data>
+  <data name="Err_P35_ResistivePullAndVrefOut" xml:space="preserve">
+    <value>The selected device does not support output drive level of Vref if drive mode is set to Resistive Pull Up/Down.</value>
+  </data>
+  <data name="Ann1DownLeftEMF" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\ann_1_down_left.emf;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Ann1DownRightEMF" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\ann_1_down_right.emf;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Ann2DownLeftEMF" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\ann_2_down_left.emf;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="AnnLeftEMF" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\ann_left.emf;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="AnnRightEMF" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\ann_right.emf;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ParamCntErr_CreateOutputEnableConnVisibleBitVector" xml:space="preserve">
+    <value>Incorrect number of arguments to call function '{0}' (two arguments are expected: `=CreateOutputEnableConnVisibleBitVector($PinTypes, $NumPins)`).</value>
+  </data>
+</root>

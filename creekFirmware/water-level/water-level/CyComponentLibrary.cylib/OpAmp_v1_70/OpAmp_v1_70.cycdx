@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="us-ascii"?>
+
+<deviceData version="1"
+  xmlns="http://cypress.com/xsd/cydevicedata"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://cypress.com/xsd/cydevicedata cydevicedata.xsd">
+<block name="`$INSTANCE_NAME`" desc="" visible="true">
+  <block name="`$INSTANCE_NAME`" desc="" visible="true"> 
+        <register name="OPAMP__CR"
+        address="`$INSTANCE_NAME`_ABuf__CR" bitWidth="8" desc="OPAMP_CR">
+        </register>
+        <register name="OPAMP__MX"
+        address="`$INSTANCE_NAME`_ABuf__MX" bitWidth="8" desc="OPAMP_MX">
+        </register>
+        <register name="OPAMP__SW"
+        address="`$INSTANCE_NAME`_ABuf__SW" bitWidth="8" desc="OPAMP_SW">
+        </register>
+        <register name="PM_ACT_CFG4"
+        address="`$INSTANCE_NAME`_ABuf__PM_ACT_CFG" bitWidth="8" desc="PM_ACT_CFG4">
+        </register>
+        <register name="PM_STBY_CFG4"
+        address="`$INSTANCE_NAME`_ABuf__PM_STBY_CFG" bitWidth="8" desc="PM_STBY_CFG4">
+        </register>
+        <register name="OPAMP__TR0"
+        address="`$INSTANCE_NAME`_ABuf__TR0" bitWidth="8" desc="OPAMP__TR0">
+        </register>
+        <register name="OPAMP__TR1"
+        address="`$INSTANCE_NAME`_ABuf__TR1" bitWidth="8" desc="OPAMP__TR1">
+        </register>
+    </block>
+  </block>
+</deviceData>

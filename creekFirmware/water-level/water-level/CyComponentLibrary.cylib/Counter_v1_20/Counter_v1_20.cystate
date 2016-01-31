@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ComponentStateRules Version="1">
+    <Rule>
+        <Pattern>
+            <Architecture>PSoC3</Architecture>
+            <Family>*</Family>
+            <Revision>*</Revision>
+            <Device>*</Device>
+        </Pattern>
+        <State>Prototype</State>
+        <Severity>Warning</Severity>
+        <Message>The Counter component (`$INSTANCE_NAME`) fails silently when implemented as a fixed function on PSoC 3 silicon. Please use a UDB implementation or update the component to v1.50 or higher.</Message>
+    </Rule>
+    <Rule>
+        <Pattern>
+            <Architecture>PSoC5</Architecture>
+            <ArchMember>PSoC5A</ArchMember>
+        </Pattern>
+        <State>Prototype</State>
+        <Severity>Note</Severity>
+        <Message />
+    </Rule>
+    <Rule>
+        <Pattern>
+            <Architecture>PSoC5</Architecture>
+            <ArchMember>PSoC5LP</ArchMember>
+        </Pattern>
+        <State>Obsolete</State>
+        <Severity>Error</Severity>
+        <Message />
+    </Rule>
+</ComponentStateRules>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="us-ascii"?>
+
+<deviceData version="1"
+  xmlns="http://cypress.com/xsd/cydevicedata"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://cypress.com/xsd/cydevicedata cydevicedata.xsd">
+
+  <block name="`$INSTANCE_NAME`" desc="SAR ADC" visible="true">
+
+   <register name="ADC_SAR_WRK0_REG"
+		    address="`$INSTANCE_NAME`_ADC_SAR__WRK0" bitWidth="8" desc="SAR working register 0">
+		    </register>
+   <register name="ADC_SAR_WRK1_REG"
+		    address="`$INSTANCE_NAME`_ADC_SAR__WRK1" bitWidth="8" desc="SAR working register 1">
+		    </register>
+
+    
+  </block>
+</deviceData>

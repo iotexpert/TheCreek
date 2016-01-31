@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="us-ascii"?>
+
+<deviceData version="1"
+  xmlns="http://cypress.com/xsd/cydevicedata"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://cypress.com/xsd/cydevicedata cydevicedata.xsd">
+
+    <block name="`$INSTANCE_NAME`" desc="" visible="true">
+        <block name="`$INSTANCE_NAME`" desc="" visible="`$PSOC5A`">
+
+            <register name="BOOST_SR" address="CYREG_BOOST_SR" bitWidth="8" desc="Boost Status Register">
+                <field name="UV" from="0" to="0" access="RW" 
+                    desc="Output is above undervoltage limit when 1, below limit when 0">
+                    <value name="Output is below undervoltage" value="0" desc="Output is below undervoltage limit" />
+                    <value name="Output is above undervoltage" value="1" desc="Output is above undervoltage limit" />
+                </field>
+                <field name="VLO" from="1" to="1" access="RW" 
+                    desc="Output is above vlow limit when 1, below limit when 0">
+                    <value name="Output is below vlow" value="0" desc="Output is below vlow limit" />
+                    <value name="Output is above vlow" value="1" desc="Output is above vlow limit" />
+                </field>
+                <field name="VNOM" from="2" to="2" access="RW" 
+                    desc="Output is above nominal when 1, below nominal when 0">
+                    <value name="Output is below nominal" value="0" desc="Output is below nominal" />
+                    <value name="Output is above nominal" value="1" desc="Output is above nominal" />
+                </field>
+                <field name="VHI" from="3" to="3" access="RW" 
+                    desc="Output is above vhigh limit when 1, below limit when 0">
+                    <value name="Output is below vhigh" value="0" desc="Output is below vhigh limit" />
+                    <value name="Output is above vhigh" value="1" desc="Output is above vhigh limit" />
+                </field>
+                <field name="OV" from="4" to="4" access="RW" 
+                    desc="Output above overvoltage limit when 1, below limit when 0">
+                    <value name="Output is below overvoltage" value="0" desc="Output is below overvoltage limit" />
+                    <value name="Output is above overvoltage" value="1" desc="Output is above overvoltage limit" />
+                </field>
+                <field name="NOBAT" from="5" to="5" access="RW" 
+                    desc="When set, battery input is grounded (no battery present)">
+                    <value name="Battery input is not grounded" value="0" desc="Battery input is not grounded" />
+                    <value name="Battery input is grounded" value="1" 
+                        desc="Battery input is grounded (no battery present)" />
+                </field>
+                <field name="START" from="6" to="6" access="RW" desc="When set, converter is in startup mode">
+                    <value name="Converter is not in startup mode" value="0" desc="Converter is not in startup mode" />
+                    <value name="Converter is in startup mode" value="1" desc="Converter is in startup mode" />
+                </field>
+                <field name="READY" from="7" to="7" access="RW" 
+                    desc="When set, internal circuits have been initialized">
+                    <value name="Internal circuits not initialized" value="0"
+                        desc="Internal circuits have not been initialized" />
+                    <value name="Internal circuits initialized" value="1"
+                        desc="Internal circuits have been initialized" />
+                </field>
+            </register>    
+            
+            <register name="BOOST_CR0" address="CYREG_BOOST_CR0" bitWidth="8" desc="Boost Control Register 0">
+                <field name="VSEL" from="4" to="0" access="RW" desc="Boost voltage selection">
+                    <value name="VSEL_OFF" value="00000" desc="Off (0V)" />
+                    <value name="VSEL_1P80V" value="00011" desc="1.80V (Default when {Vint1,Vint0} == 2'b01)" />
+                    <value name="VSEL_1P90V" value="00100" desc="1.90V" />
+                    <value name="VSEL_2P00V" value="00101" desc="2.00V" />
+                    <value name="VSEL_2P10V" value="00110" desc="2.10V" />
+                    <value name="VSEL_2P20V" value="00111" desc="2.20V" />
+                    <value name="VSEL_2P30V" value="01000" desc="2.30V" />
+                    <value name="VSEL_2P40V" value="01001" desc="2.40V" />
+                    <value name="VSEL_2P50V" value="01010" desc="2.50V" />
+                    <value name="VSEL_2P60V" value="01011" desc="2.60V" />
+                    <value name="VSEL_2P70V" value="01100" desc="2.70V (Default when {Vint1,Vint0} == 2'b10)" />
+                    <value name="VSEL_2P80V" value="01101" desc="2.80V" />
+                    <value name="VSEL_2P90V" value="01110" desc="2.90V" />
+                    <value name="VSEL_3P00V" value="01111" desc="3.00V" />
+                    <value name="VSEL_3P10V" value="10000" desc="3.10V" />
+                    <value name="VSEL_3P20V" value="10001" desc="3.20V" />
+                    <value name="VSEL_3P30V" value="10010" desc="3.30V (Default when {Vint1,Vint0} == 2'b11)" />
+                    <value name="VSEL_3P40V" value="10011" desc="3.40V" />
+                    <value name="VSEL_3P50V" value="10100" desc="3.50V" />
+                    <value name="VSEL_3P60V" value="10101" desc="3.60V" />
+                    <value name="VSEL_4P00V" value="10110" desc="4.00V - Schottky diode req'd" />
+                    <value name="VSEL_4P25V" value="10111" desc="4.25V - Schottky diode req'd" />
+                    <value name="VSEL_4P50V" value="11000" desc="4.50V - Schottky diode req'd" />
+                    <value name="VSEL_4P75V" value="11001" desc="4.75V - Schottky diode req'd" />
+                    <value name="VSEL_5P00V" value="11010" desc="5.00V - Schottky diode req'd" />
+                    <value name="VSEL_5P25V" value="11011" desc="5.25V - Schottky diode req'd" />
+                </field>
+                <field name="MODE" from="6" to="5" access="RW" desc="Boost mode select">                    
+                    <value name="MODE_STANDBY" value="1" desc="Standby mode" />
+                    <value name="MODE_ACTIVE" value="11" desc="Active mode" />
+                </field>
+                <field name="THUMP" from="7" to="7" access="RW" desc="Generate a 1us pulse on 0->1 transition">
+                    <value name="Doesn't generate a 1us pulse" value="0" 
+                        desc="Doesn't generate a 1us pulse on 0->1 transition" />
+                    <value name="Generate a 1us pulse" value="1" desc="Generate a 1us pulse on 0->1 transition" />
+                </field>
+            </register>
+            
+            <register name="BOOST_CR1" address="CYREG_BOOST_CR1" bitWidth="8" desc="Boost Control Register 1">
+                <field name="CLK" from="1" to="0" access="RW" desc="Boost clock frequency">                    
+                    <value name="CLK_500KHZ" value="1" desc="0.4 MHz" />
+                    <value name="CLK_EXT" value="11" desc="External" /> 
+                </field>
+                <field name="EXTMODE" from="2" to="2" access="RW" 
+                    desc="When set, enables mode control from xmode[1:0] instead of control register 1">
+                    <value name="Disables mode control from xmode" value="0" 
+                        desc="Disables mode control from xmode[1:0] instead of control register 1" />
+                    <value name="Enables mode control from xmode" value="1" 
+                        desc="Enables mode control from xmode[1:0] instead of control register 1" />           
+                </field>
+                <field name="BOOSTEN" from="3" to="3" access="RW" desc="When set, enables boost operation">
+                    <value name="Disables boost operation" value="0" desc="Disables boost operation" />
+                    <value name="Enables boost operation" value="1" desc="Enables boost operation" />
+                </field>
+                <field name="TST" from="7" to="4" access="RW" 
+                    desc="Test mode for IV char of drive transistors. Setting tst[0] also inhibits 
+                          discontinuous operation">
+                    <value name="TST_OFF" value="0" desc="Test mode off" />
+                    <value name="TST_WE_NMOS" value="100" desc="NMOS on (weak)" />
+                    <value name="TST_ST_NMOS" value="101" desc="NMOS on (strong)" />
+                    <value name="TST_WE_PMOS" value="110" desc="PMOS on (weak)" />
+                    <value name="TST_ST_PMOS" value="111" desc="PMOS on (strong)" />
+                </field>
+            </register>
+            
+            <register name="BOOST_CR2" address="CYREG_BOOST_CR2" bitWidth="8" desc="Boost Control Register 2">
+                <field name="ENATM" from="0" to="0" access="RW" desc="When set, enables automatic standby regulator">
+                    <value name="Disables automatic standby regulator" value="0" 
+                        desc="Disables automatic standby regulator" />
+                    <value name="Enables automatic standby regulator" value="1" 
+                        desc="Enables automatic standby regulator" />
+                </field>
+                <field name="EQOFF" from="1" to="1" access="RW"
+                    desc="When set, disables auto battery connect to output when Vin=Vsel">
+                    <value name="Enables auto battery connect to output when Vin=Vsel" value="0" 
+                        desc="Enables auto battery connect to output when Vin=Vsel" />
+                    <value name="Disables auto battery connect to output when Vin=Vsel" value="1" 
+                        desc="Disables auto battery connect to output when Vin=Vsel" />
+                </field>
+                <field name="LIMOFF" from="2" to="2" access="RW" desc="When set, turns off skip cycle current limiter">
+                    <value name="Turns on skip cycle current limiter" value="0"
+                        desc="Turns on skip cycle current limiter" />
+                    <value name="Turns off skip cycle current limiter" value="1"
+                        desc="Turns off skip cycle current limiter" />
+                </field>
+                <field name="EREFSEL" from="3" to="3" access="RW" desc="When set, selects external reference">
+                    <value name="BOOST_EREFSEL_INTERNAL" value="0" desc="Select internal reference" />
+                    <value name="BOOST_EREFSEL_EXTERNAL" value="1" 
+                        desc="Select external 800mv precision reference (vref_800mv)" />
+                </field>
+                <field name="BUCKING" from="4" to="4" access="RW"
+                    desc="When set, converter is bucking. This is always 0 for boost only converters.">
+                    <value name="Boost only converters" value="0" desc="Boost only converters" />
+                    <value name="Converter is bucking" value="1" desc="Converter is bucking" />
+                </field>
+                <field name="EQUAL" from="5" to="5" access="RW"
+                    desc="When set, converter is bypassed. Vin connected to Vout">
+                    <value name="Converter boosting" value="0"
+                        desc="Converter boosting" />
+                    <value name="Converter is bypassed" value="1" 
+                        desc="Converter is bypassed (Vin=Vsel). Vin connected to Vout" />
+                </field>
+                <field name="BOOSTING" from="6" to="6" access="RW" desc="When set, converter is boosting">
+                    <value name="Converter bypassed" value="0" desc="Converter bypassed" />
+                    <value name="Converter is boosting" value="1"
+                        desc="Converter is boosting" />
+                </field>
+                <field name="DISC" from="7" to="7" access="RW" 
+                    desc="When set, boost converter is operating in discontinuous mode">
+                    <value name="Boost converter isn't operating in discontinuous mode" value="0" 
+                        desc="Boost converter isn't operating in discontinuous mode" />
+                    <value name="Boost converter is operating in discontinuous mode" value="1" 
+                        desc="Boost converter is operating in discontinuous mode" />
+                </field>
+            </register>
+            
+            <register name="BOOST_CR3" address="CYREG_BOOST_CR3" bitWidth="8" desc="Boost Control Register 3">
+                <field name="PWM" from="7" to="0" access="RW"
+                    desc="PWM value should not be written during normal operation">
+                    <value name="pwm[7:0]" value="0"
+                        desc="Boost PWM value (should not be written during normal operation)" />
+                </field>
+            </register>
+            
+        </block>
+          
+        <block name="`$INSTANCE_NAME`" desc="" visible="!`$PSOC5A`">
+            
+            <register name="BOOST_SR" address="CYREG_BOOST_SR" bitWidth="8" desc="Boost Status Register">
+                <field name="UV" from="0" to="0" access="RW" 
+                    desc="Output is above undervoltage limit when 1, below limit when 0">
+                    <value name="Output is below undervoltage" value="0" desc="Output is below undervoltage limit" />
+                    <value name="Output is above undervoltage" value="1" desc="Output is above undervoltage limit" />
+                </field>
+                <field name="VLO" from="1" to="1" access="RW" 
+                    desc="Output is above vlow limit when 1, below limit when 0">
+                    <value name="Output is below vlow" value="0" desc="Output is below vlow limit" />
+                    <value name="Output is above vlow" value="1" desc="Output is above vlow limit" />
+                </field>
+                <field name="VNOM" from="2" to="2" access="RW" 
+                    desc="Output is above nominal when 1, below nominal when 0">
+                    <value name="Output is below nominal" value="0" desc="Output is below nominal" />
+                    <value name="Output is above nominal" value="1" desc="Output is above nominal" />
+                </field>
+                <field name="VHI" from="3" to="3" access="RW" 
+                    desc="Output is above vhigh limit when 1, below limit when 0">
+                    <value name="Output is below vhigh" value="0" desc="Output is below vhigh limit" />
+                    <value name="Output is above vhigh" value="1" desc="Output is above vhigh limit" />
+                </field>
+                <field name="OV" from="4" to="4" access="RW" 
+                    desc="Output above overvoltage limit when 1, below limit when 0">
+                    <value name="Output is below overvoltage" value="0" desc="Output is below overvoltage limit" />
+                    <value name="Output is above overvoltage" value="1" desc="Output is above overvoltage limit" />
+                </field>
+                <field name="NOBAT" from="5" to="5" access="RW" 
+                    desc="When set, battery input is grounded (no battery present)">
+                    <value name="Battery input is not grounded" value="0" desc="Battery input is not grounded" />
+                    <value name="Battery input is grounded" value="1" 
+                        desc="Battery input is grounded (no battery present)" />
+                </field>
+                <field name="START" from="6" to="6" access="RW" desc="When set, converter is in startup mode">
+                    <value name="Converter is not in startup mode" value="0" desc="Converter is not in startup mode" />
+                    <value name="Converter is in startup mode" value="1" desc="Converter is in startup mode" />
+                </field>
+                <field name="READY" from="7" to="7" access="RW" 
+                    desc="When set, internal circuits have been initialized">
+                    <value name="Internal circuits not initialized" value="0"
+                        desc="Internal circuits have not been initialized" />
+                    <value name="Internal circuits initialized" value="1"
+                        desc="Internal circuits have been initialized" />
+                </field>
+            </register>    
+            
+            <register name="BOOST_CR0" address="CYREG_BOOST_CR0" bitWidth="8" desc="Boost Control Register 0">
+                <field name="VSEL" from="4" to="0" access="RW" desc="Boost voltage selection">
+                    <value name="VSEL_OFF" value="00000" desc="Off (0V)" />
+                    <value name="VSEL_1P80V" value="00011" desc="1.80V (Default when {Vint1,Vint0} == 2'b01)" />
+                    <value name="VSEL_1P90V" value="00100" desc="1.90V" />
+                    <value name="VSEL_2P00V" value="00101" desc="2.00V" />
+                    <value name="VSEL_2P10V" value="00110" desc="2.10V" />
+                    <value name="VSEL_2P20V" value="00111" desc="2.20V" />
+                    <value name="VSEL_2P30V" value="01000" desc="2.30V" />
+                    <value name="VSEL_2P40V" value="01001" desc="2.40V" />
+                    <value name="VSEL_2P50V" value="01010" desc="2.50V" />
+                    <value name="VSEL_2P60V" value="01011" desc="2.60V" />
+                    <value name="VSEL_2P70V" value="01100" desc="2.70V (Default when {Vint1,Vint0} == 2'b10)" />
+                    <value name="VSEL_2P80V" value="01101" desc="2.80V" />
+                    <value name="VSEL_2P90V" value="01110" desc="2.90V" />
+                    <value name="VSEL_3P00V" value="01111" desc="3.00V" />
+                    <value name="VSEL_3P10V" value="10000" desc="3.10V" />
+                    <value name="VSEL_3P20V" value="10001" desc="3.20V" />
+                    <value name="VSEL_3P30V" value="10010" desc="3.30V (Default when {Vint1,Vint0} == 2'b11)" />
+                    <value name="VSEL_3P40V" value="10011" desc="3.40V" />
+                    <value name="VSEL_3P50V" value="10100" desc="3.50V" />
+                    <value name="VSEL_3P60V" value="10101" desc="3.60V" />
+                    <value name="VSEL_4P00V" value="10110" desc="4.00V - Schottky diode req'd" />
+                    <value name="VSEL_4P25V" value="10111" desc="4.25V - Schottky diode req'd" />
+                    <value name="VSEL_4P50V" value="11000" desc="4.50V - Schottky diode req'd" />
+                    <value name="VSEL_4P75V" value="11001" desc="4.75V - Schottky diode req'd" />
+                    <value name="VSEL_5P00V" value="11010" desc="5.00V - Schottky diode req'd" />
+                    <value name="VSEL_5P25V" value="11011" desc="5.25V - Schottky diode req'd" />
+                </field>
+                <field name="MODE" from="6" to="5" access="RW" desc="Boost mode select">                    
+                    <value name="MODE_STANDBY" value="1" desc="Standby mode" />
+                    <value name="MODE_ACTIVE" value="11" desc="Active mode" />
+                </field>
+                <field name="THUMP" from="7" to="7" access="RW" desc="Generate a 1us pulse on 0->1 transition">
+                    <value name="Doesn't generate a 1us pulse" value="0" 
+                        desc="Doesn't generate a 1us pulse on 0->1 transition" />
+                    <value name="Generate a 1us pulse" value="1" desc="Generate a 1us pulse on 0->1 transition" />
+                </field>
+            </register>
+            
+            <register name="BOOST_CR1" address="CYREG_BOOST_CR1" bitWidth="8" desc="Boost Control Register 1">
+                <field name="CLK" from="1" to="0" access="RW" desc="Boost clock frequency">
+                    <value name="CLK_2MHZ" value="0" desc="2.0 MHz" />
+                    <value name="CLK_500KHZ" value="1" desc="0.4 MHz" />            
+                    <value name="CLK_125KHZ" value="10" desc="0.1 MHz" />
+                    <value name="CLK_EXT" value="11" desc="External" /> 
+                </field>
+                <field name="EXTMODE" from="2" to="2" access="RW" 
+                    desc="When set, enables mode control from xmode[1:0] instead of control register 1">
+                    <value name="Disables mode control from xmode" value="0" 
+                        desc="Disables mode control from xmode[1:0] instead of control register 1" />
+                    <value name="Enables mode control from xmode" value="1" 
+                        desc="Enables mode control from xmode[1:0] instead of control register 1" />           
+                </field>
+                <field name="BOOSTEN" from="3" to="3" access="RW" desc="When set, enables boost operation">
+                    <value name="Disables boost operation" value="0" desc="Disables boost operation" />
+                    <value name="Enables boost operation" value="1" desc="Enables boost operation" />
+                </field>
+                <field name="TST" from="7" to="4" access="RW" 
+                    desc="Test mode for IV char of drive transistors. Setting tst[0] also inhibits 
+                          discontinuous operation">
+                    <value name="TST_OFF" value="0" desc="Test mode off" />
+                    <value name="TST_WE_NMOS" value="100" desc="NMOS on (weak)" />
+                    <value name="TST_ST_NMOS" value="101" desc="NMOS on (strong)" />
+                    <value name="TST_WE_PMOS" value="110" desc="PMOS on (weak)" />
+                    <value name="TST_ST_PMOS" value="111" desc="PMOS on (strong)" />
+                </field>
+            </register>
+            
+            <register name="BOOST_CR2" address="CYREG_BOOST_CR2" bitWidth="8" desc="Boost Control Register 2">
+                <field name="ENATM" from="0" to="0" access="RW" desc="When set, enables automatic standby regulator">
+                    <value name="Disables automatic standby regulator" value="0" 
+                        desc="Disables automatic standby regulator" />
+                    <value name="Enables automatic standby regulator" value="1" 
+                        desc="Enables automatic standby regulator" />
+                </field>
+                <field name="EQOFF" from="1" to="1" access="RW"
+                    desc="When set, disables auto battery connect to output when Vin=Vsel">
+                    <value name="Enables auto battery connect to output when Vin=Vsel" value="0" 
+                        desc="Enables auto battery connect to output when Vin=Vsel" />
+                    <value name="Disables auto battery connect to output when Vin=Vsel" value="1" 
+                        desc="Disables auto battery connect to output when Vin=Vsel" />
+                </field>
+                <field name="LIMOFF" from="2" to="2" access="RW" desc="When set, turns off skip cycle current limiter">
+                    <value name="Turns on skip cycle current limiter" value="0"
+                        desc="Turns on skip cycle current limiter" />
+                    <value name="Turns off skip cycle current limiter" value="1"
+                        desc="Turns off skip cycle current limiter" />
+                </field>
+                <field name="EREFSEL" from="3" to="3" access="RW" desc="When set, selects external reference">
+                    <value name="BOOST_EREFSEL_INTERNAL" value="0" desc="Select internal reference" />
+                    <value name="BOOST_EREFSEL_EXTERNAL" value="1" 
+                        desc="Select external 800mv precision reference (vref_800mv)" />
+                </field>
+                <field name="BUCKING" from="4" to="4" access="RW"
+                    desc="When set, converter is bucking. This is always 0 for boost only converters.">
+                    <value name="Boost only converters" value="0" desc="Boost only converters" />
+                    <value name="Converter is bucking" value="1" desc="Converter is bucking" />
+                </field>
+                <field name="EQUAL" from="5" to="5" access="RW"
+                    desc="When set, converter is bypassed. Vin connected to Vout">
+                    <value name="Converter boosting" value="0"
+                        desc="Converter boosting" />
+                    <value name="Converter is bypassed" value="1" 
+                        desc="Converter is bypassed (Vin=Vsel). Vin connected to Vout" />
+                </field>
+                <field name="BUSTING" from="6" to="6" access="RW" desc="When set, converter is boosting">
+                    <value name="Converter bypassed" value="0" desc="Converter bypassed" />
+                    <value name="Converter is boosting" value="1"
+                        desc="Converter is boosting" />
+                </field>
+                <field name="DISC" from="7" to="7" access="RW" 
+                    desc="When set, boost converter is operating in discontinuous mode">
+                    <value name="Boost converter isn't operating in discontinuous mode" value="0" 
+                        desc="Boost converter isn't operating in discontinuous mode" />
+                    <value name="Boost converter is operating in discontinuous mode" value="1" 
+                        desc="Boost converter is operating in discontinuous mode" />
+                </field>
+            </register>
+            
+            <register name="BOOST_CR3" address="CYREG_BOOST_CR3" bitWidth="8" desc="Boost Control Register 3">
+                <field name="PWM" from="7" to="0" access="RW"
+                    desc="PWM value should not be written during normal operation">
+                    <value name="pwm[7:0]" value="0"
+                        desc="Boost PWM value (should not be written during normal operation)" />
+                </field>
+            </register>
+            
+            <register name="BOOST_SR2" address="CYREG_BOOST_SR2" bitWidth="8" desc="Boost Status Register 2">
+                <field name="BOOST_INT" from="0" to="0" access="RW" 
+                    desc="When set, a boost undervoltage event has occured. The setting of limact_ie determines 
+                          whether this interrupt condition is masked or propagated to the interrupt controller.">
+                    <value name="Boost undervoltage event has not occured" value="0" 
+                        desc="Boost undervoltage event has not occured" />
+                    <value name="Boost undervoltage event has occured" value="1" 
+                        desc="Boost undervoltage event has occured" />
+                </field>
+            </register>
+            
+            <register name="BOOST_CR4" address="CYREG_BOOST_CR4" bitWidth="8" desc="Boost Control Register 4">
+                <field name="BOOST_IE" from="0" to="0" access="R" 
+                    desc="When set, a boost undervoltage condition is propagated to the interrupt controller via the PM
+                        interrupt line. When clear, the interrupt condition is masked.">
+                    <value name="The interrupt condition is masked" value="0" 
+                        desc="The interrupt condition is masked" />
+                    <value name="Boost undervoltage condition is propagated to the interrupt controller via the PM
+                        interrupt line" value="1" 
+                        desc="Boost undervoltage condition is propagated to the interrupt controller via the PM
+                        interrupt line" />
+                </field>
+                <field name="CLK_ECO" from="1" to="1" access="R" 
+                    desc="When set, 32k crystal oscillator is connected to boost external clock instead of 32k ILO. 
+                        To prevent collision, user needs to make sure that clk_ilo source is turned off. ">
+                    <value name="32k crystal oscillator not connected" value="0"
+                        desc="32k crystal oscillator isn't connected to boost external clock instead of 32k ILO" />
+                    <value name=" 32k crystal oscillator is connected" value="1" 
+                        desc="32k crystal oscillator is connected to boost external clock instead of 32k ILO" />
+                </field>
+                <field name="CLK_ILO" from="2" to="2" access="R" 
+                    desc="When set, 32k ILO is connected to boost external clock instead of 32k crystal oscillator.
+                          To prevent collision, user needs to make sure that crystal oscillator source is turned off">
+                    <value name="32k ILO not connected" value="0"
+                        desc="32k ILO isn't connected to boost external clock instead of 32k crystal oscillator" />
+                    <value name=" 32k ILO is connected" value="1" 
+                        desc="32k ILO is connected to boost external clock instead of 32k crystal oscillator" />
+                </field>      
+            </register>                    
+          
+        </block>
+
+    </block> 
+
+</deviceData>

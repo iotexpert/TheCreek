@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="us-ascii"?>
+
+<deviceData version="1"
+  xmlns="http://cypress.com/xsd/cydevicedata"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://cypress.com/xsd/cydevicedata cydevicedata.xsd">
+
+    <block name="`$INSTANCE_NAME`" desc="PrISM" visible="true">
+
+        <block name="PrISM" desc="PrISM" visible="!`$PulseTypeHardcoded`">
+            <register name="CONTROL"
+		            address="`$INSTANCE_NAME`_`$CtlModeReplacementString`_ControlReg__CONTROL_REG" 
+                    bitWidth="3" desc="Control register">
+                    <field name="compare type1" from="2" to="2" access="RW" desc="XX">
+                    </field>
+                    <field name="compare type0" from="1" to="1" access="RW" desc="">
+                    </field>
+                    <field name="ctrl enable" from="0" to="0" access="RW" desc="">
+                    </field>
+		    </register>
+        </block>
+        <register name="PrISM_SEED"
+                  address="`$INSTANCE_NAME`_sC`$ResReplacementString`_PrISMdp_u0__A0_REG" 
+                  bitWidth="`$Resolution`" desc="Current seed value">
+		</register>
+        <register name="PrISM_SEED_COPY"
+                  address="`$INSTANCE_NAME`_sC`$ResReplacementString`_PrISMdp_u0__F0_REG" 
+                  bitWidth="`$Resolution`" desc="Start seed value">
+		</register>
+        <register name="PrISM_POLYNOM"
+                  address="`$INSTANCE_NAME`_sC`$ResReplacementString`_PrISMdp_u0__A1_REG" 
+                  bitWidth="`$Resolution`" desc="Polynomial">
+		</register>
+        <register name="PrISM_DENSITY0"
+                  address="`$INSTANCE_NAME`_sC`$ResReplacementString`_PrISMdp_u0__D0_REG" 
+                  bitWidth="`$Resolution`" desc="Pulse Density 0">
+		</register>
+        <register name="PrISM_DENSITY1"
+                  address="`$INSTANCE_NAME`_sC`$ResReplacementString`_PrISMdp_u0__D1_REG" 
+                  bitWidth="`$Resolution`" desc="Pulse Density 1">
+		</register>
+    </block>
+</deviceData>

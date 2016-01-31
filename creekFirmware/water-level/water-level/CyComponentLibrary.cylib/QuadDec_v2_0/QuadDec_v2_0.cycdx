@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="us-ascii"?>
+
+<deviceData version="1"
+  xmlns="http://cypress.com/xsd/cydevicedata"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://cypress.com/xsd/cydevicedata cydevicedata.xsd">
+    
+    <block name="`$INSTANCE_NAME`" desc="" visible="true">
+
+        <block name="`$INSTANCE_NAME`" desc="" visible="`$Counter8bit`">
+            
+            <register name="Cnt8_COUNTER"
+                address="`$INSTANCE_NAME`_Cnt8_CounterUDB_sC8_counterdp_u0__A0_REG" bitWidth="8" 
+                desc="Сount value of Counter">
+            </register>
+            
+            <register name="STATUS_REG" 
+                address="`$INSTANCE_NAME`_bQuadDec_Stsreg__STATUS_REG" bitWidth="8"
+                desc="Quadrature Decoder Status Register">
+                <field name="OVERFLOW" from="0" to="0" access="R" desc="Counter overflow">            
+                </field>
+                <field name="UNDERFLOW" from="1" to="1" access="R" desc="Counter underflow">            
+                </field>
+                <field name="RESET" from="2" to="2" access="R" desc="Counter Reset due index">            
+                </field>
+                <field name="INVALID_IN" from="3" to="3" access="R" 
+                    desc="Invalid state transition on the A and B inputs">            
+                </field>
+            </register>
+          
+        </block>
+      
+        <block name="`$INSTANCE_NAME`" desc="" visible="!`$Counter8bit`">
+          
+            <register name="Cnt16_COUNTER" 
+                address="`$INSTANCE_NAME`_Cnt16_CounterUDB_sC16_counterdp_u0__A0_REG" bitWidth="16"
+                desc="Сount value of Counter">
+            </register>
+            
+            <register name="STATUS_REG" 
+                address="`$INSTANCE_NAME`_bQuadDec_Stsreg__STATUS_REG" bitWidth="8"
+                desc="Quadrature Decoder Status Register">
+                <field name="OVERFLOW" from="0" to="0" access="R" desc="Counter overflow">            
+                </field>
+                <field name="UNDERFLOW" from="1" to="1" access="R" desc="Counter underflow">            
+                </field>
+                <field name="RESET" from="2" to="2" access="R" desc="Counter Reset due index">            
+                </field>
+                <field name="INVALID_IN" from="3" to="3" access="R" 
+                    desc="Invalid state transition on the A and B inputs">            
+                </field>
+            </register>
+                
+        </block>
+        
+  </block>
+  
+</deviceData>

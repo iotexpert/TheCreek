@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="us-ascii"?>
+
+<deviceData version="1"
+  xmlns="http://cypress.com/xsd/cydevicedata"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://cypress.com/xsd/cydevicedata cydevicedata.xsd">
+
+  <block name="`$INSTANCE_NAME`" desc="" visible="true">  
+  
+    <block name="TX" desc="" visible="`$Direction` == 2 || `$Direction` == 3">    
+      <register name="STATUS_REG"
+        address="`$INSTANCE_NAME`_Tx_TxStsReg__STATUS_REG"
+        bitWidth="8" desc="">
+        <field name="INT" from="7" to="7" access="R" desc="Interrupt bit">
+        </field>
+        <field name="F1" from="2" to="2" access="R" desc="FIFO 1 state">
+        <value name="FULL" value="0" desc="" />
+        <value name="NOT_FULL" value="1" desc="" />
+        </field>
+        <field name="F0" from="1" to="1" access="R" desc="FIFO 0 state">
+        <value name="FULL" value="0" desc="" />
+        <value name="NOT_FULL" value="1" desc="" />
+        </field>
+        <field name="UNDFL" from="0" to="0" access="R" desc="FIFO Underflow Error">
+        <value name="NO_UNDERFLOW" value="0" desc="" />
+        <value name="UNDERFLOW" value="1" desc="" />
+        </field>
+      </register>
+    </block>  
+
+    <block name="RX" desc="" visible="`$Direction` == 1 || `$Direction` == 3">    
+      <register name="STATUS_REG"
+        address="`$INSTANCE_NAME`_Rx_RxStsReg__STATUS_REG"
+        bitWidth="8" desc="">
+        <field name="INT" from="7" to="7" access="R" desc="Interrupt bit">
+        </field>
+        <field name="F1" from="2" to="2" access="R" desc="FIFO 1 state">
+        <value name="EMPTY" value="0" desc="" />
+        <value name="NOT_EMPTY" value="1" desc="" />
+        </field>
+        <field name="F0" from="1" to="1" access="R" desc="FIFO 0 state">
+        <value name="EMPTY" value="0" desc="" />
+        <value name="NOT_EMPTY" value="1" desc="" />
+        </field>
+        <field name="OVRFL" from="0" to="0" access="R" desc="FIFO Overflow Error">
+        <value name="NO_OVERFLOW" value="0" desc="" />
+        <value name="OVERFLOW" value="1" desc="" />
+        </field>
+      </register>
+    </block> 
+
+    <register name="CONTROL_REG"
+      address="`$INSTANCE_NAME`_`$CtlModeReplacementString`_ControlReg__CONTROL_REG"
+      bitWidth="8" desc="">
+      <field name="ENBL" from="2" to="2" access="RW" desc="Starts the generation of the WS and SCK outputs">
+      <value name="ENABLED" value="1" desc="" />
+      <value name="DISABLED" value="0" desc="" />
+      </field>
+      <field name="RX_ENBL" from="1" to="1" access="RW" desc="Enables Rx direction. This bit is applicable only if Rx direction presents for the component">
+      <value name="ENABLED" value="1" desc="" />
+      <value name="DISABLED" value="0" desc="" />
+      </field>
+      <field name="TX_ENBL" from="0" to="0" access="RW" desc="Enables Tx direction. This bit is applicable only if Tx direction presents for the component">
+      <value name="ENABLED" value="1" desc="" />
+      <value name="DISABLED" value="0" desc="" />
+      </field>        
+    </register>   
+    
+  </block>
+     
+</deviceData>

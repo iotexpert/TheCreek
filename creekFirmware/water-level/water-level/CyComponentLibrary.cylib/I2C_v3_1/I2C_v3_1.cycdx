@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="us-ascii"?>
+
+<deviceData version="1"
+  xmlns="http://cypress.com/xsd/cydevicedata"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://cypress.com/xsd/cydevicedata cydevicedata.xsd">
+
+    <block name="`$INSTANCE_NAME`" desc="" visible="true">
+	    <block name="`$INSTANCE_NAME`" desc="" visible="`$FF`"> 
+            <register name="XCFG"
+                address="`$INSTANCE_NAME`_I2C_FF__XCFG" 
+                bitWidth="8" desc="Extended Configuration Register: I2C_XCFG">
+                <field name="csr_clk_en" from="7" to="7" access="RW" desc="">
+                </field>
+                <field name="i2c_on" from="6" to="6" access="RW" desc="">
+                </field>
+                <field name="ready_to_sleep" from="5" to="5" access="R" desc="">
+                </field>
+                <field name="force_nack" from="4" to="4" access="RW" desc="">
+                </field>
+                <field name="hw_addr_en" from="0" to="0" access="RW" desc="">
+                </field>
+		    </register>
+
+            <register name="ADDR"
+                address="`$INSTANCE_NAME`_I2C_FF__ADR" 
+                bitWidth="8" desc="Slave Adddress Register: I2C_ADR">
+                <field name="slave_address" from="6" to="0" access="RW" desc="This register holds the slave's 7-bit address.">
+                </field>
+		    </register>
+
+            <register name="CFG"
+                address="`$INSTANCE_NAME`_I2C_FF__CFG" 
+                bitWidth="8" desc="Configuration Register: I2C_CFG">
+                <field name="sio_select" from="7" to="7" access="RW" desc="">
+                </field>
+                <field name="pselect" from="6" to="6" access="RW" desc="">
+                </field>
+                <field name="bus_error_ie" from="5" to="5" access="RW" desc="">
+                </field>
+                <field name="stop_ie" from="4" to="4" access="RW" desc="">
+                </field>
+                <field name="clock_rate" from="2" to="2" access="RW" desc="">
+                </field>
+                <field name="en_mstr" from="1" to="1" access="RW" desc="">
+                </field>
+                <field name="en_slave" from="0" to="0" access="RW" desc="">
+                </field>
+		    </register>
+		
+            <register name="CSR"
+                address="`$INSTANCE_NAME`_I2C_FF__CSR" 
+                bitWidth="8" desc="Control and Status Register: I2C_CSR">
+                <field name="bus_error" from="7" to="7" access="RW" desc="">
+                </field>
+                <field name="lost_arb" from="6" to="6" access="RW" desc="">
+                </field>
+                <field name="stop_status" from="5" to="5" access="RW" desc="">
+                </field>
+                <field name="ack" from="4" to="4" access="RW" desc="">
+                </field>
+                <field name="address" from="3" to="3" access="RW" desc="">
+                </field>
+                <field name="transmit" from="2" to="2" access="RW" desc="">
+                </field>
+                <field name="lrb" from="1" to="1" access="RW" desc="">
+                </field>
+                <field name="byte_complete" from="0" to="0" access="RW" desc="">
+                </field>
+		    </register>
+		
+            <register name="DATA"
+                address="`$INSTANCE_NAME`_I2C_FF__D" 
+                bitWidth="8" desc="Data Register: I2C_D">
+                <field name="data" from="7" to="0" access="RW" desc="This register provides read/write access to the Shift register.">
+                </field>
+		    </register>
+        
+            <register name="MCSR"
+                address="`$INSTANCE_NAME`_I2C_FF__MCSR" 
+                bitWidth="8" desc="Master Control and Status Register: I2C_MCSR">
+                <field name="stop_gen" from="4" to="4" access="RW" desc="">
+                </field>
+                <field name="bus_busy" from="3" to="3" access="R" desc="">
+                </field>
+                <field name="master_mode" from="2" to="2" access="R" desc="">
+                </field>
+                <field name="restart_gen" from="1" to="1" access="RW" desc="">
+                </field>
+                <field name="start_gen" from="0" to="0" access="RW" desc="">
+                </field>
+		    </register>
+	    </block>
+	    <block name="`$INSTANCE_NAME`" desc="" visible="`$UDB_MSTR`"> 
+		    <register name="CFG"
+                address="`$INSTANCE_NAME`_bI2C_UDB_`$CtlModeReplacementString`_CtrlReg__CONTROL_REG" 
+                bitWidth="8" desc="Configuration Register">
+                <field name="start_gen" from="7" to="7" access="RW" desc="">
+                </field>
+                <field name="stop_gen" from="6" to="6" access="RW" desc="">
+                </field>
+                <field name="restart_gen" from="5" to="5" access="RW" desc="">
+                </field>
+                <field name="ack" from="4" to="4" access="RW" desc="">
+                </field>
+                <field name="hw_addr_en" from="3" to="3" access="RW" desc="">
+                </field>
+                <field name="transmit" from="2" to="2" access="RW" desc="">
+                </field>
+                <field name="master_en" from="1" to="1" access="RW" desc="">
+                </field>
+		    </register>
+		
+            <register name="CSR"
+                address="`$INSTANCE_NAME`_bI2C_UDB_StsReg__STATUS_REG"
+                bitWidth="7" desc="Status Register">
+                <field name="interrupt" from="7" to="7" access="R" desc="Interrupt bit">
+                </field>
+                <field name="lost_arb" from="6" to="6" access="R" desc="">
+                </field>
+                <field name="stop_status" from="5" to="5" access="RW" desc="">
+                </field>
+                <field name="bus_busy" from="4" to="4" access="R" desc="">
+                </field>
+                <field name="address" from="3" to="3" access="R" desc="">
+                </field>
+                <field name="master_mode" from="2" to="2" access="R" desc="">
+                </field>
+                <field name="lrb" from="1" to="1" access="R" desc="">
+                </field>
+                <field name="byte_complete" from="0" to="0" access="R" desc="">
+                </field>
+		    </register>
+
+            <register name="INT_MASK"
+                address="`$INSTANCE_NAME`_bI2C_UDB_StsReg__MASK_REG"
+                bitWidth="8" desc="Interrupt Mask">
+		    </register>
+
+            <register name="DATA"
+                address="`$INSTANCE_NAME`_bI2C_UDB_Shifter_u0__A0_REG" 
+                bitWidth="8" desc="Data">
+                <field name="data" from="7" to="0" access="RW" desc="This register provides read/write access to the Shift register.">
+                </field>
+		    </register>
+        </block>
+	    <block name="`$INSTANCE_NAME`" desc="" visible="`$UDB_SLV`"> 
+            <register name="CFG"
+                address="`$INSTANCE_NAME`_bI2C_UDB_`$CtlModeReplacementString`_CtrlReg__CONTROL_REG" 
+                bitWidth="8" desc="Configuration Register">
+                <field name="ack" from="4" to="4" access="RW" desc="">
+                </field>
+                <field name="hw_addr_en" from="3" to="3" access="RW" desc="">
+                </field>
+                <field name="transmit" from="2" to="2" access="RW" desc="">
+                </field>
+                <field name="slave_en" from="0" to="0" access="RW" desc="">
+                </field>
+		    </register>
+		
+            <register name="CSR"
+                address="`$INSTANCE_NAME`_bI2C_UDB_StsReg__STATUS_REG"
+                bitWidth="7" desc="Status Register">
+                <field name="interrupt" from="7" to="7" access="R" desc="Interrupt bit">
+                </field>
+                <field name="stop_status" from="5" to="5" access="RW" desc="">
+                </field>
+                <field name="address" from="3" to="3" access="R" desc="">
+                </field>
+                <field name="lrb" from="1" to="1" access="R" desc="">
+                </field>
+                <field name="byte_complete" from="0" to="0" access="R" desc="">
+                </field>
+		    </register>
+
+            <register name="INT_MASK"
+                address="`$INSTANCE_NAME`_bI2C_UDB_StsReg__MASK_REG"
+                bitWidth="8" desc="Interrupt Mask">
+		    </register>
+
+            <register name="ADDR"
+                address="`$INSTANCE_NAME`_bI2C_UDB_Shifter_u0__D0_REG"
+                bitWidth="8" desc="Slaves Address">
+                <field name="slave_address" from="7" to="0" access="RW" desc="">
+                </field>
+		    </register>
+
+            <register name="DATA"
+                address="`$INSTANCE_NAME`_bI2C_UDB_Shifter_u0__A0_REG"
+                bitWidth="8" desc="Data">
+		    </register>
+        </block>
+        <block name="`$INSTANCE_NAME`" desc="" visible="`$UDB_MULTI_MASTER_SLAVE`"> 
+		    <register name="CFG"
+                address="`$INSTANCE_NAME`_bI2C_UDB_`$CtlModeReplacementString`_CtrlReg__CONTROL_REG" 
+                bitWidth="8" desc="Configuration Register">
+                <field name="start_gen" from="7" to="7" access="RW" desc="">
+                </field>
+                <field name="stop_gen" from="6" to="6" access="RW" desc="">
+                </field>
+                <field name="restart_gen" from="5" to="5" access="RW" desc="">
+                </field>
+                <field name="ack" from="4" to="4" access="RW" desc="">
+                </field>
+                <field name="hw_addr_en" from="3" to="3" access="RW" desc="">
+                </field>
+                <field name="transmit" from="2" to="2" access="RW" desc="">
+                </field>
+                <field name="master_en" from="1" to="1" access="RW" desc="">
+                </field>
+                <field name="slave_en" from="0" to="0" access="RW" desc="">
+                </field>
+		    </register>
+		
+            <register name="CSR"
+                address="`$INSTANCE_NAME`_bI2C_UDB_StsReg__STATUS_REG"
+                bitWidth="7" desc="Status Register">
+                <field name="interrupt" from="7" to="7" access="R" desc="Interrupt bit">
+                </field>
+                <field name="lost_arb" from="6" to="6" access="R" desc="">
+                </field>
+                <field name="stop_status" from="5" to="5" access="RW" desc="">
+                </field>
+                <field name="bus_busy" from="4" to="4" access="R" desc="">
+                </field>
+                <field name="address" from="3" to="3" access="R" desc="">
+                </field>
+                <field name="master_mode" from="2" to="2" access="R" desc="">
+                </field>
+                <field name="lrb" from="1" to="1" access="R" desc="">
+                </field>
+                <field name="byte_complete" from="0" to="0" access="R" desc="">
+                </field>
+		    </register>
+
+            <register name="INT_MASK"
+                address="`$INSTANCE_NAME`_bI2C_UDB_StsReg__MASK_REG"
+                bitWidth="8" desc="Interrupt Mask">
+		    </register>
+
+            <register name="DATA"
+                address="`$INSTANCE_NAME`_bI2C_UDB_Shifter_u0__A0_REG"
+                bitWidth="8" desc="Data">
+		    </register>
+            
+            <register name="ADDR"
+                address="`$INSTANCE_NAME`_bI2C_UDB_Shifter_u0__D0_REG"
+                bitWidth="8" desc="Slaves Address">
+		    </register>
+        </block> 
+    </block>
+</deviceData>

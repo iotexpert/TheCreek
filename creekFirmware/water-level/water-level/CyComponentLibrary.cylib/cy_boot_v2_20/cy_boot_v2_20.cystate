@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ComponentStateRules Version="1">
+    <Rule>
+        <Pattern>
+            <Architecture>PSoC3</Architecture>
+            <Family>*</Family>
+            <Revision>*</Revision>
+            <Device>*</Device>
+        </Pattern>
+        <State>Obsolete</State>
+        <Severity>Error</Severity>
+        <Message>*** CRITICAL UPDATE REQUIRED *** This project uses an old version of the CY_BOOT component. Versions of the component prior to v2.21 are susceptible to the critical erratum described in document 001-69528 (Loading NVLs during Boot). Use the Component Update Tool (available from Project menu) to update to v2.21 or higher to successfully build this project.</Message>
+    </Rule>
+    <Rule>
+        <Pattern>
+            <Architecture>PSoC5</Architecture>
+            <ArchMember>PSoC5A</ArchMember>
+        </Pattern>
+        <State>Prototype</State>
+        <Severity>Warning</Severity>
+        <Message />
+    </Rule>
+    <Rule>
+        <Pattern>
+            <Architecture>PSoC5</Architecture>
+            <ArchMember>PSoC5LP</ArchMember>
+        </Pattern>
+        <State>Obsolete</State>
+        <Severity>Error</Severity>
+        <Message />
+    </Rule>
+</ComponentStateRules>

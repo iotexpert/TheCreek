@@ -1,0 +1,59 @@
+;********************************************************************************
+;* File Name: Cm3RealView.scat  
+;* Version `$CY_MAJOR_VERSION`.`$CY_MINOR_VERSION`
+;*
+;*  Description:
+;*  This Linker Descriptor file describes the memory layout of the PSoC5
+;*  device. The memory layout of the final binary and hex images as well as
+;*  the placement in PSoC5 memory is described.
+;*
+;*
+;*  Note:
+;*
+;*  romvectors: Cypress default Interrupt sevice routine vector table.
+;*
+;*      This is the ISR vector table at bootup. Used only for the reset vector.
+;*
+;*
+;*  ramvectors: Cypress ram interrupt service routine vector table.
+;*
+;*      This is the ISR vector table used by the application.
+;*
+;*
+;********************************************************************************
+;* Copyright 2008-2011, Cypress Semiconductor Corporation.  All rights reserved.
+;* You may use this file only in accordance with the license, terms, conditions, 
+;* disclaimers, and limitations in the end user license agreement accompanying 
+;* the software package with which this file was provided.
+;********************************************************************************/
+
+LOAD_ROM `$PROJ_FIRST_FLS_BYTE` (`$FLASH_BYTES` - `$PROJ_FIRST_FLS_BYTE`)
+{
+    VECTORS +0
+    {
+        * (.romvectors)
+    }
+`$CY_RV_DMA_INIT_SEC_DESC`
+    CODE +0
+    {
+        * (+RO)
+    }
+
+    ISRVECTORS (0x20000000 - (`$SRAM_BYTES` / 2)) UNINIT
+    {
+        * (.ramvectors)
+    }
+
+    DATA +0
+    {
+        * (+RW, +ZI)
+    }
+
+    ARM_LIB_HEAP (0x20000000 + (`$SRAM_BYTES` / 2) - `$CYDEV_HEAP_SIZE` - `$CYDEV_STACK_SIZE`) EMPTY `$CYDEV_HEAP_SIZE`
+    {
+    }
+
+    ARM_LIB_STACK (0x20000000 + (`$SRAM_BYTES` / 2)) EMPTY -`$CYDEV_STACK_SIZE`
+    {
+    }
+}

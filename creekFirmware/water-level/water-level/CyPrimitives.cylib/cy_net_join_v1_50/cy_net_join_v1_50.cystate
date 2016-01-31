@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ComponentStateRules Version="1">
+    <Rule>
+        <Pattern>
+            <Architecture>PSoC3</Architecture>
+            <Family>*</Family>
+            <Revision>*</Revision>
+            <Device>*</Device>
+        </Pattern>
+        <State>Production</State>
+        <Severity>Note</Severity>
+        <Message>The Net Join component (cy_net_join) has been deprecated in favor of the Net Tie (cy_net_tie). The functionality is identical but the symbol is much smaller, which enables neater, clearer schematic drawings.</Message>
+    </Rule>
+    <Rule>
+        <Pattern>
+            <Architecture>PSoC5</Architecture>
+            <ArchMember>PSoC5A</ArchMember>
+        </Pattern>
+        <State>Production</State>
+        <Severity>Note</Severity>
+        <Message>The Net Join component (cy_net_join) has been deprecated in favor of the Net Tie (cy_net_tie). The functionality is identical but the symbol is much smaller, which enables neater, clearer schematic drawings.</Message>
+    </Rule>
+    <Rule>
+        <Pattern>
+            <Architecture>PSoC5</Architecture>
+            <ArchMember>PSoC5LP</ArchMember>
+        </Pattern>
+        <State>Production</State>
+        <Severity>Note</Severity>
+        <Message>The Net Join component (cy_net_join) has been deprecated in favor of the Net Tie (cy_net_tie). The functionality is identical but the symbol is much smaller, which enables neater, clearer schematic drawings.</Message>
+    </Rule>
+</ComponentStateRules>

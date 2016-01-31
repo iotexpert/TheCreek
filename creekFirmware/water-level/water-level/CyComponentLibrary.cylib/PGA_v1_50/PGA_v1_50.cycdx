@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="us-ascii"?>
+
+<deviceData version="1"
+  xmlns="http://cypress.com/xsd/cydevicedata"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://cypress.com/xsd/cydevicedata cydevicedata.xsd">
+
+<block name="`$INSTANCE_NAME`" desc="" visible="true">
+
+  <block name="`$INSTANCE_NAME`" desc="" visible="true"> 
+    <!-- SC/CT Config Registers -->
+    <register name="CR0"
+      address="`$INSTANCE_NAME`_SC__CR0" bitWidth="8" desc="ANIF.CFG.SCx.CR0">
+    </register>
+    <register name="CR1"
+      address="`$INSTANCE_NAME`_SC__CR1" bitWidth="8" desc="ANIF.CFG.SCx.CR1">
+    </register>
+    <register name="CR2"
+      address="`$INSTANCE_NAME`_SC__CR2" bitWidth="8" desc="ANIF.CFG.SCx.CR2">
+    </register>
+    
+    <!-- SC/CT Power Management Register -->
+    <register name="PWRMGR"
+      address="`$INSTANCE_NAME`_SC__PM_ACT_CFG" bitWidth="8" desc="PM.ACT.CFG9">
+    </register>
+  </block>
+
+</block>
+</deviceData>

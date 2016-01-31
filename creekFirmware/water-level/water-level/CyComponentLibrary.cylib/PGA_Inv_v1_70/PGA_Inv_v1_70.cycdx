@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="us-ascii"?>
+
+<deviceData version="1"
+  xmlns="http://cypress.com/xsd/cydevicedata"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://cypress.com/xsd/cydevicedata cydevicedata.xsd">
+ <block name="`$INSTANCE_NAME`" desc="" visible="true">
+    <block name="`$INSTANCE_NAME`" desc="" visible="true"> 
+          <register name="SC_CR0"
+          address="`$INSTANCE_NAME`_SC__CR0" bitWidth="8" desc="SC_CR0">
+          </register>
+          <register name="SC_CR1"
+          address="`$INSTANCE_NAME`_SC__CR1" bitWidth="8" desc="SC_CR1">
+          </register>
+      <register name="SC_CR2"
+          address="`$INSTANCE_NAME`_SC__CR2" bitWidth="8" desc="SC_CR2">
+          </register>
+      <register name="SC__PM_ACT_CFG"
+          address="`$INSTANCE_NAME`_SC__PM_ACT_CFG" bitWidth="8" desc="SC__PM_ACT_CFG">
+          </register>
+      <register name="SC__PM_STBY_CFG"
+          address="`$INSTANCE_NAME`_SC__PM_STBY_CFG" bitWidth="8" desc="SC__PM_STBY_CFG">
+          </register>
+      <register name="SC__BST"
+          address="`$INSTANCE_NAME`_SC__BST" bitWidth="8" desc="SC__BST">
+          </register>
+          <register name="PM_ACT_CFG1"
+          address="CYREG_PM_ACT_CFG1" bitWidth="8" desc="PM_ACT_CFG1">
+          </register> 
+      <register name="PM_STBY_CFG1"
+          address="CYREG_PM_STBY_CFG1" bitWidth="8" desc="PM_STBY_CFG1">
+          </register> 
+      <register name="SC_MISC"
+          address="CYDEV_ANAIF_RT_SC_MISC" bitWidth="8" desc="SC_MISC">
+          </register> 
+
+      </block>
+  </block>
+</deviceData>

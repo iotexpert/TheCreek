@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="us-ascii"?>
+
+<deviceData version="1"
+				   xmlns="http://cypress.com/xsd/cydevicedata"
+				   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+				   xsi:schemaLocation="http://cypress.com/xsd/cydevicedata cydevicedata.xsd">
+
+<block name="`$INSTANCE_NAME`" desc="">
+
+	<register name="CTL_REG" address="`$INSTANCE_NAME`_ClockGen_`$CtlModeReplacementString`_CtrlReg__CONTROL_REG" bitWidth="8" desc="">
+		<field name="Channel 1" from="3" to="3" access="R" desc="">
+			<value name="Disabled" value="0" desc="" />
+			<value name="Enabled" value="1" desc="" />
+		</field>
+		<field name="Channel 0" from="2" to="2" access="R" desc="">
+			<value name="Disabled" value="0" desc="" />
+			<value name="Enabled" value="1" desc="" />
+		</field>
+		<field name="Measure" from="1" to="1" access="R" desc="">
+			<value name="Disabled" value="0" desc="" />
+			<value name="Enabled" value="1" desc="" />
+		</field>
+		<field name="Sync" from="0" to="0" access="R" desc="">
+			<value name="Disabled" value="0" desc="" />
+			<value name="Enabled" value="1" desc="" />
+		</field>
+	</register>
+
+
+    <block name="ScanSpeed" desc="">
+        <register name="CTL_REG" address="`$INSTANCE_NAME`_ClockGen_ScanSpeed__CONTROL_AUX_CTL_REG" bitWidth="8" desc="">
+			<field name="Counter" from="3" to="3" access="R" desc="">
+				<value name="Disabled" value="0" desc="" />
+				<value name="Enabled" value="1" desc="" />
+			</field>
+		</register>
+
+		<register name="PERIOD_REG" address="`$INSTANCE_NAME`_ClockGen_ScanSpeed__PERIOD_REG" bitWidth="8" desc="">
+		</register>
+	</block>
+
+</block>
+
+</deviceData>

@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="imcomponentadd" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAjRJREFUOE+Nkt1L
+        k2EYxhdB4H/QSR51JH1RRCWRCDE8SFdopK41naxpsqlzDdem1dqHSi4tVi21kL5cmSx1tk3XnDkrwZO1
+        sghnRNCHzEYDYSBc3e+rG3t1ix748bz3dd/XdT8H7yYAvPWntt0nIs1AZBOLhMaqzu/dMMgITEAqNWbv
+        FmJFfzeErz+X0Xp/DlTHGX39LLs8nSgzjQfdb76h78UX+Ga/o6bVGyFt838HSA2e7GrT2Mo9Zxj1Fj+o
+        zklnzviCKr1rq9TgjvcMf4bM6IlTnfb5bEDlpdFlAqmQAcrOKfQMfULDtUlOL2UuwgaIm514N7+EUHgJ
+        79cIBH/APj4Pm2MOzyYWMPtxER8Wfif7IZoXN49E2QCRbhi622/RYpvBxW4uLXdmWJ3pN92YgrLDB5nB
+        BXm7D6e1QzE2oLzJgfNdfjR2eGngJXS3ponXuHBzGhprAHmXRci/IsRRoxAFbUIILCKUWs9A3F2B6r7K
+        X7xS9eBTIkjsIyrkbR6or7+CqmsSjZ1+jpk2smfVLIHSLolx/oOTqoEsAqc0IyjXOiHUjXI2JwJWzVXQ
+        PZdyA4obnmQRKFY7kvDNZQnfhtvsPhvjnajrjxATRA5RcrzeDoFyIMk2xe6MAaaxsj88gfwRChX9YO4i
+        +WP2+5jCnmS7agd2anfhkGFPMkjy4ADqBnOhdR2O8gprH6LgXGYSZr5lbzJgzQyj70iUx5f24l/k6g+C
+        MZfY9iNlM2PG1UBe+C8twZilabBEuwAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="MSG_UNABLE_LOAD_TEMPLATE" xml:space="preserve">
+    <value>Unable to load the Template.</value>
+  </data>
+  <data name="MSG_DRC_DMA_ERROR" xml:space="preserve">
+    <value>Selected endpoint memory management option "{0}" is not supported for current device.</value>
+  </data>
+  <data name="MSG_INTERFACE_CHANGE" xml:space="preserve">
+    <value>The Interface class will be changed to Undefined. Do you want to continue?</value>
+  </data>
+  <data name="MSG_INCORRECT_VALUE_RANGE" xml:space="preserve">
+    <value>Input Value should be in range [0x{0:X}..0x{1:X}].</value>
+  </data>
+  <data name="imsave" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAArFJREFUOE99Uv9P
+        UlEcxb8of2pz+UNpmaQJNiwnlimmkEoNExGt4Kk5HchKUlE3EFKxUpkK6LKZuFGYLoFlwx9szS23/MYP
+        QvpDnj7vPSNZW28779x77uec+7m7N6WiZdYvEKSkCQQQ8F8K4c/4REro7CCx5rY0ZuUKZPoZ2NwbmPb/
+        gOfDNuaWd+AL7uH9530E1qIclr4k4/X8N8j03ihAYbcfTSNH4UC52gKDNQSDLcjDGoSR2GhdJV4ljZi0
+        cnU/V0++Iy6gWDsJu/crpMoutPYtg+lZgr4nkASmO8DpDOmltX0YpI5ZHxdQqB6HZSKCAnknNCYf6gzv
+        ElAnxgsJrVhpRj/VF9aP8wES1St0DgUhkrWjunkWcr0XlQSW5XoPz7q/mkRhgtkZgkT1kg8Q3xtBS38A
+        2cUMSrQTkFJHyRhLml8tbYPRvoJ88nEBedUv0Ni1gIzrD1GgGoVYOYz8mmHiEYiJuTHH/PyylMGTAT/y
+        qob4gByFHQ8Mb3FOXI/e0RUMjH36Ly5IGqHrXqCbsPMBwspBqNq9EFG6iNtlhGMRdcDxKbBrbIfap3MQ
+        yk8FVLVOIYeE89JOpGZW4UzG3X+QerEGWWW9VOeA2jgDduOTIzigYCYhrLDhrLAWFocXsVgM0WgUu7u7
+        ODpi3wvw3OpGWm4DZ1R1eLjHxN+C0ok7j13Ukg3peVrs7O0TawhquFwuuN1uHB8f4/DwCBkShjt7LQUk
+        buFG3Vi8Qj+FfDpbZkEzIpEI0kVNKFFaOLPP58N6ZB3xn4e4ctOEa/edqDe9Afn4Dm41TaYrWj2/pJpx
+        XCpsw+LiIgXpodI5OXM4FMLW1nccHMQhKjWjSONCw7N5kI8PYH/lzEyqTOfezi7qQDC8RjtP8+ZwGJub
+        m4jH4vB/jEBUZgbVErwsb7De33MGlVyNONRAAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="imscript" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAoVJREFUOE+NU0tL
+        G1EUHjfu3Pgb+jMChXbjJv/BpS6CGkmapkRJMBCqC2veviARlWqiWSg+MtFEE6IEUgsZqmRh8JFhBjVg
+        BanRfj3nklEKbemFb75z597zzXlNW3d3t9TT0/P28vJSlv5jFQoFqaOjQzKZTNL8/HybxALJZOIGtJ6e
+        npj+uPgsGAzC7XbD5/MJsK8QmJ6exvn5OVRVxdnZGWq1Gi4uLkBRCZvP6vU6ZmZmMD4+jkgkgrGxsReB
+        WCx2l06nsbGxAeadnR1sbW1BlmWxN2y6h7m5OYFAIPAiEI/FzMlkErOzswiFQuILU1NTmJycBEcXjUbF
+        u3g8jtXVVYGFhYUXAUpaYtDFVywiZzLIyIQWcyQGMhkZm5ubLKaJGlAHhHNL4EMqlYKcluFyuQQODg+f
+        bdfQEHZ3s+A7iUTic29vryTZbHbDuZOKdH309QhKpQJFITATKopCrKBCdm5vj50fl5eX2212uyQNDw8b
+        AtH9/X0cHBSpQH7UTk/h9/vhJztAHA6H8e34GCsrK5yCb4j82Fc8KPfXXERN16BrOnSdQKxptCdbY5uY
+        hghra2t37GOAndup4lXu+fr6Oj5NTGCiBbZvv99icXERV1fXnPvPXC73xuFwSI53BGIWsObz+b9OoHGg
+        U3R2ux1er1e0lGaiy2KxCIEvzcemaJnH4xH3mQ1sb2/j4eEBJycnGB0dFTXgwYpEoveijTQsP/71D7Bg
+        s9lEqVQSqWSzWZTLZRL7iKWlpU6OQFXrKhqNxu+4oT3hpsVc5GKxiGq1Si1W4HG7781ms0jBxIdUVTid
+        TlitVvT392NgYACDg4PC7uvrE/uRkRFRA6fzfYPa2sUCvwCrqMXIzVLmHAAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="MSG_INCORRECT_VALUE" xml:space="preserve">
+    <value>Incorrect format of the Input Value.</value>
+  </data>
+  <data name="imscriptadd" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAnVJREFUOE+NUztM
+        mlEUvl26sXTv5thXmjRNG9qkL2VpunSoIW3RDiU2LSrEQACDLaRYxTgAARESHsEYXi4iIliiEQYSHcRE
+        4mJ4pjHCQsqC/XrvTX/UpKa9yZdz7n/v951zzzn/JQBkYGCAyOXyJ9VqNUX+Y21tbRGRSETEYjEhTEAm
+        k5FoNNqgPk5OTpj562JnNpsNExMTMJvNHF2B+fl5lMtl1Ot1lEolHB4eolKpgGbFfXZWq9XgdrsxOzsL
+        h8OB6enpUwG/399aW1vDysoKmF1fX8fq6ipSqRTfC77X6wW9y2G1Wk8FAoHA80gkAo/HA7vdziO4XC7M
+        zc2BZed0Ovk3n8+HWCzGEQwGTwVYLRjoxR6WZiKR+CdoFj84aWhoiNs/AlqmnkwmodfrObLZbNcfHx9H
+        Op3G0tISwuHwIiep1WqBfIVGP97Z2cHu7u6F2NjYYOROKBS6TB4Y+n8++iLFU5MUkkkpXsy8xivbG7x1
+        yTAa/MALJYDVYH9/n7+fZmg2GAyEnCULzWdkuXcQ6rAcR0dH55DL5RCPx1s6nY4wkLORBQFGHl18B33s
+        PSwWC1qtFmiX0Gg02Nt/bW5uPh4ZGSEMpPdr/4WTZ0l9PHfWbDYxNjYGk8nEW0rbKCFXP928UMCUkEKj
+        0WB5eRmdTgfFYhFTU1OgY88Hi85Lm/SoruG69gbuGW91hQYDd6GI3sfnVB/a7XYX+XweCwsLyGQy2N7e
+        5pkQgdw7c7srwMjahBjfMn0oFAoce3t7YJPKinhwcMD3tIhtQiMfM/JL5x0IkRnZ9P0hJpPPoFQqMTw8
+        DIVCAVo0GI1G/jeqVKomnVrJb4ntyKDqaPXWAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="MSG_UNABLE_SAVE_TEMPLATE" xml:space="preserve">
+    <value>Unable to save the Template to the file.</value>
+  </data>
+  <data name="MSG_WRONG_PARAMETER" xml:space="preserve">
+    <value>Parameter {0} has incorrect value. The default value will be used.</value>
+  </data>
+  <data name="PAGE_TITLE_AUDIODESC" xml:space="preserve">
+    <value>Audio Descriptor</value>
+  </data>
+  <data name="PAGE_TITLE_BUILTIN" xml:space="preserve">
+    <value>Built-in</value>
+  </data>
+  <data name="MSG_RPT_WARNING_1" xml:space="preserve">
+    <value>END_COLLECTION could not be added at the beginning of the report.</value>
+  </data>
+  <data name="imimport" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAbpJREFUOE+VU1kv
+        Q0EYHb9HhFB3bu2EELFL7BIevJHw1lgeiqqmGkvRqNpbtUe0hMSWiMSS0hbpk8ZDLfEssQTHjMSD3pJ2
+        cieZzD3fueec735hAIj/kvdSvH8S8vEJwh7Cz4SAXCpOwyRgTuC/4/oEeJ+OMOZox+KlAaueSYSrZQwm
+        xUqKOShhQIDFpUbbVi2GDzvRulGPCHVs8ATJekpaNkt+kUdqYgN+LOBl2hBFElPBrQg6ATFaAVGaEBSk
+        GyjuXpzY9k7B7FJhwtGBaG0IBJkjFEe3K2jezEfdYjya1gog6xGCzyB7lBLfs4M02VNJ41oG0e43EGYl
+        +AxyTSKyjBTcSsogRUK/ALE3BAX54yKYAugOajB9psS8U4d4Fui//0G1VY5yi4iSGRFFkyIL8RwLFyrY
+        PAYYTxRIZF2RMxU/Xfkh++WrkpE8vLqx6zVi59qEgxsrI9Cje78K9auJqFuKe/e3IgmmYlbEw5sb5/fr
+        cNzaYHUrodzOQ6M9GUl6KrERMFlu5fHtCse+ZZidCnTtFSKDBRr0LHBgmZkpYXbm3K3IYV0JVPw9yX+9
+        4PelLNDiqb+LOeYLFcatAgKo8mwAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="MSG_INCORRECT_VENDOR_VALUE" xml:space="preserve">
+    <value>The value {0} is too small for vendor-defined value. It will be automatically updated to 0xFF00.</value>
+  </data>
+  <data name="MSG_UNDEFINED_HIDREPORT" xml:space="preserve">
+    <value>Undefined HID Report for the HID Class Descriptor.
+To fix this problem you can: 
+(1) Configure the HID Class Descriptor to refer to a HID Report, or
+(2) Remove the HID Class Descriptor from the Configuration.</value>
+  </data>
+  <data name="PAGE_TITLE_DEVDESC" xml:space="preserve">
+    <value>Device Descriptor</value>
+  </data>
+  <data name="PAGE_TITLE_ADV" xml:space="preserve">
+    <value>Advanced</value>
+  </data>
+  <data name="PAGE_TITLE_CDCDESC" xml:space="preserve">
+    <value>CDC Descriptor</value>
+  </data>
+  <data name="PAGE_TITLE_HIDDESC" xml:space="preserve">
+    <value>HID Descriptor</value>
+  </data>
+  <data name="imconfiguration" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAA5JJREFUOE9Nk2tM
+        22UUxl+jMdEY5+YwMXzwC/GLiZdPJpPoAKHQQmG0UMR20jLYSksvbHYO2g6K3cplTYEyWMegbqWTFhiM
+        tsAQWCeXrghjdThu+kVKYLoNIYCDzsd/m6B9k5OTvHmf35tzznNeUFRbSSDwnOw+2yZvHdxP1jY2Iy11
+        ZauJadlR0THxvo31TaKW8dKUGq3r1uBY5FDPNT8JP0EAgFCUG+11rpE58E/pA0dylVMDE8u4ff8RkrKL
+        VnWmnl1r/zQSsuTze++DmYQDePKqpR8fPIb7/irqLf2ovUbFd/2oMnXB4Z7HyIMnoHGkW6/vj3h1D0JO
+        VraS843dTbqLtjXOidKVtv4pmG+OwuVdQM/4POzDM2hx3IOm0YWKS04UnCzdUulMa0x+yTxVyUtEVXOd
+        mG+MBTyzf6H7zkN03ZnB2MzvmJxbxjiVnaNzaOj0QGcexhkjBWl0onvED7mm5R8K8BF5J+o9wuApltoG
+        foZ9cDIknpj17yoN9sUsqWGTI9FviDXNM6qGvoCsqgsnNN/DeP0uPmcXblOAD4nR0nu859bQuK1vAr13
+        F3BvYQXF+rbfWKLqC+nCygNpx89HMPO+NXwhr/HkaezgFbdCaehElki7/e77H6cSW980JhfX0fGDD33e
+        RXgfLiFTrN85Iqx4Za9RyYLSCHqO+jG3pBUseTPylGacbfAiOUcdIBKl/u+rDi/MXaNwehYw8NOvSBdW
+        PE/NP/fiHoD+lXJfIvfMesYpM5ILLyNDUo88dQdiM2Q7QUscZOYU9za3u2Eb9ME64IO4rGk2JVdTyeCf
+        3Zd0tOQAjfvNBYagfJwpvQK6sBFsUS0+YQieUNp4UnaxnbQ6PFvu6T9Q1exE080JVFvczziF1ZOUeJ32
+        5emndH7pVJr0coAhMiHuqA7c0x1IydUGKMDbJDoxgyg09Vsujx+1ltsoNzmhvTIERY0DwnPtoaaxiloQ
+        FCccq0GSQI90aScSuKrgGBNDrn7tjTfjP0vNX6FlSZYNljGINFch1NqQo7IiVLf4EuJ4OiQfMyKWJd2J
+        Tsn3H2Lk+ijpyyHAXrP4X9f9WWf/Ber6YfBkdeCIjWAXGEGjxGypFczCTsSw5cH5/2/lcMAhOr+YyVft
+        xKQXbCdkyXwCpQPZihug7lcPsySPYjMVgagPPh0O/vzfLoQDQttFVRRqDuXzuMyip4dZIcdxQ74nJDKY
+        w7fxXzk7SHptbD6xAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="imdelete" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAALEgAA
+        CxIB0t1+/AAAAjVJREFUOE9j/P//P4O3l5fBP0aGHob/DG1MjAwHtm7d9o+BWODo6MLs7OKaDqT/Ozk7
+        f/P28g709vFmBhmMjq1sHViCAgOU3N3d8mByDECNLECcZGfvtM3c0va/vYPLHw8Pzypfb1RDVDQNOazt
+        nZyArv3u4OA0B24AiAE0QBKILRwcXbZZ2dj/t7N3+O/v673R19eHGyRvamHL6e7pucLW3um3qal5t5ae
+        CQ+KATAO0BA2IC6wd3D+bWfn9N/H13eZpZW9npWV3WRbG5v/eoYmk9W0DPiRvYbhT2tbW0Z7eydNoJfO
+        m5lb/zcyNvtuaGz0Xk1Ld52yui4nerhgGABToG9g4qCnb/LT0sr2v56+0T0FZU0hbAGL1QBjExMFNXWd
+        S7p6hv+ABv03MbX4r6Wte4soAwyNTOXVNLSvAg34o6GpvUZETNJETl5lm4Gh8X9Vde1MvF7Q0NaVkFVQ
+        PiWnqPofaPshSQkpIR4+Pm5+IRFueSW16QYGxl9UtQxksQaihoEFh5yi2iIJacWPOrqGT7R19bVgCnkE
+        BDg4Obn5dPUNz0rKKEySUVSDJzR4GEjJKniLSSj8V1XT/q+iptHKyc0LTgMwzMLCzAQUV1FRUb3PKyAo
+        r65rwgSSAysQEBBiExERaxUSFv8vr6C8i4OLR42HTwCsABkLCAgym5lZTubm5TJV1zNHGABSJCOvasTK
+        xj6RgZHJjpmFhRdbiINtZGBgYWJi4sKaEnFpwieOMyERaxgAd/H0VrlTD2AAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="PAGE_TITLE_STRDESC" xml:space="preserve">
+    <value>String Descriptor</value>
+  </data>
+  <data name="String" xml:space="preserve">
+    <value>Undefined HID Report for the HID Class Descriptor. To fix this problem you can: (1) Configure the HID Class Descriptor to refer to a HID Report, or (2) Remove the HID Class Descriptor from the Configuration.</value>
+  </data>
+  <data name="MSG_BOOTLOADER_SUPPORT" xml:space="preserve">
+    <value>Current configuration cannot support a bootloader. The following configurations should be used: (1) Endpoint Number: EP1, Direction: OUT, Transfer Type: INT, Max Packet Size: 64; (2) Endpoint Number: EP2, Direction: IN, Transfer Type: INT, Max Packet Size: 64.</value>
+  </data>
+  <data name="imadd" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAiJJREFUOE+lkt1L
+        U2Ecx+1/KLCoUUlR2jru5Zyzl5y51+MIm8VGy4KCwunMbPZirYb2smWpW9O0rUaRRQXOgdCFFdqFEYvA
+        C/UmizZYmCtsQq1Fxbdnp7twF4ceeK6e3+fze3l+ywAU/dfJC/69+yPVvn23uIw9zMF2wzizu9/QtFQc
+        n3yphzoC5359w8/fOXz5Pg9Lr35GkMAeNmHq4zO8So3gRSKGHQFtRpCAlI3n7+9j9E0Ew9O94LqrhAl2
+        XTcgOu3HvUkvwnEPdFcqCwvIwAJ1N7kfe0ImWAeMyMM7gzqE4mcQmHDh8lgTNN4KqC5sA92uguScAltO
+        M+lNJ+kOfoh5eDH3CQvZOaQWZzE1N4Gxt0PwjTeg4+lheJ448DIxjskPcbz7PIv013kkFxIoccnSvCCf
+        +fZrN8nmxNlRK1pGzGiMVcMZq0HDcC0cUSvqh+w4+NAG210LTCED2B41REclfFtFpOxs62MOh6JKHHik
+        xN4HStgGFbDcYWGOKKAPsajsZ6EKsqD9DKirNEov0ljlpFK8oLZP310T1GXNfi2MXduh7dSggvRsDLOo
+        GmChJmBZG4ONJ+RY75JC1CzBSgKvcIjdBRdJcV4NTR8DxTUGsi4eFvaNco8SdM/fcsu8cqw7JhUmoNws
+        xJ1ybL5EYI8Ua5rLhQlKT9GZknYZRG4JilspFDdSSUGrvOG4zLe2RZpZfaScwFuTy+vFbYUEfwBd+3hv
+        rE6J5wAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="ERR_EP_MAXPACKETSIZE" xml:space="preserve">
+    <value>The maximum value for MaxPacketSize for ISOC endpoints cannot be greater than 512 bytes when Endpoint Memory Management parameter is not "DMA w/Automatic MM".</value>
+  </data>
+  <data name="MSG_DRC_EP_SUM_AUTO" xml:space="preserve">
+    <value>The total sum of the MaxPacketSize for all endpoints in one interface cannot be greater than 1100 bytes.</value>
+  </data>
+  <data name="MSG_DRC_EP_SUM_MANUAL" xml:space="preserve">
+    <value>The total sum of the MaxPacketSize for all endpoints in one interface cannot be greater than 512 bytes when Endpoint Memory Management parameter is not "DMA w/Automatic MM".</value>
+  </data>
+  <data name="PAGE_TITLE_MIDIDESC" xml:space="preserve">
+    <value>MIDI Descriptor</value>
+  </data>
+  <data name="MSG_BULK_MAXPACKETSIZE" xml:space="preserve">
+    <value>The possible values for MaxPacketSize for Bulk endpoints are 8, 16, 32, and 64.</value>
+  </data>
+  <data name="MSG_REPORTID_RANGE" xml:space="preserve">
+    <value>REPORT_ID value should be in range [1 to 255].</value>
+  </data>
+</root>

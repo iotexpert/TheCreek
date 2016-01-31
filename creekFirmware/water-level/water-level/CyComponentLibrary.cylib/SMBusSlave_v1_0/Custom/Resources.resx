@@ -1,0 +1,352 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BootloaderReadCmdCodeOutOfRange" xml:space="preserve">
+    <value>Bootloader read command code must be between {0} and {1}.</value>
+  </data>
+  <data name="BootloaderWriteCmdCodeOutOfRange" xml:space="preserve">
+    <value>Bootloader write command code must be between {0} and {1}.</value>
+  </data>
+  <data name="CustomCmdsTabDisplayName" xml:space="preserve">
+    <value>Custom Commands</value>
+  </data>
+  <data name="DataGridError" xml:space="preserve">
+    <value>{0} tab table contains wrong data.</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="Export" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29m
+        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAGySURBVDhPlZLrK0NhHMef/0dy3TlnzFwiEuZS7kJa
+        eUFZIrmvMMzchmUk97knG025rOZeYyZ5RV4Y8lq5pL6eo0bjTNuL8+ac8/v8Ps/nHAKAeLqypjhkTHD0
+        sed3PA5nT3N4fHNgzlGPpFHPEEFAzgyHp/dLHN8tY9peg7bdNMTpWEGTP4DcWbr53YGzh3XYnEYYHEoo
+        t1JQYYqEVPsX4gbIM4i/tHdu9Ni+HoX11gDjlRbtlnyUrUZAvhT2wfUwbibfgAI6zKtn0nDp4xzuX8+w
+        cNFKATroT2oQ0c9ATIcZDYMQ9Q9EsIFsjMPdiw0aaxEmT5WYt2sQ3uu+2fVlBAHJtHqCnkUsDRc1wELS
+        x+C3+r+AxBGWUAOiMEWTirU4oraUE6ouuEzwZvwwiyPnCmrNMsgXw6FYS0Volw9H4NXvX+0YOKhC6XIM
+        Cg1SBKtF3v0H/NliBllIafUwGs5VPbDDB0CkliV15kyiO2wm2r1GIl9IIQEdIu8bSOj2mXMVGjaLMbTf
+        gvqNMvirfDDg1W+ej5A/K0G1sQRN5kr4qUK9b8B1M1/VgzpFoOp0mL+EAZ8x7b4mYQr73gAAAABJRU5E
+        rkJggg==
+</value>
+  </data>
+  <data name="GeneralTabDisplayName" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="I2cConfTabDisplayName" xml:space="preserve">
+    <value>I2C Configuration</value>
+  </data>
+  <data name="Import" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29m
+        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAGqSURBVDhPlZHJLwNxHMXn/xGxdmZoa4uGCGpJak84
+        uFXCTSyH2qnaikZtRSmKiC0ktSQiQVKqiJPGoWicJWgkz3ckPTBDpoff5Zf3ffm89xgAzO/H97GI72UR
+        06NAVLcCEZ3CiyeZWCs6FkSJAyx8r6eYdLfAeWPB+p0tPAPVEIv5q04071Vh9KQNTTt6RBKFbIJkM8c0
+        7up+0FEUSVrJz7QRDklEIURhTSzijCyiqQvZBOkWDk/vHrh8M7BftWPa3YpYYxgGGWMcTh/X0LCrRbVT
+        ibqNvO9VZBNkjXOM/83N1G2lMrUbGsZ4VMNQFPkd5EzwyLRyEKKkDHNQDbLg+8Mg0E7xIAKYjisxe2HA
+        kscEJRX6b4QKRwJK5nno5ngU2Hgq8RLL1+3YvLPAel4PNa2SQBShVUJmP3KVkUngw4sDnxX79xM4fnCQ
+        gRldR+XQr6tRvZL4+TuKqJjSBR6BoBeXz9twP27C4TXA4MpF7VYyksycKIZks0KUl+AtzvyrsHvq0XGY
+        Dw0VKntGQVhsJxKKs+htQjatInUs/EkShMRFVGjhzN/Hgu4LKIvFfMUDDUgAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="PageCmdCodeOutOfRange" xml:space="preserve">
+    <value>PAGE command code must be between {0} and {1}.</value>
+  </data>
+  <data name="PagedCmdsOutOfRange" xml:space="preserve">
+    <value>Number of paged commands must be between {0} and {1}.</value>
+  </data>
+  <data name="PMBusCmdsTabDisplayName" xml:space="preserve">
+    <value>PMBus Commands</value>
+  </data>
+  <data name="QueryCmdCodeOutOfRange" xml:space="preserve">
+    <value>QUERY command code must be between {0} and {1}.</value>
+  </data>
+  <data name="SlaveAddressOutOfRange" xml:space="preserve">
+    <value>Slave address must be between {0} and {1}.</value>
+  </data>
+  <data name="SettingsIncorrectValues" xml:space="preserve">
+    <value>Settings have incorrect values. You must redefine them.</value>
+  </data>
+  <data name="SizeOutOfRange" xml:space="preserve">
+    <value>Size must be between {0} and {1}.</value>
+  </data>
+  <data name="CmdNameInvalid" xml:space="preserve">
+    <value>Allowed characters are A-Z, 0-9 and the underscore "_".</value>
+  </data>
+  <data name="CodeOutOfRange" xml:space="preserve">
+    <value>Command code must be between {0} and {1}.</value>
+  </data>
+  <data name="CmdCodeUsed" xml:space="preserve">
+    <value>Command code is already used.</value>
+  </data>
+  <data name="ToleranceOutOfRange" xml:space="preserve">
+    <value>Tolerance value must be between {0}% and {1}%.</value>
+  </data>
+  <data name="FileExists" xml:space="preserve">
+    <value>File with this name already exists. Do you want to replace it?</value>
+  </data>
+  <data name="FileReadError" xml:space="preserve">
+    <value>Cannot read file {0}.</value>
+  </data>
+  <data name="FileWriteError" xml:space="preserve">
+    <value>Cannot write to file {0}.</value>
+  </data>
+  <data name="SaveDialogHeader" xml:space="preserve">
+    <value>Save to File</value>
+  </data>
+  <data name="LoadDialogHeader" xml:space="preserve">
+    <value>Load from File</value>
+  </data>
+  <data name="LoadConfirmation" xml:space="preserve">
+    <value>All data in the customizer will be lost after import. Would you like to continue?</value>
+  </data>
+  <data name="CmdCodeUsedPMBusMessage" xml:space="preserve">
+    <value>Command code is already used. Please fix the duplicated code on {0} tab.</value>
+  </data>
+  <data name="CmdCodeReserved" xml:space="preserve">
+    <value>Command code {0} is reserved.</value>
+  </data>
+  <data name="EnableSmbAlertError" xml:space="preserve">
+    <value>SMBALERT pin can only be enabled when address decode on {0} tab is set to "Software".</value>
+  </data>
+  <data name="Load" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29m
+        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAALuSURBVDhPXZIJTxNRFEb5cyaSgKIQDLJTljaCCxJC
+        FEEiLtEQBAyrRASXsLdsbbFQoIJUkL1QWqDssrbTTvdp5/PODEkTJ3l5ySTnfPfde6MARO0ZFOW7BgVs
+        U3JsTyhgnZDDMi6HeUwOky4Pq6N5WNbmYkGTi/mRHMwN5WB2IBszSll5lCDYnVIAfAAIs3T76YToN391
+        6BI+nsP8cC7cW5VgrRXgw37+Z78MomBnUkHMObgLDXiPAWH3JLnGEHJpwDED4Oy9otRIyexWBVhLGQl8
+        mOrJlARbVLIgCJyPIOy5gp1qcA4B7kbwokOs8BeV7dosg8v8RBRMdKdLAqteEvhPBylZh5AIqxC0d5K0
+        HYHTFlEwrZSBJdi1XiwKxjtTJYHQLJ47g/dYKcGMAHchcNZO0mb4j+uoP34Y+jLh3CiG01RIgV7oviVL
+        AqHTPHcK9qALIUYpJgfPP8N/0gTfcQ18h++EpmGyJ4PgR3CuFoiC0fYkSSCMiQ8eg7F1gLukss/aCG4k
+        +D28B2/h3q0US9Z3psO5UgBmmZoeDgY0bYmSYEmbh3DAhgtLC4Ii3ADfUTW8+28IfgH3TqkoGPueCueS
+        HMxiNgRYYEXBgjoXYa8JJ6Za+P/WU8lV8Oy/gmf3Odidp3BZi0jgxY+vd2HSpsHxJwMjrQkRwdxwDkKs
+        EYeLr+EV4ZeUWg52u4SW5jGN7gG92Y2Q7wCaT4lwzCdjqPlWRGAczAHn1MNmfAbPXiXctlJamBK4LIVw
+        mu+DWVeAMT8kCYuRj/Gw/76DwYYbEcGMKhuBSzUshqL/4HyC6c2mbNhXMxDyH2GoKQ722QSoPsREBNP9
+        WSRQYUNfQMnFlEyjMgtwHhxrEmxfTgXn3sRA/Q1czsRBWRsdEUz1ZsF31o012gcJvncFy+BYSYd9JQWX
+        S0kIMEao6mJIEMv2VV+PCDYN+W59ZxqNKQW6L8nQ0oIIzVK3xlOzbmOw8SYlx4pwf000BLi36lq5MMF/
+        RzY91YlVECgAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="Save" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29m
+        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAKpSURBVDhPfVLdT5JRHPY/yqu2lhelfUiWYMNyYpkf
+        oaRSw0REK3jVnA5kJamoGwipWKlM+dCymbhRmi6BZcMLW3PLLb+4ENKLfPq95zWStXXxnOec5/ye5/zO
+        zkmRN00F5E2vQXyE4/M/Gs+8nrTnBpCSUqKfhM2zBnfgB7wfNjG9uAV/cAfvP+9ifiXKsPAlGa9mvqFE
+        74uygFsP3chSOFCqtsBgDcFgCwqwBmEkNlqXiZdJIyatVN3L6sl3wAIKtOOw+75CpuxAc88iuK4F6Lvm
+        k8B1zjOdI72ougf91DHvYwF56lFYxiLILW+HxuRHjeFdAurEfDahFSjN6KX6vNpRIUCqeon2gSDEJa2o
+        bJxCud6HMgLP5XqvwLq/mlRhgtkZglT1QgiQ3B1CU+88Mgs4FGrHIKOOkjGStL5S1AKjfQk55GMB2ZXP
+        Ud8xi/RrD5CrGoZEOYicqkHiIUiI2ZyxsL4o4/C4L4DsigEhIEthx33DW5yW1KJ7eAl9I5/+i7PSeug6
+        Z+kl7EKAqKwfqlYfxJQuZqcMMRZTB4yPgd/jO9Q+mYao/FhARfMEskg4I2tHakYFTqTf+Qep56pwobib
+        6hxQGyfBH3x0BQcU3DhEchtOiqphcfgQi8UQjUaxvb2NgwP+vwDPrB6culzHjKo2L/tMwisonbj9yEUt
+        2ZCWrcXWzi6xhqCGy+WCx+PB4eEh9vcPkC7l2N2rKSDxCtdrRuJy/QRy6G4ZuY2IRCJIEzegUGlhZr/f
+        j9XIKuI/93HphglX7zlRa3oD8gkd3GwYT1M0e3/JNKM4n9eCubk5CtJDpXMyczgUwsbGd+ztxSEuMiNf
+        40Ld0xmQTwjgh1JuMrVE59nMzG9DMLxCJ7sFcziM9fV1xGNxBD5GIC42g2oJPp7XeO9vEjm3WXQaBFIA
+        AAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="Copy" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAAB6
+        JQAAgIMAAPn/AACA6QAAdTAAAOpgAAA6mAAAF2+SX8VGAAAACXBIWXMAAAsSAAALEgHS3X78AAAB8UlE
+        QVQ4T6WT30tTYRjHz59SypDqphu76iaiTCkwKLwoKNCiq13oVVeRYZDVjAXOtoU5S9lmZ3oi0kXKzLU0
+        mTnXr0nLoDaYyjm6nNPNPu280tSFM/CFz815z/N5nu953yMB0m6QlOHP6MhDYYGzP0in8pbbNqXyf8RC
+        ULgcfQEuNz7hUFXdwZ0kkmcwvKU+u/ab1q6XeP1hztW37CiRnAMTQuCNgPweQlGN+44XyCMa7mEVl0/l
+        0YCKuXdecOFu7PDmqaROJZCfYGU1i7aYJpZICkHhauqepfySXycvkexun3iv3b+KqV/juvyTho4oXa/m
+        /hHUWxMooxoHavp0hESy5PLquZdSGWbVFDOxBT5G57A/jwtBs5wVhKYXuGiKs7/mGfvO9FBW/VjfliQ9
+        73I6k+9stEe4YvnAPdfMlgm0Xxmmfyzjn1rEKo9jOPVwQ6Al03z6lmDiS4xA6DtD777S2L5+vNe6kxgt
+        cc7fiXD6xqTAKo9hqGrbEJRX1lJIg3lSCDK5eAk1w1R0icGghuf1PA96ApRWmNcF212UuqZRIdjc+e8E
+        be43lBwzFRecveojtbKGvTeIzTOO9emY6KwXW5wj7D16q7igwujNfW2XoKzageGkjdITrZQcb8kVN7Pn
+        yM3igu2iFT7f1a+sy/4AW2kOoZNnNTsAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="Paste" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAAB6
+        JQAAgIMAAPn/AACA6QAAdTAAAOpgAAA6mAAAF2+SX8VGAAAACXBIWXMAAAsSAAALEgHS3X78AAACYElE
+        QVQ4T6WTW0iTYRjHP+jCbooO1FVXBdFNFBVUFxmFWnhoYSRmZC5iKiVTlqYjtTRFl6elaTPyMNQ8VaKk
+        FImQODprOKODRGrkWtY2z2bx6/veWDmwuvCFP8/N+//9n+fhfSVAWojmNXe2ZNJ+M42m8iS0EQFb/xUg
+        NVbl62ThVnnuURy2asZt1xjsyyFB40d+ho4rBj3GjHhFvnOBCoApZwMzrnqmHDWYS3RMjFSSEKmyvuxK
+        5NzpQBLV27B1HmekdS3a8AOy/8/YAqCYZ1y1FGceo9uSg/NDIcN9et5ZTtBcqiIyzJvq5DU8y5eIPhLg
+        CaivzP0FcN7AkBxOqi4UfUwIZ6OD0WlUxKoDiQrzoUC7TgBC/b09ATVlBqaddUzbTUwMZWF/EYO1cqVQ
+        b8UKukuW8NjoJcyKfHZu9gSYTZlM2suZHEhn4tUpxp8fwtmylLyKVrJMTZy/XEeiwUxsWimRSUbC47I9
+        AWVFaYwNGhnv0zD2JJDRB1v4dHuVMLvPzOx3HK4pBoYdhERdIChC/xsileal4HydzugjP0Y7NuJqW81g
+        hSSSlVN2q1PIVNtOb79NmO91WdkXrBYQqSg7iS89Z3C1b8B5Zzn2Bi/6r0ui7W+zP/g6Kid/dND71oal
+        5z3+YbH4yea9+w/ivWs3UsHFeOwPo2TzMj43LmaoahHWYgmtPLPStruDq3IHheY2mjusoirasWk90qXU
+        OPFA3Ft2V428sLnJ9y1vhLnhbje1rU89AL55KSflF6ZCHexL0J7tgqxsW5nZnTZfFR387aMclretXPif
+        FvSVlfCfG+HKHMpEHU0AAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="ExportAllTitle" xml:space="preserve">
+    <value>Export All</value>
+  </data>
+  <data name="ExportDialogHeader" xml:space="preserve">
+    <value>Export to File</value>
+  </data>
+  <data name="ImportAllTitle" xml:space="preserve">
+    <value>Import All</value>
+  </data>
+  <data name="ImportConfirmation" xml:space="preserve">
+    <value>All data in the grid will be lost after import. Would you like to continue?</value>
+  </data>
+  <data name="ImportDialogHeader" xml:space="preserve">
+    <value>Import from File</value>
+  </data>
+  <data name="CmdNameReserved" xml:space="preserve">
+    <value>Command name {0} is reserved.</value>
+  </data>
+  <data name="InvalidDataFormat" xml:space="preserve">
+    <value>Cannot insert data into table. Data format is not valid.</value>
+  </data>
+  <data name="InvalidDataInClipboard" xml:space="preserve">
+    <value>Data in clipboard does not match columns in the table.</value>
+  </data>
+  <data name="UnknownActualDataRate" xml:space="preserve">
+    <value>UNKNOWN (Updated after 'Apply')</value>
+  </data>
+  <data name="DrcNullValuesError" xml:space="preserve">
+    <value>{0} table contains empty cells.</value>
+  </data>
+  <data name="DeletePrompt" xml:space="preserve">
+    <value>Deleting row(s). Are you sure?</value>
+  </data>
+  <data name="SMBusSlaveName" xml:space="preserve">
+    <value>SMBus Slave</value>
+  </data>
+  <data name="DlgWarning" xml:space="preserve">
+    <value>Warning</value>
+  </data>
+  <data name="ImportRowCountWarning" xml:space="preserve">
+    <value>Imported data row count differs from the desired amount. Would you like to continue with import process?</value>
+  </data>
+  <data name="CmdNameDuplicate" xml:space="preserve">
+    <value>Command name is already used.</value>
+  </data>
+  <data name="ContextMenuDeleteItem" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="DataRateOutOfRange" xml:space="preserve">
+    <value>Data rate is invalid. The only available values in PM Bus mode are {0} and {1}.</value>
+  </data>
+  <data name="FixedPlacementValidator" xml:space="preserve">
+    <value>Fixed Placement is valid in UDB implementation only.</value>
+  </data>
+  <data name="ImplementationWithSiliconValidator" xml:space="preserve">
+    <value>Fixed Function option is not supported for PSoC 5 device.</value>
+  </data>
+</root>

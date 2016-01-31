@@ -1,0 +1,520 @@
+<?xml version="1.0" encoding="us-ascii"?>
+
+<deviceData version="1"
+  xmlns="http://cypress.com/xsd/cydevicedata"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://cypress.com/xsd/cydevicedata cydevicedata.xsd">
+
+    <block name="`$INSTANCE_NAME`" desc="" visible="true"> 
+    <block name="`$INSTANCE_NAME`" desc="" visible="`$PSOC5A`"> 
+        <register name="Comp_CR"
+            address="`$INSTANCE_NAME`_ctComp__CR" bitWidth="8" desc="Comparator Control Register">
+            <field name="filt" from="6" to="6" access="RW" 
+            desc="enables a glitch filter at the output of the comparator">
+                <value name="FILT_DISABLE" value="0" desc="Disable glitch filter" />
+                <value name="FILT_ENABLE" value="1" desc="Enable glitch filter" />
+            </field>
+            <field name="hyst" from="5" to="5" access="RW" 
+            desc="enables a hysteresis of 10mV typ">
+                <value name="HYST_DISABLE" value="1" desc="Disable hysteresis" />
+                <value name="HYST_ENABLE" value="0" desc="Enable hysteresis" />
+            </field>
+            <field name="cal_en" from="4" to="4" access="RW" 
+            desc="enables shorting of the two comparator inputs for trim calibration purposes">
+                <value name="CAL_EN_DISABLE" value="0" desc="Disable calibration" />
+                <value name="CAL_EN_ENABLE" value="1" desc="Enable calibration" />
+            </field>
+            <field name="mx_ao" from="3" to="3" access="RW" 
+            desc="comparator sleep always-on logic mux control">
+                <value name="MX_AO_BYPASS" value="0" desc="Bypass comparator sleep always-on logic" />
+                <value name="MX_AO_ENABLE" value="1" desc="Enable comparator sleep always-on logic" />
+            </field>
+            <field name="pd_override" from="2" to="2" access="RW" 
+            desc="Power down override to allow comparator to continue operating during sleep">
+                <value name="PD_OVERRIDE_DISABLE" value="0" desc="Don't override power down" />
+                <value name="PD_OVERRIDE_ENABLE" value="1" desc="Override power down" />
+            </field>
+            <field name="sel" from="1" to="0" access="RW" 
+            desc="Selects the mode of operation of the comparator">
+                <value name="SEL_SLOW" value="00" desc="slow mode" />
+                <value name="SEL_FAST" value="01" desc="fast mode" />
+                <value name="SEL_LP" value="10" desc="ultra low power mode" /> 
+                <value name="SEL_ILLEGAL" value="11" desc="Illegal Mode" /> 
+            </field> 
+        </register>
+        <register name="Comp_CLK"
+            address="`$INSTANCE_NAME`_ctComp__CLK" bitWidth="8" desc="Comparator Clock Control Register">
+            <field name="bypass_sync" from="4" to="4" access="RW" 
+            desc="Bypass Synchronization">
+                <value name="BYPASS_SYNC_0" value="0" desc="Synchronization not bypassed (Synchronization enabled)" />
+                <value name="BYPASS_SYNC_1" value="1" desc="Synchronization bypassed (Synchronization disabled)" />
+            </field>
+            <field name="clk_en" from="3" to="3" access="RW" 
+            desc="Clock gating control">
+                <value name="CLK_EN_0" value="0" desc="disable clock" />
+                <value name="CLK_EN_1" value="1" desc="enable clock" />
+            </field>
+            <field name="mx_clk" from="2" to="0" access="RW" 
+            desc="Clock Selection">
+                <value name="MX_CLK_0" value="000" desc="Select clk_a0 and clk_a0_dig" />
+                <value name="MX_CLK_1" value="001" desc="Select clk_a1 and clk_a1_dig" />
+                <value name="MX_CLK_2" value="010" desc="Select clk_a2 and clk_a2_dig" />
+                <value name="MX_CLK_3" value="011" desc="Select clk_a3 and clk_a3_dig" />
+                <value name="MX_CLK_4" value="100" desc="Select UDB generated clock" />
+                <value name="MX_CLK_5" value="101" desc="Reserved" />
+                <value name="MX_CLK_6" value="110" desc="Reserved" />
+                <value name="MX_CLK_7" value="111" desc="Reserved" />
+            </field>
+        </register>
+        <register name="Comp_SW0"
+            address="`$INSTANCE_NAME`_ctComp__SW0" bitWidth="8" desc="Comparator Analog Routing Register 0">
+            <field name="vp_ag7" from="7" to="7" access="RW" 
+            desc="Connect positive voltage input to analog global of same side ">
+                <value name="AG_NC" value="0" desc="not connected" />
+                <value name="AG_CONNECTED" value="1" desc="Connect to Analog Global" />
+            </field>
+            <field name="vp_ag6" from="6" to="6" access="RW" 
+            desc="Connect positive voltage input to analog global of same side ">
+                <value name="AG_NC" value="0" desc="not connected" />
+                <value name="AG_CONNECTED" value="1" desc="Connect to Analog Global" />
+            </field>
+            <field name="vp_ag5" from="5" to="5" access="RW" 
+            desc="Connect positive voltage input to analog global of same side ">
+                <value name="AG_NC" value="0" desc="not connected" />
+                <value name="AG_CONNECTED" value="1" desc="Connect to Analog Global" />
+            </field>
+            <field name="vp_ag4" from="4" to="4" access="RW" 
+            desc="Connect positive voltage input to analog global of same side ">
+                <value name="AG_NC" value="0" desc="not connected" />
+                <value name="AG_CONNECTED" value="1" desc="Connect to Analog Global" />
+            </field>
+            <field name="vp_ag3" from="3" to="3" access="RW" 
+            desc="Connect positive voltage input to analog global of same side ">
+                <value name="AG_NC" value="0" desc="not connected" />
+                <value name="AG_CONNECTED" value="1" desc="Connect to Analog Global" />
+            </field>
+            <field name="vp_ag2" from="2" to="2" access="RW" 
+            desc="Connect positive voltage input to analog global of same side ">
+                <value name="AG_NC" value="0" desc="not connected" />
+                <value name="AG_CONNECTED" value="1" desc="Connect to Analog Global" />
+            </field>
+            <field name="vp_ag1" from="1" to="1" access="RW" 
+            desc="Connect positive voltage input to analog global of same side ">
+                <value name="AG_NC" value="0" desc="not connected" />
+                <value name="AG_CONNECTED" value="1" desc="Connect to Analog Global" />
+            </field>
+            <field name="vp_ag0" from="0" to="0" access="RW" 
+            desc="Connect positive voltage input to analog global of same side ">
+                <value name="AG_NC" value="0" desc="not connected" />
+                <value name="AG_CONNECTED" value="1" desc="Connect to Analog Global" />
+            </field>
+        </register>
+        <register name="Comp_SW2"
+            address="`$INSTANCE_NAME`_ctComp__SW2" bitWidth="8" desc="Comparator Analog Routing Register 2">
+            <field name="vp_abus1" from="1" to="1" access="RW" 
+            desc="Connect positive voltage input to analog (local) bus of the same side">
+                <value name="ABUS_NC" value="0" desc="not connected" />
+                <value name="ABUS_CONNECTED" value="1" desc="Connect to Analog (local) Bus" />
+            </field>
+            <field name="vp_abus0" from="0" to="0" access="RW" 
+            desc="Connect positive voltage input to analog (local) bus of the same side">
+                <value name="ABUS_NC" value="0" desc="not connected" />
+                <value name="ABUS_CONNECTED" value="1" desc="Connect to Analog (local) Bus" />
+            </field>
+        </register>
+        <register name="Comp_SW3"
+            address="`$INSTANCE_NAME`_ctComp__SW3" bitWidth="8" desc="Comparator Analog Routing Register 3">
+            <field name="vn_vref1" from="6" to="6" access="RW" 
+            desc="Connect negative voltage input to Voltage Reference 1">
+                <value name="VREF_NC" value="0" desc="not connected" />
+                <value name="VREF_CONNECTED" value="1" desc="Connect to Voltage Reference" />
+            </field>
+            <field name="vn_vref0" from="5" to="5" access="RW" 
+            desc="Connect negative voltage input to Voltage Reference 0">
+                <value name="VREF_NC" value="0" desc="not connected" />
+                <value name="VREF_CONNECTED" value="1" desc="Connect to Voltage Reference" />
+            </field>
+            <field name="vn_amx" from="4" to="4" access="RW" 
+            desc="Connect negative voltage input to Analog Mux Bus">
+                <value name="AMX_NC" value="0" desc="not connected" />
+                <value name="AMX_CONNECTED" value="1" desc="Connect to AMUXBUS" />
+            </field>
+            <field name="vp_refbuf" from="3" to="3" access="RW" 
+            desc="Connect positive voltage input to CapSense reference buffer channel">
+                <value name="VP_REFBUF_ENABLED" value="0" desc="disable" />
+                <value name="VP_REFBUF_DISABLED" value="1" desc="enable" />
+            </field>
+            <field name="vp_amx" from="0" to="0" access="RW" 
+            desc="Connect positive voltage input to Analog Mux Bus">
+                <value name="AMX_NC" value="0" desc="not connected" />
+                <value name="AMX_CONNECTED" value="1" desc="Connect to AMUXBUS" />
+            </field>
+        </register>
+        <register name="Comp_SW4"
+            address="`$INSTANCE_NAME`_ctComp__SW4" bitWidth="8" desc="Comparator Analog Routing Register 4">
+            <field name="vn_ag6" from="6" to="6" access="RW" 
+            desc="Connect negative voltage input to analog global of same side">
+                <value name="AG_NC" value="0" desc="not connected" />
+                <value name="AG_CONNECTED" value="1" desc="Connect to Analog Global" />
+            </field>
+            <field name="vn_ag4" from="4" to="4" access="RW" 
+            desc="Connect negative voltage input to analog global of same side">
+                <value name="AG_NC" value="0" desc="not connected" />
+                <value name="AG_CONNECTED" value="1" desc="Connect to Analog Global" />
+            </field>
+            <field name="vn_ag2" from="2" to="2" access="RW" 
+            desc="Connect negative voltage input to analog global of same side">
+                <value name="AG_NC" value="0" desc="not connected" />
+                <value name="AG_CONNECTED" value="1" desc="Connect to Analog Global" />
+            </field>
+            <field name="vn_ag0" from="0" to="0" access="RW" 
+            desc="Connect negative voltage input to analog global of same side">
+                <value name="AG_NC" value="0" desc="not connected" />
+                <value name="AG_CONNECTED" value="1" desc="Connect to Analog Global" />
+            </field>
+        </register>
+        <register name="Comp_SW6"
+            address="`$INSTANCE_NAME`_ctComp__SW6" bitWidth="8" desc="Comparator Analog Routing Register 6">
+            <field name="vn_abus3" from="3" to="3" access="RW" 
+            desc="Connect negative voltage input to analog (local) bus of the same side">
+                <value name="ABUS_NC" value="0" desc="not connected" />
+                <value name="ABUS_CONNECTED" value="1" desc="Connect to Analog (local) Bus" />
+            </field>
+            <field name="vn_abus2" from="2" to="2" access="RW" 
+            desc="Connect negative voltage input to analog (local) bus of the same side">
+                <value name="ABUS_NC" value="0" desc="not connected" />
+                <value name="ABUS_CONNECTED" value="1" desc="Connect to Analog (local) Bus" />
+            </field>
+        </register>
+
+    <register name="Comp_TR"
+            address="`$INSTANCE_NAME`_ctComp__TR" bitWidth="8" desc="Comparator Trim Register_TR">
+            <field name="tr2[3:0]" from="7" to="4" access="RW" 
+            desc="Sets the trim value to be added to the N-type load for offset calibration">
+                <value name="TRIM2_0" value="0000" desc="Does not add any offset" />
+                <value name="TRIM2_NEG_SIDE_1" value="0001" desc="Adds offset of ~1mV to the negative side" />
+                <value name="TRIM2_NEG_SIDE_2" value="0010" desc="Adds offset of ~2mV to the negative side" />
+                <value name="TRIM2_NEG_SIDE_3" value="0011" desc="Adds offset of ~3mV to the negative side" />
+                <value name="TRIM2_NEG_SIDE_4" value="0100" desc="Adds offset of ~4mV to the negative side" />
+                <value name="TRIM2_NEG_SIDE_5" value="0101" desc="Adds offset of ~5mV to the negative side" />
+                <value name="TRIM2_NEG_SIDE_6" value="0110" desc="Adds offset of ~6mV to the negative side" />
+                <value name="TRIM2_NEG_SIDE_7" value="0111" desc="Adds offset of ~7mV to the negative side" />
+                <value name="TRIM2_8" value="1000" desc="Does not add any offset" />
+                <value name="TRIM2_POS_SIDE_1" value="1001" desc="Adds offset of ~1mV to the positive side" />
+                <value name="TRIM2_POS_SIDE_2" value="1010" desc="Adds offset of ~2mV to the positive side" />
+                <value name="TRIM2_POS_SIDE_3" value="1011" desc="Adds offset of ~3mV to the positive side" />
+                <value name="TRIM2_POS_SIDE_4" value="1100" desc="Adds offset of ~4mV to the positive side" />
+                <value name="TRIM2_POS_SIDE_5" value="1101" desc="Adds offset of ~5mV to the positive side" />
+                <value name="TRIM2_POS_SIDE_6" value="1110" desc="Adds offset of ~6mV to the positive side" />
+                <value name="TRIM2_POS_SIDE_7" value="1111" desc="Adds offset of ~7mV to the positive side" />
+            </field>
+            <field name="tr1[3:0]" from="3" to="0" access="RW" 
+            desc="Sets the trim value to be added to the P-type load for offset calibration">
+                <value name="TRIM1_0" value="0000" desc="Does not add any offset" />
+                <value name="TRIM1_POS_SIDE_1" value="0001" desc="Adds offset of ~1mV to the positive side" />
+                <value name="TRIM1_POS_SIDE_2" value="0010" desc="Adds offset of ~2mV to the positive side" />
+                <value name="TRIM1_POS_SIDE_3" value="0011" desc="Adds offset of ~3mV to the positive side" />
+                <value name="TRIM1_POS_SIDE_4" value="0100" desc="Adds offset of ~4mV to the positive side" />
+                <value name="TRIM1_POS_SIDE_5" value="0101" desc="Adds offset of ~5mV to the positive side" />
+                <value name="TRIM1_POS_SIDE_6" value="0110" desc="Adds offset of ~6mV to the positive side" />
+                <value name="TRIM1_POS_SIDE_7" value="0111" desc="Adds offset of ~7mV to the positive side" />
+                <value name="TRIM1_NEG_SIDE_1" value="1000" desc="Adds offset of ~1mV to the negative side" />
+                <value name="TRIM1_NEG_SIDE_2" value="1001" desc="Adds offset of ~2mV to the negative side" />
+                <value name="TRIM1_NEG_SIDE_3" value="1010" desc="Adds offset of ~3mV to the negative side" />
+                <value name="TRIM1_NEG_SIDE_4" value="1011" desc="Adds offset of ~4mV to the negative side" />
+                <value name="TRIM1_NEG_SIDE_5" value="1100" desc="Adds offset of ~5mV to the negative side" />
+                <value name="TRIM1_NEG_SIDE_6" value="1101" desc="Adds offset of ~6mV to the negative side" />
+                <value name="TRIM1_NEG_SIDE_7" value="1110" desc="Adds offset of ~7mV to the negative side" />
+                <value name="TRIM1_NEG_SIDE_8" value="1111" desc="Adds offset of ~8mV to the negative side" />
+            </field>
+        </register> 
+
+        <register name="Comp_WRK"
+            address="`$INSTANCE_NAME`_ctComp__WRK" bitWidth="8" desc="Comparator output working register">
+            <field name="cmp3_out" from="3" to="3" access="R" desc="Comparator Output">
+            </field>
+            <field name="cmp2_out" from="2" to="2" access="R" desc="Comparator Output">
+            </field>
+            <field name="cmp1_out" from="1" to="1" access="R" desc="Comparator Output">
+            </field>
+            <field name="cmp0_out" from="0" to="0" access="R" desc="Comparator Output">
+            </field>
+        </register>
+        <register name="Comp_PM_ACT_CFG"
+            address="`$INSTANCE_NAME`_ctComp__PM_ACT_CFG" bitWidth="8" desc="Active Power Mode Configuration Register 7">
+            <field name="en_cmp" from="3" to="0" access="RW" 
+            desc="Enable comparator(s). Populated subsystems are counted from the LSB, for example bit 0 corresponds to comparator 0">
+            </field>
+        </register>
+        <register name="Comp_PM_STBY_CFG"
+            address="`$INSTANCE_NAME`_ctComp__PM_STBY_CFG" bitWidth="8" desc="Standby Power Mode Configuration Register 7">
+            <field name="en_cmp" from="3" to="0" access="RW" 
+            desc="Enable comparator. Populated subsystems are counted from the LSB, for example bit 0 corresponds to comparator 0">
+            </field>
+        </register>
+    </block>
+
+    <block name="`$INSTANCE_NAME`" desc="" visible="!`$PSOC5A`"> 
+        <register name="Comp_CR"
+            address="`$INSTANCE_NAME`_ctComp__CR" bitWidth="8" desc="Comparator Control Register">
+            <field name="filt" from="6" to="6" access="RW" 
+            desc="enables a glitch filter at the output of the comparator">
+                <value name="FILT_DISABLE" value="0" desc="Disable glitch filter" />
+                <value name="FILT_ENABLE" value="1" desc="Enable glitch filter" />
+            </field>
+            <field name="hyst" from="5" to="5" access="RW" 
+            desc="enables a hysteresis of 10mV typ">
+                <value name="HYST_DISABLE" value="1" desc="Disable hysteresis" />
+                <value name="HYST_ENABLE" value="0" desc="Enable hysteresis" />
+            </field>
+            <field name="cal_en" from="4" to="4" access="RW" 
+            desc="enables shorting of the two comparator inputs for trim calibration purposes">
+                <value name="CAL_EN_DISABLE" value="0" desc="Disable calibration" />
+                <value name="CAL_EN_ENABLE" value="1" desc="Enable calibration" />
+            </field>
+            <field name="mx_ao" from="3" to="3" access="RW" 
+            desc="comparator sleep always-on logic mux control">
+                <value name="MX_AO_BYPASS" value="0" desc="Bypass comparator sleep always-on logic" />
+                <value name="MX_AO_ENABLE" value="1" desc="Enable comparator sleep always-on logic" />
+            </field>
+            <field name="pd_override" from="2" to="2" access="RW" 
+            desc="Power down override to allow comparator to continue operating during sleep">
+                <value name="PD_OVERRIDE_DISABLE" value="0" desc="Don't override power down" />
+                <value name="PD_OVERRIDE_ENABLE" value="1" desc="Override power down" />
+            </field>
+            <field name="sel" from="1" to="0" access="RW" 
+            desc="Selects the mode of operation of the comparator">
+                <value name="SEL_SLOW" value="00" desc="slow mode" />
+                <value name="SEL_FAST" value="01" desc="fast mode" />
+                <value name="SEL_LP" value="10" desc="ultra low power mode" /> 
+                <value name="SEL_ILLEGAL" value="11" desc="Illegal Mode" /> 
+            </field> 
+        </register>
+
+        <register name="Comp_CLK"
+            address="`$INSTANCE_NAME`_ctComp__CLK" bitWidth="8" desc="Comparator Clock Control Register">
+            <field name="bypass_sync" from="4" to="4" access="RW" 
+            desc="Bypass Synchronization">
+                <value name="BYPASS_SYNC_0" value="0" desc="Synchronization not bypassed (Synchronization enabled)" />
+                <value name="BYPASS_SYNC_1" value="1" desc="Synchronization bypassed (Synchronization disabled)" />
+            </field>
+            <field name="clk_en" from="3" to="3" access="RW" 
+            desc="Clock gating control">
+                <value name="CLK_EN_0" value="0" desc="disable clock" />
+                <value name="CLK_EN_1" value="1" desc="enable clock" />
+            </field>
+            <field name="mx_clk" from="2" to="0" access="RW" 
+            desc="Clock Selection">
+                <value name="MX_CLK_0" value="000" desc="Select clk_a0 and clk_a0_dig" />
+                <value name="MX_CLK_1" value="001" desc="Select clk_a1 and clk_a1_dig" />
+                <value name="MX_CLK_2" value="010" desc="Select clk_a2 and clk_a2_dig" />
+                <value name="MX_CLK_3" value="011" desc="Select clk_a3 and clk_a3_dig" />
+                <value name="MX_CLK_4" value="100" desc="Select UDB generated clock" />
+                <value name="MX_CLK_5" value="101" desc="Reserved" />
+                <value name="MX_CLK_6" value="110" desc="Reserved" />
+                <value name="MX_CLK_7" value="111" desc="Reserved" />
+            </field>
+        </register>
+
+        <register name="Comp_SW0"
+            address="`$INSTANCE_NAME`_ctComp__SW0" bitWidth="8" desc="Comparator Analog Routing Register 0">
+            <field name="vp_ag7" from="7" to="7" access="RW" 
+            desc="Connect positive voltage input to analog global of same side ">
+                <value name="AG_NC" value="0" desc="not connected" />
+                <value name="AG_CONNECTED" value="1" desc="Connect to Analog Global" />
+            </field>
+            <field name="vp_ag6" from="6" to="6" access="RW" 
+            desc="Connect positive voltage input to analog global of same side ">
+                <value name="AG_NC" value="0" desc="not connected" />
+                <value name="AG_CONNECTED" value="1" desc="Connect to Analog Global" />
+            </field>
+            <field name="vp_ag5" from="5" to="5" access="RW" 
+            desc="Connect positive voltage input to analog global of same side ">
+                <value name="AG_NC" value="0" desc="not connected" />
+                <value name="AG_CONNECTED" value="1" desc="Connect to Analog Global" />
+            </field>
+            <field name="vp_ag4" from="4" to="4" access="RW" 
+            desc="Connect positive voltage input to analog global of same side ">
+                <value name="AG_NC" value="0" desc="not connected" />
+                <value name="AG_CONNECTED" value="1" desc="Connect to Analog Global" />
+            </field>
+            <field name="vp_ag3" from="3" to="3" access="RW" 
+            desc="Connect positive voltage input to analog global of same side ">
+                <value name="AG_NC" value="0" desc="not connected" />
+                <value name="AG_CONNECTED" value="1" desc="Connect to Analog Global" />
+            </field>
+            <field name="vp_ag2" from="2" to="2" access="RW" 
+            desc="Connect positive voltage input to analog global of same side ">
+                <value name="AG_NC" value="0" desc="not connected" />
+                <value name="AG_CONNECTED" value="1" desc="Connect to Analog Global" />
+            </field>
+            <field name="vp_ag1" from="1" to="1" access="RW" 
+            desc="Connect positive voltage input to analog global of same side ">
+                <value name="AG_NC" value="0" desc="not connected" />
+                <value name="AG_CONNECTED" value="1" desc="Connect to Analog Global" />
+            </field>
+            <field name="vp_ag0" from="0" to="0" access="RW" 
+            desc="Connect positive voltage input to analog global of same side ">
+                <value name="AG_NC" value="0" desc="not connected" />
+                <value name="AG_CONNECTED" value="1" desc="Connect to Analog Global" />
+            </field>
+        </register>
+
+        <register name="Comp_SW2"
+            address="`$INSTANCE_NAME`_ctComp__SW2" bitWidth="8" desc="Comparator Analog Routing Register 2">
+            <field name="vp_abus1" from="1" to="1" access="RW" 
+            desc="Connect positive voltage input to analog (local) bus of the same side">
+                <value name="ABUS_NC" value="0" desc="not connected" />
+                <value name="ABUS_CONNECTED" value="1" desc="Connect to Analog (local) Bus" />
+            </field>
+            <field name="vp_abus0" from="0" to="0" access="RW" 
+            desc="Connect positive voltage input to analog (local) bus of the same side">
+                <value name="ABUS_NC" value="0" desc="not connected" />
+                <value name="ABUS_CONNECTED" value="1" desc="Connect to Analog (local) Bus" />
+            </field>
+        </register>
+
+        <register name="Comp_SW3"
+            address="`$INSTANCE_NAME`_ctComp__SW3" bitWidth="8" desc="Comparator Analog Routing Register 3">
+            <field name="vn_vref1" from="6" to="6" access="RW" 
+            desc="Connect negative voltage input to Voltage Reference 1">
+                <value name="VREF_NC" value="0" desc="not connected" />
+                <value name="VREF_CONNECTED" value="1" desc="Connect to Voltage Reference" />
+            </field>
+            <field name="vn_vref0" from="5" to="5" access="RW" 
+            desc="Connect negative voltage input to Voltage Reference 0">
+                <value name="VREF_NC" value="0" desc="not connected" />
+                <value name="VREF_CONNECTED" value="1" desc="Connect to Voltage Reference" />
+            </field>
+            <field name="vn_amx" from="4" to="4" access="RW" 
+            desc="Connect negative voltage input to Analog Mux Bus">
+                <value name="AMX_NC" value="0" desc="not connected" />
+                <value name="AMX_CONNECTED" value="1" desc="Connect to AMUXBUS" />
+            </field>
+            <field name="vp_refbuf" from="3" to="3" access="RW" 
+            desc="Connect positive voltage input to CapSense reference buffer channel">
+                <value name="VP_REFBUF_ENABLED" value="0" desc="disable" />
+                <value name="VP_REFBUF_DISABLED" value="1" desc="enable" />
+            </field>
+            <field name="vp_amx" from="0" to="0" access="RW" 
+            desc="Connect positive voltage input to Analog Mux Bus">
+                <value name="AMX_NC" value="0" desc="not connected" />
+                <value name="AMX_CONNECTED" value="1" desc="Connect to AMUXBUS" />
+            </field>
+        </register>
+
+        <register name="Comp_SW4"
+            address="`$INSTANCE_NAME`_ctComp__SW4" bitWidth="8" desc="Comparator Analog Routing Register 4">
+            <field name="vn_ag6" from="6" to="6" access="RW" 
+            desc="Connect negative voltage input to analog global of same side">
+                <value name="AG_NC" value="0" desc="not connected" />
+                <value name="AG_CONNECTED" value="1" desc="Connect to Analog Global" />
+            </field>
+            <field name="vn_ag4" from="4" to="4" access="RW" 
+            desc="Connect negative voltage input to analog global of same side">
+                <value name="AG_NC" value="0" desc="not connected" />
+                <value name="AG_CONNECTED" value="1" desc="Connect to Analog Global" />
+            </field>
+            <field name="vn_ag2" from="2" to="2" access="RW" 
+            desc="Connect negative voltage input to analog global of same side">
+                <value name="AG_NC" value="0" desc="not connected" />
+                <value name="AG_CONNECTED" value="1" desc="Connect to Analog Global" />
+            </field>
+            <field name="vn_ag0" from="0" to="0" access="RW" 
+            desc="Connect negative voltage input to analog global of same side">
+                <value name="AG_NC" value="0" desc="not connected" />
+                <value name="AG_CONNECTED" value="1" desc="Connect to Analog Global" />
+            </field>
+        </register>
+
+        <register name="Comp_SW6"
+            address="`$INSTANCE_NAME`_ctComp__SW6" bitWidth="8" desc="Comparator Analog Routing Register 6">
+            <field name="vn_abus3" from="3" to="3" access="RW" 
+            desc="Connect negative voltage input to analog (local) bus of the same side">
+                <value name="ABUS_NC" value="0" desc="not connected" />
+                <value name="ABUS_CONNECTED" value="1" desc="Connect to Analog (local) Bus" />
+            </field>
+            <field name="vn_abus2" from="2" to="2" access="RW" 
+            desc="Connect negative voltage input to analog (local) bus of the same side">
+                <value name="ABUS_NC" value="0" desc="not connected" />
+                <value name="ABUS_CONNECTED" value="1" desc="Connect to Analog (local) Bus" />
+            </field>
+        </register>
+
+    <register name="Comp_TR0"
+            address="`$INSTANCE_NAME`_ctComp__TR0" bitWidth="8" desc="Comparator Trim Register_TR0">
+            <field name="trimA[4:0]" from="4" to="0" access="RW" 
+            desc="Sets the trim value to be added to the P-type load for offset calibration">
+                <value name="TRIMA_0" value="00000" desc="Does not add any offset" />
+                <value name="TRIMA_POS_SIDE_1" value="00001" desc="Adds offset of ~1mV to the positive side" />
+                <value name="TRIMA_POS_SIDE_2" value="00010" desc="Adds offset of ~2mV to the positive side" />
+                <value name="TRIMA_POS_SIDE_3" value="00011" desc="Adds offset of ~3mV to the positive side" />
+                <value name="TRIMA_POS_SIDE_4" value="00100" desc="Adds offset of ~4mV to the positive side" />
+                <value name="TRIMA_POS_SIDE_5" value="00101" desc="Adds offset of ~5mV to the positive side" />
+                <value name="TRIMA_POS_SIDE_6" value="00110" desc="Adds offset of ~6mV to the positive side" />
+                <value name="TRIMA_POS_SIDE_7" value="00111" desc="Adds offset of ~7mV to the positive side" />
+                <value name="TRIMA_POS_SIDE_8" value="01000" desc="Adds offset of ~8mV to the positive side" />
+                <value name="TRIMA_NEG_SIDE_1" value="01010" desc="Adds offset of ~0mV to the negative side" />
+                <value name="TRIMA_NEG_SIDE_2" value="01011" desc="Adds offset of ~1mV to the negative side" />
+                <value name="TRIMA_NEG_SIDE_3" value="01100" desc="Adds offset of ~2mV to the negative side" />
+                <value name="TRIMA_NEG_SIDE_4" value="01101" desc="Adds offset of ~3mV to the negative side" />
+                <value name="TRIMA_NEG_SIDE_5" value="01110" desc="Adds offset of ~4mV to the negative side" />
+                <value name="TRIMA_NEG_SIDE_6" value="01111" desc="Adds offset of ~5mV to the negative side" />
+                <value name="TRIMA_NEG_SIDE_7" value="10000" desc="Adds offset of ~6mV to the negative side" />
+                <value name="TRIMA_NEG_SIDE_8" value="10001" desc="Adds offset of ~7mV to the negative side" />
+                <value name="TRIMA_NEG_SIDE_9" value="10010" desc="Adds offset of ~8mV to the negative side" />
+            </field>
+        </register>
+        <register name="Comp_TR1"
+            address="`$INSTANCE_NAME`_ctComp__TR1" bitWidth="8" desc="Comparator Trim Register_TR1">
+            <field name="trimB[4:0]" from="4" to="0" access="RW" 
+            desc="Sets the trim value to be added to the N-type load for offset calibration">
+                <value name="TRIMB_0" value="00000" desc="Does not add any offset" />
+                <value name="TRIMB_NEG_SIDE_1" value="00001" desc="Adds offset of ~1mV to the negative side" />
+                <value name="TRIMB_NEG_SIDE_2" value="00010" desc="Adds offset of ~2mV to the negative side" />
+                <value name="TRIMB_NEG_SIDE_3" value="00011" desc="Adds offset of ~3mV to the negative side" />
+                <value name="TRIMB_NEG_SIDE_4" value="00100" desc="Adds offset of ~4mV to the negative side" />
+                <value name="TRIMB_NEG_SIDE_5" value="00101" desc="Adds offset of ~5mV to the negative side" />
+                <value name="TRIMB_NEG_SIDE_6" value="00110" desc="Adds offset of ~6mV to the negative side" />
+                <value name="TRIMB_NEG_SIDE_7" value="00111" desc="Adds offset of ~7mV to the negative side" />
+                <value name="TRIMB_NEG_SIDE_8" value="01000" desc="Adds offset of ~8mV to the negative side" />
+                <value name="TRIMB_9" value="01010" desc="Does not add any offset" />
+                <value name="TRIMB_POS_SIDE_1" value="01011" desc="Adds offset of ~1mV to the positive side" />
+                <value name="TRIMB_POS_SIDE_2" value="01100" desc="Adds offset of ~2mV to the positive side" />
+                <value name="TRIMB_POS_SIDE_3" value="01101" desc="Adds offset of ~3mV to the positive side" />
+                <value name="TRIMB_POS_SIDE_4" value="01110" desc="Adds offset of ~4mV to the positive side" />
+                <value name="TRIMB_POS_SIDE_5" value="01111" desc="Adds offset of ~5mV to the positive side" />
+                <value name="TRIMB_POS_SIDE_6" value="10000" desc="Adds offset of ~6mV to the positive side" />
+                <value name="TRIMB_POS_SIDE_7" value="10001" desc="Adds offset of ~7mV to the positive side" />
+                <value name="TRIMB_POS_SIDE_8" value="10010" desc="Adds offset of ~8mV to the positive side" />
+            </field>
+        </register> 
+
+        <register name="Comp_WRK"
+            address="`$INSTANCE_NAME`_ctComp__WRK" bitWidth="8" desc="Comparator output working register">
+            <field name="cmp3_out" from="3" to="3" access="R" desc="Comparator Output">
+            </field>
+            <field name="cmp2_out" from="2" to="2" access="R" desc="Comparator Output">
+            </field>
+            <field name="cmp1_out" from="1" to="1" access="R" desc="Comparator Output">
+            </field>
+            <field name="cmp0_out" from="0" to="0" access="R" desc="Comparator Output">
+            </field>
+        </register>
+
+        <register name="Comp_PM_ACT_CFG"
+            address="`$INSTANCE_NAME`_ctComp__PM_ACT_CFG" bitWidth="8" desc="Active Power Mode Configuration Register 7">
+            <field name="en_cmp" from="3" to="0" access="RW" 
+            desc="Enable comparator. Populated subsystems are counted from the LSB, for example bit 0 corresponds to comparator 0">
+            </field>
+        </register>
+
+        <register name="Comp_PM_STBY_CFG"
+            address="`$INSTANCE_NAME`_ctComp__PM_STBY_CFG" bitWidth="8" desc="Standby Power Mode Configuration Register 7">
+            <field name="en_cmp" from="3" to="0" access="RW" 
+            desc="Enable comparator. Populated subsystems are counted from the LSB, for example bit 0 corresponds to comparator 0">
+            </field>
+        </register>
+    </block>
+    </block>
+</deviceData>

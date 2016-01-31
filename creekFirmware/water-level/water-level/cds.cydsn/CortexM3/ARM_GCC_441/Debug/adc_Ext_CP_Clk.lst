@@ -1,0 +1,2196 @@
+ARM GAS  C:\Users\arh\AppData\Local\Temp\ccWpvzFh.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 18, 4
+  12              		.thumb
+  13              		.file	"adc_Ext_CP_Clk.c"
+  14              		.section	.debug_abbrev,"",%progbits
+  15              	.Ldebug_abbrev0:
+  16              		.section	.debug_info,"",%progbits
+  17              	.Ldebug_info0:
+  18              		.section	.debug_line,"",%progbits
+  19              	.Ldebug_line0:
+  20 0000 5B010000 		.text
+  20      02006600 
+  20      00000201 
+  20      FB0E0D00 
+  20      01010101 
+  21              	.Ltext0:
+  22              		.cfi_sections	.debug_frame
+  23              		.section	.text.adc_Ext_CP_Clk_Start,"ax",%progbits
+  24              		.align	2
+  25              		.global	adc_Ext_CP_Clk_Start
+  26              		.thumb
+  27              		.thumb_func
+  28              		.type	adc_Ext_CP_Clk_Start, %function
+  29              	adc_Ext_CP_Clk_Start:
+  30              	.LFB0:
+  31              		.file 1 ".\\Generated_Source\\PSoC5\\adc_Ext_CP_Clk.c"
+   1:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** /*******************************************************************************
+   2:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** * File Name: adc_Ext_CP_Clk.c
+   3:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** * Version 1.70
+   4:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *
+   5:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *  Description:
+   6:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *   This file provides the source code to the API for the clock component.
+   7:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *
+   8:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *  Note:
+   9:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *
+  10:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** ********************************************************************************
+  11:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** * Copyright 2008-2010, Cypress Semiconductor Corporation.  All rights reserved.
+  12:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** * You may use this file only in accordance with the license, terms, conditions, 
+  13:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** * disclaimers, and limitations in the end user license agreement accompanying 
+  14:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** * the software package with which this file was provided.
+  15:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** ********************************************************************************/
+  16:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** 
+  17:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** #include <cydevice_trm.h>
+  18:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** #include "adc_Ext_CP_Clk.h"
+  19:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** 
+  20:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** /* Clock Distribution registers. */
+  21:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** #define CLK_DIST_LD              (* (reg8 *) CYREG_CLKDIST_LD)
+  22:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** #define CLK_DIST_BCFG2           (* (reg8 *) CYREG_CLKDIST_BCFG2)
+ARM GAS  C:\Users\arh\AppData\Local\Temp\ccWpvzFh.s 			page 2
+
+
+  23:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** #define BCFG2_MASK               (0x80u)
+  24:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** #define CLK_DIST_DMASK           (* (reg8 *) CYREG_CLKDIST_DMASK)
+  25:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** #define CLK_DIST_AMASK           (* (reg8 *) CYREG_CLKDIST_AMASK)
+  26:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** 
+  27:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** #define HAS_CLKDIST_LD_DISABLE   (CY_PSOC3 || CY_PSOC5LP)
+  28:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** 
+  29:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** 
+  30:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** /*******************************************************************************
+  31:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** * Function Name: adc_Ext_CP_Clk_Start
+  32:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** ********************************************************************************
+  33:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** * Summary:
+  34:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *  Starts the clock. Note that on startup, clocks may be already running if the
+  35:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *  "Start on Reset" option is enabled in the DWR.
+  36:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *
+  37:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** * Parameters:
+  38:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *  void
+  39:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *
+  40:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** * Returns:
+  41:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *  void
+  42:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *
+  43:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *******************************************************************************/
+  44:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** void adc_Ext_CP_Clk_Start(void) 
+  45:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** {
+  32              		.loc 1 45 0
+  33              		.cfi_startproc
+  34              		@ args = 0, pretend = 0, frame = 0
+  35              		@ frame_needed = 1, uses_anonymous_args = 0
+  36              		@ link register save eliminated.
+  37 0000 80B4     		push	{r7}
+  38              	.LCFI0:
+  39              		.cfi_def_cfa_offset 4
+  40 0002 00AF     		add	r7, sp, #0
+  41              		.cfi_offset 7, -4
+  42              	.LCFI1:
+  43              		.cfi_def_cfa_register 7
+  46:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****     /* Set the bit to enable the clock. */
+  47:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****     adc_Ext_CP_Clk_CLKEN |= adc_Ext_CP_Clk_CLKEN_MASK;
+  44              		.loc 1 47 0
+  45 0004 44F2A233 		movw	r3, #:lower16:1073759138
+  46 0008 C4F20003 		movt	r3, #:upper16:1073759138
+  47 000c 44F2A232 		movw	r2, #:lower16:1073759138
+  48 0010 C4F20002 		movt	r2, #:upper16:1073759138
+  49 0014 1278     		ldrb	r2, [r2, #0]
+  50 0016 D2B2     		uxtb	r2, r2
+  51 0018 42F00102 		orr	r2, r2, #1
+  52 001c D2B2     		uxtb	r2, r2
+  53 001e 1A70     		strb	r2, [r3, #0]
+  48:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** }
+  54              		.loc 1 48 0
+  55 0020 BD46     		mov	sp, r7
+  56 0022 80BC     		pop	{r7}
+  57 0024 7047     		bx	lr
+  58              		.cfi_endproc
+  59              	.LFE0:
+  60              		.size	adc_Ext_CP_Clk_Start, .-adc_Ext_CP_Clk_Start
+  61 0026 00BF     		.section	.text.adc_Ext_CP_Clk_Stop,"ax",%progbits
+  62              		.align	2
+ARM GAS  C:\Users\arh\AppData\Local\Temp\ccWpvzFh.s 			page 3
+
+
+  63              		.global	adc_Ext_CP_Clk_Stop
+  64              		.thumb
+  65              		.thumb_func
+  66              		.type	adc_Ext_CP_Clk_Stop, %function
+  67              	adc_Ext_CP_Clk_Stop:
+  68              	.LFB1:
+  49:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** 
+  50:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** 
+  51:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** /*******************************************************************************
+  52:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** * Function Name: adc_Ext_CP_Clk_Stop
+  53:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** ********************************************************************************
+  54:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** * Summary:
+  55:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *  Stops the clock and returns immediately. This API does not require the
+  56:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *  source clock to be running but may return before the hardware is actually
+  57:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *  disabled. If the settings of the clock are changed after calling this
+  58:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *  function, the clock may glitch when it is started. To avoid the clock
+  59:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *  glitch, use the StopBlock function.
+  60:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *
+  61:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** * Parameters:
+  62:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *  void
+  63:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *
+  64:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** * Returns:
+  65:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *  void
+  66:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *
+  67:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *******************************************************************************/
+  68:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** void adc_Ext_CP_Clk_Stop(void) 
+  69:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** {
+  69              		.loc 1 69 0
+  70              		.cfi_startproc
+  71              		@ args = 0, pretend = 0, frame = 0
+  72              		@ frame_needed = 1, uses_anonymous_args = 0
+  73              		@ link register save eliminated.
+  74 0000 80B4     		push	{r7}
+  75              	.LCFI2:
+  76              		.cfi_def_cfa_offset 4
+  77 0002 00AF     		add	r7, sp, #0
+  78              		.cfi_offset 7, -4
+  79              	.LCFI3:
+  80              		.cfi_def_cfa_register 7
+  70:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****     /* Clear the bit to disable the clock. */
+  71:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****     adc_Ext_CP_Clk_CLKEN &= ~adc_Ext_CP_Clk_CLKEN_MASK;
+  81              		.loc 1 71 0
+  82 0004 44F2A233 		movw	r3, #:lower16:1073759138
+  83 0008 C4F20003 		movt	r3, #:upper16:1073759138
+  84 000c 44F2A232 		movw	r2, #:lower16:1073759138
+  85 0010 C4F20002 		movt	r2, #:upper16:1073759138
+  86 0014 1278     		ldrb	r2, [r2, #0]
+  87 0016 D2B2     		uxtb	r2, r2
+  88 0018 02F0FE02 		and	r2, r2, #254
+  89 001c 1A70     		strb	r2, [r3, #0]
+  72:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** }
+  90              		.loc 1 72 0
+  91 001e BD46     		mov	sp, r7
+  92 0020 80BC     		pop	{r7}
+  93 0022 7047     		bx	lr
+  94              		.cfi_endproc
+  95              	.LFE1:
+ARM GAS  C:\Users\arh\AppData\Local\Temp\ccWpvzFh.s 			page 4
+
+
+  96              		.size	adc_Ext_CP_Clk_Stop, .-adc_Ext_CP_Clk_Stop
+  97              		.section	.text.adc_Ext_CP_Clk_StandbyPower,"ax",%progbits
+  98              		.align	2
+  99              		.global	adc_Ext_CP_Clk_StandbyPower
+ 100              		.thumb
+ 101              		.thumb_func
+ 102              		.type	adc_Ext_CP_Clk_StandbyPower, %function
+ 103              	adc_Ext_CP_Clk_StandbyPower:
+ 104              	.LFB2:
+  73:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** 
+  74:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** 
+  75:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** #if(CY_PSOC3 || CY_PSOC5LP)
+  76:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** /*******************************************************************************
+  77:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** * Function Name: adc_Ext_CP_Clk_StopBlock
+  78:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** ********************************************************************************
+  79:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** * Summary:
+  80:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *  Stops the clock and waits for the hardware to actually be disabled before
+  81:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *  returning. This ensures that the clock is never truncated (high part of the
+  82:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *  cycle will terminate before the clock is disabled and the API returns).
+  83:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *  Note that the source clock must be running or this API will never return as
+  84:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *  a stopped clock cannot be disabled.
+  85:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *
+  86:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** * Parameters:
+  87:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *  void
+  88:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *
+  89:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** * Returns:
+  90:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *  void
+  91:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *
+  92:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *******************************************************************************/
+  93:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** void adc_Ext_CP_Clk_StopBlock(void) 
+  94:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** {
+  95:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****     if (adc_Ext_CP_Clk_CLKEN & adc_Ext_CP_Clk_CLKEN_MASK)
+  96:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****     {
+  97:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** #if HAS_CLKDIST_LD_DISABLE
+  98:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****         uint16 oldDivider;
+  99:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** 
+ 100:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****         CLK_DIST_LD = 0;
+ 101:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** 
+ 102:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****         /* Clear all the mask bits except ours. */
+ 103:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** #if defined(adc_Ext_CP_Clk__CFG3)
+ 104:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****         CLK_DIST_AMASK = adc_Ext_CP_Clk_CLKEN_MASK;
+ 105:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****         CLK_DIST_DMASK = 0x00u;
+ 106:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** #else
+ 107:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****         CLK_DIST_DMASK = adc_Ext_CP_Clk_CLKEN_MASK;
+ 108:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****         CLK_DIST_AMASK = 0x00u;
+ 109:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** #endif
+ 110:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** 
+ 111:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****         /* Clear mask of bus clock. */
+ 112:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****         CLK_DIST_BCFG2 &= ~BCFG2_MASK;
+ 113:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** 
+ 114:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****         oldDivider = CY_GET_REG16(adc_Ext_CP_Clk_DIV_PTR);
+ 115:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****         CY_SET_REG16(CYREG_CLKDIST_WRK0, oldDivider);
+ 116:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****         CLK_DIST_LD = CYCLK_LD_DISABLE | CYCLK_LD_SYNC_EN | CYCLK_LD_LOAD;
+ 117:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** 
+ 118:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****         /* Wait for clock to be disabled */
+ 119:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****         while (CLK_DIST_LD & CYCLK_LD_LOAD) { }
+ 120:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** #endif
+ARM GAS  C:\Users\arh\AppData\Local\Temp\ccWpvzFh.s 			page 5
+
+
+ 121:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** 
+ 122:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****         /* Clear the bit to disable the clock. */
+ 123:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****         adc_Ext_CP_Clk_CLKEN &= ~adc_Ext_CP_Clk_CLKEN_MASK;
+ 124:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** 
+ 125:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** #if HAS_CLKDIST_LD_DISABLE
+ 126:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****         /* Clear the disable bit */
+ 127:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****         CLK_DIST_LD = 0x00u;
+ 128:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****         CY_SET_REG16(adc_Ext_CP_Clk_DIV_PTR, oldDivider);
+ 129:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** #endif
+ 130:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****     }
+ 131:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** }
+ 132:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** #endif
+ 133:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** 
+ 134:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** /*******************************************************************************
+ 135:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** * Function Name: adc_Ext_CP_Clk_StandbyPower
+ 136:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** ********************************************************************************
+ 137:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** * Summary:
+ 138:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *  Sets whether the clock is active in standby mode.
+ 139:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *
+ 140:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** * Parameters:
+ 141:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *  state:  0 to disable clock during standby, nonzero to enable.
+ 142:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *
+ 143:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** * Returns:
+ 144:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *  void
+ 145:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *
+ 146:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *******************************************************************************/
+ 147:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** void adc_Ext_CP_Clk_StandbyPower(uint8 state) 
+ 148:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** {
+ 105              		.loc 1 148 0
+ 106              		.cfi_startproc
+ 107              		@ args = 0, pretend = 0, frame = 8
+ 108              		@ frame_needed = 1, uses_anonymous_args = 0
+ 109              		@ link register save eliminated.
+ 110 0000 80B4     		push	{r7}
+ 111              	.LCFI4:
+ 112              		.cfi_def_cfa_offset 4
+ 113 0002 83B0     		sub	sp, sp, #12
+ 114              	.LCFI5:
+ 115              		.cfi_def_cfa_offset 16
+ 116 0004 00AF     		add	r7, sp, #0
+ 117              		.cfi_offset 7, -4
+ 118              	.LCFI6:
+ 119              		.cfi_def_cfa_register 7
+ 120 0006 0346     		mov	r3, r0
+ 121 0008 FB71     		strb	r3, [r7, #7]
+ 149:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****     if(state == 0)
+ 122              		.loc 1 149 0
+ 123 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 124 000c 002B     		cmp	r3, #0
+ 125 000e 0DD1     		bne	.L6
+ 150:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****     {
+ 151:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****         adc_Ext_CP_Clk_CLKSTBY &= ~adc_Ext_CP_Clk_CLKSTBY_MASK;
+ 126              		.loc 1 151 0
+ 127 0010 44F2B233 		movw	r3, #:lower16:1073759154
+ 128 0014 C4F20003 		movt	r3, #:upper16:1073759154
+ 129 0018 44F2B232 		movw	r2, #:lower16:1073759154
+ 130 001c C4F20002 		movt	r2, #:upper16:1073759154
+ARM GAS  C:\Users\arh\AppData\Local\Temp\ccWpvzFh.s 			page 6
+
+
+ 131 0020 1278     		ldrb	r2, [r2, #0]
+ 132 0022 D2B2     		uxtb	r2, r2
+ 133 0024 02F0FE02 		and	r2, r2, #254
+ 134 0028 1A70     		strb	r2, [r3, #0]
+ 135 002a 0DE0     		b	.L8
+ 136              	.L6:
+ 152:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****     }
+ 153:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****     else
+ 154:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****     {
+ 155:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****         adc_Ext_CP_Clk_CLKSTBY |= adc_Ext_CP_Clk_CLKSTBY_MASK;
+ 137              		.loc 1 155 0
+ 138 002c 44F2B233 		movw	r3, #:lower16:1073759154
+ 139 0030 C4F20003 		movt	r3, #:upper16:1073759154
+ 140 0034 44F2B232 		movw	r2, #:lower16:1073759154
+ 141 0038 C4F20002 		movt	r2, #:upper16:1073759154
+ 142 003c 1278     		ldrb	r2, [r2, #0]
+ 143 003e D2B2     		uxtb	r2, r2
+ 144 0040 42F00102 		orr	r2, r2, #1
+ 145 0044 D2B2     		uxtb	r2, r2
+ 146 0046 1A70     		strb	r2, [r3, #0]
+ 147              	.L8:
+ 156:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****     }
+ 157:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** }
+ 148              		.loc 1 157 0
+ 149 0048 07F10C07 		add	r7, r7, #12
+ 150 004c BD46     		mov	sp, r7
+ 151 004e 80BC     		pop	{r7}
+ 152 0050 7047     		bx	lr
+ 153              		.cfi_endproc
+ 154              	.LFE2:
+ 155              		.size	adc_Ext_CP_Clk_StandbyPower, .-adc_Ext_CP_Clk_StandbyPower
+ 156 0052 00BF     		.section	.text.adc_Ext_CP_Clk_SetDividerRegister,"ax",%progbits
+ 157              		.align	2
+ 158              		.global	adc_Ext_CP_Clk_SetDividerRegister
+ 159              		.thumb
+ 160              		.thumb_func
+ 161              		.type	adc_Ext_CP_Clk_SetDividerRegister, %function
+ 162              	adc_Ext_CP_Clk_SetDividerRegister:
+ 163              	.LFB3:
+ 158:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** 
+ 159:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** 
+ 160:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** /*******************************************************************************
+ 161:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** * Function Name: adc_Ext_CP_Clk_SetDividerRegister
+ 162:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** ********************************************************************************
+ 163:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** * Summary:
+ 164:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *  Modifies the clock divider and, thus, the frequency. When the clock divider
+ 165:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *  register is set to zero or changed from zero, the clock will be temporarily
+ 166:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *  disabled in order to change the SSS mode bit. If the clock is enabled when
+ 167:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *  SetDividerRegister is called, then the source clock must be running.
+ 168:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *
+ 169:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** * Parameters:
+ 170:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *  clkDivider:  Divider register value (0-65,535). This value is NOT the
+ 171:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *    divider; the clock hardware divides by clkDivider plus one. For example,
+ 172:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *    to divide the clock by 2, this parameter should be set to 1.
+ 173:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *  restart:  If nonzero, restarts the clock divider: the current clock cycle
+ 174:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *   will be truncated and the new divide value will take effect immediately. If
+ 175:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *   zero, the new divide value will take effect at the end of the current clock
+ARM GAS  C:\Users\arh\AppData\Local\Temp\ccWpvzFh.s 			page 7
+
+
+ 176:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *   cycle.
+ 177:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *
+ 178:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** * Returns:
+ 179:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *  void
+ 180:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *
+ 181:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *******************************************************************************/
+ 182:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** void adc_Ext_CP_Clk_SetDividerRegister(uint16 clkDivider, uint8 restart) 
+ 183:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** {
+ 164              		.loc 1 183 0
+ 165              		.cfi_startproc
+ 166              		@ args = 0, pretend = 0, frame = 16
+ 167              		@ frame_needed = 1, uses_anonymous_args = 0
+ 168 0000 80B5     		push	{r7, lr}
+ 169              	.LCFI7:
+ 170              		.cfi_def_cfa_offset 8
+ 171 0002 84B0     		sub	sp, sp, #16
+ 172              	.LCFI8:
+ 173              		.cfi_def_cfa_offset 24
+ 174 0004 00AF     		add	r7, sp, #0
+ 175              		.cfi_offset 14, -4
+ 176              		.cfi_offset 7, -8
+ 177              	.LCFI9:
+ 178              		.cfi_def_cfa_register 7
+ 179 0006 0246     		mov	r2, r0
+ 180 0008 0B46     		mov	r3, r1
+ 181 000a FA80     		strh	r2, [r7, #6]	@ movhi
+ 182 000c 7B71     		strb	r3, [r7, #5]
+ 184:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****     uint8 enabled;
+ 185:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** 
+ 186:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****     uint8 currSrc = adc_Ext_CP_Clk_GetSourceRegister();
+ 183              		.loc 1 186 0
+ 184 000e FFF7FEFF 		bl	adc_Ext_CP_Clk_GetSourceRegister
+ 185 0012 0346     		mov	r3, r0
+ 186 0014 7B73     		strb	r3, [r7, #13]
+ 187:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****     uint16 oldDivider = adc_Ext_CP_Clk_GetDividerRegister();
+ 187              		.loc 1 187 0
+ 188 0016 FFF7FEFF 		bl	adc_Ext_CP_Clk_GetDividerRegister
+ 189 001a 0346     		mov	r3, r0
+ 190 001c FB81     		strh	r3, [r7, #14]	@ movhi
+ 188:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** 
+ 189:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****     if (clkDivider != oldDivider)
+ 191              		.loc 1 189 0
+ 192 001e FA88     		ldrh	r2, [r7, #6]
+ 193 0020 FB89     		ldrh	r3, [r7, #14]
+ 194 0022 9A42     		cmp	r2, r3
+ 195 0024 00F0B380 		beq	.L21
+ 190:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****     {
+ 191:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****         enabled = adc_Ext_CP_Clk_CLKEN & adc_Ext_CP_Clk_CLKEN_MASK;
+ 196              		.loc 1 191 0
+ 197 0028 44F2A233 		movw	r3, #:lower16:1073759138
+ 198 002c C4F20003 		movt	r3, #:upper16:1073759138
+ 199 0030 1B78     		ldrb	r3, [r3, #0]
+ 200 0032 DBB2     		uxtb	r3, r3
+ 201 0034 03F00103 		and	r3, r3, #1
+ 202 0038 3B73     		strb	r3, [r7, #12]
+ 192:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** 
+ 193:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****         if (currSrc == CYCLK_SRC_SEL_CLK_SYNC_D && (oldDivider == 0 || clkDivider == 0))
+ARM GAS  C:\Users\arh\AppData\Local\Temp\ccWpvzFh.s 			page 8
+
+
+ 203              		.loc 1 193 0
+ 204 003a 7B7B     		ldrb	r3, [r7, #13]	@ zero_extendqisi2
+ 205 003c 002B     		cmp	r3, #0
+ 206 003e 35D1     		bne	.L11
+ 207 0040 FB89     		ldrh	r3, [r7, #14]
+ 208 0042 002B     		cmp	r3, #0
+ 209 0044 02D0     		beq	.L12
+ 210 0046 FB88     		ldrh	r3, [r7, #6]
+ 211 0048 002B     		cmp	r3, #0
+ 212 004a 2FD1     		bne	.L11
+ 213              	.L12:
+ 194:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****         {
+ 195:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****             /* Moving to/from SSS requires correct ordering to prevent halting the clock    */
+ 196:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****             if (oldDivider == 0 && clkDivider != 0)
+ 214              		.loc 1 196 0
+ 215 004c FB89     		ldrh	r3, [r7, #14]
+ 216 004e 002B     		cmp	r3, #0
+ 217 0050 17D1     		bne	.L13
+ 218 0052 FB88     		ldrh	r3, [r7, #6]
+ 219 0054 002B     		cmp	r3, #0
+ 220 0056 14D0     		beq	.L13
+ 197:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****             {
+ 198:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****                 /* Moving away from SSS, set the divider first so when SSS is cleared we    */
+ 199:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****                 /* don't halt the clock.  Using the shadow load isn't required as the       */
+ 200:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****                 /* divider is ignored while SSS is set.                                     */
+ 201:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****                 CY_SET_REG16(adc_Ext_CP_Clk_DIV_PTR, clkDivider);
+ 221              		.loc 1 201 0
+ 222 0058 44F28003 		movw	r3, #:lower16:1073758336
+ 223 005c C4F20003 		movt	r3, #:upper16:1073758336
+ 224 0060 FA88     		ldrh	r2, [r7, #6]	@ movhi
+ 225 0062 1A80     		strh	r2, [r3, #0]	@ movhi
+ 202:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****                 adc_Ext_CP_Clk_MOD_SRC &= ~CYCLK_SSS;
+ 226              		.loc 1 202 0
+ 227 0064 44F28203 		movw	r3, #:lower16:1073758338
+ 228 0068 C4F20003 		movt	r3, #:upper16:1073758338
+ 229 006c 44F28202 		movw	r2, #:lower16:1073758338
+ 230 0070 C4F20002 		movt	r2, #:upper16:1073758338
+ 231 0074 1278     		ldrb	r2, [r2, #0]
+ 232 0076 D2B2     		uxtb	r2, r2
+ 233 0078 02F0BF02 		and	r2, r2, #191
+ 234 007c 1A70     		strb	r2, [r3, #0]
+ 235              		.loc 1 196 0
+ 236 007e 00BF     		nop
+ 237              		.loc 1 193 0
+ 238 0080 85E0     		b	.L21
+ 239              	.L13:
+ 203:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****             }
+ 204:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****             else
+ 205:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****             {
+ 206:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****                 /* Moving to SSS, set SSS which then ignores the divider and we can set     */
+ 207:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****                 /* it without bothering with the shadow load.                               */
+ 208:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****                 adc_Ext_CP_Clk_MOD_SRC |= CYCLK_SSS;
+ 240              		.loc 1 208 0
+ 241 0082 44F28203 		movw	r3, #:lower16:1073758338
+ 242 0086 C4F20003 		movt	r3, #:upper16:1073758338
+ 243 008a 44F28202 		movw	r2, #:lower16:1073758338
+ 244 008e C4F20002 		movt	r2, #:upper16:1073758338
+ARM GAS  C:\Users\arh\AppData\Local\Temp\ccWpvzFh.s 			page 9
+
+
+ 245 0092 1278     		ldrb	r2, [r2, #0]
+ 246 0094 D2B2     		uxtb	r2, r2
+ 247 0096 42F04002 		orr	r2, r2, #64
+ 248 009a D2B2     		uxtb	r2, r2
+ 249 009c 1A70     		strb	r2, [r3, #0]
+ 209:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****                 CY_SET_REG16(adc_Ext_CP_Clk_DIV_PTR, clkDivider);
+ 250              		.loc 1 209 0
+ 251 009e 44F28003 		movw	r3, #:lower16:1073758336
+ 252 00a2 C4F20003 		movt	r3, #:upper16:1073758336
+ 253 00a6 FA88     		ldrh	r2, [r7, #6]	@ movhi
+ 254 00a8 1A80     		strh	r2, [r3, #0]	@ movhi
+ 255              		.loc 1 193 0
+ 256 00aa 70E0     		b	.L21
+ 257              	.L11:
+ 210:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****             }
+ 211:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****         }
+ 212:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****         else
+ 213:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****         {
+ 214:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****             if (enabled)
+ 258              		.loc 1 214 0
+ 259 00ac 3B7B     		ldrb	r3, [r7, #12]	@ zero_extendqisi2
+ 260 00ae 002B     		cmp	r3, #0
+ 261 00b0 2ED0     		beq	.L15
+ 215:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****             {
+ 216:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****                 CLK_DIST_LD = 0x00u;
+ 262              		.loc 1 216 0
+ 263 00b2 44F20103 		movw	r3, #:lower16:1073758209
+ 264 00b6 C4F20003 		movt	r3, #:upper16:1073758209
+ 265 00ba 4FF00002 		mov	r2, #0
+ 266 00be 1A70     		strb	r2, [r3, #0]
+ 217:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** 
+ 218:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****                 /* Clear all the mask bits except ours. */
+ 219:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** #if defined(adc_Ext_CP_Clk__CFG3)
+ 220:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****                 CLK_DIST_AMASK = adc_Ext_CP_Clk_CLKEN_MASK;
+ 221:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****                 CLK_DIST_DMASK = 0x00u;
+ 222:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** #else
+ 223:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****                 CLK_DIST_DMASK = adc_Ext_CP_Clk_CLKEN_MASK;
+ 267              		.loc 1 223 0
+ 268 00c0 44F21003 		movw	r3, #:lower16:1073758224
+ 269 00c4 C4F20003 		movt	r3, #:upper16:1073758224
+ 270 00c8 4FF00102 		mov	r2, #1
+ 271 00cc 1A70     		strb	r2, [r3, #0]
+ 224:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****                 CLK_DIST_AMASK = 0x00u;
+ 272              		.loc 1 224 0
+ 273 00ce 44F21403 		movw	r3, #:lower16:1073758228
+ 274 00d2 C4F20003 		movt	r3, #:upper16:1073758228
+ 275 00d6 4FF00002 		mov	r2, #0
+ 276 00da 1A70     		strb	r2, [r3, #0]
+ 225:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** #endif
+ 226:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****                 /* Clear mask of bus clock. */
+ 227:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****                 CLK_DIST_BCFG2 &= ~BCFG2_MASK;
+ 277              		.loc 1 227 0
+ 278 00dc 44F20803 		movw	r3, #:lower16:1073758216
+ 279 00e0 C4F20003 		movt	r3, #:upper16:1073758216
+ 280 00e4 44F20802 		movw	r2, #:lower16:1073758216
+ 281 00e8 C4F20002 		movt	r2, #:upper16:1073758216
+ 282 00ec 1278     		ldrb	r2, [r2, #0]
+ARM GAS  C:\Users\arh\AppData\Local\Temp\ccWpvzFh.s 			page 10
+
+
+ 283 00ee D2B2     		uxtb	r2, r2
+ 284 00f0 02F07F02 		and	r2, r2, #127
+ 285 00f4 1A70     		strb	r2, [r3, #0]
+ 228:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** 
+ 229:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** #if HAS_CLKDIST_LD_DISABLE
+ 230:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****                 CY_SET_REG16(CYREG_CLKDIST_WRK0, oldDivider);
+ 231:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****                 CLK_DIST_LD = CYCLK_LD_DISABLE|CYCLK_LD_SYNC_EN|CYCLK_LD_LOAD;
+ 232:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** 
+ 233:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****                 /* Wait for clock to be disabled */
+ 234:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****                 while (CLK_DIST_LD & CYCLK_LD_LOAD) { }
+ 235:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** #endif
+ 236:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** 
+ 237:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****                 adc_Ext_CP_Clk_CLKEN &= ~adc_Ext_CP_Clk_CLKEN_MASK;
+ 286              		.loc 1 237 0
+ 287 00f6 44F2A233 		movw	r3, #:lower16:1073759138
+ 288 00fa C4F20003 		movt	r3, #:upper16:1073759138
+ 289 00fe 44F2A232 		movw	r2, #:lower16:1073759138
+ 290 0102 C4F20002 		movt	r2, #:upper16:1073759138
+ 291 0106 1278     		ldrb	r2, [r2, #0]
+ 292 0108 D2B2     		uxtb	r2, r2
+ 293 010a 02F0FE02 		and	r2, r2, #254
+ 294 010e 1A70     		strb	r2, [r3, #0]
+ 295              	.L15:
+ 238:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** 
+ 239:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** #if HAS_CLKDIST_LD_DISABLE
+ 240:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****                 /* Clear the disable bit */
+ 241:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****                 CLK_DIST_LD = 0x00u;
+ 242:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** #endif
+ 243:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****             }
+ 244:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** 
+ 245:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****             /* Load divide value. */
+ 246:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****             if (adc_Ext_CP_Clk_CLKEN & adc_Ext_CP_Clk_CLKEN_MASK)
+ 296              		.loc 1 246 0
+ 297 0110 44F2A233 		movw	r3, #:lower16:1073759138
+ 298 0114 C4F20003 		movt	r3, #:upper16:1073759138
+ 299 0118 1B78     		ldrb	r3, [r3, #0]
+ 300 011a DBB2     		uxtb	r3, r3
+ 301 011c 03F00103 		and	r3, r3, #1
+ 302 0120 DBB2     		uxtb	r3, r3
+ 303 0122 002B     		cmp	r3, #0
+ 304 0124 1ED0     		beq	.L16
+ 247:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****             {
+ 248:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****                 /* If the clock is still enabled, use the shadow registers */
+ 249:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****                 CY_SET_REG16(CYREG_CLKDIST_WRK0, clkDivider);
+ 305              		.loc 1 249 0
+ 306 0126 44F20203 		movw	r3, #:lower16:1073758210
+ 307 012a C4F20003 		movt	r3, #:upper16:1073758210
+ 308 012e FA88     		ldrh	r2, [r7, #6]	@ movhi
+ 309 0130 1A80     		strh	r2, [r3, #0]	@ movhi
+ 250:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** 
+ 251:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****                 CLK_DIST_LD = (CYCLK_LD_LOAD | (restart ? CYCLK_LD_SYNC_EN : 0x00u));
+ 310              		.loc 1 251 0
+ 311 0132 44F20103 		movw	r3, #:lower16:1073758209
+ 312 0136 C4F20003 		movt	r3, #:upper16:1073758209
+ 313 013a 7A79     		ldrb	r2, [r7, #5]	@ zero_extendqisi2
+ 314 013c 002A     		cmp	r2, #0
+ 315 013e 02D0     		beq	.L17
+ARM GAS  C:\Users\arh\AppData\Local\Temp\ccWpvzFh.s 			page 11
+
+
+ 316 0140 4FF00302 		mov	r2, #3
+ 317 0144 01E0     		b	.L18
+ 318              	.L17:
+ 319 0146 4FF00102 		mov	r2, #1
+ 320              	.L18:
+ 321 014a 1A70     		strb	r2, [r3, #0]
+ 322              	.L19:
+ 252:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****                 while (CLK_DIST_LD & CYCLK_LD_LOAD) { }
+ 323              		.loc 1 252 0
+ 324 014c 44F20103 		movw	r3, #:lower16:1073758209
+ 325 0150 C4F20003 		movt	r3, #:upper16:1073758209
+ 326 0154 1B78     		ldrb	r3, [r3, #0]
+ 327 0156 DBB2     		uxtb	r3, r3
+ 328 0158 03F00103 		and	r3, r3, #1
+ 329 015c DBB2     		uxtb	r3, r3
+ 330 015e 002B     		cmp	r3, #0
+ 331 0160 F4D1     		bne	.L19
+ 332 0162 05E0     		b	.L20
+ 333              	.L16:
+ 253:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****             }
+ 254:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****             else
+ 255:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****             {
+ 256:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****                 /* If the clock is disabled, set the divider directly */
+ 257:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****                 CY_SET_REG16(adc_Ext_CP_Clk_DIV_PTR, clkDivider);
+ 334              		.loc 1 257 0
+ 335 0164 44F28003 		movw	r3, #:lower16:1073758336
+ 336 0168 C4F20003 		movt	r3, #:upper16:1073758336
+ 337 016c FA88     		ldrh	r2, [r7, #6]	@ movhi
+ 338 016e 1A80     		strh	r2, [r3, #0]	@ movhi
+ 339              	.L20:
+ 258:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****             }
+ 259:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** 
+ 260:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****             adc_Ext_CP_Clk_CLKEN |= enabled;
+ 340              		.loc 1 260 0
+ 341 0170 44F2A233 		movw	r3, #:lower16:1073759138
+ 342 0174 C4F20003 		movt	r3, #:upper16:1073759138
+ 343 0178 44F2A232 		movw	r2, #:lower16:1073759138
+ 344 017c C4F20002 		movt	r2, #:upper16:1073759138
+ 345 0180 1278     		ldrb	r2, [r2, #0]
+ 346 0182 D1B2     		uxtb	r1, r2
+ 347 0184 3A7B     		ldrb	r2, [r7, #12]
+ 348 0186 41EA0202 		orr	r2, r1, r2
+ 349 018a D2B2     		uxtb	r2, r2
+ 350 018c 1A70     		strb	r2, [r3, #0]
+ 351              	.L21:
+ 261:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****         }
+ 262:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****     }
+ 263:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** }
+ 352              		.loc 1 263 0
+ 353 018e 07F11007 		add	r7, r7, #16
+ 354 0192 BD46     		mov	sp, r7
+ 355 0194 80BD     		pop	{r7, pc}
+ 356              		.cfi_endproc
+ 357              	.LFE3:
+ 358              		.size	adc_Ext_CP_Clk_SetDividerRegister, .-adc_Ext_CP_Clk_SetDividerRegister
+ 359 0196 00BF     		.section	.text.adc_Ext_CP_Clk_GetDividerRegister,"ax",%progbits
+ 360              		.align	2
+ARM GAS  C:\Users\arh\AppData\Local\Temp\ccWpvzFh.s 			page 12
+
+
+ 361              		.global	adc_Ext_CP_Clk_GetDividerRegister
+ 362              		.thumb
+ 363              		.thumb_func
+ 364              		.type	adc_Ext_CP_Clk_GetDividerRegister, %function
+ 365              	adc_Ext_CP_Clk_GetDividerRegister:
+ 366              	.LFB4:
+ 264:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** 
+ 265:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** 
+ 266:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** /*******************************************************************************
+ 267:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** * Function Name: adc_Ext_CP_Clk_GetDividerRegister
+ 268:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** ********************************************************************************
+ 269:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** * Summary:
+ 270:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *  Gets the clock divider register value.
+ 271:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *
+ 272:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** * Parameters:
+ 273:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *  void
+ 274:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *
+ 275:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** * Returns:
+ 276:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *  Divide value of the clock minus 1. For example, if the clock is set to
+ 277:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *  divide by 2, the return value will be 1.
+ 278:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *
+ 279:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *******************************************************************************/
+ 280:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** uint16 adc_Ext_CP_Clk_GetDividerRegister(void) 
+ 281:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** {
+ 367              		.loc 1 281 0
+ 368              		.cfi_startproc
+ 369              		@ args = 0, pretend = 0, frame = 0
+ 370              		@ frame_needed = 1, uses_anonymous_args = 0
+ 371              		@ link register save eliminated.
+ 372 0000 80B4     		push	{r7}
+ 373              	.LCFI10:
+ 374              		.cfi_def_cfa_offset 4
+ 375 0002 00AF     		add	r7, sp, #0
+ 376              		.cfi_offset 7, -4
+ 377              	.LCFI11:
+ 378              		.cfi_def_cfa_register 7
+ 282:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****     return CY_GET_REG16(adc_Ext_CP_Clk_DIV_PTR);
+ 379              		.loc 1 282 0
+ 380 0004 44F28003 		movw	r3, #:lower16:1073758336
+ 381 0008 C4F20003 		movt	r3, #:upper16:1073758336
+ 382 000c 1B88     		ldrh	r3, [r3, #0]	@ movhi
+ 383 000e 9BB2     		uxth	r3, r3
+ 283:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** }
+ 384              		.loc 1 283 0
+ 385 0010 1846     		mov	r0, r3
+ 386 0012 BD46     		mov	sp, r7
+ 387 0014 80BC     		pop	{r7}
+ 388 0016 7047     		bx	lr
+ 389              		.cfi_endproc
+ 390              	.LFE4:
+ 391              		.size	adc_Ext_CP_Clk_GetDividerRegister, .-adc_Ext_CP_Clk_GetDividerRegister
+ 392              		.section	.text.adc_Ext_CP_Clk_SetModeRegister,"ax",%progbits
+ 393              		.align	2
+ 394              		.global	adc_Ext_CP_Clk_SetModeRegister
+ 395              		.thumb
+ 396              		.thumb_func
+ 397              		.type	adc_Ext_CP_Clk_SetModeRegister, %function
+ARM GAS  C:\Users\arh\AppData\Local\Temp\ccWpvzFh.s 			page 13
+
+
+ 398              	adc_Ext_CP_Clk_SetModeRegister:
+ 399              	.LFB5:
+ 284:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** 
+ 285:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** 
+ 286:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** /*******************************************************************************
+ 287:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** * Function Name: adc_Ext_CP_Clk_SetModeRegister
+ 288:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** ********************************************************************************
+ 289:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** * Summary:
+ 290:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *  Sets flags that control the operating mode of the clock. This function only
+ 291:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *  changes flags from 0 to 1; flags that are already 1 will remain unchanged.
+ 292:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *  To clear flags, use the ClearModeRegister function. The clock must be
+ 293:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *  disabled before changing the mode.
+ 294:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *
+ 295:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** * Parameters:
+ 296:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *  clkMode: Bit mask containing the bits to set. For PSoC 3 and PSoC 5,
+ 297:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *   clkMode should be a set of the following optional bits or'ed together.
+ 298:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *   - CYCLK_EARLY Enable early phase mode. Rising edge of output clock will
+ 299:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *                 occur when the divider count reaches half of the divide
+ 300:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *                 value.
+ 301:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *   - CYCLK_DUTY  Enable 50% duty cycle output. When enabled, the output clock
+ 302:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *                 is asserted for approximately half of its period. When
+ 303:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *                 disabled, the output clock is asserted for one period of the
+ 304:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *                 source clock.
+ 305:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *   - CYCLK_SYNC  Enable output synchronization to master clock. This should
+ 306:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *                 be enabled for all synchronous clocks.
+ 307:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *   See the Technical Reference Manual for details about setting the mode of
+ 308:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *   the clock. Specifically, see the CLKDIST.DCFG.CFG2 register.
+ 309:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *
+ 310:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** * Returns:
+ 311:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *  void
+ 312:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *
+ 313:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *******************************************************************************/
+ 314:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** void adc_Ext_CP_Clk_SetModeRegister(uint8 clkMode) 
+ 315:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** {
+ 400              		.loc 1 315 0
+ 401              		.cfi_startproc
+ 402              		@ args = 0, pretend = 0, frame = 8
+ 403              		@ frame_needed = 1, uses_anonymous_args = 0
+ 404              		@ link register save eliminated.
+ 405 0000 80B4     		push	{r7}
+ 406              	.LCFI12:
+ 407              		.cfi_def_cfa_offset 4
+ 408 0002 83B0     		sub	sp, sp, #12
+ 409              	.LCFI13:
+ 410              		.cfi_def_cfa_offset 16
+ 411 0004 00AF     		add	r7, sp, #0
+ 412              		.cfi_offset 7, -4
+ 413              	.LCFI14:
+ 414              		.cfi_def_cfa_register 7
+ 415 0006 0346     		mov	r3, r0
+ 416 0008 FB71     		strb	r3, [r7, #7]
+ 316:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****     adc_Ext_CP_Clk_MOD_SRC |= clkMode & adc_Ext_CP_Clk_MODE_MASK;
+ 417              		.loc 1 316 0
+ 418 000a 44F28203 		movw	r3, #:lower16:1073758338
+ 419 000e C4F20003 		movt	r3, #:upper16:1073758338
+ 420 0012 44F28202 		movw	r2, #:lower16:1073758338
+ 421 0016 C4F20002 		movt	r2, #:upper16:1073758338
+ARM GAS  C:\Users\arh\AppData\Local\Temp\ccWpvzFh.s 			page 14
+
+
+ 422 001a 1278     		ldrb	r2, [r2, #0]
+ 423 001c D1B2     		uxtb	r1, r2
+ 424 001e FA79     		ldrb	r2, [r7, #7]	@ zero_extendqisi2
+ 425 0020 02F0F802 		and	r2, r2, #248
+ 426 0024 41EA0202 		orr	r2, r1, r2
+ 427 0028 D2B2     		uxtb	r2, r2
+ 428 002a 1A70     		strb	r2, [r3, #0]
+ 317:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** }
+ 429              		.loc 1 317 0
+ 430 002c 07F10C07 		add	r7, r7, #12
+ 431 0030 BD46     		mov	sp, r7
+ 432 0032 80BC     		pop	{r7}
+ 433 0034 7047     		bx	lr
+ 434              		.cfi_endproc
+ 435              	.LFE5:
+ 436              		.size	adc_Ext_CP_Clk_SetModeRegister, .-adc_Ext_CP_Clk_SetModeRegister
+ 437 0036 00BF     		.section	.text.adc_Ext_CP_Clk_ClearModeRegister,"ax",%progbits
+ 438              		.align	2
+ 439              		.global	adc_Ext_CP_Clk_ClearModeRegister
+ 440              		.thumb
+ 441              		.thumb_func
+ 442              		.type	adc_Ext_CP_Clk_ClearModeRegister, %function
+ 443              	adc_Ext_CP_Clk_ClearModeRegister:
+ 444              	.LFB6:
+ 318:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** 
+ 319:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** 
+ 320:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** /*******************************************************************************
+ 321:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** * Function Name: adc_Ext_CP_Clk_ClearModeRegister
+ 322:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** ********************************************************************************
+ 323:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** * Summary:
+ 324:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *  Clears flags that control the operating mode of the clock. This function
+ 325:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *  only changes flags from 1 to 0; flags that are already 0 will remain
+ 326:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *  unchanged. To set flags, use the SetModeRegister function. The clock must be
+ 327:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *  disabled before changing the mode.
+ 328:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *
+ 329:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** * Parameters:
+ 330:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *  clkMode: Bit mask containing the bits to clear. For PSoC 3 and PSoC 5,
+ 331:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *   clkMode should be a set of the following optional bits or'ed together.
+ 332:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *   - CYCLK_EARLY Enable early phase mode. Rising edge of output clock will
+ 333:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *                 occur when the divider count reaches half of the divide
+ 334:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *                 value.
+ 335:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *   - CYCLK_DUTY  Enable 50% duty cycle output. When enabled, the output clock
+ 336:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *                 is asserted for approximately half of its period. When
+ 337:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *                 disabled, the output clock is asserted for one period of the
+ 338:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *                 source clock.
+ 339:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *   - CYCLK_SYNC  Enable output synchronization to master clock. This should
+ 340:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *                 be enabled for all synchronous clocks.
+ 341:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *   See the Technical Reference Manual for details about setting the mode of
+ 342:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *   the clock. Specifically, see the CLKDIST.DCFG.CFG2 register.
+ 343:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *
+ 344:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** * Returns:
+ 345:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *  void
+ 346:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *
+ 347:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *******************************************************************************/
+ 348:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** void adc_Ext_CP_Clk_ClearModeRegister(uint8 clkMode) 
+ 349:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** {
+ 445              		.loc 1 349 0
+ARM GAS  C:\Users\arh\AppData\Local\Temp\ccWpvzFh.s 			page 15
+
+
+ 446              		.cfi_startproc
+ 447              		@ args = 0, pretend = 0, frame = 8
+ 448              		@ frame_needed = 1, uses_anonymous_args = 0
+ 449              		@ link register save eliminated.
+ 450 0000 80B4     		push	{r7}
+ 451              	.LCFI15:
+ 452              		.cfi_def_cfa_offset 4
+ 453 0002 83B0     		sub	sp, sp, #12
+ 454              	.LCFI16:
+ 455              		.cfi_def_cfa_offset 16
+ 456 0004 00AF     		add	r7, sp, #0
+ 457              		.cfi_offset 7, -4
+ 458              	.LCFI17:
+ 459              		.cfi_def_cfa_register 7
+ 460 0006 0346     		mov	r3, r0
+ 461 0008 FB71     		strb	r3, [r7, #7]
+ 350:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****     adc_Ext_CP_Clk_MOD_SRC &= ~clkMode | ~adc_Ext_CP_Clk_MODE_MASK;
+ 462              		.loc 1 350 0
+ 463 000a 44F28203 		movw	r3, #:lower16:1073758338
+ 464 000e C4F20003 		movt	r3, #:upper16:1073758338
+ 465 0012 44F28202 		movw	r2, #:lower16:1073758338
+ 466 0016 C4F20002 		movt	r2, #:upper16:1073758338
+ 467 001a 1278     		ldrb	r2, [r2, #0]
+ 468 001c D1B2     		uxtb	r1, r2
+ 469 001e FA79     		ldrb	r2, [r7, #7]
+ 470 0020 6FEA0202 		mvn	r2, r2
+ 471 0024 D2B2     		uxtb	r2, r2
+ 472 0026 42F00702 		orr	r2, r2, #7
+ 473 002a D2B2     		uxtb	r2, r2
+ 474 002c 01EA0202 		and	r2, r1, r2
+ 475 0030 D2B2     		uxtb	r2, r2
+ 476 0032 1A70     		strb	r2, [r3, #0]
+ 351:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** }
+ 477              		.loc 1 351 0
+ 478 0034 07F10C07 		add	r7, r7, #12
+ 479 0038 BD46     		mov	sp, r7
+ 480 003a 80BC     		pop	{r7}
+ 481 003c 7047     		bx	lr
+ 482              		.cfi_endproc
+ 483              	.LFE6:
+ 484              		.size	adc_Ext_CP_Clk_ClearModeRegister, .-adc_Ext_CP_Clk_ClearModeRegister
+ 485 003e 00BF     		.section	.text.adc_Ext_CP_Clk_GetModeRegister,"ax",%progbits
+ 486              		.align	2
+ 487              		.global	adc_Ext_CP_Clk_GetModeRegister
+ 488              		.thumb
+ 489              		.thumb_func
+ 490              		.type	adc_Ext_CP_Clk_GetModeRegister, %function
+ 491              	adc_Ext_CP_Clk_GetModeRegister:
+ 492              	.LFB7:
+ 352:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** 
+ 353:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** 
+ 354:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** /*******************************************************************************
+ 355:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** * Function Name: adc_Ext_CP_Clk_GetModeRegister
+ 356:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** ********************************************************************************
+ 357:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** * Summary:
+ 358:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *  Gets the clock mode register value.
+ 359:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *
+ARM GAS  C:\Users\arh\AppData\Local\Temp\ccWpvzFh.s 			page 16
+
+
+ 360:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** * Parameters:
+ 361:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *  void
+ 362:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *
+ 363:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** * Returns:
+ 364:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *  Bit mask representing the enabled mode bits. See the SetModeRegister and
+ 365:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *  ClearModeRegister descriptions for details about the mode bits.
+ 366:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *
+ 367:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *******************************************************************************/
+ 368:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** uint8 adc_Ext_CP_Clk_GetModeRegister(void) 
+ 369:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** {
+ 493              		.loc 1 369 0
+ 494              		.cfi_startproc
+ 495              		@ args = 0, pretend = 0, frame = 0
+ 496              		@ frame_needed = 1, uses_anonymous_args = 0
+ 497              		@ link register save eliminated.
+ 498 0000 80B4     		push	{r7}
+ 499              	.LCFI18:
+ 500              		.cfi_def_cfa_offset 4
+ 501 0002 00AF     		add	r7, sp, #0
+ 502              		.cfi_offset 7, -4
+ 503              	.LCFI19:
+ 504              		.cfi_def_cfa_register 7
+ 370:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****     return adc_Ext_CP_Clk_MOD_SRC & adc_Ext_CP_Clk_MODE_MASK;
+ 505              		.loc 1 370 0
+ 506 0004 44F28203 		movw	r3, #:lower16:1073758338
+ 507 0008 C4F20003 		movt	r3, #:upper16:1073758338
+ 508 000c 1B78     		ldrb	r3, [r3, #0]
+ 509 000e DBB2     		uxtb	r3, r3
+ 510 0010 03F0F803 		and	r3, r3, #248
+ 371:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** }
+ 511              		.loc 1 371 0
+ 512 0014 1846     		mov	r0, r3
+ 513 0016 BD46     		mov	sp, r7
+ 514 0018 80BC     		pop	{r7}
+ 515 001a 7047     		bx	lr
+ 516              		.cfi_endproc
+ 517              	.LFE7:
+ 518              		.size	adc_Ext_CP_Clk_GetModeRegister, .-adc_Ext_CP_Clk_GetModeRegister
+ 519              		.section	.text.adc_Ext_CP_Clk_SetSourceRegister,"ax",%progbits
+ 520              		.align	2
+ 521              		.global	adc_Ext_CP_Clk_SetSourceRegister
+ 522              		.thumb
+ 523              		.thumb_func
+ 524              		.type	adc_Ext_CP_Clk_SetSourceRegister, %function
+ 525              	adc_Ext_CP_Clk_SetSourceRegister:
+ 526              	.LFB8:
+ 372:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** 
+ 373:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** 
+ 374:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** /*******************************************************************************
+ 375:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** * Function Name: adc_Ext_CP_Clk_SetSourceRegister
+ 376:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** ********************************************************************************
+ 377:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** * Summary:
+ 378:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *  Sets the input source of the clock. The clock must be disabled before
+ 379:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *  changing the source. The old and new clock sources must be running.
+ 380:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *
+ 381:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** * Parameters:
+ 382:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *  clkSource:  For PSoC 3 and PSoC 5 devices, clkSource should be one of the
+ARM GAS  C:\Users\arh\AppData\Local\Temp\ccWpvzFh.s 			page 17
+
+
+ 383:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *   following input sources:
+ 384:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *   - CYCLK_SRC_SEL_SYNC_DIG
+ 385:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *   - CYCLK_SRC_SEL_IMO
+ 386:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *   - CYCLK_SRC_SEL_XTALM
+ 387:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *   - CYCLK_SRC_SEL_ILO
+ 388:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *   - CYCLK_SRC_SEL_PLL
+ 389:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *   - CYCLK_SRC_SEL_XTALK
+ 390:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *   - CYCLK_SRC_SEL_DSI_G
+ 391:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *   - CYCLK_SRC_SEL_DSI_D/CYCLK_SRC_SEL_DSI_A
+ 392:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *   See the Technical Reference Manual for details on clock sources.
+ 393:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *
+ 394:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** * Returns:
+ 395:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *  void
+ 396:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *
+ 397:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *******************************************************************************/
+ 398:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** void adc_Ext_CP_Clk_SetSourceRegister(uint8 clkSource) 
+ 399:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** {
+ 527              		.loc 1 399 0
+ 528              		.cfi_startproc
+ 529              		@ args = 0, pretend = 0, frame = 16
+ 530              		@ frame_needed = 1, uses_anonymous_args = 0
+ 531 0000 80B5     		push	{r7, lr}
+ 532              	.LCFI20:
+ 533              		.cfi_def_cfa_offset 8
+ 534 0002 84B0     		sub	sp, sp, #16
+ 535              	.LCFI21:
+ 536              		.cfi_def_cfa_offset 24
+ 537 0004 00AF     		add	r7, sp, #0
+ 538              		.cfi_offset 14, -4
+ 539              		.cfi_offset 7, -8
+ 540              	.LCFI22:
+ 541              		.cfi_def_cfa_register 7
+ 542 0006 0346     		mov	r3, r0
+ 543 0008 FB71     		strb	r3, [r7, #7]
+ 400:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****     uint16 currDiv = adc_Ext_CP_Clk_GetDividerRegister();
+ 544              		.loc 1 400 0
+ 545 000a FFF7FEFF 		bl	adc_Ext_CP_Clk_GetDividerRegister
+ 546 000e 0346     		mov	r3, r0
+ 547 0010 BB81     		strh	r3, [r7, #12]	@ movhi
+ 401:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****     uint8 oldSrc = adc_Ext_CP_Clk_GetSourceRegister();
+ 548              		.loc 1 401 0
+ 549 0012 FFF7FEFF 		bl	adc_Ext_CP_Clk_GetSourceRegister
+ 550 0016 0346     		mov	r3, r0
+ 551 0018 FB73     		strb	r3, [r7, #15]
+ 402:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** 
+ 403:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****     if (oldSrc != CYCLK_SRC_SEL_CLK_SYNC_D && clkSource == CYCLK_SRC_SEL_CLK_SYNC_D && currDiv == 0
+ 552              		.loc 1 403 0
+ 553 001a FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+ 554 001c 002B     		cmp	r3, #0
+ 555 001e 25D0     		beq	.L31
+ 556 0020 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 557 0022 002B     		cmp	r3, #0
+ 558 0024 22D1     		bne	.L31
+ 559 0026 BB89     		ldrh	r3, [r7, #12]
+ 560 0028 002B     		cmp	r3, #0
+ 561 002a 1FD1     		bne	.L31
+ 404:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****     {
+ARM GAS  C:\Users\arh\AppData\Local\Temp\ccWpvzFh.s 			page 18
+
+
+ 405:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****         /* Switching to Master and divider is 1, set SSS, which will output master, */
+ 406:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****         /* then set the source so we are consistent.                                */
+ 407:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****         adc_Ext_CP_Clk_MOD_SRC |= CYCLK_SSS;
+ 562              		.loc 1 407 0
+ 563 002c 44F28203 		movw	r3, #:lower16:1073758338
+ 564 0030 C4F20003 		movt	r3, #:upper16:1073758338
+ 565 0034 44F28202 		movw	r2, #:lower16:1073758338
+ 566 0038 C4F20002 		movt	r2, #:upper16:1073758338
+ 567 003c 1278     		ldrb	r2, [r2, #0]
+ 568 003e D2B2     		uxtb	r2, r2
+ 569 0040 42F04002 		orr	r2, r2, #64
+ 570 0044 D2B2     		uxtb	r2, r2
+ 571 0046 1A70     		strb	r2, [r3, #0]
+ 408:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****         adc_Ext_CP_Clk_MOD_SRC =
+ 572              		.loc 1 408 0
+ 573 0048 44F28203 		movw	r3, #:lower16:1073758338
+ 574 004c C4F20003 		movt	r3, #:upper16:1073758338
+ 409:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****             (adc_Ext_CP_Clk_MOD_SRC & ~adc_Ext_CP_Clk_SRC_SEL_MSK) | clkSource;
+ 575              		.loc 1 409 0
+ 576 0050 44F28202 		movw	r2, #:lower16:1073758338
+ 577 0054 C4F20002 		movt	r2, #:upper16:1073758338
+ 578 0058 1278     		ldrb	r2, [r2, #0]
+ 579 005a D2B2     		uxtb	r2, r2
+ 580              		.loc 1 408 0
+ 581 005c 02F0F802 		and	r2, r2, #248
+ 582 0060 F979     		ldrb	r1, [r7, #7]
+ 583 0062 42EA0102 		orr	r2, r2, r1
+ 584 0066 D2B2     		uxtb	r2, r2
+ 585 0068 1A70     		strb	r2, [r3, #0]
+ 586              		.loc 1 403 0
+ 587 006a 38E0     		b	.L34
+ 588              	.L31:
+ 410:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****     }
+ 411:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****     else if (oldSrc == CYCLK_SRC_SEL_CLK_SYNC_D && clkSource != CYCLK_SRC_SEL_CLK_SYNC_D && currDiv
+ 589              		.loc 1 411 0
+ 590 006c FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+ 591 006e 002B     		cmp	r3, #0
+ 592 0070 24D1     		bne	.L33
+ 593 0072 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 594 0074 002B     		cmp	r3, #0
+ 595 0076 21D0     		beq	.L33
+ 596 0078 BB89     		ldrh	r3, [r7, #12]
+ 597 007a 002B     		cmp	r3, #0
+ 598 007c 1ED1     		bne	.L33
+ 412:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****     {
+ 413:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****         /* Switching from Master to not and divider is 1, set source, so we don't   */
+ 414:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****         /* lock when we clear SSS.                                                  */
+ 415:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****         adc_Ext_CP_Clk_MOD_SRC =
+ 599              		.loc 1 415 0
+ 600 007e 44F28203 		movw	r3, #:lower16:1073758338
+ 601 0082 C4F20003 		movt	r3, #:upper16:1073758338
+ 416:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****             (adc_Ext_CP_Clk_MOD_SRC & ~adc_Ext_CP_Clk_SRC_SEL_MSK) | clkSource;
+ 602              		.loc 1 416 0
+ 603 0086 44F28202 		movw	r2, #:lower16:1073758338
+ 604 008a C4F20002 		movt	r2, #:upper16:1073758338
+ 605 008e 1278     		ldrb	r2, [r2, #0]
+ 606 0090 D2B2     		uxtb	r2, r2
+ARM GAS  C:\Users\arh\AppData\Local\Temp\ccWpvzFh.s 			page 19
+
+
+ 607              		.loc 1 415 0
+ 608 0092 02F0F802 		and	r2, r2, #248
+ 609 0096 F979     		ldrb	r1, [r7, #7]
+ 610 0098 42EA0102 		orr	r2, r2, r1
+ 611 009c D2B2     		uxtb	r2, r2
+ 612 009e 1A70     		strb	r2, [r3, #0]
+ 417:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****         adc_Ext_CP_Clk_MOD_SRC &= ~CYCLK_SSS;
+ 613              		.loc 1 417 0
+ 614 00a0 44F28203 		movw	r3, #:lower16:1073758338
+ 615 00a4 C4F20003 		movt	r3, #:upper16:1073758338
+ 616 00a8 44F28202 		movw	r2, #:lower16:1073758338
+ 617 00ac C4F20002 		movt	r2, #:upper16:1073758338
+ 618 00b0 1278     		ldrb	r2, [r2, #0]
+ 619 00b2 D2B2     		uxtb	r2, r2
+ 620 00b4 02F0BF02 		and	r2, r2, #191
+ 621 00b8 1A70     		strb	r2, [r3, #0]
+ 622              		.loc 1 411 0
+ 623 00ba 10E0     		b	.L34
+ 624              	.L33:
+ 418:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****     }
+ 419:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****     else
+ 420:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****     {
+ 421:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****         adc_Ext_CP_Clk_MOD_SRC =
+ 625              		.loc 1 421 0
+ 626 00bc 44F28203 		movw	r3, #:lower16:1073758338
+ 627 00c0 C4F20003 		movt	r3, #:upper16:1073758338
+ 422:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****             (adc_Ext_CP_Clk_MOD_SRC & ~adc_Ext_CP_Clk_SRC_SEL_MSK) | clkSource;
+ 628              		.loc 1 422 0
+ 629 00c4 44F28202 		movw	r2, #:lower16:1073758338
+ 630 00c8 C4F20002 		movt	r2, #:upper16:1073758338
+ 631 00cc 1278     		ldrb	r2, [r2, #0]
+ 632 00ce D2B2     		uxtb	r2, r2
+ 633              		.loc 1 421 0
+ 634 00d0 02F0F802 		and	r2, r2, #248
+ 635 00d4 F979     		ldrb	r1, [r7, #7]
+ 636 00d6 42EA0102 		orr	r2, r2, r1
+ 637 00da D2B2     		uxtb	r2, r2
+ 638 00dc 1A70     		strb	r2, [r3, #0]
+ 639              	.L34:
+ 423:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****     }
+ 424:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** }
+ 640              		.loc 1 424 0
+ 641 00de 07F11007 		add	r7, r7, #16
+ 642 00e2 BD46     		mov	sp, r7
+ 643 00e4 80BD     		pop	{r7, pc}
+ 644              		.cfi_endproc
+ 645              	.LFE8:
+ 646              		.size	adc_Ext_CP_Clk_SetSourceRegister, .-adc_Ext_CP_Clk_SetSourceRegister
+ 647 00e6 00BF     		.section	.text.adc_Ext_CP_Clk_GetSourceRegister,"ax",%progbits
+ 648              		.align	2
+ 649              		.global	adc_Ext_CP_Clk_GetSourceRegister
+ 650              		.thumb
+ 651              		.thumb_func
+ 652              		.type	adc_Ext_CP_Clk_GetSourceRegister, %function
+ 653              	adc_Ext_CP_Clk_GetSourceRegister:
+ 654              	.LFB9:
+ 425:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** 
+ARM GAS  C:\Users\arh\AppData\Local\Temp\ccWpvzFh.s 			page 20
+
+
+ 426:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** 
+ 427:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** /*******************************************************************************
+ 428:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** * Function Name: adc_Ext_CP_Clk_GetSourceRegister
+ 429:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** ********************************************************************************
+ 430:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** * Summary:
+ 431:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *  Gets the input source of the clock.
+ 432:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *
+ 433:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** * Parameters:
+ 434:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *  void
+ 435:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *
+ 436:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** * Returns:
+ 437:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *  The input source of the clock. See SetSourceRegister for details.
+ 438:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *
+ 439:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** *******************************************************************************/
+ 440:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** uint8 adc_Ext_CP_Clk_GetSourceRegister(void) 
+ 441:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** {
+ 655              		.loc 1 441 0
+ 656              		.cfi_startproc
+ 657              		@ args = 0, pretend = 0, frame = 0
+ 658              		@ frame_needed = 1, uses_anonymous_args = 0
+ 659              		@ link register save eliminated.
+ 660 0000 80B4     		push	{r7}
+ 661              	.LCFI23:
+ 662              		.cfi_def_cfa_offset 4
+ 663 0002 00AF     		add	r7, sp, #0
+ 664              		.cfi_offset 7, -4
+ 665              	.LCFI24:
+ 666              		.cfi_def_cfa_register 7
+ 442:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c ****     return adc_Ext_CP_Clk_MOD_SRC & adc_Ext_CP_Clk_SRC_SEL_MSK;
+ 667              		.loc 1 442 0
+ 668 0004 44F28203 		movw	r3, #:lower16:1073758338
+ 669 0008 C4F20003 		movt	r3, #:upper16:1073758338
+ 670 000c 1B78     		ldrb	r3, [r3, #0]
+ 671 000e DBB2     		uxtb	r3, r3
+ 672 0010 03F00703 		and	r3, r3, #7
+ 443:.\Generated_Source\PSoC5/adc_Ext_CP_Clk.c **** }
+ 673              		.loc 1 443 0
+ 674 0014 1846     		mov	r0, r3
+ 675 0016 BD46     		mov	sp, r7
+ 676 0018 80BC     		pop	{r7}
+ 677 001a 7047     		bx	lr
+ 678              		.cfi_endproc
+ 679              	.LFE9:
+ 680              		.size	adc_Ext_CP_Clk_GetSourceRegister, .-adc_Ext_CP_Clk_GetSourceRegister
+ 681              		.text
+ 682              	.Letext0:
+ 683              		.section	.debug_loc,"",%progbits
+ 684              	.Ldebug_loc0:
+ 685              	.LLST0:
+ 686 0000 00000000 		.4byte	.LFB0
+ 687 0004 02000000 		.4byte	.LCFI0
+ 688 0008 0100     		.2byte	0x1
+ 689 000a 5D       		.byte	0x5d
+ 690 000b 02000000 		.4byte	.LCFI0
+ 691 000f 04000000 		.4byte	.LCFI1
+ 692 0013 0200     		.2byte	0x2
+ 693 0015 7D       		.byte	0x7d
+ARM GAS  C:\Users\arh\AppData\Local\Temp\ccWpvzFh.s 			page 21
+
+
+ 694 0016 04       		.sleb128 4
+ 695 0017 04000000 		.4byte	.LCFI1
+ 696 001b 26000000 		.4byte	.LFE0
+ 697 001f 0200     		.2byte	0x2
+ 698 0021 77       		.byte	0x77
+ 699 0022 04       		.sleb128 4
+ 700 0023 00000000 		.4byte	0x0
+ 701 0027 00000000 		.4byte	0x0
+ 702              	.LLST1:
+ 703 002b 00000000 		.4byte	.LFB1
+ 704 002f 02000000 		.4byte	.LCFI2
+ 705 0033 0100     		.2byte	0x1
+ 706 0035 5D       		.byte	0x5d
+ 707 0036 02000000 		.4byte	.LCFI2
+ 708 003a 04000000 		.4byte	.LCFI3
+ 709 003e 0200     		.2byte	0x2
+ 710 0040 7D       		.byte	0x7d
+ 711 0041 04       		.sleb128 4
+ 712 0042 04000000 		.4byte	.LCFI3
+ 713 0046 24000000 		.4byte	.LFE1
+ 714 004a 0200     		.2byte	0x2
+ 715 004c 77       		.byte	0x77
+ 716 004d 04       		.sleb128 4
+ 717 004e 00000000 		.4byte	0x0
+ 718 0052 00000000 		.4byte	0x0
+ 719              	.LLST2:
+ 720 0056 00000000 		.4byte	.LFB2
+ 721 005a 02000000 		.4byte	.LCFI4
+ 722 005e 0100     		.2byte	0x1
+ 723 0060 5D       		.byte	0x5d
+ 724 0061 02000000 		.4byte	.LCFI4
+ 725 0065 04000000 		.4byte	.LCFI5
+ 726 0069 0200     		.2byte	0x2
+ 727 006b 7D       		.byte	0x7d
+ 728 006c 04       		.sleb128 4
+ 729 006d 04000000 		.4byte	.LCFI5
+ 730 0071 06000000 		.4byte	.LCFI6
+ 731 0075 0200     		.2byte	0x2
+ 732 0077 7D       		.byte	0x7d
+ 733 0078 10       		.sleb128 16
+ 734 0079 06000000 		.4byte	.LCFI6
+ 735 007d 52000000 		.4byte	.LFE2
+ 736 0081 0200     		.2byte	0x2
+ 737 0083 77       		.byte	0x77
+ 738 0084 10       		.sleb128 16
+ 739 0085 00000000 		.4byte	0x0
+ 740 0089 00000000 		.4byte	0x0
+ 741              	.LLST3:
+ 742 008d 00000000 		.4byte	.LFB3
+ 743 0091 02000000 		.4byte	.LCFI7
+ 744 0095 0100     		.2byte	0x1
+ 745 0097 5D       		.byte	0x5d
+ 746 0098 02000000 		.4byte	.LCFI7
+ 747 009c 04000000 		.4byte	.LCFI8
+ 748 00a0 0200     		.2byte	0x2
+ 749 00a2 7D       		.byte	0x7d
+ 750 00a3 08       		.sleb128 8
+ARM GAS  C:\Users\arh\AppData\Local\Temp\ccWpvzFh.s 			page 22
+
+
+ 751 00a4 04000000 		.4byte	.LCFI8
+ 752 00a8 06000000 		.4byte	.LCFI9
+ 753 00ac 0200     		.2byte	0x2
+ 754 00ae 7D       		.byte	0x7d
+ 755 00af 18       		.sleb128 24
+ 756 00b0 06000000 		.4byte	.LCFI9
+ 757 00b4 96010000 		.4byte	.LFE3
+ 758 00b8 0200     		.2byte	0x2
+ 759 00ba 77       		.byte	0x77
+ 760 00bb 18       		.sleb128 24
+ 761 00bc 00000000 		.4byte	0x0
+ 762 00c0 00000000 		.4byte	0x0
+ 763              	.LLST4:
+ 764 00c4 00000000 		.4byte	.LFB4
+ 765 00c8 02000000 		.4byte	.LCFI10
+ 766 00cc 0100     		.2byte	0x1
+ 767 00ce 5D       		.byte	0x5d
+ 768 00cf 02000000 		.4byte	.LCFI10
+ 769 00d3 04000000 		.4byte	.LCFI11
+ 770 00d7 0200     		.2byte	0x2
+ 771 00d9 7D       		.byte	0x7d
+ 772 00da 04       		.sleb128 4
+ 773 00db 04000000 		.4byte	.LCFI11
+ 774 00df 18000000 		.4byte	.LFE4
+ 775 00e3 0200     		.2byte	0x2
+ 776 00e5 77       		.byte	0x77
+ 777 00e6 04       		.sleb128 4
+ 778 00e7 00000000 		.4byte	0x0
+ 779 00eb 00000000 		.4byte	0x0
+ 780              	.LLST5:
+ 781 00ef 00000000 		.4byte	.LFB5
+ 782 00f3 02000000 		.4byte	.LCFI12
+ 783 00f7 0100     		.2byte	0x1
+ 784 00f9 5D       		.byte	0x5d
+ 785 00fa 02000000 		.4byte	.LCFI12
+ 786 00fe 04000000 		.4byte	.LCFI13
+ 787 0102 0200     		.2byte	0x2
+ 788 0104 7D       		.byte	0x7d
+ 789 0105 04       		.sleb128 4
+ 790 0106 04000000 		.4byte	.LCFI13
+ 791 010a 06000000 		.4byte	.LCFI14
+ 792 010e 0200     		.2byte	0x2
+ 793 0110 7D       		.byte	0x7d
+ 794 0111 10       		.sleb128 16
+ 795 0112 06000000 		.4byte	.LCFI14
+ 796 0116 36000000 		.4byte	.LFE5
+ 797 011a 0200     		.2byte	0x2
+ 798 011c 77       		.byte	0x77
+ 799 011d 10       		.sleb128 16
+ 800 011e 00000000 		.4byte	0x0
+ 801 0122 00000000 		.4byte	0x0
+ 802              	.LLST6:
+ 803 0126 00000000 		.4byte	.LFB6
+ 804 012a 02000000 		.4byte	.LCFI15
+ 805 012e 0100     		.2byte	0x1
+ 806 0130 5D       		.byte	0x5d
+ 807 0131 02000000 		.4byte	.LCFI15
+ARM GAS  C:\Users\arh\AppData\Local\Temp\ccWpvzFh.s 			page 23
+
+
+ 808 0135 04000000 		.4byte	.LCFI16
+ 809 0139 0200     		.2byte	0x2
+ 810 013b 7D       		.byte	0x7d
+ 811 013c 04       		.sleb128 4
+ 812 013d 04000000 		.4byte	.LCFI16
+ 813 0141 06000000 		.4byte	.LCFI17
+ 814 0145 0200     		.2byte	0x2
+ 815 0147 7D       		.byte	0x7d
+ 816 0148 10       		.sleb128 16
+ 817 0149 06000000 		.4byte	.LCFI17
+ 818 014d 3E000000 		.4byte	.LFE6
+ 819 0151 0200     		.2byte	0x2
+ 820 0153 77       		.byte	0x77
+ 821 0154 10       		.sleb128 16
+ 822 0155 00000000 		.4byte	0x0
+ 823 0159 00000000 		.4byte	0x0
+ 824              	.LLST7:
+ 825 015d 00000000 		.4byte	.LFB7
+ 826 0161 02000000 		.4byte	.LCFI18
+ 827 0165 0100     		.2byte	0x1
+ 828 0167 5D       		.byte	0x5d
+ 829 0168 02000000 		.4byte	.LCFI18
+ 830 016c 04000000 		.4byte	.LCFI19
+ 831 0170 0200     		.2byte	0x2
+ 832 0172 7D       		.byte	0x7d
+ 833 0173 04       		.sleb128 4
+ 834 0174 04000000 		.4byte	.LCFI19
+ 835 0178 1C000000 		.4byte	.LFE7
+ 836 017c 0200     		.2byte	0x2
+ 837 017e 77       		.byte	0x77
+ 838 017f 04       		.sleb128 4
+ 839 0180 00000000 		.4byte	0x0
+ 840 0184 00000000 		.4byte	0x0
+ 841              	.LLST8:
+ 842 0188 00000000 		.4byte	.LFB8
+ 843 018c 02000000 		.4byte	.LCFI20
+ 844 0190 0100     		.2byte	0x1
+ 845 0192 5D       		.byte	0x5d
+ 846 0193 02000000 		.4byte	.LCFI20
+ 847 0197 04000000 		.4byte	.LCFI21
+ 848 019b 0200     		.2byte	0x2
+ 849 019d 7D       		.byte	0x7d
+ 850 019e 08       		.sleb128 8
+ 851 019f 04000000 		.4byte	.LCFI21
+ 852 01a3 06000000 		.4byte	.LCFI22
+ 853 01a7 0200     		.2byte	0x2
+ 854 01a9 7D       		.byte	0x7d
+ 855 01aa 18       		.sleb128 24
+ 856 01ab 06000000 		.4byte	.LCFI22
+ 857 01af E6000000 		.4byte	.LFE8
+ 858 01b3 0200     		.2byte	0x2
+ 859 01b5 77       		.byte	0x77
+ 860 01b6 18       		.sleb128 24
+ 861 01b7 00000000 		.4byte	0x0
+ 862 01bb 00000000 		.4byte	0x0
+ 863              	.LLST9:
+ 864 01bf 00000000 		.4byte	.LFB9
+ARM GAS  C:\Users\arh\AppData\Local\Temp\ccWpvzFh.s 			page 24
+
+
+ 865 01c3 02000000 		.4byte	.LCFI23
+ 866 01c7 0100     		.2byte	0x1
+ 867 01c9 5D       		.byte	0x5d
+ 868 01ca 02000000 		.4byte	.LCFI23
+ 869 01ce 04000000 		.4byte	.LCFI24
+ 870 01d2 0200     		.2byte	0x2
+ 871 01d4 7D       		.byte	0x7d
+ 872 01d5 04       		.sleb128 4
+ 873 01d6 04000000 		.4byte	.LCFI24
+ 874 01da 1C000000 		.4byte	.LFE9
+ 875 01de 0200     		.2byte	0x2
+ 876 01e0 77       		.byte	0x77
+ 877 01e1 04       		.sleb128 4
+ 878 01e2 00000000 		.4byte	0x0
+ 879 01e6 00000000 		.4byte	0x0
+ 880              		.file 2 "./Generated_Source/PSoC5/cytypes.h"
+ 881              		.section	.debug_info
+ 882 0000 25020000 		.4byte	0x225
+ 883 0004 0200     		.2byte	0x2
+ 884 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 885 000a 04       		.byte	0x4
+ 886 000b 01       		.uleb128 0x1
+ 887 000c C6010000 		.4byte	.LASF32
+ 888 0010 01       		.byte	0x1
+ 889 0011 99000000 		.4byte	.LASF33
+ 890 0015 1F000000 		.4byte	.LASF34
+ 891 0019 00000000 		.4byte	0x0
+ 892 001d 00000000 		.4byte	0x0
+ 893 0021 00000000 		.4byte	.Ldebug_ranges0+0x0
+ 894 0025 00000000 		.4byte	.Ldebug_line0
+ 895 0029 02       		.uleb128 0x2
+ 896 002a 01       		.byte	0x1
+ 897 002b 06       		.byte	0x6
+ 898 002c 57020000 		.4byte	.LASF0
+ 899 0030 02       		.uleb128 0x2
+ 900 0031 01       		.byte	0x1
+ 901 0032 08       		.byte	0x8
+ 902 0033 C3000000 		.4byte	.LASF1
+ 903 0037 02       		.uleb128 0x2
+ 904 0038 02       		.byte	0x2
+ 905 0039 05       		.byte	0x5
+ 906 003a F4010000 		.4byte	.LASF2
+ 907 003e 02       		.uleb128 0x2
+ 908 003f 02       		.byte	0x2
+ 909 0040 07       		.byte	0x7
+ 910 0041 EB000000 		.4byte	.LASF3
+ 911 0045 02       		.uleb128 0x2
+ 912 0046 04       		.byte	0x4
+ 913 0047 05       		.byte	0x5
+ 914 0048 25020000 		.4byte	.LASF4
+ 915 004c 02       		.uleb128 0x2
+ 916 004d 04       		.byte	0x4
+ 917 004e 07       		.byte	0x7
+ 918 004f D9000000 		.4byte	.LASF5
+ 919 0053 02       		.uleb128 0x2
+ 920 0054 08       		.byte	0x8
+ 921 0055 05       		.byte	0x5
+ARM GAS  C:\Users\arh\AppData\Local\Temp\ccWpvzFh.s 			page 25
+
+
+ 922 0056 00000000 		.4byte	.LASF6
+ 923 005a 02       		.uleb128 0x2
+ 924 005b 08       		.byte	0x8
+ 925 005c 07       		.byte	0x7
+ 926 005d 8E010000 		.4byte	.LASF7
+ 927 0061 03       		.uleb128 0x3
+ 928 0062 04       		.byte	0x4
+ 929 0063 05       		.byte	0x5
+ 930 0064 696E7400 		.ascii	"int\000"
+ 931 0068 02       		.uleb128 0x2
+ 932 0069 04       		.byte	0x4
+ 933 006a 07       		.byte	0x7
+ 934 006b 79010000 		.4byte	.LASF8
+ 935 006f 02       		.uleb128 0x2
+ 936 0070 01       		.byte	0x1
+ 937 0071 08       		.byte	0x8
+ 938 0072 D2010000 		.4byte	.LASF9
+ 939 0076 04       		.uleb128 0x4
+ 940 0077 1F020000 		.4byte	.LASF10
+ 941 007b 02       		.byte	0x2
+ 942 007c 60       		.byte	0x60
+ 943 007d 30000000 		.4byte	0x30
+ 944 0081 04       		.uleb128 0x4
+ 945 0082 6A010000 		.4byte	.LASF11
+ 946 0086 02       		.byte	0x2
+ 947 0087 61       		.byte	0x61
+ 948 0088 3E000000 		.4byte	0x3e
+ 949 008c 05       		.uleb128 0x5
+ 950 008d 01       		.byte	0x1
+ 951 008e D7010000 		.4byte	.LASF12
+ 952 0092 01       		.byte	0x1
+ 953 0093 2C       		.byte	0x2c
+ 954 0094 01       		.byte	0x1
+ 955 0095 00000000 		.4byte	.LFB0
+ 956 0099 26000000 		.4byte	.LFE0
+ 957 009d 00000000 		.4byte	.LLST0
+ 958 00a1 05       		.uleb128 0x5
+ 959 00a2 01       		.byte	0x1
+ 960 00a3 56010000 		.4byte	.LASF13
+ 961 00a7 01       		.byte	0x1
+ 962 00a8 44       		.byte	0x44
+ 963 00a9 01       		.byte	0x1
+ 964 00aa 00000000 		.4byte	.LFB1
+ 965 00ae 24000000 		.4byte	.LFE1
+ 966 00b2 2B000000 		.4byte	.LLST1
+ 967 00b6 06       		.uleb128 0x6
+ 968 00b7 01       		.byte	0x1
+ 969 00b8 FE000000 		.4byte	.LASF14
+ 970 00bc 01       		.byte	0x1
+ 971 00bd 93       		.byte	0x93
+ 972 00be 01       		.byte	0x1
+ 973 00bf 00000000 		.4byte	.LFB2
+ 974 00c3 52000000 		.4byte	.LFE2
+ 975 00c7 56000000 		.4byte	.LLST2
+ 976 00cb DE000000 		.4byte	0xde
+ 977 00cf 07       		.uleb128 0x7
+ 978 00d0 0E000000 		.4byte	.LASF16
+ARM GAS  C:\Users\arh\AppData\Local\Temp\ccWpvzFh.s 			page 26
+
+
+ 979 00d4 01       		.byte	0x1
+ 980 00d5 93       		.byte	0x93
+ 981 00d6 76000000 		.4byte	0x76
+ 982 00da 02       		.byte	0x2
+ 983 00db 91       		.byte	0x91
+ 984 00dc 77       		.sleb128 -9
+ 985 00dd 00       		.byte	0x0
+ 986 00de 06       		.uleb128 0x6
+ 987 00df 01       		.byte	0x1
+ 988 00e0 77000000 		.4byte	.LASF15
+ 989 00e4 01       		.byte	0x1
+ 990 00e5 B6       		.byte	0xb6
+ 991 00e6 01       		.byte	0x1
+ 992 00e7 00000000 		.4byte	.LFB3
+ 993 00eb 96010000 		.4byte	.LFE3
+ 994 00ef 8D000000 		.4byte	.LLST3
+ 995 00f3 3E010000 		.4byte	0x13e
+ 996 00f7 07       		.uleb128 0x7
+ 997 00f8 3C010000 		.4byte	.LASF17
+ 998 00fc 01       		.byte	0x1
+ 999 00fd B6       		.byte	0xb6
+ 1000 00fe 81000000 		.4byte	0x81
+ 1001 0102 02       		.byte	0x2
+ 1002 0103 91       		.byte	0x91
+ 1003 0104 6E       		.sleb128 -18
+ 1004 0105 07       		.uleb128 0x7
+ 1005 0106 4E010000 		.4byte	.LASF18
+ 1006 010a 01       		.byte	0x1
+ 1007 010b B6       		.byte	0xb6
+ 1008 010c 76000000 		.4byte	0x76
+ 1009 0110 02       		.byte	0x2
+ 1010 0111 91       		.byte	0x91
+ 1011 0112 6D       		.sleb128 -19
+ 1012 0113 08       		.uleb128 0x8
+ 1013 0114 D1000000 		.4byte	.LASF19
+ 1014 0118 01       		.byte	0x1
+ 1015 0119 B8       		.byte	0xb8
+ 1016 011a 76000000 		.4byte	0x76
+ 1017 011e 02       		.byte	0x2
+ 1018 011f 91       		.byte	0x91
+ 1019 0120 74       		.sleb128 -12
+ 1020 0121 08       		.uleb128 0x8
+ 1021 0122 86010000 		.4byte	.LASF20
+ 1022 0126 01       		.byte	0x1
+ 1023 0127 BA       		.byte	0xba
+ 1024 0128 76000000 		.4byte	0x76
+ 1025 012c 02       		.byte	0x2
+ 1026 012d 91       		.byte	0x91
+ 1027 012e 75       		.sleb128 -11
+ 1028 012f 08       		.uleb128 0x8
+ 1029 0130 14000000 		.4byte	.LASF21
+ 1030 0134 01       		.byte	0x1
+ 1031 0135 BB       		.byte	0xbb
+ 1032 0136 81000000 		.4byte	0x81
+ 1033 013a 02       		.byte	0x2
+ 1034 013b 91       		.byte	0x91
+ 1035 013c 76       		.sleb128 -10
+ARM GAS  C:\Users\arh\AppData\Local\Temp\ccWpvzFh.s 			page 27
+
+
+ 1036 013d 00       		.byte	0x0
+ 1037 013e 09       		.uleb128 0x9
+ 1038 013f 01       		.byte	0x1
+ 1039 0140 1A010000 		.4byte	.LASF25
+ 1040 0144 01       		.byte	0x1
+ 1041 0145 1801     		.2byte	0x118
+ 1042 0147 01       		.byte	0x1
+ 1043 0148 81000000 		.4byte	0x81
+ 1044 014c 00000000 		.4byte	.LFB4
+ 1045 0150 18000000 		.4byte	.LFE4
+ 1046 0154 C4000000 		.4byte	.LLST4
+ 1047 0158 0A       		.uleb128 0xa
+ 1048 0159 01       		.byte	0x1
+ 1049 015a 63020000 		.4byte	.LASF22
+ 1050 015e 01       		.byte	0x1
+ 1051 015f 3A01     		.2byte	0x13a
+ 1052 0161 01       		.byte	0x1
+ 1053 0162 00000000 		.4byte	.LFB5
+ 1054 0166 36000000 		.4byte	.LFE5
+ 1055 016a EF000000 		.4byte	.LLST5
+ 1056 016e 82010000 		.4byte	0x182
+ 1057 0172 0B       		.uleb128 0xb
+ 1058 0173 71010000 		.4byte	.LASF23
+ 1059 0177 01       		.byte	0x1
+ 1060 0178 3A01     		.2byte	0x13a
+ 1061 017a 76000000 		.4byte	0x76
+ 1062 017e 02       		.byte	0x2
+ 1063 017f 91       		.byte	0x91
+ 1064 0180 77       		.sleb128 -9
+ 1065 0181 00       		.byte	0x0
+ 1066 0182 0A       		.uleb128 0xa
+ 1067 0183 01       		.byte	0x1
+ 1068 0184 56000000 		.4byte	.LASF24
+ 1069 0188 01       		.byte	0x1
+ 1070 0189 5C01     		.2byte	0x15c
+ 1071 018b 01       		.byte	0x1
+ 1072 018c 00000000 		.4byte	.LFB6
+ 1073 0190 3E000000 		.4byte	.LFE6
+ 1074 0194 26010000 		.4byte	.LLST6
+ 1075 0198 AC010000 		.4byte	0x1ac
+ 1076 019c 0B       		.uleb128 0xb
+ 1077 019d 71010000 		.4byte	.LASF23
+ 1078 01a1 01       		.byte	0x1
+ 1079 01a2 5C01     		.2byte	0x15c
+ 1080 01a4 76000000 		.4byte	0x76
+ 1081 01a8 02       		.byte	0x2
+ 1082 01a9 91       		.byte	0x91
+ 1083 01aa 77       		.sleb128 -9
+ 1084 01ab 00       		.byte	0x0
+ 1085 01ac 09       		.uleb128 0x9
+ 1086 01ad 01       		.byte	0x1
+ 1087 01ae 38020000 		.4byte	.LASF26
+ 1088 01b2 01       		.byte	0x1
+ 1089 01b3 7001     		.2byte	0x170
+ 1090 01b5 01       		.byte	0x1
+ 1091 01b6 76000000 		.4byte	0x76
+ 1092 01ba 00000000 		.4byte	.LFB7
+ARM GAS  C:\Users\arh\AppData\Local\Temp\ccWpvzFh.s 			page 28
+
+
+ 1093 01be 1C000000 		.4byte	.LFE7
+ 1094 01c2 5D010000 		.4byte	.LLST7
+ 1095 01c6 0A       		.uleb128 0xa
+ 1096 01c7 01       		.byte	0x1
+ 1097 01c8 A5010000 		.4byte	.LASF27
+ 1098 01cc 01       		.byte	0x1
+ 1099 01cd 8E01     		.2byte	0x18e
+ 1100 01cf 01       		.byte	0x1
+ 1101 01d0 00000000 		.4byte	.LFB8
+ 1102 01d4 E6000000 		.4byte	.LFE8
+ 1103 01d8 88010000 		.4byte	.LLST8
+ 1104 01dc 0E020000 		.4byte	0x20e
+ 1105 01e0 0B       		.uleb128 0xb
+ 1106 01e1 2E020000 		.4byte	.LASF28
+ 1107 01e5 01       		.byte	0x1
+ 1108 01e6 8E01     		.2byte	0x18e
+ 1109 01e8 76000000 		.4byte	0x76
+ 1110 01ec 02       		.byte	0x2
+ 1111 01ed 91       		.byte	0x91
+ 1112 01ee 6F       		.sleb128 -17
+ 1113 01ef 0C       		.uleb128 0xc
+ 1114 01f0 EC010000 		.4byte	.LASF29
+ 1115 01f4 01       		.byte	0x1
+ 1116 01f5 9001     		.2byte	0x190
+ 1117 01f7 81000000 		.4byte	0x81
+ 1118 01fb 02       		.byte	0x2
+ 1119 01fc 91       		.byte	0x91
+ 1120 01fd 74       		.sleb128 -12
+ 1121 01fe 0C       		.uleb128 0xc
+ 1122 01ff 47010000 		.4byte	.LASF30
+ 1123 0203 01       		.byte	0x1
+ 1124 0204 9101     		.2byte	0x191
+ 1125 0206 76000000 		.4byte	0x76
+ 1126 020a 02       		.byte	0x2
+ 1127 020b 91       		.byte	0x91
+ 1128 020c 77       		.sleb128 -9
+ 1129 020d 00       		.byte	0x0
+ 1130 020e 09       		.uleb128 0x9
+ 1131 020f 01       		.byte	0x1
+ 1132 0210 FE010000 		.4byte	.LASF31
+ 1133 0214 01       		.byte	0x1
+ 1134 0215 B801     		.2byte	0x1b8
+ 1135 0217 01       		.byte	0x1
+ 1136 0218 76000000 		.4byte	0x76
+ 1137 021c 00000000 		.4byte	.LFB9
+ 1138 0220 1C000000 		.4byte	.LFE9
+ 1139 0224 BF010000 		.4byte	.LLST9
+ 1140 0228 00       		.byte	0x0
+ 1141              		.section	.debug_abbrev
+ 1142 0000 01       		.uleb128 0x1
+ 1143 0001 11       		.uleb128 0x11
+ 1144 0002 01       		.byte	0x1
+ 1145 0003 25       		.uleb128 0x25
+ 1146 0004 0E       		.uleb128 0xe
+ 1147 0005 13       		.uleb128 0x13
+ 1148 0006 0B       		.uleb128 0xb
+ 1149 0007 03       		.uleb128 0x3
+ARM GAS  C:\Users\arh\AppData\Local\Temp\ccWpvzFh.s 			page 29
+
+
+ 1150 0008 0E       		.uleb128 0xe
+ 1151 0009 1B       		.uleb128 0x1b
+ 1152 000a 0E       		.uleb128 0xe
+ 1153 000b 11       		.uleb128 0x11
+ 1154 000c 01       		.uleb128 0x1
+ 1155 000d 52       		.uleb128 0x52
+ 1156 000e 01       		.uleb128 0x1
+ 1157 000f 55       		.uleb128 0x55
+ 1158 0010 06       		.uleb128 0x6
+ 1159 0011 10       		.uleb128 0x10
+ 1160 0012 06       		.uleb128 0x6
+ 1161 0013 00       		.byte	0x0
+ 1162 0014 00       		.byte	0x0
+ 1163 0015 02       		.uleb128 0x2
+ 1164 0016 24       		.uleb128 0x24
+ 1165 0017 00       		.byte	0x0
+ 1166 0018 0B       		.uleb128 0xb
+ 1167 0019 0B       		.uleb128 0xb
+ 1168 001a 3E       		.uleb128 0x3e
+ 1169 001b 0B       		.uleb128 0xb
+ 1170 001c 03       		.uleb128 0x3
+ 1171 001d 0E       		.uleb128 0xe
+ 1172 001e 00       		.byte	0x0
+ 1173 001f 00       		.byte	0x0
+ 1174 0020 03       		.uleb128 0x3
+ 1175 0021 24       		.uleb128 0x24
+ 1176 0022 00       		.byte	0x0
+ 1177 0023 0B       		.uleb128 0xb
+ 1178 0024 0B       		.uleb128 0xb
+ 1179 0025 3E       		.uleb128 0x3e
+ 1180 0026 0B       		.uleb128 0xb
+ 1181 0027 03       		.uleb128 0x3
+ 1182 0028 08       		.uleb128 0x8
+ 1183 0029 00       		.byte	0x0
+ 1184 002a 00       		.byte	0x0
+ 1185 002b 04       		.uleb128 0x4
+ 1186 002c 16       		.uleb128 0x16
+ 1187 002d 00       		.byte	0x0
+ 1188 002e 03       		.uleb128 0x3
+ 1189 002f 0E       		.uleb128 0xe
+ 1190 0030 3A       		.uleb128 0x3a
+ 1191 0031 0B       		.uleb128 0xb
+ 1192 0032 3B       		.uleb128 0x3b
+ 1193 0033 0B       		.uleb128 0xb
+ 1194 0034 49       		.uleb128 0x49
+ 1195 0035 13       		.uleb128 0x13
+ 1196 0036 00       		.byte	0x0
+ 1197 0037 00       		.byte	0x0
+ 1198 0038 05       		.uleb128 0x5
+ 1199 0039 2E       		.uleb128 0x2e
+ 1200 003a 00       		.byte	0x0
+ 1201 003b 3F       		.uleb128 0x3f
+ 1202 003c 0C       		.uleb128 0xc
+ 1203 003d 03       		.uleb128 0x3
+ 1204 003e 0E       		.uleb128 0xe
+ 1205 003f 3A       		.uleb128 0x3a
+ 1206 0040 0B       		.uleb128 0xb
+ARM GAS  C:\Users\arh\AppData\Local\Temp\ccWpvzFh.s 			page 30
+
+
+ 1207 0041 3B       		.uleb128 0x3b
+ 1208 0042 0B       		.uleb128 0xb
+ 1209 0043 27       		.uleb128 0x27
+ 1210 0044 0C       		.uleb128 0xc
+ 1211 0045 11       		.uleb128 0x11
+ 1212 0046 01       		.uleb128 0x1
+ 1213 0047 12       		.uleb128 0x12
+ 1214 0048 01       		.uleb128 0x1
+ 1215 0049 40       		.uleb128 0x40
+ 1216 004a 06       		.uleb128 0x6
+ 1217 004b 00       		.byte	0x0
+ 1218 004c 00       		.byte	0x0
+ 1219 004d 06       		.uleb128 0x6
+ 1220 004e 2E       		.uleb128 0x2e
+ 1221 004f 01       		.byte	0x1
+ 1222 0050 3F       		.uleb128 0x3f
+ 1223 0051 0C       		.uleb128 0xc
+ 1224 0052 03       		.uleb128 0x3
+ 1225 0053 0E       		.uleb128 0xe
+ 1226 0054 3A       		.uleb128 0x3a
+ 1227 0055 0B       		.uleb128 0xb
+ 1228 0056 3B       		.uleb128 0x3b
+ 1229 0057 0B       		.uleb128 0xb
+ 1230 0058 27       		.uleb128 0x27
+ 1231 0059 0C       		.uleb128 0xc
+ 1232 005a 11       		.uleb128 0x11
+ 1233 005b 01       		.uleb128 0x1
+ 1234 005c 12       		.uleb128 0x12
+ 1235 005d 01       		.uleb128 0x1
+ 1236 005e 40       		.uleb128 0x40
+ 1237 005f 06       		.uleb128 0x6
+ 1238 0060 01       		.uleb128 0x1
+ 1239 0061 13       		.uleb128 0x13
+ 1240 0062 00       		.byte	0x0
+ 1241 0063 00       		.byte	0x0
+ 1242 0064 07       		.uleb128 0x7
+ 1243 0065 05       		.uleb128 0x5
+ 1244 0066 00       		.byte	0x0
+ 1245 0067 03       		.uleb128 0x3
+ 1246 0068 0E       		.uleb128 0xe
+ 1247 0069 3A       		.uleb128 0x3a
+ 1248 006a 0B       		.uleb128 0xb
+ 1249 006b 3B       		.uleb128 0x3b
+ 1250 006c 0B       		.uleb128 0xb
+ 1251 006d 49       		.uleb128 0x49
+ 1252 006e 13       		.uleb128 0x13
+ 1253 006f 02       		.uleb128 0x2
+ 1254 0070 0A       		.uleb128 0xa
+ 1255 0071 00       		.byte	0x0
+ 1256 0072 00       		.byte	0x0
+ 1257 0073 08       		.uleb128 0x8
+ 1258 0074 34       		.uleb128 0x34
+ 1259 0075 00       		.byte	0x0
+ 1260 0076 03       		.uleb128 0x3
+ 1261 0077 0E       		.uleb128 0xe
+ 1262 0078 3A       		.uleb128 0x3a
+ 1263 0079 0B       		.uleb128 0xb
+ARM GAS  C:\Users\arh\AppData\Local\Temp\ccWpvzFh.s 			page 31
+
+
+ 1264 007a 3B       		.uleb128 0x3b
+ 1265 007b 0B       		.uleb128 0xb
+ 1266 007c 49       		.uleb128 0x49
+ 1267 007d 13       		.uleb128 0x13
+ 1268 007e 02       		.uleb128 0x2
+ 1269 007f 0A       		.uleb128 0xa
+ 1270 0080 00       		.byte	0x0
+ 1271 0081 00       		.byte	0x0
+ 1272 0082 09       		.uleb128 0x9
+ 1273 0083 2E       		.uleb128 0x2e
+ 1274 0084 00       		.byte	0x0
+ 1275 0085 3F       		.uleb128 0x3f
+ 1276 0086 0C       		.uleb128 0xc
+ 1277 0087 03       		.uleb128 0x3
+ 1278 0088 0E       		.uleb128 0xe
+ 1279 0089 3A       		.uleb128 0x3a
+ 1280 008a 0B       		.uleb128 0xb
+ 1281 008b 3B       		.uleb128 0x3b
+ 1282 008c 05       		.uleb128 0x5
+ 1283 008d 27       		.uleb128 0x27
+ 1284 008e 0C       		.uleb128 0xc
+ 1285 008f 49       		.uleb128 0x49
+ 1286 0090 13       		.uleb128 0x13
+ 1287 0091 11       		.uleb128 0x11
+ 1288 0092 01       		.uleb128 0x1
+ 1289 0093 12       		.uleb128 0x12
+ 1290 0094 01       		.uleb128 0x1
+ 1291 0095 40       		.uleb128 0x40
+ 1292 0096 06       		.uleb128 0x6
+ 1293 0097 00       		.byte	0x0
+ 1294 0098 00       		.byte	0x0
+ 1295 0099 0A       		.uleb128 0xa
+ 1296 009a 2E       		.uleb128 0x2e
+ 1297 009b 01       		.byte	0x1
+ 1298 009c 3F       		.uleb128 0x3f
+ 1299 009d 0C       		.uleb128 0xc
+ 1300 009e 03       		.uleb128 0x3
+ 1301 009f 0E       		.uleb128 0xe
+ 1302 00a0 3A       		.uleb128 0x3a
+ 1303 00a1 0B       		.uleb128 0xb
+ 1304 00a2 3B       		.uleb128 0x3b
+ 1305 00a3 05       		.uleb128 0x5
+ 1306 00a4 27       		.uleb128 0x27
+ 1307 00a5 0C       		.uleb128 0xc
+ 1308 00a6 11       		.uleb128 0x11
+ 1309 00a7 01       		.uleb128 0x1
+ 1310 00a8 12       		.uleb128 0x12
+ 1311 00a9 01       		.uleb128 0x1
+ 1312 00aa 40       		.uleb128 0x40
+ 1313 00ab 06       		.uleb128 0x6
+ 1314 00ac 01       		.uleb128 0x1
+ 1315 00ad 13       		.uleb128 0x13
+ 1316 00ae 00       		.byte	0x0
+ 1317 00af 00       		.byte	0x0
+ 1318 00b0 0B       		.uleb128 0xb
+ 1319 00b1 05       		.uleb128 0x5
+ 1320 00b2 00       		.byte	0x0
+ARM GAS  C:\Users\arh\AppData\Local\Temp\ccWpvzFh.s 			page 32
+
+
+ 1321 00b3 03       		.uleb128 0x3
+ 1322 00b4 0E       		.uleb128 0xe
+ 1323 00b5 3A       		.uleb128 0x3a
+ 1324 00b6 0B       		.uleb128 0xb
+ 1325 00b7 3B       		.uleb128 0x3b
+ 1326 00b8 05       		.uleb128 0x5
+ 1327 00b9 49       		.uleb128 0x49
+ 1328 00ba 13       		.uleb128 0x13
+ 1329 00bb 02       		.uleb128 0x2
+ 1330 00bc 0A       		.uleb128 0xa
+ 1331 00bd 00       		.byte	0x0
+ 1332 00be 00       		.byte	0x0
+ 1333 00bf 0C       		.uleb128 0xc
+ 1334 00c0 34       		.uleb128 0x34
+ 1335 00c1 00       		.byte	0x0
+ 1336 00c2 03       		.uleb128 0x3
+ 1337 00c3 0E       		.uleb128 0xe
+ 1338 00c4 3A       		.uleb128 0x3a
+ 1339 00c5 0B       		.uleb128 0xb
+ 1340 00c6 3B       		.uleb128 0x3b
+ 1341 00c7 05       		.uleb128 0x5
+ 1342 00c8 49       		.uleb128 0x49
+ 1343 00c9 13       		.uleb128 0x13
+ 1344 00ca 02       		.uleb128 0x2
+ 1345 00cb 0A       		.uleb128 0xa
+ 1346 00cc 00       		.byte	0x0
+ 1347 00cd 00       		.byte	0x0
+ 1348 00ce 00       		.byte	0x0
+ 1349              		.section	.debug_pubnames,"",%progbits
+ 1350 0000 60010000 		.4byte	0x160
+ 1351 0004 0200     		.2byte	0x2
+ 1352 0006 00000000 		.4byte	.Ldebug_info0
+ 1353 000a 29020000 		.4byte	0x229
+ 1354 000e 8C000000 		.4byte	0x8c
+ 1355 0012 6164635F 		.ascii	"adc_Ext_CP_Clk_Start\000"
+ 1355      4578745F 
+ 1355      43505F43 
+ 1355      6C6B5F53 
+ 1355      74617274 
+ 1356 0027 A1000000 		.4byte	0xa1
+ 1357 002b 6164635F 		.ascii	"adc_Ext_CP_Clk_Stop\000"
+ 1357      4578745F 
+ 1357      43505F43 
+ 1357      6C6B5F53 
+ 1357      746F7000 
+ 1358 003f B6000000 		.4byte	0xb6
+ 1359 0043 6164635F 		.ascii	"adc_Ext_CP_Clk_StandbyPower\000"
+ 1359      4578745F 
+ 1359      43505F43 
+ 1359      6C6B5F53 
+ 1359      74616E64 
+ 1360 005f DE000000 		.4byte	0xde
+ 1361 0063 6164635F 		.ascii	"adc_Ext_CP_Clk_SetDividerRegister\000"
+ 1361      4578745F 
+ 1361      43505F43 
+ 1361      6C6B5F53 
+ 1361      65744469 
+ARM GAS  C:\Users\arh\AppData\Local\Temp\ccWpvzFh.s 			page 33
+
+
+ 1362 0085 3E010000 		.4byte	0x13e
+ 1363 0089 6164635F 		.ascii	"adc_Ext_CP_Clk_GetDividerRegister\000"
+ 1363      4578745F 
+ 1363      43505F43 
+ 1363      6C6B5F47 
+ 1363      65744469 
+ 1364 00ab 58010000 		.4byte	0x158
+ 1365 00af 6164635F 		.ascii	"adc_Ext_CP_Clk_SetModeRegister\000"
+ 1365      4578745F 
+ 1365      43505F43 
+ 1365      6C6B5F53 
+ 1365      65744D6F 
+ 1366 00ce 82010000 		.4byte	0x182
+ 1367 00d2 6164635F 		.ascii	"adc_Ext_CP_Clk_ClearModeRegister\000"
+ 1367      4578745F 
+ 1367      43505F43 
+ 1367      6C6B5F43 
+ 1367      6C656172 
+ 1368 00f3 AC010000 		.4byte	0x1ac
+ 1369 00f7 6164635F 		.ascii	"adc_Ext_CP_Clk_GetModeRegister\000"
+ 1369      4578745F 
+ 1369      43505F43 
+ 1369      6C6B5F47 
+ 1369      65744D6F 
+ 1370 0116 C6010000 		.4byte	0x1c6
+ 1371 011a 6164635F 		.ascii	"adc_Ext_CP_Clk_SetSourceRegister\000"
+ 1371      4578745F 
+ 1371      43505F43 
+ 1371      6C6B5F53 
+ 1371      6574536F 
+ 1372 013b 0E020000 		.4byte	0x20e
+ 1373 013f 6164635F 		.ascii	"adc_Ext_CP_Clk_GetSourceRegister\000"
+ 1373      4578745F 
+ 1373      43505F43 
+ 1373      6C6B5F47 
+ 1373      6574536F 
+ 1374 0160 00000000 		.4byte	0x0
+ 1375              		.section	.debug_aranges,"",%progbits
+ 1376 0000 64000000 		.4byte	0x64
+ 1377 0004 0200     		.2byte	0x2
+ 1378 0006 00000000 		.4byte	.Ldebug_info0
+ 1379 000a 04       		.byte	0x4
+ 1380 000b 00       		.byte	0x0
+ 1381 000c 0000     		.2byte	0x0
+ 1382 000e 0000     		.2byte	0x0
+ 1383 0010 00000000 		.4byte	.LFB0
+ 1384 0014 26000000 		.4byte	.LFE0-.LFB0
+ 1385 0018 00000000 		.4byte	.LFB1
+ 1386 001c 24000000 		.4byte	.LFE1-.LFB1
+ 1387 0020 00000000 		.4byte	.LFB2
+ 1388 0024 52000000 		.4byte	.LFE2-.LFB2
+ 1389 0028 00000000 		.4byte	.LFB3
+ 1390 002c 96010000 		.4byte	.LFE3-.LFB3
+ 1391 0030 00000000 		.4byte	.LFB4
+ 1392 0034 18000000 		.4byte	.LFE4-.LFB4
+ 1393 0038 00000000 		.4byte	.LFB5
+ 1394 003c 36000000 		.4byte	.LFE5-.LFB5
+ARM GAS  C:\Users\arh\AppData\Local\Temp\ccWpvzFh.s 			page 34
+
+
+ 1395 0040 00000000 		.4byte	.LFB6
+ 1396 0044 3E000000 		.4byte	.LFE6-.LFB6
+ 1397 0048 00000000 		.4byte	.LFB7
+ 1398 004c 1C000000 		.4byte	.LFE7-.LFB7
+ 1399 0050 00000000 		.4byte	.LFB8
+ 1400 0054 E6000000 		.4byte	.LFE8-.LFB8
+ 1401 0058 00000000 		.4byte	.LFB9
+ 1402 005c 1C000000 		.4byte	.LFE9-.LFB9
+ 1403 0060 00000000 		.4byte	0x0
+ 1404 0064 00000000 		.4byte	0x0
+ 1405              		.section	.debug_ranges,"",%progbits
+ 1406              	.Ldebug_ranges0:
+ 1407 0000 00000000 		.4byte	.Ltext0
+ 1408 0004 00000000 		.4byte	.Letext0
+ 1409 0008 00000000 		.4byte	.LFB0
+ 1410 000c 26000000 		.4byte	.LFE0
+ 1411 0010 00000000 		.4byte	.LFB1
+ 1412 0014 24000000 		.4byte	.LFE1
+ 1413 0018 00000000 		.4byte	.LFB2
+ 1414 001c 52000000 		.4byte	.LFE2
+ 1415 0020 00000000 		.4byte	.LFB3
+ 1416 0024 96010000 		.4byte	.LFE3
+ 1417 0028 00000000 		.4byte	.LFB4
+ 1418 002c 18000000 		.4byte	.LFE4
+ 1419 0030 00000000 		.4byte	.LFB5
+ 1420 0034 36000000 		.4byte	.LFE5
+ 1421 0038 00000000 		.4byte	.LFB6
+ 1422 003c 3E000000 		.4byte	.LFE6
+ 1423 0040 00000000 		.4byte	.LFB7
+ 1424 0044 1C000000 		.4byte	.LFE7
+ 1425 0048 00000000 		.4byte	.LFB8
+ 1426 004c E6000000 		.4byte	.LFE8
+ 1427 0050 00000000 		.4byte	.LFB9
+ 1428 0054 1C000000 		.4byte	.LFE9
+ 1429 0058 00000000 		.4byte	0x0
+ 1430 005c 00000000 		.4byte	0x0
+ 1431              		.section	.debug_str,"MS",%progbits,1
+ 1432              	.LASF6:
+ 1433 0000 6C6F6E67 		.ascii	"long long int\000"
+ 1433      206C6F6E 
+ 1433      6720696E 
+ 1433      7400
+ 1434              	.LASF16:
+ 1435 000e 73746174 		.ascii	"state\000"
+ 1435      6500
+ 1436              	.LASF21:
+ 1437 0014 6F6C6444 		.ascii	"oldDivider\000"
+ 1437      69766964 
+ 1437      657200
+ 1438              	.LASF34:
+ 1439 001f 433A5C55 		.ascii	"C:\\Users\\arh\\Documents\\PSoC Creator\\Design07\\"
+ 1439      73657273 
+ 1439      5C617268 
+ 1439      5C446F63 
+ 1439      756D656E 
+ 1440 004c 6364732E 		.ascii	"cds.cydsn\000"
+ 1440      63796473 
+ARM GAS  C:\Users\arh\AppData\Local\Temp\ccWpvzFh.s 			page 35
+
+
+ 1440      6E00
+ 1441              	.LASF24:
+ 1442 0056 6164635F 		.ascii	"adc_Ext_CP_Clk_ClearModeRegister\000"
+ 1442      4578745F 
+ 1442      43505F43 
+ 1442      6C6B5F43 
+ 1442      6C656172 
+ 1443              	.LASF15:
+ 1444 0077 6164635F 		.ascii	"adc_Ext_CP_Clk_SetDividerRegister\000"
+ 1444      4578745F 
+ 1444      43505F43 
+ 1444      6C6B5F53 
+ 1444      65744469 
+ 1445              	.LASF33:
+ 1446 0099 2E5C4765 		.ascii	".\\Generated_Source\\PSoC5\\adc_Ext_CP_Clk.c\000"
+ 1446      6E657261 
+ 1446      7465645F 
+ 1446      536F7572 
+ 1446      63655C50 
+ 1447              	.LASF1:
+ 1448 00c3 756E7369 		.ascii	"unsigned char\000"
+ 1448      676E6564 
+ 1448      20636861 
+ 1448      7200
+ 1449              	.LASF19:
+ 1450 00d1 656E6162 		.ascii	"enabled\000"
+ 1450      6C656400 
+ 1451              	.LASF5:
+ 1452 00d9 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1452      20756E73 
+ 1452      69676E65 
+ 1452      6420696E 
+ 1452      7400
+ 1453              	.LASF3:
+ 1454 00eb 73686F72 		.ascii	"short unsigned int\000"
+ 1454      7420756E 
+ 1454      7369676E 
+ 1454      65642069 
+ 1454      6E7400
+ 1455              	.LASF14:
+ 1456 00fe 6164635F 		.ascii	"adc_Ext_CP_Clk_StandbyPower\000"
+ 1456      4578745F 
+ 1456      43505F43 
+ 1456      6C6B5F53 
+ 1456      74616E64 
+ 1457              	.LASF25:
+ 1458 011a 6164635F 		.ascii	"adc_Ext_CP_Clk_GetDividerRegister\000"
+ 1458      4578745F 
+ 1458      43505F43 
+ 1458      6C6B5F47 
+ 1458      65744469 
+ 1459              	.LASF17:
+ 1460 013c 636C6B44 		.ascii	"clkDivider\000"
+ 1460      69766964 
+ 1460      657200
+ 1461              	.LASF30:
+ 1462 0147 6F6C6453 		.ascii	"oldSrc\000"
+ARM GAS  C:\Users\arh\AppData\Local\Temp\ccWpvzFh.s 			page 36
+
+
+ 1462      726300
+ 1463              	.LASF18:
+ 1464 014e 72657374 		.ascii	"restart\000"
+ 1464      61727400 
+ 1465              	.LASF13:
+ 1466 0156 6164635F 		.ascii	"adc_Ext_CP_Clk_Stop\000"
+ 1466      4578745F 
+ 1466      43505F43 
+ 1466      6C6B5F53 
+ 1466      746F7000 
+ 1467              	.LASF11:
+ 1468 016a 75696E74 		.ascii	"uint16\000"
+ 1468      313600
+ 1469              	.LASF23:
+ 1470 0171 636C6B4D 		.ascii	"clkMode\000"
+ 1470      6F646500 
+ 1471              	.LASF8:
+ 1472 0179 756E7369 		.ascii	"unsigned int\000"
+ 1472      676E6564 
+ 1472      20696E74 
+ 1472      00
+ 1473              	.LASF20:
+ 1474 0186 63757272 		.ascii	"currSrc\000"
+ 1474      53726300 
+ 1475              	.LASF7:
+ 1476 018e 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1476      206C6F6E 
+ 1476      6720756E 
+ 1476      7369676E 
+ 1476      65642069 
+ 1477              	.LASF27:
+ 1478 01a5 6164635F 		.ascii	"adc_Ext_CP_Clk_SetSourceRegister\000"
+ 1478      4578745F 
+ 1478      43505F43 
+ 1478      6C6B5F53 
+ 1478      6574536F 
+ 1479              	.LASF32:
+ 1480 01c6 474E5520 		.ascii	"GNU C 4.4.1\000"
+ 1480      4320342E 
+ 1480      342E3100 
+ 1481              	.LASF9:
+ 1482 01d2 63686172 		.ascii	"char\000"
+ 1482      00
+ 1483              	.LASF12:
+ 1484 01d7 6164635F 		.ascii	"adc_Ext_CP_Clk_Start\000"
+ 1484      4578745F 
+ 1484      43505F43 
+ 1484      6C6B5F53 
+ 1484      74617274 
+ 1485              	.LASF29:
+ 1486 01ec 63757272 		.ascii	"currDiv\000"
+ 1486      44697600 
+ 1487              	.LASF2:
+ 1488 01f4 73686F72 		.ascii	"short int\000"
+ 1488      7420696E 
+ 1488      7400
+ 1489              	.LASF31:
+ARM GAS  C:\Users\arh\AppData\Local\Temp\ccWpvzFh.s 			page 37
+
+
+ 1490 01fe 6164635F 		.ascii	"adc_Ext_CP_Clk_GetSourceRegister\000"
+ 1490      4578745F 
+ 1490      43505F43 
+ 1490      6C6B5F47 
+ 1490      6574536F 
+ 1491              	.LASF10:
+ 1492 021f 75696E74 		.ascii	"uint8\000"
+ 1492      3800
+ 1493              	.LASF4:
+ 1494 0225 6C6F6E67 		.ascii	"long int\000"
+ 1494      20696E74 
+ 1494      00
+ 1495              	.LASF28:
+ 1496 022e 636C6B53 		.ascii	"clkSource\000"
+ 1496      6F757263 
+ 1496      6500
+ 1497              	.LASF26:
+ 1498 0238 6164635F 		.ascii	"adc_Ext_CP_Clk_GetModeRegister\000"
+ 1498      4578745F 
+ 1498      43505F43 
+ 1498      6C6B5F47 
+ 1498      65744D6F 
+ 1499              	.LASF0:
+ 1500 0257 7369676E 		.ascii	"signed char\000"
+ 1500      65642063 
+ 1500      68617200 
+ 1501              	.LASF22:
+ 1502 0263 6164635F 		.ascii	"adc_Ext_CP_Clk_SetModeRegister\000"
+ 1502      4578745F 
+ 1502      43505F43 
+ 1502      6C6B5F53 
+ 1502      65744D6F 
+ 1503              		.ident	"GCC: (Sourcery G++ Lite 2010q1-188) 4.4.1"

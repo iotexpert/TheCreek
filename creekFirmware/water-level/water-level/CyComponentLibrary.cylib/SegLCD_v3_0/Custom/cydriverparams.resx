@@ -1,0 +1,593 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="numUpDownLowDriveInitTime.Location" type="System.Drawing.Point, System.Drawing">
+    <value>169, 126</value>
+  </data>
+  <data name="numUpDownLowDriveInitTime.Size" type="System.Drawing.Size, System.Drawing">
+    <value>131, 20</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="numUpDownLowDriveInitTime.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;numUpDownLowDriveInitTime.Name" xml:space="preserve">
+    <value>numUpDownLowDriveInitTime</value>
+  </data>
+  <data name="&gt;&gt;numUpDownLowDriveInitTime.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;numUpDownLowDriveInitTime.Parent" xml:space="preserve">
+    <value>groupBoxAdvanced</value>
+  </data>
+  <data name="&gt;&gt;numUpDownLowDriveInitTime.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="labelLowDriveInitTime.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="labelLowDriveInitTime.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 128</value>
+  </data>
+  <data name="labelLowDriveInitTime.Size" type="System.Drawing.Size, System.Drawing">
+    <value>98, 13</value>
+  </data>
+  <data name="labelLowDriveInitTime.TabIndex" type="System.Int32, mscorlib">
+    <value>32</value>
+  </data>
+  <data name="labelLowDriveInitTime.Text" xml:space="preserve">
+    <value>Low Drive Time, μs</value>
+  </data>
+  <data name="&gt;&gt;labelLowDriveInitTime.Name" xml:space="preserve">
+    <value>labelLowDriveInitTime</value>
+  </data>
+  <data name="&gt;&gt;labelLowDriveInitTime.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelLowDriveInitTime.Parent" xml:space="preserve">
+    <value>groupBoxAdvanced</value>
+  </data>
+  <data name="&gt;&gt;labelLowDriveInitTime.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="labelHighDriverTime.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="labelHighDriverTime.Location" type="System.Drawing.Point, System.Drawing">
+    <value>160, 26</value>
+  </data>
+  <data name="labelHighDriverTime.Size" type="System.Drawing.Size, System.Drawing">
+    <value>34, 13</value>
+  </data>
+  <data name="labelHighDriverTime.TabIndex" type="System.Int32, mscorlib">
+    <value>27</value>
+  </data>
+  <data name="labelHighDriverTime.Text" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="&gt;&gt;labelHighDriverTime.Name" xml:space="preserve">
+    <value>labelHighDriverTime</value>
+  </data>
+  <data name="&gt;&gt;labelHighDriverTime.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelHighDriverTime.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;labelHighDriverTime.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <metadata name="errorProvider.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="$this.AutoScroll" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="checkBoxAdvanced.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="checkBoxAdvanced.Location" type="System.Drawing.Point, System.Drawing">
+    <value>18, 44</value>
+  </data>
+  <data name="checkBoxAdvanced.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 17</value>
+  </data>
+  <data name="checkBoxAdvanced.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="checkBoxAdvanced.Text" xml:space="preserve">
+    <value>Advanced</value>
+  </data>
+  <data name="&gt;&gt;checkBoxAdvanced.Name" xml:space="preserve">
+    <value>checkBoxAdvanced</value>
+  </data>
+  <data name="&gt;&gt;checkBoxAdvanced.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxAdvanced.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;checkBoxAdvanced.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="radioButtonDefStep.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="radioButtonDefStep.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 22</value>
+  </data>
+  <data name="radioButtonDefStep.Size" type="System.Drawing.Size, System.Drawing">
+    <value>84, 17</value>
+  </data>
+  <data name="radioButtonDefStep.TabIndex" type="System.Int32, mscorlib">
+    <value>50</value>
+  </data>
+  <data name="radioButtonDefStep.Text" xml:space="preserve">
+    <value>Default Step</value>
+  </data>
+  <data name="&gt;&gt;radioButtonDefStep.Name" xml:space="preserve">
+    <value>radioButtonDefStep</value>
+  </data>
+  <data name="&gt;&gt;radioButtonDefStep.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;radioButtonDefStep.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;radioButtonDefStep.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="radioButtonCustomStep.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="radioButtonCustomStep.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 45</value>
+  </data>
+  <data name="radioButtonCustomStep.Size" type="System.Drawing.Size, System.Drawing">
+    <value>85, 17</value>
+  </data>
+  <data name="radioButtonCustomStep.TabIndex" type="System.Int32, mscorlib">
+    <value>49</value>
+  </data>
+  <data name="radioButtonCustomStep.Text" xml:space="preserve">
+    <value>Custom Step</value>
+  </data>
+  <data name="&gt;&gt;radioButtonCustomStep.Name" xml:space="preserve">
+    <value>radioButtonCustomStep</value>
+  </data>
+  <data name="&gt;&gt;radioButtonCustomStep.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;radioButtonCustomStep.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;radioButtonCustomStep.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="numUpDownCustomPeriod.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="numUpDownCustomPeriod.Location" type="System.Drawing.Point, System.Drawing">
+    <value>96, 45</value>
+  </data>
+  <data name="numUpDownCustomPeriod.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 20</value>
+  </data>
+  <data name="numUpDownCustomPeriod.TabIndex" type="System.Int32, mscorlib">
+    <value>46</value>
+  </data>
+  <data name="&gt;&gt;numUpDownCustomPeriod.Name" xml:space="preserve">
+    <value>numUpDownCustomPeriod</value>
+  </data>
+  <data name="&gt;&gt;numUpDownCustomPeriod.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;numUpDownCustomPeriod.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;numUpDownCustomPeriod.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="labelDefaultPeriod.Location" type="System.Drawing.Point, System.Drawing">
+    <value>96, 19</value>
+  </data>
+  <data name="labelDefaultPeriod.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 20</value>
+  </data>
+  <data name="labelDefaultPeriod.TabIndex" type="System.Int32, mscorlib">
+    <value>45</value>
+  </data>
+  <data name="labelDefaultPeriod.Text" xml:space="preserve">
+    <value>0.0</value>
+  </data>
+  <data name="labelDefaultPeriod.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;labelDefaultPeriod.Name" xml:space="preserve">
+    <value>labelDefaultPeriod</value>
+  </data>
+  <data name="&gt;&gt;labelDefaultPeriod.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelDefaultPeriod.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;labelDefaultPeriod.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="numUpDownHiDriveTime.Location" type="System.Drawing.Point, System.Drawing">
+    <value>163, 45</value>
+  </data>
+  <data name="numUpDownHiDriveTime.Size" type="System.Drawing.Size, System.Drawing">
+    <value>131, 20</value>
+  </data>
+  <data name="numUpDownHiDriveTime.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;numUpDownHiDriveTime.Name" xml:space="preserve">
+    <value>numUpDownHiDriveTime</value>
+  </data>
+  <data name="&gt;&gt;numUpDownHiDriveTime.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;numUpDownHiDriveTime.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;numUpDownHiDriveTime.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 9</value>
+  </data>
+  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>312, 73</value>
+  </data>
+  <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>49</value>
+  </data>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>High Drive Time, μs</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
+    <value>groupBoxAdvanced</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="comboBoxLowDriveStrength.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="comboBoxLowDriveStrength.Items" xml:space="preserve">
+    <value>seg=0.06x com=0.06x</value>
+  </data>
+  <data name="comboBoxLowDriveStrength.Items1" xml:space="preserve">
+    <value>seg=0.06x com=0.12x</value>
+  </data>
+  <data name="comboBoxLowDriveStrength.Location" type="System.Drawing.Point, System.Drawing">
+    <value>169, 153</value>
+  </data>
+  <data name="comboBoxLowDriveStrength.Size" type="System.Drawing.Size, System.Drawing">
+    <value>131, 21</value>
+  </data>
+  <data name="comboBoxLowDriveStrength.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;comboBoxLowDriveStrength.Name" xml:space="preserve">
+    <value>comboBoxLowDriveStrength</value>
+  </data>
+  <data name="&gt;&gt;comboBoxLowDriveStrength.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;comboBoxLowDriveStrength.Parent" xml:space="preserve">
+    <value>groupBoxAdvanced</value>
+  </data>
+  <data name="&gt;&gt;comboBoxLowDriveStrength.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="labelLowDriveStrength.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="labelLowDriveStrength.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 156</value>
+  </data>
+  <data name="labelLowDriveStrength.Size" type="System.Drawing.Size, System.Drawing">
+    <value>98, 13</value>
+  </data>
+  <data name="labelLowDriveStrength.TabIndex" type="System.Int32, mscorlib">
+    <value>44</value>
+  </data>
+  <data name="labelLowDriveStrength.Text" xml:space="preserve">
+    <value>Low Drive Strength</value>
+  </data>
+  <data name="&gt;&gt;labelLowDriveStrength.Name" xml:space="preserve">
+    <value>labelLowDriveStrength</value>
+  </data>
+  <data name="&gt;&gt;labelLowDriveStrength.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelLowDriveStrength.Parent" xml:space="preserve">
+    <value>groupBoxAdvanced</value>
+  </data>
+  <data name="&gt;&gt;labelLowDriveStrength.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="comboBoxHiDriveStrength.Items" xml:space="preserve">
+    <value>seg=1x com=1x</value>
+  </data>
+  <data name="comboBoxHiDriveStrength.Items1" xml:space="preserve">
+    <value>seg=1x com=2x</value>
+  </data>
+  <data name="comboBoxHiDriveStrength.Items2" xml:space="preserve">
+    <value>seg=1x com=4x</value>
+  </data>
+  <data name="comboBoxHiDriveStrength.Items3" xml:space="preserve">
+    <value>seg=2x com=2x</value>
+  </data>
+  <data name="comboBoxHiDriveStrength.Items4" xml:space="preserve">
+    <value>seg=2x com=4x</value>
+  </data>
+  <data name="comboBoxHiDriveStrength.Items5" xml:space="preserve">
+    <value>seg=4x com=4x</value>
+  </data>
+  <data name="comboBoxHiDriveStrength.Location" type="System.Drawing.Point, System.Drawing">
+    <value>169, 98</value>
+  </data>
+  <data name="comboBoxHiDriveStrength.Size" type="System.Drawing.Size, System.Drawing">
+    <value>131, 21</value>
+  </data>
+  <data name="comboBoxHiDriveStrength.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;comboBoxHiDriveStrength.Name" xml:space="preserve">
+    <value>comboBoxHiDriveStrength</value>
+  </data>
+  <data name="&gt;&gt;comboBoxHiDriveStrength.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;comboBoxHiDriveStrength.Parent" xml:space="preserve">
+    <value>groupBoxAdvanced</value>
+  </data>
+  <data name="&gt;&gt;comboBoxHiDriveStrength.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="labelHiDriveStrength.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="labelHiDriveStrength.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 101</value>
+  </data>
+  <data name="labelHiDriveStrength.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 13</value>
+  </data>
+  <data name="labelHiDriveStrength.TabIndex" type="System.Int32, mscorlib">
+    <value>42</value>
+  </data>
+  <data name="labelHiDriveStrength.Text" xml:space="preserve">
+    <value>High Drive Strength</value>
+  </data>
+  <data name="&gt;&gt;labelHiDriveStrength.Name" xml:space="preserve">
+    <value>labelHiDriveStrength</value>
+  </data>
+  <data name="&gt;&gt;labelHiDriveStrength.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelHiDriveStrength.Parent" xml:space="preserve">
+    <value>groupBoxAdvanced</value>
+  </data>
+  <data name="&gt;&gt;labelHiDriveStrength.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="groupBoxAdvanced.Location" type="System.Drawing.Point, System.Drawing">
+    <value>18, 58</value>
+  </data>
+  <data name="groupBoxAdvanced.Size" type="System.Drawing.Size, System.Drawing">
+    <value>324, 178</value>
+  </data>
+  <data name="groupBoxAdvanced.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;groupBoxAdvanced.Name" xml:space="preserve">
+    <value>groupBoxAdvanced</value>
+  </data>
+  <data name="&gt;&gt;groupBoxAdvanced.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBoxAdvanced.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;groupBoxAdvanced.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="labelGlassSize.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="labelGlassSize.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 19</value>
+  </data>
+  <data name="labelGlassSize.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 13</value>
+  </data>
+  <data name="labelGlassSize.TabIndex" type="System.Int32, mscorlib">
+    <value>43</value>
+  </data>
+  <data name="labelGlassSize.Text" xml:space="preserve">
+    <value>Glass Size, sq cm</value>
+  </data>
+  <data name="&gt;&gt;labelGlassSize.Name" xml:space="preserve">
+    <value>labelGlassSize</value>
+  </data>
+  <data name="&gt;&gt;labelGlassSize.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelGlassSize.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;labelGlassSize.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="numUpDownGlassSize.Location" type="System.Drawing.Point, System.Drawing">
+    <value>187, 17</value>
+  </data>
+  <data name="numUpDownGlassSize.Size" type="System.Drawing.Size, System.Drawing">
+    <value>131, 20</value>
+  </data>
+  <data name="numUpDownGlassSize.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;numUpDownGlassSize.Name" xml:space="preserve">
+    <value>numUpDownGlassSize</value>
+  </data>
+  <data name="&gt;&gt;numUpDownGlassSize.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;numUpDownGlassSize.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;numUpDownGlassSize.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
+    <value>446, 242</value>
+  </data>
+  <data name="&gt;&gt;errorProvider.Name" xml:space="preserve">
+    <value>errorProvider</value>
+  </data>
+  <data name="&gt;&gt;errorProvider.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ErrorProvider, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>CyDriverParams</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.UserControl, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+</root>

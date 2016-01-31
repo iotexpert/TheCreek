@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="us-ascii"?>
+
+<deviceData version="1"
+  xmlns="http://cypress.com/xsd/cydevicedata"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://cypress.com/xsd/cydevicedata cydevicedata.xsd">
+
+  <block name="`$INSTANCE_NAME`" desc="" visible="true">
+
+            <register name="LCDDAC_CNTL0"
+		    address="`$INSTANCE_NAME`_LCD__CR0" bitWidth="8" desc="LCD DAC Control Register 0">
+                <field name="BIAS_SEL" from="1" to="0" access="RW" desc="Selects the LCD bias multiplex ratio">
+                    <value name="1DIV3 BIAS" value="0" desc="1DIV3 BIAS" />
+                    <value name="1DIV4 BIAS" value="1" desc="1DIV4 BIAS" />
+                    <?value name="1DIV5 BIAS" value="2" desc="1DIV5 BIAS" />
+                    <value name="1DIV5_BIAS" value="3" desc="1DIV5_BIAS" /?>
+                </field>
+                <field name="LP_EN" from="7" to="7" access="RW" desc="Allows the UDB to gate the Low Power Ack signal">
+                    <value name="UDB LP ACK DISABLED" value="0" 
+                        desc="LCD subsystem LP ack is directly driven by the lpreq from thepower manager" />
+                    <value name="UDB LP ACK ENABLED" value="1" 
+                        desc="UDB will gate the Low Power Ack for the LCD Subsystem" />
+                </field>
+                <field name="CONTINUOUS_DRIVE" from="3" to="3" access="RW" 
+                    desc="Allows the LCDDAC to remain active when the chip goes to sleep">
+                    <value name="LCDDAC INACTIVE" value="0" 
+                        desc="LCDDAC is powered down when the chip is in sleep" />
+                    <value name="LCDDAC ACTIVE" value="1" 
+                        desc="LCDDAC is active when the chip is in sleep" />
+                </field>
+		    </register>
+            
+            <register name="LCDDAC_CNTL1"
+		    address="`$INSTANCE_NAME`_LCD__CR1" bitWidth="8" desc="LCD DAC Control Register 1">
+                <field name="LP_EN" from="5" to="0" access="RW" desc="LCD Contrast control setting">
+                </field>
+		    </register>
+
+            <register name="LCD_TMR"
+		    address="`$INSTANCE_NAME`_LCD__CFG" bitWidth="8" desc="LCD Timer Register">
+		        <field name="TIMER_EN" from="0" to="0" access="RW" desc="LCD timer enable bit">
+                    <value name="LCD_TIMER_DISABLED" value="0" desc="Timer is disabled" />
+                    <value name="LCD_TIMER_ENABLED" value="1" desc="Timer is enabled" />
+                </field>
+                <field name="CLK_SEL" from="1" to="1" access="RW" desc="LCD timer clock source selection bit">
+                    <value name="LCD_CLK_SEL_ILO_1K" value="0" desc="ILO 1K" />
+                    <value name="LCD_CLK_SEL_ONEPPS" value="1" desc="OPPS from 32k External Watch Crystal" />
+                </field>
+                <field name="PERIOD" from="7" to="2" access="RW" desc="LCD timer period">
+                </field>                
+            </register>
+    
+            <register name="LCDDRV_CNTL"
+		    address="`$INSTANCE_NAME`_LCD__CR" bitWidth="8" desc="LCD Driver Control Register">
+		        <field name="DISPBLNK" from="0" to="0" access="RW" 
+                    desc="Allows the LCDDAC to remain active when the chip goes to sleep">
+                    <value name="LCD_DISPBLNK_HIZ" value="0" 
+                        desc="When in a low power mode, set output buffer in LCD Drivers to hi impedance" />
+                    <value name="LCD_DISPBLNK_BLANK" value="1" 
+                        desc="When in a low power mode, set output buffer in LCD Drivers to ground" />
+                </field>
+                <field name="MODE_0" from="1" to="1" access="RW" desc="LSB of LCD Driver mode[2..0]">
+                </field>
+                <field name="INVERT" from="2" to="2" access="RW" desc="Invert LCD Display">
+                    <value name="LCD_INVERT_DISABLED" value="0" desc="Normal display" />
+                    <value name="LCD_INVERT_ENABLED" value="1" desc="Inverted display" />
+                </field>
+                <field name="PTS" from="3" to="3" access="RW" 
+                    desc="Signal enables the LCD Driver to be able to drive to supply level">
+                    <?value name="LCD_PTS_0" value="0" desc="Normal operation, VOUT = VIO-0.5V" />
+                    <value name="LCD_PTS_1" value="1" desc="pts mode enabled, VOUT = VIO" /?>
+                </field>
+                <field name="BYPASS_EN" from="4" to="4" access="RW" 
+                    desc="This bit enables bypassing the LCD Driver, so that the LCDDAC is driving the LCD glass">
+                    <value name="LCD_BYPASS_EN_LCD_DRV_DRIVES_GLASS" value="0" desc="Normal mode" />
+                    <value name="LCD_BYPASS_EN_LCD_DAC_DRIVES_GLASS" value="1" desc="Bypass mode" />
+                </field>
+            </register>           
+    
+            <register name="LCDDAC_SW0"
+		    address="`$INSTANCE_NAME`_LCD__SW0" bitWidth="8" desc="LCD DAC Switch Register 0">
+                <field name="SW0" from="2" to="0" access="RW" 
+                    desc="Switch Control for LCD_BIAS_BUS[0]">
+                    <?value name="LCD_BYPASS_EN_LCD_DRV_DRIVES_GLASS" value="0" desc="Normal mode" />
+                    <value name="LCD_BYPASS_EN_LCD_DAC_DRIVES_GLASS" value="1" desc="Bypass mode" /?>
+                </field>
+		    </register>      
+
+            <register name="LCDDAC_SW1"
+		    address="`$INSTANCE_NAME`_LCD__SW1" bitWidth="8" desc="LCD DAC Switch Register 1">
+                <field name="SW0" from="2" to="0" access="RW" 
+                    desc="Switch Control for LCD_BIAS_BUS[1]">
+                    <?value name="LCD_BYPASS_EN_LCD_DRV_DRIVES_GLASS" value="0" desc="Normal mode" />
+                    <value name="LCD_BYPASS_EN_LCD_DAC_DRIVES_GLASS" value="1" desc="Bypass mode" /?>
+                </field>
+		    </register>      
+
+            <register name="LCDDAC_SW2"
+		    address="`$INSTANCE_NAME`_LCD__SW2" bitWidth="8" desc="LCD DAC Switch Register 2">
+                <field name="SW0" from="2" to="0" access="RW" 
+                    desc="Switch Control for LCD_BIAS_BUS[2]">
+                    <?value name="LCD_BYPASS_EN_LCD_DRV_DRIVES_GLASS" value="0" desc="Normal mode" />
+                    <value name="LCD_BYPASS_EN_LCD_DAC_DRIVES_GLASS" value="1" desc="Bypass mode" /?>
+                </field>
+		    </register>      
+    
+            <register name="LCDDAC_SW3"
+		    address="`$INSTANCE_NAME`_LCD__SW3" bitWidth="8" desc="LCD DAC Switch Register 3">
+                <field name="SW0" from="2" to="0" access="RW" 
+                    desc="Switch Control for LCD_BIAS_BUS[3]">
+                    <?value name="LCD_BYPASS_EN_LCD_DRV_DRIVES_GLASS" value="0" desc="Normal mode" />
+                    <value name="LCD_BYPASS_EN_LCD_DAC_DRIVES_GLASS" value="1" desc="Bypass mode" /?>
+                </field>
+		    </register>   
+            
+            <register name="LCDDAC_SW4"
+		    address="`$INSTANCE_NAME`_LCD__SW4" bitWidth="8" desc="LCD DAC Switch Register 4">
+                <field name="SW0" from="2" to="0" access="RW" 
+                    desc="Switch Control for LCD_BIAS_BUS[4]">
+                    <?value name="LCD_BYPASS_EN_LCD_DRV_DRIVES_GLASS" value="0" desc="Normal mode" />
+                    <value name="LCD_BYPASS_EN_LCD_DAC_DRIVES_GLASS" value="1" desc="Bypass mode" /?>
+                </field>
+		    </register>   
+         
+            <register name="LCD_CNTL"
+		    address="`$INSTANCE_NAME`_bLCDDSD_CtrlReg__CONTROL_REG" bitWidth="8" desc="LCD Control Register">
+                <field name="CLK_EN" from="0" to="0" access="RW" 
+                    desc="This bit enables the LCD component operation">
+                    <value name="LCD_CLK_DISABLED" value="0" desc="LCD UDB clock is disabled" />
+                    <value name="LCD_CLK_ENABLED" value="1" desc="LCD UDB clock is disabled" />
+                </field>
+                <field name="MODE_1" from="1" to="1" access="RW" desc="Bit 1 of LCD Driver mode[2..0]">
+                </field>
+                <field name="MODE_2" from="2" to="2" access="RW" desc="MSB of LCD Driver mode[2..0]">
+                </field>
+                <field name="FRAME_DONE" from="3" to="3" access="R" 
+                    desc="Generates a synchronous pulse after completion of DMA Frame transaction">
+                </field>
+                <field name="RSRVD" from="6" to="4" access="R" desc="Reserved">
+                </field>
+                <field name="FRAME" from="7" to="7" access="RW" desc="Generates Frame signal for LCD Driver">
+                </field>
+		    </register>
+
+  </block>
+</deviceData>

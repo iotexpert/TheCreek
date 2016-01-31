@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ArrayOfDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Descriptor xsi:type="Interface_Descriptor">
+    <bInterfaceClass>0x02</bInterfaceClass>
+    <bInterfaceSubClass>0x02</bInterfaceSubClass>
+    <bAlternateSetting>0x00</bAlternateSetting>
+    <bInterfaceNumber>0x00</bInterfaceNumber>
+    <bNumEndpoints>0x01</bNumEndpoints>
+    <bInterfaceProtocol>0x00</bInterfaceProtocol>
+    <iInterface>CDC Communication Interface</iInterface>
+    <InterfaceDisplayName>CDC Interface 1</InterfaceDisplayName>
+  </Descriptor>
+  <Descriptor xsi:type="CDCHeader_Descriptor">
+    <bcdADC>0x0110</bcdADC>
+  </Descriptor>
+  <Descriptor xsi:type="CDCAbstractControlMgmt_Descriptor">
+    <bmCapabilities>0x02</bmCapabilities>
+  </Descriptor>
+  <Descriptor xsi:type="CDCUnion_Descriptor">
+    <bControlInterface>0x00</bControlInterface>
+    <bSubordinateInterface>0x01</bSubordinateInterface>
+  </Descriptor>
+  <Descriptor xsi:type="CDCCallManagement_Descriptor">
+    <bmCapabilities>0x00</bmCapabilities>
+    <bDataInterface>0x01</bDataInterface>
+  </Descriptor>
+  <Descriptor xsi:type="Endpoint_Descriptor">
+    <bInterval>0x0A</bInterval>
+    <bEndpointAddress>0x81</bEndpointAddress>
+    <bmAttributes>0x03</bmAttributes>
+    <wMaxPacketSize>0x0008</wMaxPacketSize>
+  </Descriptor>
+  <Descriptor xsi:type="Interface_Descriptor">
+    <bInterfaceClass>0x0A</bInterfaceClass>
+    <bInterfaceSubClass>0x00</bInterfaceSubClass>
+    <bAlternateSetting>0x00</bAlternateSetting>
+    <bInterfaceNumber>0x01</bInterfaceNumber>
+    <bNumEndpoints>0x02</bNumEndpoints>
+    <bInterfaceProtocol>0x00</bInterfaceProtocol>
+    <iInterface>CDC Data Interface</iInterface>
+    <InterfaceDisplayName>CDC Interface 2</InterfaceDisplayName>
+  </Descriptor>
+  <Descriptor xsi:type="Endpoint_Descriptor">
+    <bInterval>0x0A</bInterval>
+    <bEndpointAddress>0x82</bEndpointAddress>
+    <bmAttributes>0x02</bmAttributes>
+    <wMaxPacketSize>0x0040</wMaxPacketSize>
+  </Descriptor>
+  <Descriptor xsi:type="Endpoint_Descriptor">
+    <bInterval>0x0A</bInterval>
+    <bEndpointAddress>0x03</bEndpointAddress>
+    <bmAttributes>0x02</bmAttributes>
+    <wMaxPacketSize>0x0040</wMaxPacketSize>
+  </Descriptor>
+</ArrayOfDescriptor>

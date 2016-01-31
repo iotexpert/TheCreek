@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ArrayOfDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Descriptor xsi:type="Interface_Descriptor">
+    <bInterfaceClass>0x01</bInterfaceClass>
+    <bInterfaceSubClass>0x01</bInterfaceSubClass>
+    <bAlternateSetting>0x00</bAlternateSetting>
+    <bInterfaceNumber>0x00</bInterfaceNumber>
+    <bNumEndpoints>0x00</bNumEndpoints>
+    <bInterfaceProtocol>0x00</bInterfaceProtocol>
+    <iInterface>MIDI Interface</iInterface>
+    <InterfaceDisplayName>MIDI Interface Control</InterfaceDisplayName>
+  </Descriptor>
+  <Descriptor xsi:type="ACHeader_Descriptor">
+    <bDescriptorSubtype>HEADER</bDescriptorSubtype>
+    <bcdADC>0x0100</bcdADC>
+    <wTotalLength>0x0009</wTotalLength>
+    <bInCollection>0x01</bInCollection>
+    <baInterfaceNr>0x01</baInterfaceNr>
+  </Descriptor>
+  <Descriptor xsi:type="Interface_Descriptor">
+    <bInterfaceClass>0x01</bInterfaceClass>
+    <bInterfaceSubClass>0x03</bInterfaceSubClass>
+    <bAlternateSetting>0x00</bAlternateSetting>
+    <bInterfaceNumber>0x01</bInterfaceNumber>
+    <bNumEndpoints>0x02</bNumEndpoints>
+    <bInterfaceProtocol>0x00</bInterfaceProtocol>
+    <iInterface>MIDI Streaming Intf</iInterface>
+    <InterfaceDisplayName>MIDI Interface Streaming</InterfaceDisplayName>
+  </Descriptor>
+  <Descriptor xsi:type="MSHeader_Descriptor">
+    <bDescriptorSubtype>MS_HEADER</bDescriptorSubtype>
+    <bcdMSC>0x0100</bcdMSC>
+    <wTotalLength>0x0043</wTotalLength>
+  </Descriptor>
+  <Descriptor xsi:type="MIDIInJack_Descriptor">
+    <bDescriptorSubtype>MIDI_IN_JACK</bDescriptorSubtype>
+    <bJackType>0x01</bJackType>
+    <bJackID>0x01</bJackID>
+    <iJack>MIDI IN</iJack>
+  </Descriptor>
+  <Descriptor xsi:type="MIDIInJack_Descriptor">
+    <bDescriptorSubtype>MIDI_IN_JACK</bDescriptorSubtype>
+    <bJackType>0x02</bJackType>
+    <bJackID>0x02</bJackID>
+    <iJack>MIDI IN</iJack>
+  </Descriptor>
+  <Descriptor xsi:type="MIDIOutJack_Descriptor">
+    <bDescriptorSubtype>MIDI_OUT_JACK</bDescriptorSubtype>
+    <bJackType>0x01</bJackType>
+    <bJackID>0x03</bJackID>
+    <iJack>MIDI OUT</iJack>
+    <bNrInputPins>0x01</bNrInputPins>
+    <baSourceID>0x02</baSourceID>
+    <baSourcePin>0x01</baSourcePin>
+  </Descriptor>
+  <Descriptor xsi:type="MIDIOutJack_Descriptor">
+    <bDescriptorSubtype>MIDI_OUT_JACK</bDescriptorSubtype>
+    <bJackType>0x02</bJackType>
+    <bJackID>0x04</bJackID>
+    <iJack>MIDI OUT</iJack>
+    <bNrInputPins>0x01</bNrInputPins>
+    <baSourceID>0x01</baSourceID>
+    <baSourcePin>0x01</baSourcePin>
+  </Descriptor>
+  <Descriptor xsi:type="AudioEndpoint_Descriptor">
+    <bInterval>0x00</bInterval>
+    <bEndpointAddress>0x81</bEndpointAddress>
+    <bmAttributes>0x02</bmAttributes>
+    <wMaxPacketSize>0x0020</wMaxPacketSize>
+    <bRefresh>0x00</bRefresh>
+    <bSynchAddress>0x00</bSynchAddress>
+  </Descriptor>
+  <Descriptor xsi:type="MSBulkDataEndpoint_Descriptor">
+    <bDescriptorSubtype>MS_GENERAL</bDescriptorSubtype>
+    <bNumEmbMIDIJack>0x02</bNumEmbMIDIJack>
+    <baAssocJackID>0x03, 0x07</baAssocJackID>
+  </Descriptor>
+  <Descriptor xsi:type="AudioEndpoint_Descriptor">
+    <bInterval>0x00</bInterval>
+    <bEndpointAddress>0x02</bEndpointAddress>
+    <bmAttributes>0x02</bmAttributes>
+    <wMaxPacketSize>0x0020</wMaxPacketSize>
+    <bRefresh>0x00</bRefresh>
+    <bSynchAddress>0x00</bSynchAddress>
+  </Descriptor>
+  <Descriptor xsi:type="MSBulkDataEndpoint_Descriptor">
+    <bDescriptorSubtype>MS_GENERAL</bDescriptorSubtype>
+    <bNumEmbMIDIJack>0x02</bNumEmbMIDIJack>
+    <baAssocJackID>0x01, 0x05</baAssocJackID>
+  </Descriptor>
+  <Descriptor xsi:type="MIDIInJack_Descriptor">
+    <bDescriptorSubtype>MIDI_IN_JACK</bDescriptorSubtype>
+    <bJackType>0x01</bJackType>
+    <bJackID>0x05</bJackID>
+    <iJack>MIDI IN 2</iJack>
+  </Descriptor>
+  <Descriptor xsi:type="MIDIInJack_Descriptor">
+    <bDescriptorSubtype>MIDI_IN_JACK</bDescriptorSubtype>
+    <bJackType>0x02</bJackType>
+    <bJackID>0x06</bJackID>
+    <iJack>MIDI IN 2</iJack>
+  </Descriptor>
+  <Descriptor xsi:type="MIDIOutJack_Descriptor">
+    <bDescriptorSubtype>MIDI_OUT_JACK</bDescriptorSubtype>
+    <bJackType>0x01</bJackType>
+    <bJackID>0x07</bJackID>
+    <iJack>MIDI OUT</iJack>
+    <bNrInputPins>0x01</bNrInputPins>
+    <baSourceID>0x06</baSourceID>
+    <baSourcePin>0x01</baSourcePin>
+  </Descriptor>
+  <Descriptor xsi:type="MIDIOutJack_Descriptor">
+    <bDescriptorSubtype>MIDI_OUT_JACK</bDescriptorSubtype>
+    <bJackType>0x02</bJackType>
+    <bJackID>0x08</bJackID>
+    <iJack>MIDI OUT 2</iJack>
+    <bNrInputPins>0x01</bNrInputPins>
+    <baSourceID>0x05</baSourceID>
+    <baSourcePin>0x01</baSourcePin>
+  </Descriptor>
+</ArrayOfDescriptor>

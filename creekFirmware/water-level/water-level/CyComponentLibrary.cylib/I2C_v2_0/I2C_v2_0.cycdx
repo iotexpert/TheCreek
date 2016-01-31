@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="us-ascii"?>
+
+<deviceData version="1"
+  xmlns="http://cypress.com/xsd/cydevicedata"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://cypress.com/xsd/cydevicedata cydevicedata.xsd">
+
+    <block name="`$INSTANCE_NAME`" desc="" visible="true">
+	    <block name="`$INSTANCE_NAME`" desc="" visible="`$FF`"> 
+		
+            <register name="XCFG"
+		    address="`$INSTANCE_NAME`_I2C_FF__XCFG" bitWidth="8" desc="Extended Config: I2C.XCFG">
+		    </register>
+		
+            <register name="ADDR"
+		    address="`$INSTANCE_NAME`_I2C_FF__ADR" bitWidth="8" desc="Slave Address: I2C.ADR">
+		    </register>
+
+            <register name="CFG"
+		    address="`$INSTANCE_NAME`_I2C_FF__CFG" bitWidth="8" desc="Config: I2C.CFG">
+		    </register>
+		
+            <register name="CSR"
+		    address="`$INSTANCE_NAME`_I2C_FF__CSR" bitWidth="8" desc="Contorl and Status: I2C.CSR">
+		    </register>
+		
+            <register name="DATA"
+		    address="`$INSTANCE_NAME`_I2C_FF__D" bitWidth="8" desc="Data: I2C.D">
+		    </register>
+        
+            <register name="MCSR"
+		    address="`$INSTANCE_NAME`_I2C_FF__MCSR" bitWidth="8" desc="Master Control and Status: I2C.MCSR">
+		    </register>
+        
+	    </block>
+	    <block name="`$INSTANCE_NAME`" desc="" visible="`$UDB_MSTR`"> 
+
+		    <register name="CFG"
+		    address="`$INSTANCE_NAME`_bI2C_UDB_`$CtlModeReplacementString`_CtrlReg__CONTROL_REG" bitWidth="8" desc="Configuration Register">
+		    </register>
+		
+            <register name="CSR"
+		    address="`$INSTANCE_NAME`_bI2C_UDB_StsReg__STATUS_REG" bitWidth="8" desc="Control and Status Register">
+		    </register>
+
+            <register name="INT_MASK"
+		    address="`$INSTANCE_NAME`_bI2C_UDB_StsReg__MASK_REG" bitWidth="8" desc="Interrupt Mask">
+		    </register>
+
+            <register name="DATA"
+		    address="`$INSTANCE_NAME`_bI2C_UDB_Shifter_u0__A0_REG" bitWidth="8" desc="Data">
+		    </register>
+
+        </block>
+	    <block name="`$INSTANCE_NAME`" desc="" visible="`$UDB_SLV`"> 
+	
+            <register name="CFG"
+		    address="`$INSTANCE_NAME`_bI2C_UDB_`$CtlModeReplacementString`_CtrlReg__CONTROL_REG" bitWidth="8" desc="Configuration Register">
+		    </register>
+		
+            <register name="CSR"
+		    address="`$INSTANCE_NAME`_bI2C_UDB_StsReg__STATUS_REG" bitWidth="8" desc="Control and Status Register">
+		    </register>
+
+            <register name="INT_MASK"
+		    address="`$INSTANCE_NAME`_bI2C_UDB_StsReg__MASK_REG" bitWidth="8" desc="Interrupt Mask">
+		    </register>
+
+            <register name="ADDRESS"
+		    address="`$INSTANCE_NAME`_bI2C_UDB_Shifter_u0__D0_REG" bitWidth="8" desc="Slaves Address">
+		    </register>
+
+            <register name="DATA"
+		    address="`$INSTANCE_NAME`_bI2C_UDB_Shifter_u0__A0_REG" bitWidth="8" desc="Data">
+		    </register>
+
+            <register name="TX_DATA"
+		    address="`$INSTANCE_NAME`_bI2C_UDB_Shifter_u0__A0_REG" bitWidth="8" desc="Transfer Data">
+		    </register>
+    
+        </block>
+    </block>
+</deviceData>
