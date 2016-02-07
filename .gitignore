@@ -9,3 +9,6 @@ getCreek.old
 */*.DS_Store
 Backup
 creekFirmware/*.arh
+creekFirmware/Archive
+creekFirmware/*.cydsn/codegentemp
+creekFirmware/*.cydsn/CortexM0
