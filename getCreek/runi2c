@@ -1,4 +1,5 @@
 #!/bin/sh
 cd ~pi/getCreek
-sudo java -cp build/jar/getCreek.jar:lib/pi4j-core-0.0.3-SNAPSHOT.jar:lib/mysql-connector-java-5.1.6-bin.jar i2cdb
+#sudo java -cp build/jar/getCreek.jar:/opt/pi4j/lib:lib/mysql-connector-java-5.1.6-bin.jar i2cdb
+sudo java -cp build/jar/getCreek.jar:classes:./lib/* i2cdb
  

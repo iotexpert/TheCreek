@@ -17,7 +17,7 @@ public class getCreek {
 	 * @param args
 	 */
 
-	static boolean printInfo=false;
+	static boolean printInfo=false; 
 	static boolean insertData=false;
 	static boolean repeatRead=false;
 	static I2CBus bus;
@@ -55,12 +55,6 @@ public class getCreek {
 
 	}
 	
-	public static void nothing()
-	{
-		
-	}
-
-
 	public static void insertString(String insert)
 	{
 		String url = "jdbc:mysql://192.168.15.83/creekdata";

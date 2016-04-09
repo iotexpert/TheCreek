@@ -12,3 +12,6 @@ creekFirmware/*.arh
 creekFirmware/Archive
 creekFirmware/*.cydsn/codegentemp
 creekFirmware/*.cydsn/CortexM0
+/getCreek/nbproject/private/
+/getCreek/build/
+/getCreek/dist/
