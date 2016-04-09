@@ -17,7 +17,6 @@ v0regaddress=0
 v0endian=little
 v0dbname=int8
 v0type=int8
-v0sign=yes
 
 v1i2cbus=1
 v1i2caddress=8
@@ -25,7 +24,6 @@ v1regaddress=1
 v1endian=little
 v1dbname=uint8
 v1type=uint8
-v1sign=no
 
 v2i2cbus=1
 v2i2caddress=8
@@ -33,7 +31,6 @@ v2regaddress=2
 v2endian=little
 v2dbname=int16
 v2type=int16
-v2sign=no
 
 v3i2cbus=1
 v3i2caddress=8
@@ -41,8 +38,6 @@ v3regaddress=4
 v3endian=little
 v3dbname=uint16
 v3type=uint16
-v3sign=yes
-
 
 v4i2cbus=1
 v4i2caddress=8
@@ -50,7 +45,6 @@ v4regaddress=6
 v4endian=little
 v4dbname=float
 v4type=float
-v4sign=yes
 
 v5i2cbus=1
 v5i2caddress=8
@@ -58,6 +52,5 @@ v5regaddress=10
 v5endian=little
 v5dbname=double
 v5type=double
-v5sign=yes
 
 

@@ -58,7 +58,6 @@ public class i2cdb {
             Integer regaddress = new Integer(prop.getProperty("v" + i + "regaddress"));
             String vtype = prop.getProperty("v" + i + "type");
             String vendian = prop.getProperty("v" + i + "endian");
-            String vsign = prop.getProperty("v" + i + "sign");
 
             Integer nbytes=0;           
             if (vtype.equals("uint8"))  nbytes = 1;
