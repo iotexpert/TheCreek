@@ -44,8 +44,8 @@ public class i2cdb {
     static public void i2readVariables() throws Exception  {
 
      
-        Boolean sucess;
-        Integer count;
+        Boolean I2CReadSuccess;
+        Integer I2CRetryCount;
 
         Integer i2vars = new Integer(prop.getProperty("i2vars"));
 
@@ -80,13 +80,13 @@ public class i2cdb {
                 throw getException;
             }
                         
-            sucess = false;
-            count = 20; // 20 retrys
+            I2CReadSuccess = false;
+            I2CRetryCount = 20; // 20 retrys
 
-            while (sucess == false && count > 0) {
+            while (I2CReadSuccess == false && I2CRetryCount > 0) {
                 try {
                     dev.read(regaddress, buffer, 0, nbytes);
-                    sucess = true;
+                    I2CReadSuccess = true;
 
                 } catch (Exception e) {
                     try {
@@ -94,11 +94,11 @@ public class i2cdb {
                     } catch (Exception se) {
                         throw se; // this is really bad probably
                     }
-                    count = count - 1;
+                    I2CRetryCount = I2CRetryCount - 1;
                 }
             }
 
-        if (sucess == false) {
+        if (I2CReadSuccess == false) {
             if (debug) System.out.println("Broken Read");
             throw new Exception("Unable to read I2C Buffer");
         }
@@ -110,7 +110,7 @@ public class i2cdb {
         else
             wrapped.order(ByteOrder.BIG_ENDIAN);
         
-        if (vtype.equals("uint8"))  insertVals[i] = ((int) buffer[0]) & 0xff;
+        if (vtype.equals("uint8"))  insertVals[i] = ((int) buffer[0]) & 0xFF;
         if (vtype.equals("int8"))   insertVals[i] = buffer[0]; 
         if (vtype.equals("int16")) insertVals[i] = wrapped.getShort();
         if (vtype.equals("uint16")) insertVals[i] = wrapped.getShort() & 0xFFFF; // Convert to unsigned
@@ -128,18 +128,18 @@ public class i2cdb {
         insertString = insertString + tsfield + ",";
     }
     for (int i = 0; i< i2vars-1; i++) {
-            insertString = insertString + insertNames[i] + ",";
+        insertString = insertString + insertNames[i] + ",";
     }
     insertString  = insertString + insertNames[i2vars - 1] + ") values (";
 
     if (timestamp.equals( "true")) {
-            java.util.Date date = new java.util.Date();
+        java.util.Date date = new java.util.Date();
         Timestamp ts = new Timestamp(date.getTime());
         insertString = insertString + "\"" + ts + "\",";
     }
     
     for (int i = 0; i< i2vars-1; i++) {
-            insertString = insertString + insertVals[i] + ",";
+        insertString = insertString + insertVals[i] + ",";
     }
     insertString = insertString + insertVals[i2vars-1] + ");";
     System.out.println(insertString);    

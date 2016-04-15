@@ -15,3 +15,5 @@ creekFirmware/*.cydsn/CortexM0
 /getCreek/nbproject/private/
 /getCreek/build/
 /getCreek/dist/
+/getCreek/*.PNG
+/getCreek/*.png
