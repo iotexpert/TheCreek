@@ -17,3 +17,4 @@ creekFirmware/*.cydsn/CortexM0
 /getCreek/dist/
 /getCreek/*.PNG
 /getCreek/*.png
+/getCreek/creekPlots/*.png
