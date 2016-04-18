@@ -1,4 +1,6 @@
 #!/bin/sh
 cd ~pi/getCreek
-sudo java -cp build/jar/getCreek.jar:classes:./lib/* i2cdb
- 
+sudo java -cp build/jar/getCreek.jar:classes:./lib/* CreekServer GetData
+sudo java -cp build/jar/getCreek.jar:classes:./lib/* CreekServer MakeChart creekPlots/current.png
+sudo java -cp build/jar/getCreek.jar:classes:./lib/* CreekServer ProcessEvents
+

@@ -13,15 +13,15 @@ class StartEnd {
     int id = 0;
     Timestamp start;
     Timestamp end;
-    double depth;
 };
+
 
 public class ProcessEvents {
 
     static Properties prop;
 
-    static final double upperThreshold = 2.5;
-    static final double lowerThreshold = 0.75;
+    static double upperThreshold = 2.5;
+    static double lowerThreshold = 0.75;
     
     static public ArrayList<StartEnd> events;
     
@@ -41,56 +41,67 @@ public class ProcessEvents {
 
         try {
             readProperties();
+            
+            
         } catch (Exception e) {
             System.out.println(e);
             return;
         }
+        
+       try {
+           String ut = prop.getProperty("floodUpperThreshold");
+           
+           if(ut != null)
+               upperThreshold = Double.parseDouble(ut);
+           
+       }
+       catch (Exception e) {}
+       
+       try {
+           String lt = prop.getProperty("floodLowerThreshold");
+   
+           if(lt != null)
+               lowerThreshold = Double.parseDouble(lt);
+       }
+       catch (Exception e) {}
+
+        
 
         try {
-
             while (true) {
                 boolean newEvent;
-
                 newEvent = false;
-
                 pair = getLastEvent();
 
-                // if there are no events in the table (pair.start == null)
+                // if there are no events in the table (pair.start == null) 
                 // or the last event is Complete pair.end != null
                 // then for sure you have a new event
                 if (pair.start == null || pair.end != null) {
                     newEvent = true;
-                    if (pair.start == null) {
+                    if (pair.start == null)
                         pair.start = findStart(null);
-                    } else {
+                    else
                         pair.start = findStart(pair.end);
-                    }
-
+                    
                     pair.end = null;
-
-                    if (pair.start == null) {
+                    if (pair.start == null) 
                         break; // there are no more events
-                    }
                 }
 
-                if (pair.end == null) {
+                if (pair.end == null)
                     pair.end = findEnd(pair.start);
-                }
-
+               
                 System.out.println("Start = " + pair.start + " End=" + pair.end);
 
                 if (newEvent) {
                     System.out.println("Inserting new event");
                     newEventInsert(pair);
-                } else {
+                } else
                     eventUpdate(pair);
-                }
 
-                if (pair.end == null) {
-                    break;
-                }
-
+                if (pair.end == null)  break;
             }
+            
             calcAndInsertMaxDepth();
 
         } catch (Exception e) {

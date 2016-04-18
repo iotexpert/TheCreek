@@ -10,22 +10,24 @@ import org.jfree.chart.plot.XYPlot;
 import org.jfree.chart.JFreeChart;
 import org.jfree.data.jdbc.JDBCXYDataset;
 import java.io.File;
+import java.io.FileInputStream;
 import java.sql.Timestamp;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
+import java.util.Properties;
 
 public class MakeChart {
 
-    static final long runTimeDefault = 8; // hours
-    static final double maxDepthChart = 23.0; // feet
-    static final String url = "jdbc:mysql://iotexpertpi.local/creekdata";
-    static final String sqlUser = "creek";
-    static final String sqlPassword = "creek";
-    static final double tickMarks = 1.0; // feet
-
+    static long runTimeDefault = 8; // hours
+    static  double maxDepthChart = 23.0; // feet
+    static  double tickMarks = 1.0; // feet
+    static Properties prop;
+    static String dburl;
+    static String dbuser;
+    static String dbpassword;
     
     
     public static void run(String[] args)  {
@@ -51,6 +53,17 @@ public class MakeChart {
             System.out.println("MakeChart " + args[1] + " " + args[2] + " " + args[3]);
         }
        
+        try { 
+            readProperties(); 
+            dburl = prop.getProperty("dburl");
+            dbuser = prop.getProperty("dbuser");
+            dbpassword = prop.getProperty("dbpassword");
+            runTimeDefault = Integer.parseInt(prop.getProperty("runTimeDefault"));
+            maxDepthChart = Double.parseDouble(prop.getProperty("maxDepthChart"));
+            tickMarks = Double.parseDouble(prop.getProperty("tickMarks"));
+            
+        }  catch (Exception e) { System.out.println(e); return; }
+        
         
         // if there is just argument try to do that date/time + 8 hours
         // if that doesnt work then try do do the current time - that # of hours
@@ -189,7 +202,7 @@ public class MakeChart {
         String sql = "select created_at,depth from creekdata.creekdata where created_at between '" + start + "' and '" + end + "' order by created_at";
         //System.out.println("date = "+sql);
         try {
-            Connection conn = DriverManager.getConnection(url, sqlUser, sqlPassword);
+            Connection conn = DriverManager.getConnection(dburl, dbuser, dbpassword);
             JDBCXYDataset jds = new JDBCXYDataset(conn);
             jds.executeQuery(sql);
             return jds;
@@ -205,7 +218,7 @@ public class MakeChart {
         String sql = "select created_at,depth from creekdata.creekdata where created_at >'" + start + "' order by created_at";
         //System.out.println("date = "+sql);
         try {
-            Connection conn = DriverManager.getConnection(url, sqlUser, sqlPassword);
+            Connection conn = DriverManager.getConnection(dburl, dbuser, dbpassword);
             JDBCXYDataset jds = new JDBCXYDataset(conn);
             jds.executeQuery(sql);
             return jds;
@@ -221,7 +234,7 @@ public class MakeChart {
         String sql = "select created_at,depth from creekdata.creekdata where created_at >'" + start + "' and created_at<='"+tsend+"' order by created_at";
         //System.out.println("date = "+sql);
         try {
-            Connection conn = DriverManager.getConnection(url, sqlUser, sqlPassword);
+            Connection conn = DriverManager.getConnection(dburl, dbuser, dbpassword);
             JDBCXYDataset jds = new JDBCXYDataset(conn);
             jds.executeQuery(sql);
             return jds;
@@ -230,4 +243,12 @@ public class MakeChart {
         }
         return null;
     }
+    
+       static public void readProperties() throws Exception {
+        prop = new Properties();
+        FileInputStream fis;
+        fis = new FileInputStream("config.properties");
+        prop.load(fis);
+    }
+
 }

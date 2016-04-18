@@ -19,7 +19,7 @@ public class i2cdb {
     static I2CBus bus1;
     static I2CBus bus0;
 
-    public static void main(String[] args) {
+    public static void run(String[] args) {
 
         try {
             readProperties();
