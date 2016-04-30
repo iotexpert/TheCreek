@@ -18,3 +18,5 @@ creekFirmware/*.cydsn/CortexM0
 /getCreek/*.PNG
 /getCreek/*.png
 /getCreek/creekPlots/*.png
+/creekServer/creekServer/nbproject/private/
+/testServer/nbproject/private/
