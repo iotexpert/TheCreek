@@ -3,4 +3,4 @@ cd ~pi/getCreek
 sudo java -cp build/jar/getCreek.jar:classes:./lib/* CreekServer GetData
 sudo java -cp build/jar/getCreek.jar:classes:./lib/* CreekServer MakeChart creekPlots/current.png
 sudo java -cp build/jar/getCreek.jar:classes:./lib/* CreekServer ProcessEvents
-
+sudo cp -r creekPlots/ /var/lib/tomcat7/webapps/creekServer

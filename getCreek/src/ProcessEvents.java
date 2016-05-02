@@ -1,10 +1,12 @@
 
 import java.io.FileInputStream;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Properties;
@@ -13,6 +15,7 @@ class StartEnd {
     int id = 0;
     Timestamp start;
     Timestamp end;
+    double max;
 };
 
 
@@ -375,7 +378,56 @@ public class ProcessEvents {
         
         //System.out.println("#Events = " + events.size());
         
-        return;
+    }
+    
+    public void createHtml(String fileName) throws Exception
+    {
+        PrintWriter writer = new PrintWriter(fileName, "UTF-8");
+        writer.println("<html><body>");
+        writer.println("<h1>Flood Events</h1>");
+        int i;
+        
+        writer.println("<table border=1>");
+        writer.println("<tr>");
+        writer.println("<th>Start</th>");
+        writer.println("<th>End</th>");
+        writer.println("<th>Max</th>");
+        writer.println("<th>Chart</th>");
+        writer.println("</tr>");
+        
+        for(i=0;i<events.size();i++)
+        {
+            writer.println("<tr>");
+          
+            StartEnd pair = events.get(i);
+          
+            writer.println("<td>");
+            writer.println(pair.start);
+            writer.println("</td>");
+          
+            writer.println("<td>");
+            writer.println(pair.end);
+            writer.println("</td>");
+          
+            writer.println("<td>");
+            writer.println(pair.max);
+            writer.println("</td>");
+          
+            String fname = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss").format(pair.start);
+            
+            writer.println("<td>");
+            writer.println("<a href=\""+fname+".png\">chart</a>");
+            writer.println("</td>");
+            
+            writer.println("</tr>");
+            
+        }
+        writer.println("</table>");
+
+        writer.println("</body></html>");
+
+        writer.close();
+
     }
     
 }

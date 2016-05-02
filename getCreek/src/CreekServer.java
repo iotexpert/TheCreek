@@ -1,6 +1,5 @@
 
 import java.io.File;
-import java.sql.Array;
 import java.text.SimpleDateFormat;
 
 public class CreekServer {
@@ -26,12 +25,27 @@ public class CreekServer {
             ProcessEvents pe = new ProcessEvents();
             pe.run(args);
             createCharts(pe);
+            try {pe.createHtml("creekPlots/floods.html"); } catch (Exception e){}
         }
         else
         if (args[0].equals("GetData")) {
             i2cdb i2c = new i2cdb();
             i2c.run(args);
         }
+        else
+        if (args[0].equals("All")) {
+            // get the data
+            
+            // GetData ... no arguments
+            
+            // make the current chart
+            
+            // MakeChart creekPlots/current.png
+            
+            // ProcessEvents ... no arguments
+            
+        }
+        
         else
             printHelp();
 
@@ -76,7 +90,6 @@ public class CreekServer {
                 }
 
             }
-
         }
     }
 

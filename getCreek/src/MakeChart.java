@@ -11,6 +11,8 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.data.jdbc.JDBCXYDataset;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.sql.Timestamp;
 import java.time.Duration;
 import java.time.LocalDate;
@@ -18,6 +20,8 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class MakeChart {
 
@@ -244,11 +248,17 @@ public class MakeChart {
         return null;
     }
     
-       static public void readProperties() throws Exception {
-        prop = new Properties();
-        FileInputStream fis;
-        fis = new FileInputStream("config.properties");
-        prop.load(fis);
+       static public void readProperties()  {
+        try {
+            prop = new Properties();
+            FileInputStream fis;
+            fis = new FileInputStream("config.properties");
+            prop.load(fis);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(MakeChart.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(MakeChart.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 }
