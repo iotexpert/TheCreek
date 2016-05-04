@@ -1,8 +1,3 @@
-<%-- 
-    Document   : test1
-    Created on : Apr 30, 2016, 2:16:09 PM
-    Author     : arh
---%>
 <%@page import="java.sql.Timestamp"%>
 <%@ page import="org.elkhorncreek.CreekHistory" %>
 
@@ -24,47 +19,23 @@
             
             out.println("Time = "+ creekHistory.startTime + "<br>");
             
-            out.println("<table border=1><tr><th>Minutes Ago</th><th>Time</th><th>Depth</th><th>Depth Delta</th><th>Temp</th><th>Temp Delta</th></tr>");
+            out.println("<table border=1><tr><th>Minutes Ago</th><th>Time</th><th>Depth</th>" +
+                    "<th>Depth Delta</th><th>Temp</th><th>Temp Delta</th></tr>");
             int i;
             for(i=0;i<creekHistory.count;i++)
             {
                 out.println("<tr>");
-
-                out.println("<td>");
-                out.println(i*creekHistory.timeIncrementMinutes);
-                out.println("</td>");
-                
-                out.println("<td>");
+                out.println("<td>"+ (i*creekHistory.timeIncrementMinutes) + "</td>");
                 Timestamp ts = new Timestamp(creekHistory.startTime.getTime() - i*creekHistory.timeIncrementMinutes*60*1000);
-                out.println(ts);
-                out.println("</td>");
-                
-                
-                out.println("<td>");
-                out.println(String.format( "%.1f", creekHistory.depth[i]));
-                out.println("</td>");
-
-                out.println("<td>");
-                out.println(String.format( "%.1f", creekHistory.depthDelta[i]));
-                out.println("</td>");
-
-                
-                out.println("<td>");
-                out.println(String.format( "%.1f", creekHistory.temperature[i]));
-                out.println("</td>");
-
-                out.println("<td>");
-                out.println(String.format( "%.1f", creekHistory.temperatureDelta[i]));
-                out.println("</td>");
-                                
-                
+                out.println("<td>" + ts + "</td>");
+                out.println("<td>" + String.format( "%.1f", creekHistory.depth[i]) + "</td>");
+                out.println("<td>" + String.format( "%.1f", creekHistory.depthDelta[i]) + "</td>");
+                out.println("<td>" + String.format( "%.1f", creekHistory.temperature[i]) +"</td>");
+                out.println("<td>" + String.format( "%.1f", creekHistory.temperatureDelta[i]) + "</td>");
                 out.println("<tr>");
-
             }
             out.println("</table>");
-            
         %>
-        
         <br>
         <br>
         <img src="creekPlots/current.png" />
