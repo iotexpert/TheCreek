@@ -24,7 +24,6 @@ import javax.servlet.jsp.JspWriter;
 
 public class CreekHistory {
 
-    
     private Properties prop;
   
     private String dburl;
@@ -116,11 +115,10 @@ public class CreekHistory {
                     if(debugOut != null)
                     {
                         debugOut.println("Firstcount <br>");
-                        debugOut.println("Count = "+count + " TargetTime = "+targetTime + " RowTime = "+rowTime + " previousRow ="+previousTime + " Depth =" + depth[count]+"<br>");
+                        debugOut.println("Count = "+count + " TargetTime = "+targetTime + " RowTime = "+rowTime 
+                                + " previousRow ="+previousTime + " Depth =" + depth[count]+"<br>");
                     }
-                    count = count + 1;
-
-                    
+                    count = count + 1;       
                     continue;
                 }
                 
@@ -132,9 +130,9 @@ public class CreekHistory {
                     temperatureDelta[count] =  temperature[0] - temperature[count];
                     
                     if(debugOut != null) 
-                        debugOut.println("Count = "+count + " TargetTime = "+targetTime + " RowTime = "+rowTime + " previousRow ="+previousTime + " Depth =" + depth[count]+" Temp="+temperature[count]+"<br><br><br>");
+                        debugOut.println("Count = "+count + " TargetTime = "+targetTime + " RowTime = "+rowTime 
+                                + " previousRow ="+previousTime + " Depth =" + depth[count]+" Temp="+temperature[count]+"<br><br><br>");
                     
-                   
                     count = count + 1;
                     targetTime = new Timestamp(targetTime.getTime()-timeIncrementMs);
                 
@@ -148,11 +146,8 @@ public class CreekHistory {
                 previousTime = rowTime;
                     
             }
-            
-            
             st.close();
-            con.close();
-                       
+            con.close();    
 
         } catch (Exception e) {
             System.out.println(e);
@@ -171,14 +166,13 @@ public class CreekHistory {
         
         double result = (startVal * (fraction) + endVal * (1-fraction));     
        
-        /*
         if(debugOut != null)
         {
             try {
-            debugOut.println("StartTime ="+startTime + " startVal="+startVal+" endTime="+endTime+" endVal="+endVal+" targetTime="+targetTime+" Fraction="+fraction+"<br>");
+            debugOut.println("StartTime ="+startTime + " startVal="+startVal+
+                    " endTime="+endTime+" endVal="+endVal+" targetTime="+targetTime+" Fraction="+fraction+"<br>");
             } catch (Exception e) {}
         }
-        */
        
         return result;
     
