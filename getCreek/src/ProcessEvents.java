@@ -398,36 +398,18 @@ public class ProcessEvents {
         for(i=0;i<events.size();i++)
         {
             writer.println("<tr>");
-          
             StartEnd pair = events.get(i);
           
-            writer.println("<td>");
-            writer.println(pair.start);
-            writer.println("</td>");
-          
-            writer.println("<td>");
-            writer.println(pair.end);
-            writer.println("</td>");
-          
-            writer.println("<td>");
-            writer.println(pair.max);
-            writer.println("</td>");
-          
+            writer.println("<td>" + pair.start +"</td>");
+            writer.println("<td>"+ pair.end + "</td>");
+            writer.println("<td>" + pair.max + "</td>");
             String fname = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss").format(pair.start);
-            
-            writer.println("<td>");
-            writer.println("<a href=\""+fname+".png\">chart</a>");
-            writer.println("</td>");
-            
+            writer.println("<td><a href=\""+fname+".png\">chart</a>" + "</td>");            
             writer.println("</tr>");
-            
         }
         writer.println("</table>");
-
         writer.println("</body></html>");
-
         writer.close();
-
     }
     
 }
