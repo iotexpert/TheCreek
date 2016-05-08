@@ -1,6 +1,13 @@
 #!/bin/sh
 cd ~pi/getCreek
 sudo java -cp build/jar/getCreek.jar:classes:./lib/* CreekServer GetData
+if [-f "/tmp/runlock"]
+then
+    exit
+fi
+touch /tmp/runlock
 sudo java -cp build/jar/getCreek.jar:classes:./lib/* CreekServer MakeChart creekPlots/current.png
 sudo java -cp build/jar/getCreek.jar:classes:./lib/* CreekServer ProcessEvents
+sudo java -cp build/jar/getCreek.jar:classes:./lib/* CreekServer Current
 sudo cp -r creekPlots/ /var/lib/tomcat7/webapps/creekServer
+rm /tmp/runlock

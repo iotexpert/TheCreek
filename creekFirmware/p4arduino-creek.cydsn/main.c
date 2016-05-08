@@ -10,9 +10,22 @@
 #define PRESSURE_CHAN (0)
 #define TMP036_CHAN (1)
 
+int updateFlag = 0;
+int updateCount = 0;
+
+void updateI2CData()
+{
+    if(updateCount++ > 10000) // update the buffer every 10s
+    {
+        updateFlag = 1;
+        updateCount = 0;
+    }
+}
+
 int main()
 {   
     DataPacket dp;
+    DataPacket i2cdp;
     
     float previousTemp;
     float previousDepth;
@@ -20,23 +33,28 @@ int main()
     CyGlobalIntEnable;
 	
 	ezi2c_Start();
-	ezi2c_EzI2CSetBuffer1(sizeof(dp),0,(uint8 *)&dp);
+	ezi2c_EzI2CSetBuffer1(sizeof(dp),0,(uint8 *)&i2cdp);
 	
 	adc_Start();
     adc_StartConvert();
+    
+    CySysTickStart();
+    CySysTickSetCallback(0,updateI2CData);
     
     for(;;)
     {
         if(adc_IsEndConversion(adc_RETURN_STATUS))
         {
-            uint8 cs = CyEnterCriticalSection(); // turn off I2C Interrupt while updating the buffer
-		    dp.pressureCounts = adc_GetResult16(PRESSURE_CHAN);
+            dp.pressureCounts = adc_GetResult16(PRESSURE_CHAN);
             //408 is the baseline 0 with no pressure = 51.1ohm * 4ma * 2mv/count
             // 3.906311 is the conversion to ft
             // Whole range in counts = (20mA - 4mA)* 51.1 ohm * 2 mv/count = 1635.2 counts
             // Range in Feet = 15PSI / 0.42PSI/Ft = 34.88 Ft
             // Count/Ft = 1635.2 / 34.88 = 46.8807 Counts/Ft 
             dp.depth = (((((float)dp.pressureCounts)-408)/46.8807) + 7*previousDepth ) / 8.0;  // IIR Filter
+            
+            if(dp.depth<0.0)
+                dp.depth=0.0;
             
             int tempMv = adc_CountsTo_mVolts(TMP036_CHAN,adc_GetResult16(TMP036_CHAN));
             dp.centiTemp = 10*tempMv - 5000; 
@@ -46,8 +64,21 @@ int main()
             
             previousTemp = dp.temperature;
             previousDepth = dp.depth;
-            
-            CyExitCriticalSection(cs); // turn the interrupts back on
+           
+            if(updateFlag)
+            {
+                // turn off I2C Interrupt while updating the buffer
+                uint8 cs = CyEnterCriticalSection(); 
+		        if(ezi2c_EzI2CGetActivity() != ezi2c_EZI2C_STATUS_BUSY)
+                {
+                    i2cdp.centiTemp = dp.centiTemp;
+                    i2cdp.depth = dp.depth;
+                    i2cdp.pressureCounts = dp.pressureCounts;
+                    i2cdp.temperature = dp.temperature;
+                    updateFlag = 0;    
+                }
+                CyExitCriticalSection(cs); // turn the interrupts back on
+            }
         }			
     }
 }

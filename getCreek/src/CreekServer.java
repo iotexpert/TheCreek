@@ -33,17 +33,13 @@ public class CreekServer {
             i2c.run(args);
         }
         else
-        if (args[0].equals("All")) {
-            // get the data
-            
-            // GetData ... no arguments
-            
-            // make the current chart
-            
-            // MakeChart creekPlots/current.png
-            
-            // ProcessEvents ... no arguments
-            
+        if (args[0].equals("Current")) {
+            CreekHistory current = new CreekHistory();
+            try {
+                current.debugOut = System.out;
+                current.loadData();
+                current.createHtml("creekPlots/current.html");
+            } catch (Exception e) { System.out.println(e); }
         }
         
         else
