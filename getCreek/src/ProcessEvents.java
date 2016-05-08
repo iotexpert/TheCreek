@@ -239,11 +239,12 @@ public class ProcessEvents {
         StartEnd rval = new StartEnd();
         rval.start = null;
         rval.end = null;
+        rval.max = 0.0;
 
         Connection con;
         Class.forName("com.mysql.jdbc.Driver");
         con = DriverManager.getConnection(prop.getProperty("dburl"), prop.getProperty("dbuser"), prop.getProperty("dbpassword"));
-        String query = "select id,start,end from creekdata.floodevents order by start desc limit 1";
+        String query = "select id,start,end,max from creekdata.floodevents order by start desc limit 1";
         Statement st = con.createStatement();
 
         try {
@@ -257,6 +258,7 @@ public class ProcessEvents {
             rval.id = rs.getInt("id");
             rval.start = rs.getTimestamp("start");
             rval.end = rs.getTimestamp("end");
+            rval.max = rs.getDouble("max");
             st.close();
             con.close();
 
@@ -353,7 +355,7 @@ public class ProcessEvents {
         Connection con;
         Class.forName("com.mysql.jdbc.Driver");
         con = DriverManager.getConnection(prop.getProperty("dburl"), prop.getProperty("dbuser"), prop.getProperty("dbpassword"));
-        String query = "select id,start,end from creekdata.floodevents order by start desc";
+        String query = "select id,start,end,max from creekdata.floodevents order by start desc";
         Statement st = con.createStatement();
 
         try {
@@ -366,7 +368,7 @@ public class ProcessEvents {
                 temp.id = rs.getInt("id");
                 temp.start = rs.getTimestamp("start");
                 temp.end = rs.getTimestamp("end");
-                
+                temp.max = rs.getDouble("max");
                 events.add(temp);
             }
             st.close();
@@ -402,7 +404,7 @@ public class ProcessEvents {
           
             writer.println("<td>" + pair.start +"</td>");
             writer.println("<td>"+ pair.end + "</td>");
-            writer.println("<td>" + pair.max + "</td>");
+            writer.println("<td>" + String.format("%.1f", pair.max)  + "</td>");
             String fname = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss").format(pair.start);
             writer.println("<td><a href=\""+fname+".png\">chart</a>" + "</td>");            
             writer.println("</tr>");
