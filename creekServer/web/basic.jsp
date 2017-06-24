@@ -41,5 +41,17 @@
         <img src="creekPlots/current.png" />
         <br>
         <a href="creekPlots/floods.html">Flood History</a>
+	<br>
+        <table border=1><tr><th>Reference</th><th>Depth</th><tr>
+	<tr><td>Bank</td><td>7.6</td></tr>
+	<tr><td>Tall grass Edge</td><td>10.7</td></tr>
+	<tr><td>River Cut Across</td><td>11.0</td></tr>
+	<tr><td>Bird House</td><td>12.7</td></tr>
+	<tr><td>Garden Oak</td><td>16.2</td></tr>
+	<tr><td>Hawkins Driveway</td><td>16.6</td></tr>
+	<tr><td>Barn Pad</td><td>16.9</td></tr>
+	<tr><td>Barn Floor</td><td>18.0</td></tr>
+	<tr><td>House Floor</td><td>23.0</td></tr>
+	</table>
     </body>
 </html>
