@@ -234,9 +234,29 @@ public class CreekHistory {
         }
         writer.println("</table>");
 
-        writer.println("<br> <br> <img src=\"current.png\" />    <br> <a href=\"floods.html\">Flood History</a>"
-                + "</body></html>");
 
-        writer.close();
+
+	writer.println("<br> <br> <img src=\"current.png\" />    <br> <a href=\"floods.html\">Flood History</a>");
+        
+
+
+	writer.println("<table border=1><tr><th>Reference</th><th>Depth</th><tr>");
+	writer.println("<br>");
+	writer.println("<tr><td>Bank</td><td>7.6</td></tr>");
+	writer.println("<tr><td>Tall Grass Edge</td><td>10.7</td></tr>");
+	writer.println("<tr><td>River Cut Across</td><td>11.0</td></tr>");
+        writer.println("<tr><td>Bird House</td><td>12.7</td></tr>");
+	writer.println("<tr><td>Garden Oak</td><td>16.2</td></tr>");
+        writer.println("<tr><td>Hawkins Driveway</td><td>16.6</td></tr>");
+	writer.println("<tr><td>Barn Pad</td><td>16.9</td>");
+	writer.println("<tr><td>Garden Oak</td><td>16.2</td></tr>");
+	writer.println("<tr><td>Hawkins Driveway</td><td>16.6</td></tr>");
+	writer.println("<tr><td>Barn Pad</td><td>16.9</td></tr>");
+	writer.println("<tr><td>Barn Floor</td><td>18.0</td></tr>");
+	writer.println("<tr><td>House Floor</td><td>23.0</td></tr>");
+	writer.println("</table><br><br><br>");
+	writer.println("<a href=\"https://iotexpert.com/category/solutions/elkhorn-creek/\">Visit iotexpert.com</a> for all source code used to build this site<br><br>");
+	writer.println("</body></html>");
+       writer.close();
     }
 }
