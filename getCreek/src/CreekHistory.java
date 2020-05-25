@@ -249,9 +249,6 @@ public class CreekHistory {
 	writer.println("<tr><td>Garden Oak</td><td>16.2</td></tr>");
         writer.println("<tr><td>Hawkins Driveway</td><td>16.6</td></tr>");
 	writer.println("<tr><td>Barn Pad</td><td>16.9</td>");
-	writer.println("<tr><td>Garden Oak</td><td>16.2</td></tr>");
-	writer.println("<tr><td>Hawkins Driveway</td><td>16.6</td></tr>");
-	writer.println("<tr><td>Barn Pad</td><td>16.9</td></tr>");
 	writer.println("<tr><td>Barn Floor</td><td>18.0</td></tr>");
 	writer.println("<tr><td>House Floor</td><td>23.0</td></tr>");
 	writer.println("</table><br><br><br>");
