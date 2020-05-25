@@ -1,15 +1,16 @@
-/*******************************************************************************
-* File Name: ezi2c_PINS.h
-* Version 3.10
+/***************************************************************************//**
+* \file ezi2c_PINS.h
+* \version 4.0
 *
-* Description:
+* \brief
 *  This file provides constants and parameter values for the pin components
 *  buried into SCB Component.
 *
 * Note:
 *
 ********************************************************************************
-* Copyright 2013-2015, Cypress Semiconductor Corporation.  All rights reserved.
+* \copyright
+* Copyright 2013-2017, Cypress Semiconductor Corporation.  All rights reserved.
 * You may use this file only in accordance with the license, terms, conditions,
 * disclaimers, and limitations in the end user license agreement accompanying
 * the software package with which this file was provided.
@@ -201,134 +202,292 @@
 *              Registers
 ***************************************/
 
-#if (ezi2c_RX_WAKE_SCL_MOSI_PIN)
-    #define ezi2c_RX_WAKE_SCL_MOSI_HSIOM_REG \
-                            (*(reg32 *) ezi2c_uart_rx_wake_i2c_scl_spi_mosi__0__HSIOM)
-    #define ezi2c_RX_WAKE_SCL_MOSI_HSIOM_PTR \
-                            ( (reg32 *) ezi2c_uart_rx_wake_i2c_scl_spi_mosi__0__HSIOM)
-    #define ezi2c_RX_WAKE_SCL_MOSI_HSIOM_MASK \
-                            (ezi2c_uart_rx_wake_i2c_scl_spi_mosi__0__HSIOM_MASK)
-    #define ezi2c_RX_WAKE_SCL_MOSI_HSIOM_POS \
-                            (ezi2c_uart_rx_wake_i2c_scl_spi_mosi__0__HSIOM_SHIFT)
-
-    #define ezi2c_RX_WAKE_SCL_MOSI_INTCFG_REG \
-                            (*(reg32 *) ezi2c_uart_rx_wake_i2c_scl_spi_mosi__0__INTCFG)
-    #define ezi2c_RX_WAKE_SCL_MOSI_INTCFG_PTR \
-                            ( (reg32 *) ezi2c_uart_rx_wake_i2c_scl_spi_mosi__0__INTCFG)
-    #define ezi2c_RX_WAKE_SCL_MOSI_INTCFG_TYPE_POS  (ezi2c_uart_rx_wake_i2c_scl_spi_mosi__SHIFT)
-    #define ezi2c_RX_WAKE_SCL_MOSI_INTCFG_TYPE_MASK \
-                            ((uint32) ezi2c_INTCFG_TYPE_MASK << \
-                                      ezi2c_RX_WAKE_SCL_MOSI_INTCFG_TYPE_POS)
-#endif /* (ezi2c_RX_WAKE_SCL_MOSI_PIN) */
-
 #if (ezi2c_RX_SCL_MOSI_PIN)
     #define ezi2c_RX_SCL_MOSI_HSIOM_REG   (*(reg32 *) ezi2c_uart_rx_i2c_scl_spi_mosi__0__HSIOM)
     #define ezi2c_RX_SCL_MOSI_HSIOM_PTR   ( (reg32 *) ezi2c_uart_rx_i2c_scl_spi_mosi__0__HSIOM)
-    #define ezi2c_RX_SCL_MOSI_HSIOM_MASK  (ezi2c_uart_rx_i2c_scl_spi_mosi__0__HSIOM_MASK)
-    #define ezi2c_RX_SCL_MOSI_HSIOM_POS   (ezi2c_uart_rx_i2c_scl_spi_mosi__0__HSIOM_SHIFT)
+    
+    #define ezi2c_RX_SCL_MOSI_HSIOM_MASK      (ezi2c_uart_rx_i2c_scl_spi_mosi__0__HSIOM_MASK)
+    #define ezi2c_RX_SCL_MOSI_HSIOM_POS       (ezi2c_uart_rx_i2c_scl_spi_mosi__0__HSIOM_SHIFT)
+    #define ezi2c_RX_SCL_MOSI_HSIOM_SEL_GPIO  (ezi2c_uart_rx_i2c_scl_spi_mosi__0__HSIOM_GPIO)
+    #define ezi2c_RX_SCL_MOSI_HSIOM_SEL_I2C   (ezi2c_uart_rx_i2c_scl_spi_mosi__0__HSIOM_I2C)
+    #define ezi2c_RX_SCL_MOSI_HSIOM_SEL_SPI   (ezi2c_uart_rx_i2c_scl_spi_mosi__0__HSIOM_SPI)
+    #define ezi2c_RX_SCL_MOSI_HSIOM_SEL_UART  (ezi2c_uart_rx_i2c_scl_spi_mosi__0__HSIOM_UART)
+    
+#elif (ezi2c_RX_WAKE_SCL_MOSI_PIN)
+    #define ezi2c_RX_WAKE_SCL_MOSI_HSIOM_REG   (*(reg32 *) ezi2c_uart_rx_wake_i2c_scl_spi_mosi__0__HSIOM)
+    #define ezi2c_RX_WAKE_SCL_MOSI_HSIOM_PTR   ( (reg32 *) ezi2c_uart_rx_wake_i2c_scl_spi_mosi__0__HSIOM)
+    
+    #define ezi2c_RX_WAKE_SCL_MOSI_HSIOM_MASK      (ezi2c_uart_rx_wake_i2c_scl_spi_mosi__0__HSIOM_MASK)
+    #define ezi2c_RX_WAKE_SCL_MOSI_HSIOM_POS       (ezi2c_uart_rx_wake_i2c_scl_spi_mosi__0__HSIOM_SHIFT)
+    #define ezi2c_RX_WAKE_SCL_MOSI_HSIOM_SEL_GPIO  (ezi2c_uart_rx_wake_i2c_scl_spi_mosi__0__HSIOM_GPIO)
+    #define ezi2c_RX_WAKE_SCL_MOSI_HSIOM_SEL_I2C   (ezi2c_uart_rx_wake_i2c_scl_spi_mosi__0__HSIOM_I2C)
+    #define ezi2c_RX_WAKE_SCL_MOSI_HSIOM_SEL_SPI   (ezi2c_uart_rx_wake_i2c_scl_spi_mosi__0__HSIOM_SPI)
+    #define ezi2c_RX_WAKE_SCL_MOSI_HSIOM_SEL_UART  (ezi2c_uart_rx_wake_i2c_scl_spi_mosi__0__HSIOM_UART)    
+   
+    #define ezi2c_RX_WAKE_SCL_MOSI_INTCFG_REG (*(reg32 *) ezi2c_uart_rx_wake_i2c_scl_spi_mosi__0__INTCFG)
+    #define ezi2c_RX_WAKE_SCL_MOSI_INTCFG_PTR ( (reg32 *) ezi2c_uart_rx_wake_i2c_scl_spi_mosi__0__INTCFG)
+    #define ezi2c_RX_WAKE_SCL_MOSI_INTCFG_TYPE_POS  (ezi2c_uart_rx_wake_i2c_scl_spi_mosi__SHIFT)
+    #define ezi2c_RX_WAKE_SCL_MOSI_INTCFG_TYPE_MASK ((uint32) ezi2c_INTCFG_TYPE_MASK << \
+                                                                           ezi2c_RX_WAKE_SCL_MOSI_INTCFG_TYPE_POS)
+#else
+    /* None of pins ezi2c_RX_SCL_MOSI_PIN or ezi2c_RX_WAKE_SCL_MOSI_PIN present.*/
 #endif /* (ezi2c_RX_SCL_MOSI_PIN) */
 
 #if (ezi2c_TX_SDA_MISO_PIN)
     #define ezi2c_TX_SDA_MISO_HSIOM_REG   (*(reg32 *) ezi2c_uart_tx_i2c_sda_spi_miso__0__HSIOM)
     #define ezi2c_TX_SDA_MISO_HSIOM_PTR   ( (reg32 *) ezi2c_uart_tx_i2c_sda_spi_miso__0__HSIOM)
-    #define ezi2c_TX_SDA_MISO_HSIOM_MASK  (ezi2c_uart_tx_i2c_sda_spi_miso__0__HSIOM_MASK)
-    #define ezi2c_TX_SDA_MISO_HSIOM_POS   (ezi2c_uart_tx_i2c_sda_spi_miso__0__HSIOM_SHIFT)
+    
+    #define ezi2c_TX_SDA_MISO_HSIOM_MASK      (ezi2c_uart_tx_i2c_sda_spi_miso__0__HSIOM_MASK)
+    #define ezi2c_TX_SDA_MISO_HSIOM_POS       (ezi2c_uart_tx_i2c_sda_spi_miso__0__HSIOM_SHIFT)
+    #define ezi2c_TX_SDA_MISO_HSIOM_SEL_GPIO  (ezi2c_uart_tx_i2c_sda_spi_miso__0__HSIOM_GPIO)
+    #define ezi2c_TX_SDA_MISO_HSIOM_SEL_I2C   (ezi2c_uart_tx_i2c_sda_spi_miso__0__HSIOM_I2C)
+    #define ezi2c_TX_SDA_MISO_HSIOM_SEL_SPI   (ezi2c_uart_tx_i2c_sda_spi_miso__0__HSIOM_SPI)
+    #define ezi2c_TX_SDA_MISO_HSIOM_SEL_UART  (ezi2c_uart_tx_i2c_sda_spi_miso__0__HSIOM_UART)
 #endif /* (ezi2c_TX_SDA_MISO_PIN) */
 
 #if (ezi2c_SCLK_PIN)
     #define ezi2c_SCLK_HSIOM_REG   (*(reg32 *) ezi2c_spi_sclk__0__HSIOM)
     #define ezi2c_SCLK_HSIOM_PTR   ( (reg32 *) ezi2c_spi_sclk__0__HSIOM)
-    #define ezi2c_SCLK_HSIOM_MASK  (ezi2c_spi_sclk__0__HSIOM_MASK)
-    #define ezi2c_SCLK_HSIOM_POS   (ezi2c_spi_sclk__0__HSIOM_SHIFT)
+    
+    #define ezi2c_SCLK_HSIOM_MASK      (ezi2c_spi_sclk__0__HSIOM_MASK)
+    #define ezi2c_SCLK_HSIOM_POS       (ezi2c_spi_sclk__0__HSIOM_SHIFT)
+    #define ezi2c_SCLK_HSIOM_SEL_GPIO  (ezi2c_spi_sclk__0__HSIOM_GPIO)
+    #define ezi2c_SCLK_HSIOM_SEL_I2C   (ezi2c_spi_sclk__0__HSIOM_I2C)
+    #define ezi2c_SCLK_HSIOM_SEL_SPI   (ezi2c_spi_sclk__0__HSIOM_SPI)
+    #define ezi2c_SCLK_HSIOM_SEL_UART  (ezi2c_spi_sclk__0__HSIOM_UART)
 #endif /* (ezi2c_SCLK_PIN) */
 
 #if (ezi2c_SS0_PIN)
     #define ezi2c_SS0_HSIOM_REG   (*(reg32 *) ezi2c_spi_ss0__0__HSIOM)
     #define ezi2c_SS0_HSIOM_PTR   ( (reg32 *) ezi2c_spi_ss0__0__HSIOM)
-    #define ezi2c_SS0_HSIOM_MASK  (ezi2c_spi_ss0__0__HSIOM_MASK)
-    #define ezi2c_SS0_HSIOM_POS   (ezi2c_spi_ss0__0__HSIOM_SHIFT)
+    
+    #define ezi2c_SS0_HSIOM_MASK      (ezi2c_spi_ss0__0__HSIOM_MASK)
+    #define ezi2c_SS0_HSIOM_POS       (ezi2c_spi_ss0__0__HSIOM_SHIFT)
+    #define ezi2c_SS0_HSIOM_SEL_GPIO  (ezi2c_spi_ss0__0__HSIOM_GPIO)
+    #define ezi2c_SS0_HSIOM_SEL_I2C   (ezi2c_spi_ss0__0__HSIOM_I2C)
+    #define ezi2c_SS0_HSIOM_SEL_SPI   (ezi2c_spi_ss0__0__HSIOM_SPI)
+#if !(ezi2c_CY_SCBIP_V0 || ezi2c_CY_SCBIP_V1)
+    #define ezi2c_SS0_HSIOM_SEL_UART  (ezi2c_spi_ss0__0__HSIOM_UART)
+#endif /* !(ezi2c_CY_SCBIP_V0 || ezi2c_CY_SCBIP_V1) */
 #endif /* (ezi2c_SS0_PIN) */
 
 #if (ezi2c_SS1_PIN)
-    #define ezi2c_SS1_HSIOM_REG      (*(reg32 *) ezi2c_spi_ss1__0__HSIOM)
-    #define ezi2c_SS1_HSIOM_PTR      ( (reg32 *) ezi2c_spi_ss1__0__HSIOM)
+    #define ezi2c_SS1_HSIOM_REG  (*(reg32 *) ezi2c_spi_ss1__0__HSIOM)
+    #define ezi2c_SS1_HSIOM_PTR  ( (reg32 *) ezi2c_spi_ss1__0__HSIOM)
+    
     #define ezi2c_SS1_HSIOM_MASK     (ezi2c_spi_ss1__0__HSIOM_MASK)
     #define ezi2c_SS1_HSIOM_POS      (ezi2c_spi_ss1__0__HSIOM_SHIFT)
+    #define ezi2c_SS1_HSIOM_SEL_GPIO (ezi2c_spi_ss1__0__HSIOM_GPIO)
+    #define ezi2c_SS1_HSIOM_SEL_I2C  (ezi2c_spi_ss1__0__HSIOM_I2C)
+    #define ezi2c_SS1_HSIOM_SEL_SPI  (ezi2c_spi_ss1__0__HSIOM_SPI)
 #endif /* (ezi2c_SS1_PIN) */
 
 #if (ezi2c_SS2_PIN)
     #define ezi2c_SS2_HSIOM_REG     (*(reg32 *) ezi2c_spi_ss2__0__HSIOM)
     #define ezi2c_SS2_HSIOM_PTR     ( (reg32 *) ezi2c_spi_ss2__0__HSIOM)
-    #define ezi2c_SS2_HSIOM_MASK    (ezi2c_spi_ss2__0__HSIOM_MASK)
-    #define ezi2c_SS2_HSIOM_POS     (ezi2c_spi_ss2__0__HSIOM_SHIFT)
+    
+    #define ezi2c_SS2_HSIOM_MASK     (ezi2c_spi_ss2__0__HSIOM_MASK)
+    #define ezi2c_SS2_HSIOM_POS      (ezi2c_spi_ss2__0__HSIOM_SHIFT)
+    #define ezi2c_SS2_HSIOM_SEL_GPIO (ezi2c_spi_ss2__0__HSIOM_GPIO)
+    #define ezi2c_SS2_HSIOM_SEL_I2C  (ezi2c_spi_ss2__0__HSIOM_I2C)
+    #define ezi2c_SS2_HSIOM_SEL_SPI  (ezi2c_spi_ss2__0__HSIOM_SPI)
 #endif /* (ezi2c_SS2_PIN) */
 
 #if (ezi2c_SS3_PIN)
     #define ezi2c_SS3_HSIOM_REG     (*(reg32 *) ezi2c_spi_ss3__0__HSIOM)
     #define ezi2c_SS3_HSIOM_PTR     ( (reg32 *) ezi2c_spi_ss3__0__HSIOM)
-    #define ezi2c_SS3_HSIOM_MASK    (ezi2c_spi_ss3__0__HSIOM_MASK)
-    #define ezi2c_SS3_HSIOM_POS     (ezi2c_spi_ss3__0__HSIOM_SHIFT)
+    
+    #define ezi2c_SS3_HSIOM_MASK     (ezi2c_spi_ss3__0__HSIOM_MASK)
+    #define ezi2c_SS3_HSIOM_POS      (ezi2c_spi_ss3__0__HSIOM_SHIFT)
+    #define ezi2c_SS3_HSIOM_SEL_GPIO (ezi2c_spi_ss3__0__HSIOM_GPIO)
+    #define ezi2c_SS3_HSIOM_SEL_I2C  (ezi2c_spi_ss3__0__HSIOM_I2C)
+    #define ezi2c_SS3_HSIOM_SEL_SPI  (ezi2c_spi_ss3__0__HSIOM_SPI)
 #endif /* (ezi2c_SS3_PIN) */
 
 #if (ezi2c_I2C_PINS)
-    #define ezi2c_SCL_HSIOM_REG     (*(reg32 *) ezi2c_scl__0__HSIOM)
-    #define ezi2c_SCL_HSIOM_PTR     ( (reg32 *) ezi2c_scl__0__HSIOM)
-    #define ezi2c_SCL_HSIOM_MASK    (ezi2c_scl__0__HSIOM_MASK)
-    #define ezi2c_SCL_HSIOM_POS     (ezi2c_scl__0__HSIOM_SHIFT)
-
-    #define ezi2c_SDA_HSIOM_REG     (*(reg32 *) ezi2c_sda__0__HSIOM)
-    #define ezi2c_SDA_HSIOM_PTR     ( (reg32 *) ezi2c_sda__0__HSIOM)
-    #define ezi2c_SDA_HSIOM_MASK    (ezi2c_sda__0__HSIOM_MASK)
-    #define ezi2c_SDA_HSIOM_POS     (ezi2c_sda__0__HSIOM_SHIFT)
+    #define ezi2c_SCL_HSIOM_REG  (*(reg32 *) ezi2c_scl__0__HSIOM)
+    #define ezi2c_SCL_HSIOM_PTR  ( (reg32 *) ezi2c_scl__0__HSIOM)
+    
+    #define ezi2c_SCL_HSIOM_MASK     (ezi2c_scl__0__HSIOM_MASK)
+    #define ezi2c_SCL_HSIOM_POS      (ezi2c_scl__0__HSIOM_SHIFT)
+    #define ezi2c_SCL_HSIOM_SEL_GPIO (ezi2c_sda__0__HSIOM_GPIO)
+    #define ezi2c_SCL_HSIOM_SEL_I2C  (ezi2c_sda__0__HSIOM_I2C)
+    
+    #define ezi2c_SDA_HSIOM_REG  (*(reg32 *) ezi2c_sda__0__HSIOM)
+    #define ezi2c_SDA_HSIOM_PTR  ( (reg32 *) ezi2c_sda__0__HSIOM)
+    
+    #define ezi2c_SDA_HSIOM_MASK     (ezi2c_sda__0__HSIOM_MASK)
+    #define ezi2c_SDA_HSIOM_POS      (ezi2c_sda__0__HSIOM_SHIFT)
+    #define ezi2c_SDA_HSIOM_SEL_GPIO (ezi2c_sda__0__HSIOM_GPIO)
+    #define ezi2c_SDA_HSIOM_SEL_I2C  (ezi2c_sda__0__HSIOM_I2C)
 #endif /* (ezi2c_I2C_PINS) */
+
+#if (ezi2c_SPI_SLAVE_PINS)
+    #define ezi2c_SCLK_S_HSIOM_REG   (*(reg32 *) ezi2c_sclk_s__0__HSIOM)
+    #define ezi2c_SCLK_S_HSIOM_PTR   ( (reg32 *) ezi2c_sclk_s__0__HSIOM)
+    
+    #define ezi2c_SCLK_S_HSIOM_MASK      (ezi2c_sclk_s__0__HSIOM_MASK)
+    #define ezi2c_SCLK_S_HSIOM_POS       (ezi2c_sclk_s__0__HSIOM_SHIFT)
+    #define ezi2c_SCLK_S_HSIOM_SEL_GPIO  (ezi2c_sclk_s__0__HSIOM_GPIO)
+    #define ezi2c_SCLK_S_HSIOM_SEL_SPI   (ezi2c_sclk_s__0__HSIOM_SPI)
+    
+    #define ezi2c_SS0_S_HSIOM_REG    (*(reg32 *) ezi2c_ss0_s__0__HSIOM)
+    #define ezi2c_SS0_S_HSIOM_PTR    ( (reg32 *) ezi2c_ss0_s__0__HSIOM)
+    
+    #define ezi2c_SS0_S_HSIOM_MASK       (ezi2c_ss0_s__0__HSIOM_MASK)
+    #define ezi2c_SS0_S_HSIOM_POS        (ezi2c_ss0_s__0__HSIOM_SHIFT)
+    #define ezi2c_SS0_S_HSIOM_SEL_GPIO   (ezi2c_ss0_s__0__HSIOM_GPIO)  
+    #define ezi2c_SS0_S_HSIOM_SEL_SPI    (ezi2c_ss0_s__0__HSIOM_SPI)
+#endif /* (ezi2c_SPI_SLAVE_PINS) */
+
+#if (ezi2c_SPI_SLAVE_MOSI_PIN)
+    #define ezi2c_MOSI_S_HSIOM_REG   (*(reg32 *) ezi2c_mosi_s__0__HSIOM)
+    #define ezi2c_MOSI_S_HSIOM_PTR   ( (reg32 *) ezi2c_mosi_s__0__HSIOM)
+    
+    #define ezi2c_MOSI_S_HSIOM_MASK      (ezi2c_mosi_s__0__HSIOM_MASK)
+    #define ezi2c_MOSI_S_HSIOM_POS       (ezi2c_mosi_s__0__HSIOM_SHIFT)
+    #define ezi2c_MOSI_S_HSIOM_SEL_GPIO  (ezi2c_mosi_s__0__HSIOM_GPIO)
+    #define ezi2c_MOSI_S_HSIOM_SEL_SPI   (ezi2c_mosi_s__0__HSIOM_SPI)
+#endif /* (ezi2c_SPI_SLAVE_MOSI_PIN) */
+
+#if (ezi2c_SPI_SLAVE_MISO_PIN)
+    #define ezi2c_MISO_S_HSIOM_REG   (*(reg32 *) ezi2c_miso_s__0__HSIOM)
+    #define ezi2c_MISO_S_HSIOM_PTR   ( (reg32 *) ezi2c_miso_s__0__HSIOM)
+    
+    #define ezi2c_MISO_S_HSIOM_MASK      (ezi2c_miso_s__0__HSIOM_MASK)
+    #define ezi2c_MISO_S_HSIOM_POS       (ezi2c_miso_s__0__HSIOM_SHIFT)
+    #define ezi2c_MISO_S_HSIOM_SEL_GPIO  (ezi2c_miso_s__0__HSIOM_GPIO)
+    #define ezi2c_MISO_S_HSIOM_SEL_SPI   (ezi2c_miso_s__0__HSIOM_SPI)
+#endif /* (ezi2c_SPI_SLAVE_MISO_PIN) */
+
+#if (ezi2c_SPI_MASTER_MISO_PIN)
+    #define ezi2c_MISO_M_HSIOM_REG   (*(reg32 *) ezi2c_miso_m__0__HSIOM)
+    #define ezi2c_MISO_M_HSIOM_PTR   ( (reg32 *) ezi2c_miso_m__0__HSIOM)
+    
+    #define ezi2c_MISO_M_HSIOM_MASK      (ezi2c_miso_m__0__HSIOM_MASK)
+    #define ezi2c_MISO_M_HSIOM_POS       (ezi2c_miso_m__0__HSIOM_SHIFT)
+    #define ezi2c_MISO_M_HSIOM_SEL_GPIO  (ezi2c_miso_m__0__HSIOM_GPIO)
+    #define ezi2c_MISO_M_HSIOM_SEL_SPI   (ezi2c_miso_m__0__HSIOM_SPI)
+#endif /* (ezi2c_SPI_MASTER_MISO_PIN) */
+
+#if (ezi2c_SPI_MASTER_MOSI_PIN)
+    #define ezi2c_MOSI_M_HSIOM_REG   (*(reg32 *) ezi2c_mosi_m__0__HSIOM)
+    #define ezi2c_MOSI_M_HSIOM_PTR   ( (reg32 *) ezi2c_mosi_m__0__HSIOM)
+    
+    #define ezi2c_MOSI_M_HSIOM_MASK      (ezi2c_mosi_m__0__HSIOM_MASK)
+    #define ezi2c_MOSI_M_HSIOM_POS       (ezi2c_mosi_m__0__HSIOM_SHIFT)
+    #define ezi2c_MOSI_M_HSIOM_SEL_GPIO  (ezi2c_mosi_m__0__HSIOM_GPIO)
+    #define ezi2c_MOSI_M_HSIOM_SEL_SPI   (ezi2c_mosi_m__0__HSIOM_SPI)
+#endif /* (ezi2c_SPI_MASTER_MOSI_PIN) */
 
 #if (ezi2c_SPI_MASTER_SCLK_PIN)
     #define ezi2c_SCLK_M_HSIOM_REG   (*(reg32 *) ezi2c_sclk_m__0__HSIOM)
     #define ezi2c_SCLK_M_HSIOM_PTR   ( (reg32 *) ezi2c_sclk_m__0__HSIOM)
-    #define ezi2c_SCLK_M_HSIOM_MASK  (ezi2c_sclk_m__0__HSIOM_MASK)
-    #define ezi2c_SCLK_M_HSIOM_POS   (ezi2c_sclk_m__0__HSIOM_SHIFT)
+    
+    #define ezi2c_SCLK_M_HSIOM_MASK      (ezi2c_sclk_m__0__HSIOM_MASK)
+    #define ezi2c_SCLK_M_HSIOM_POS       (ezi2c_sclk_m__0__HSIOM_SHIFT)
+    #define ezi2c_SCLK_M_HSIOM_SEL_GPIO  (ezi2c_sclk_m__0__HSIOM_GPIO)
+    #define ezi2c_SCLK_M_HSIOM_SEL_SPI   (ezi2c_sclk_m__0__HSIOM_SPI)
 #endif /* (ezi2c_SPI_MASTER_SCLK_PIN) */
 
 #if (ezi2c_SPI_MASTER_SS0_PIN)
     #define ezi2c_SS0_M_HSIOM_REG    (*(reg32 *) ezi2c_ss0_m__0__HSIOM)
     #define ezi2c_SS0_M_HSIOM_PTR    ( (reg32 *) ezi2c_ss0_m__0__HSIOM)
-    #define ezi2c_SS0_M_HSIOM_MASK   (ezi2c_ss0_m__0__HSIOM_MASK)
-    #define ezi2c_SS0_M_HSIOM_POS    (ezi2c_ss0_m__0__HSIOM_SHIFT)
+    
+    #define ezi2c_SS0_M_HSIOM_MASK       (ezi2c_ss0_m__0__HSIOM_MASK)
+    #define ezi2c_SS0_M_HSIOM_POS        (ezi2c_ss0_m__0__HSIOM_SHIFT)
+    #define ezi2c_SS0_M_HSIOM_SEL_GPIO   (ezi2c_ss0_m__0__HSIOM_GPIO)
+    #define ezi2c_SS0_M_HSIOM_SEL_SPI    (ezi2c_ss0_m__0__HSIOM_SPI)
 #endif /* (ezi2c_SPI_MASTER_SS0_PIN) */
 
 #if (ezi2c_SPI_MASTER_SS1_PIN)
     #define ezi2c_SS1_M_HSIOM_REG    (*(reg32 *) ezi2c_ss1_m__0__HSIOM)
     #define ezi2c_SS1_M_HSIOM_PTR    ( (reg32 *) ezi2c_ss1_m__0__HSIOM)
-    #define ezi2c_SS1_M_HSIOM_MASK   (ezi2c_ss1_m__0__HSIOM_MASK)
-    #define ezi2c_SS1_M_HSIOM_POS    (ezi2c_ss1_m__0__HSIOM_SHIFT)
+    
+    #define ezi2c_SS1_M_HSIOM_MASK       (ezi2c_ss1_m__0__HSIOM_MASK)
+    #define ezi2c_SS1_M_HSIOM_POS        (ezi2c_ss1_m__0__HSIOM_SHIFT)
+    #define ezi2c_SS1_M_HSIOM_SEL_GPIO   (ezi2c_ss1_m__0__HSIOM_GPIO)
+    #define ezi2c_SS1_M_HSIOM_SEL_SPI    (ezi2c_ss1_m__0__HSIOM_SPI)
 #endif /* (ezi2c_SPI_MASTER_SS1_PIN) */
 
 #if (ezi2c_SPI_MASTER_SS2_PIN)
     #define ezi2c_SS2_M_HSIOM_REG    (*(reg32 *) ezi2c_ss2_m__0__HSIOM)
     #define ezi2c_SS2_M_HSIOM_PTR    ( (reg32 *) ezi2c_ss2_m__0__HSIOM)
-    #define ezi2c_SS2_M_HSIOM_MASK   (ezi2c_ss2_m__0__HSIOM_MASK)
-    #define ezi2c_SS2_M_HSIOM_POS    (ezi2c_ss2_m__0__HSIOM_SHIFT)
+    
+    #define ezi2c_SS2_M_HSIOM_MASK       (ezi2c_ss2_m__0__HSIOM_MASK)
+    #define ezi2c_SS2_M_HSIOM_POS        (ezi2c_ss2_m__0__HSIOM_SHIFT)
+    #define ezi2c_SS2_M_HSIOM_SEL_GPIO   (ezi2c_ss2_m__0__HSIOM_GPIO)
+    #define ezi2c_SS2_M_HSIOM_SEL_SPI    (ezi2c_ss2_m__0__HSIOM_SPI)
 #endif /* (ezi2c_SPI_MASTER_SS2_PIN) */
 
 #if (ezi2c_SPI_MASTER_SS3_PIN)
     #define ezi2c_SS3_M_HSIOM_REG    (*(reg32 *) ezi2c_ss3_m__0__HSIOM)
     #define ezi2c_SS3_M_HSIOM_PTR    ( (reg32 *) ezi2c_ss3_m__0__HSIOM)
-    #define ezi2c_SS3_M_HSIOM_MASK   (ezi2c_ss3_m__0__HSIOM_MASK)
-    #define ezi2c_SS3_M_HSIOM_POS    (ezi2c_ss3_m__0__HSIOM_SHIFT)
+    
+    #define ezi2c_SS3_M_HSIOM_MASK      (ezi2c_ss3_m__0__HSIOM_MASK)
+    #define ezi2c_SS3_M_HSIOM_POS       (ezi2c_ss3_m__0__HSIOM_SHIFT)
+    #define ezi2c_SS3_M_HSIOM_SEL_GPIO  (ezi2c_ss3_m__0__HSIOM_GPIO)
+    #define ezi2c_SS3_M_HSIOM_SEL_SPI   (ezi2c_ss3_m__0__HSIOM_SPI)
 #endif /* (ezi2c_SPI_MASTER_SS3_PIN) */
+
+#if (ezi2c_UART_RX_PIN)
+    #define ezi2c_RX_HSIOM_REG   (*(reg32 *) ezi2c_rx__0__HSIOM)
+    #define ezi2c_RX_HSIOM_PTR   ( (reg32 *) ezi2c_rx__0__HSIOM)
+    
+    #define ezi2c_RX_HSIOM_MASK      (ezi2c_rx__0__HSIOM_MASK)
+    #define ezi2c_RX_HSIOM_POS       (ezi2c_rx__0__HSIOM_SHIFT)
+    #define ezi2c_RX_HSIOM_SEL_GPIO  (ezi2c_rx__0__HSIOM_GPIO)
+    #define ezi2c_RX_HSIOM_SEL_UART  (ezi2c_rx__0__HSIOM_UART)
+#endif /* (ezi2c_UART_RX_PIN) */
+
+#if (ezi2c_UART_RX_WAKE_PIN)
+    #define ezi2c_RX_WAKE_HSIOM_REG   (*(reg32 *) ezi2c_rx_wake__0__HSIOM)
+    #define ezi2c_RX_WAKE_HSIOM_PTR   ( (reg32 *) ezi2c_rx_wake__0__HSIOM)
+    
+    #define ezi2c_RX_WAKE_HSIOM_MASK      (ezi2c_rx_wake__0__HSIOM_MASK)
+    #define ezi2c_RX_WAKE_HSIOM_POS       (ezi2c_rx_wake__0__HSIOM_SHIFT)
+    #define ezi2c_RX_WAKE_HSIOM_SEL_GPIO  (ezi2c_rx_wake__0__HSIOM_GPIO)
+    #define ezi2c_RX_WAKE_HSIOM_SEL_UART  (ezi2c_rx_wake__0__HSIOM_UART)
+#endif /* (ezi2c_UART_WAKE_RX_PIN) */
+
+#if (ezi2c_UART_CTS_PIN)
+    #define ezi2c_CTS_HSIOM_REG   (*(reg32 *) ezi2c_cts__0__HSIOM)
+    #define ezi2c_CTS_HSIOM_PTR   ( (reg32 *) ezi2c_cts__0__HSIOM)
+    
+    #define ezi2c_CTS_HSIOM_MASK      (ezi2c_cts__0__HSIOM_MASK)
+    #define ezi2c_CTS_HSIOM_POS       (ezi2c_cts__0__HSIOM_SHIFT)
+    #define ezi2c_CTS_HSIOM_SEL_GPIO  (ezi2c_cts__0__HSIOM_GPIO)
+    #define ezi2c_CTS_HSIOM_SEL_UART  (ezi2c_cts__0__HSIOM_UART)
+#endif /* (ezi2c_UART_CTS_PIN) */
 
 #if (ezi2c_UART_TX_PIN)
     #define ezi2c_TX_HSIOM_REG   (*(reg32 *) ezi2c_tx__0__HSIOM)
-    #define ezi2c_TX_HSIOM_PTR   ( (reg32 *) ezi2c_tx_0__HSIOM)
-    #define ezi2c_TX_HSIOM_MASK  (ezi2c_tx__0__HSIOM_MASK)
-    #define ezi2c_TX_HSIOM_POS   (ezi2c_tx__0__HSIOM_SHIFT)
+    #define ezi2c_TX_HSIOM_PTR   ( (reg32 *) ezi2c_tx__0__HSIOM)
+    
+    #define ezi2c_TX_HSIOM_MASK      (ezi2c_tx__0__HSIOM_MASK)
+    #define ezi2c_TX_HSIOM_POS       (ezi2c_tx__0__HSIOM_SHIFT)
+    #define ezi2c_TX_HSIOM_SEL_GPIO  (ezi2c_tx__0__HSIOM_GPIO)
+    #define ezi2c_TX_HSIOM_SEL_UART  (ezi2c_tx__0__HSIOM_UART)
 #endif /* (ezi2c_UART_TX_PIN) */
 
+#if (ezi2c_UART_RX_TX_PIN)
+    #define ezi2c_RX_TX_HSIOM_REG   (*(reg32 *) ezi2c_rx_tx__0__HSIOM)
+    #define ezi2c_RX_TX_HSIOM_PTR   ( (reg32 *) ezi2c_rx_tx__0__HSIOM)
+    
+    #define ezi2c_RX_TX_HSIOM_MASK      (ezi2c_rx_tx__0__HSIOM_MASK)
+    #define ezi2c_RX_TX_HSIOM_POS       (ezi2c_rx_tx__0__HSIOM_SHIFT)
+    #define ezi2c_RX_TX_HSIOM_SEL_GPIO  (ezi2c_rx_tx__0__HSIOM_GPIO)
+    #define ezi2c_RX_TX_HSIOM_SEL_UART  (ezi2c_rx_tx__0__HSIOM_UART)
+#endif /* (ezi2c_UART_RX_TX_PIN) */
+
 #if (ezi2c_UART_RTS_PIN)
-    #define ezi2c_RTS_HSIOM_REG  (*(reg32 *) ezi2c_rts__0__HSIOM)
-    #define ezi2c_RTS_HSIOM_PTR  ( (reg32 *) ezi2c_rts__0__HSIOM)
-    #define ezi2c_RTS_HSIOM_MASK (ezi2c_rts__0__HSIOM_MASK)
-    #define ezi2c_RTS_HSIOM_POS  (ezi2c_rts__0__HSIOM_SHIFT)
+    #define ezi2c_RTS_HSIOM_REG      (*(reg32 *) ezi2c_rts__0__HSIOM)
+    #define ezi2c_RTS_HSIOM_PTR      ( (reg32 *) ezi2c_rts__0__HSIOM)
+    
+    #define ezi2c_RTS_HSIOM_MASK     (ezi2c_rts__0__HSIOM_MASK)
+    #define ezi2c_RTS_HSIOM_POS      (ezi2c_rts__0__HSIOM_SHIFT)    
+    #define ezi2c_RTS_HSIOM_SEL_GPIO (ezi2c_rts__0__HSIOM_GPIO)
+    #define ezi2c_RTS_HSIOM_SEL_UART (ezi2c_rts__0__HSIOM_UART)    
 #endif /* (ezi2c_UART_RTS_PIN) */
 
 
@@ -336,13 +495,19 @@
 *        Registers Constants
 ***************************************/
 
-/* Pins constants */
+/* HSIOM switch values. */ 
 #define ezi2c_HSIOM_DEF_SEL      (0x00u)
 #define ezi2c_HSIOM_GPIO_SEL     (0x00u)
+/* The HSIOM values provided below are valid only for ezi2c_CY_SCBIP_V0 
+* and ezi2c_CY_SCBIP_V1. It is not recommended to use them for 
+* ezi2c_CY_SCBIP_V2. Use pin name specific HSIOM constants provided 
+* above instead for any SCB IP block version.
+*/
 #define ezi2c_HSIOM_UART_SEL     (0x09u)
 #define ezi2c_HSIOM_I2C_SEL      (0x0Eu)
 #define ezi2c_HSIOM_SPI_SEL      (0x0Fu)
 
+/* Pins settings index. */
 #define ezi2c_RX_WAKE_SCL_MOSI_PIN_INDEX   (0u)
 #define ezi2c_RX_SCL_MOSI_PIN_INDEX       (0u)
 #define ezi2c_TX_SDA_MISO_PIN_INDEX       (1u)
@@ -352,6 +517,7 @@
 #define ezi2c_SS2_PIN_INDEX                  (5u)
 #define ezi2c_SS3_PIN_INDEX                  (6u)
 
+/* Pins settings mask. */
 #define ezi2c_RX_WAKE_SCL_MOSI_PIN_MASK ((uint32) 0x01u << ezi2c_RX_WAKE_SCL_MOSI_PIN_INDEX)
 #define ezi2c_RX_SCL_MOSI_PIN_MASK     ((uint32) 0x01u << ezi2c_RX_SCL_MOSI_PIN_INDEX)
 #define ezi2c_TX_SDA_MISO_PIN_MASK     ((uint32) 0x01u << ezi2c_TX_SDA_MISO_PIN_INDEX)
@@ -361,11 +527,11 @@
 #define ezi2c_SS2_PIN_MASK                ((uint32) 0x01u << ezi2c_SS2_PIN_INDEX)
 #define ezi2c_SS3_PIN_MASK                ((uint32) 0x01u << ezi2c_SS3_PIN_INDEX)
 
-/* Pin interrupt constants */
+/* Pin interrupt constants. */
 #define ezi2c_INTCFG_TYPE_MASK           (0x03u)
 #define ezi2c_INTCFG_TYPE_FALLING_EDGE   (0x02u)
 
-/* Pin Drive Mode constants */
+/* Pin Drive Mode constants. */
 #define ezi2c_PIN_DM_ALG_HIZ  (0u)
 #define ezi2c_PIN_DM_DIG_HIZ  (1u)
 #define ezi2c_PIN_DM_OD_LO    (4u)
@@ -378,7 +544,7 @@
 
 /* Return drive mode of the pin */
 #define ezi2c_DM_MASK    (0x7u)
-#define ezi2c_DM_SIZE    (3)
+#define ezi2c_DM_SIZE    (3u)
 #define ezi2c_GET_P4_PIN_DM(reg, pos) \
     ( ((reg) & (uint32) ((uint32) ezi2c_DM_MASK << (ezi2c_DM_SIZE * (pos)))) >> \
                                                               (ezi2c_DM_SIZE * (pos)) )
@@ -455,10 +621,8 @@
     #define ezi2c_WAIT_SCL_SET_HIGH  (0u == ezi2c_uart_rx_i2c_scl_spi_mosi_Read())
 
 #else
-    #define ezi2c_SET_I2C_SCL_DR(val) \
-                                                    do{ /* Does nothing */ }while(0)
-    #define ezi2c_SET_I2C_SCL_HSIOM_SEL(sel) \
-                                                    do{ /* Does nothing */ }while(0)
+    #define ezi2c_SET_I2C_SCL_DR(val)        do{ /* Does nothing */ }while(0)
+    #define ezi2c_SET_I2C_SCL_HSIOM_SEL(sel) do{ /* Does nothing */ }while(0)
 
     #define ezi2c_WAIT_SCL_SET_HIGH  (0u)
 #endif /* (ezi2c_I2C_PINS) */
@@ -473,6 +637,24 @@
     #define ezi2c_WAIT_SDA_SET_HIGH  (0u)
 #endif /* (ezi2c_MOSI_SCL_RX_PIN) */
 #endif /* (ezi2c_CY_SCBIP_V0) */
+
+/* Clear UART wakeup source */
+#if (ezi2c_RX_SCL_MOSI_PIN)
+    #define ezi2c_CLEAR_UART_RX_WAKE_INTR        do{ /* Does nothing */ }while(0)
+    
+#elif (ezi2c_RX_WAKE_SCL_MOSI_PIN)
+    #define ezi2c_CLEAR_UART_RX_WAKE_INTR \
+            do{                                      \
+                (void) ezi2c_uart_rx_wake_i2c_scl_spi_mosi_ClearInterrupt(); \
+            }while(0)
+
+#elif(ezi2c_UART_RX_WAKE_PIN)
+    #define ezi2c_CLEAR_UART_RX_WAKE_INTR \
+            do{                                      \
+                (void) ezi2c_rx_wake_ClearInterrupt(); \
+            }while(0)
+#else
+#endif /* (ezi2c_RX_SCL_MOSI_PIN) */
 
 
 /***************************************

@@ -1,6 +1,6 @@
 /*******************************************************************************
 * File Name: adc_PM.c
-* Version 2.30
+* Version 2.50
 *
 * Description:
 *  This file provides Sleep/WakeUp APIs functionality.
@@ -8,7 +8,7 @@
 * Note:
 *
 ********************************************************************************
-* Copyright 2008-2015, Cypress Semiconductor Corporation.  All rights reserved.
+* Copyright 2008-2017, Cypress Semiconductor Corporation.  All rights reserved.
 * You may use this file only in accordance with the license, terms, conditions,
 * disclaimers, and limitations in the end user license agreement accompanying
 * the software package with which this file was provided.
@@ -23,7 +23,8 @@
 
 static adc_BACKUP_STRUCT  adc_backup =
 {
-    adc_DISABLED
+    adc_DISABLED,
+    0u    
 };
 
 
@@ -63,7 +64,7 @@ void adc_SaveConfig(void)
 *******************************************************************************/
 void adc_RestoreConfig(void)
 {
-    /* All congiguration registers are marked as [reset_all_retention] */
+    /* All configuration registers are marked as [reset_all_retention] */
 }
 
 
@@ -90,6 +91,7 @@ void adc_Sleep(void)
     /* During deepsleep/ hibernate mode keep SARMUX active, i.e. do not open
     *   all switches (disconnect), to be used for ADFT
     */
+    adc_backup.dftRegVal = adc_SAR_DFT_CTRL_REG & (uint32)~adc_ADFT_OVERRIDE;
     adc_SAR_DFT_CTRL_REG |= adc_ADFT_OVERRIDE;
     if((adc_SAR_CTRL_REG  & adc_ENABLE) != 0u)
     {
@@ -138,7 +140,7 @@ void adc_Sleep(void)
 *******************************************************************************/
 void adc_Wakeup(void)
 {
-    adc_SAR_DFT_CTRL_REG &= (uint32)~adc_ADFT_OVERRIDE;
+    adc_SAR_DFT_CTRL_REG = adc_backup.dftRegVal;
     if(adc_backup.enableState != adc_DISABLED)
     {
         /* Enable the SAR internal pump  */

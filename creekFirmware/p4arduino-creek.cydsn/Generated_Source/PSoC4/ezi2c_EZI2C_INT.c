@@ -1,15 +1,16 @@
-/*******************************************************************************
-* File Name: ezi2c_EZI2C_INT.c
-* Version 3.10
+/***************************************************************************//**
+* \file ezi2c_EZI2C_INT.c
+* \version 4.0
 *
-* Description:
+* \brief
 *  This file provides the source code to the Interrupt Service Routine for
 *  the SCB Component in EZI2C mode.
 *
 * Note:
 *
 ********************************************************************************
-* Copyright 2013-2015, Cypress Semiconductor Corporation.  All rights reserved.
+* \copyright
+* Copyright 2013-2017, Cypress Semiconductor Corporation.  All rights reserved.
 * You may use this file only in accordance with the license, terms, conditions,
 * disclaimers, and limitations in the end user license agreement accompanying
 * the software package with which this file was provided.
@@ -22,17 +23,10 @@
 #if(ezi2c_EZI2C_SCL_STRETCH_ENABLE_CONST)
     /*******************************************************************************
     * Function Name: ezi2c_EZI2C_STRETCH_ISR
-    ********************************************************************************
+    ****************************************************************************//**
     *
-    * Summary:
-    *  Handles the Interrupt Service Routine for the SCB EZI2C mode. The clock stretching is
-    *  used during operation.
-    *
-    * Parameters:
-    *  None
-    *
-    * Return:
-    *  None
+    *  Handles the Interrupt Service Routine for the SCB EZI2C mode.
+    *  The clock stretching is used during operation.
     *
     *******************************************************************************/
     CY_ISR_PROTO(ezi2c_EZI2C_STRETCH_ISR)
@@ -47,7 +41,7 @@
 
         uint32 locIntrCause;
         uint32 locIntrSlave;
-        
+
     #ifdef ezi2c_EZI2C_STRETCH_ISR_ENTRY_CALLBACK
         ezi2c_EZI2C_STRETCH_ISR_EntryCallback();
     #endif /* ezi2c_EZI2C_STRETCH_ISR_ENTRY_CALLBACK */
@@ -552,17 +546,10 @@
 #if(ezi2c_EZI2C_SCL_STRETCH_DISABLE_CONST)
     /*******************************************************************************
     * Function Name: ezi2c_EZI2C_NO_STRETCH_ISR
-    ********************************************************************************
+    ****************************************************************************//**
     *
-    * Summary:
-    *  Handles the Interrupt Service Routine for the SCB EZI2C mode. Clock stretching is
-    *  NOT used during operation.
-    *
-    * Parameters:
-    *  None
-    *
-    * Return:
-    *  None
+    *  Handles the Interrupt Service Routine for the SCB EZI2C mode.
+    *  Clock stretching is NOT used during operation.
     *
     *******************************************************************************/
     CY_ISR_PROTO(ezi2c_EZI2C_NO_STRETCH_ISR)
@@ -849,11 +836,11 @@
             #endif
         #endif /* (!ezi2c_CY_SCBIP_V0) */
         }
-        
+
     #ifdef ezi2c_EZI2C_NO_STRETCH_ISR_EXIT_CALLBACK
         ezi2c_EZI2C_NO_STRETCH_ISR_ExitCallback();
     #endif /* ezi2c_EZI2C_NO_STRETCH_ISR_EXIT_CALLBACK */
-        
+
     }
 #endif /* (ezi2c_EZI2C_SCL_STRETCH_DISABLE_CONST) */
 

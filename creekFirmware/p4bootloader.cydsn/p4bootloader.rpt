@@ -1,13 +1,13 @@
-Loading plugins phase: Elapsed time ==> 0s.189ms
-Initializing data phase: Elapsed time ==> 0s.000ms
+Loading plugins phase: Elapsed time ==> 0s.984ms
 <CYPRESSTAG name="CyDsfit arguments...">
-cydsfit arguments: -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -p Z:\Documents\creekproj\creekFirmware\p4bootloader.cydsn\p4bootloader.cyprj -d CY8C4245AXI-483 -s Z:\Documents\creekproj\creekFirmware\p4bootloader.cydsn\Generated_Source\PSoC4 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE</CYPRESSTAG>
+cydsfit arguments: -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p \\Mac\Home\Documents\iotexpert-projects\creekproj\creekFirmware\p4bootloader.cydsn\p4bootloader.cyprj -d CY8C4245AXI-483 -s \\Mac\Home\Documents\iotexpert-projects\creekproj\creekFirmware\p4bootloader.cydsn\Generated_Source\PSoC4 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
+</CYPRESSTAG>
 <CYPRESSTAG name="Design elaboration results...">
 </CYPRESSTAG>
-Elaboration phase: Elapsed time ==> 1s.499ms
+Elaboration phase: Elapsed time ==> 5s.140ms
 <CYPRESSTAG name="HDL generation results...">
 </CYPRESSTAG>
-HDL generation phase: Elapsed time ==> 0s.059ms
+HDL generation phase: Elapsed time ==> 0s.125ms
 <CYPRESSTAG name="Synthesis results...">
 
      | | | | | | |
@@ -24,24 +24,24 @@ HDL generation phase: Elapsed time ==> 0s.059ms
 
 ======================================================================
 Compiling:  p4bootloader.v
-Program  :   C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\bin/warp.exe
-Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=Z:\Documents\creekproj\creekFirmware\p4bootloader.cydsn\p4bootloader.cyprj -dcpsoc3 p4bootloader.v -verilog
+Program  :   C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\bin\warp.exe
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=\\Mac\Home\Documents\iotexpert-projects\creekproj\creekFirmware\p4bootloader.cydsn\p4bootloader.cyprj -dcpsoc3 p4bootloader.v -verilog
 ======================================================================
 
 ======================================================================
 Compiling:  p4bootloader.v
-Program  :   C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\bin/warp.exe
-Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=Z:\Documents\creekproj\creekFirmware\p4bootloader.cydsn\p4bootloader.cyprj -dcpsoc3 p4bootloader.v -verilog
+Program  :   C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\bin\warp.exe
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=\\Mac\Home\Documents\iotexpert-projects\creekproj\creekFirmware\p4bootloader.cydsn\p4bootloader.cyprj -dcpsoc3 p4bootloader.v -verilog
 ======================================================================
 
 ======================================================================
 Compiling:  p4bootloader.v
 Program  :   vlogfe
-Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=Z:\Documents\creekproj\creekFirmware\p4bootloader.cydsn\p4bootloader.cyprj -dcpsoc3 -verilog p4bootloader.v
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=\\Mac\Home\Documents\iotexpert-projects\creekproj\creekFirmware\p4bootloader.cydsn\p4bootloader.cyprj -dcpsoc3 -verilog p4bootloader.v
 ======================================================================
 
 vlogfe V6.3 IR 41:  Verilog parser
-Mon Feb 08 05:30:40 2016
+Sun Jun 30 06:28:31 2019
 
 
 ======================================================================
@@ -51,26 +51,26 @@ Options  :    -yv2 -q10 p4bootloader.v
 ======================================================================
 
 vpp V6.3 IR 41:  Verilog Pre-Processor
-Mon Feb 08 05:30:40 2016
+Sun Jun 30 06:28:31 2019
 
-Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\ZeroTerminal\ZeroTerminal.v'
-Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'
-Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\or_v1_0\or_v1_0.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\ZeroTerminal\ZeroTerminal.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\or_v1_0\or_v1_0.v'
 
 vpp:  No errors.
 
 Library 'work' => directory 'lcpsoc3'
 General_symbol_table
 General_symbol_table
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\std.vhd'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\cypress.vhd'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\work\cypress.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\ieee\work\stdlogic.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\lpmpkg.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\mod_cnst.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\mod_mthv.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\std.vhd'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cypress.vhd'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\work\cypress.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\ieee\work\stdlogic.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\lpmpkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_cnst.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_mthv.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif'.
 Using control file 'p4bootloader.ctl'.
 
 vlogfe:  No errors.
@@ -79,26 +79,26 @@ vlogfe:  No errors.
 ======================================================================
 Compiling:  p4bootloader.v
 Program  :   tovif
-Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=Z:\Documents\creekproj\creekFirmware\p4bootloader.cydsn\p4bootloader.cyprj -dcpsoc3 -verilog p4bootloader.v
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=\\Mac\Home\Documents\iotexpert-projects\creekproj\creekFirmware\p4bootloader.cydsn\p4bootloader.cyprj -dcpsoc3 -verilog p4bootloader.v
 ======================================================================
 
 tovif V6.3 IR 41:  High-level synthesis
-Mon Feb 08 05:30:40 2016
+Sun Jun 30 06:28:32 2019
 
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\std.vhd'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\cypress.vhd'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\work\cypress.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\ieee\work\stdlogic.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\lpmpkg.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\mod_cnst.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\mod_mthv.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif'.
-Linking 'Z:\Documents\creekproj\creekFirmware\p4bootloader.cydsn\codegentemp\p4bootloader.ctl'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\ZeroTerminal\ZeroTerminal.v'.
-Linking 'Z:\Documents\creekproj\creekFirmware\p4bootloader.cydsn\codegentemp\p4bootloader.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\or_v1_0\or_v1_0.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\std.vhd'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cypress.vhd'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\work\cypress.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\ieee\work\stdlogic.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\lpmpkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_cnst.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_mthv.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif'.
+Linking '\\Mac\Home\Documents\iotexpert-projects\creekproj\creekFirmware\p4bootloader.cydsn\codegentemp\p4bootloader.ctl'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'.
+Linking '\\Mac\Home\Documents\iotexpert-projects\creekproj\creekFirmware\p4bootloader.cydsn\codegentemp\p4bootloader.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\ZeroTerminal\ZeroTerminal.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\or_v1_0\or_v1_0.v'.
 
 tovif:  No errors.
 
@@ -106,27 +106,27 @@ tovif:  No errors.
 ======================================================================
 Compiling:  p4bootloader.v
 Program  :   topld
-Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=Z:\Documents\creekproj\creekFirmware\p4bootloader.cydsn\p4bootloader.cyprj -dcpsoc3 -verilog p4bootloader.v
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=\\Mac\Home\Documents\iotexpert-projects\creekproj\creekFirmware\p4bootloader.cydsn\p4bootloader.cyprj -dcpsoc3 -verilog p4bootloader.v
 ======================================================================
 
 topld V6.3 IR 41:  Synthesis and optimization
-Mon Feb 08 05:30:40 2016
+Sun Jun 30 06:28:33 2019
 
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\std.vhd'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\cypress.vhd'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\work\cypress.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\ieee\work\stdlogic.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\lpmpkg.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\mod_cnst.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\mod_mthv.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif'.
-Linking 'Z:\Documents\creekproj\creekFirmware\p4bootloader.cydsn\codegentemp\p4bootloader.ctl'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\ZeroTerminal\ZeroTerminal.v'.
-Linking 'Z:\Documents\creekproj\creekFirmware\p4bootloader.cydsn\codegentemp\p4bootloader.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\or_v1_0\or_v1_0.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\lcpsoc3\stdlogic\cpsoc3.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\std.vhd'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cypress.vhd'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\work\cypress.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\ieee\work\stdlogic.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\lpmpkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_cnst.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_mthv.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif'.
+Linking '\\Mac\Home\Documents\iotexpert-projects\creekproj\creekFirmware\p4bootloader.cydsn\codegentemp\p4bootloader.ctl'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'.
+Linking '\\Mac\Home\Documents\iotexpert-projects\creekproj\creekFirmware\p4bootloader.cydsn\codegentemp\p4bootloader.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\ZeroTerminal\ZeroTerminal.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\or_v1_0\or_v1_0.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\lcpsoc3\stdlogic\cpsoc3.vif'.
 
 ----------------------------------------------------------
 Detecting unused logic.
@@ -136,46 +136,46 @@ Detecting unused logic.
 	\I2C:uncfg_rx_irq\
 	\I2C:Net_1099\
 	\I2C:Net_1258\
-	\I2C:Net_547\
-	\I2C:Net_891\
-	\I2C:Net_1001\
-	\I2C:Net_899\
+	Net_21
+	Net_30
+	Net_31
+	Net_32
+	Net_33
+	Net_34
+	Net_35
+	Net_36
+	Net_38
+	Net_41
 
 
-Deleted 8 User equations/components.
+Deleted 14 User equations/components.
 Deleted 0 Synthesized equations/components.
 
 ------------------------------------------------------
 Alias Detection
 ------------------------------------------------------
-Aliasing \I2C:Net_452\ to \I2C:Net_459\
-Aliasing \I2C:Net_1194\ to \I2C:Net_459\
-Aliasing \I2C:Net_1195\ to \I2C:Net_459\
-Aliasing \I2C:Net_1196\ to \I2C:Net_459\
-Aliasing zero to \I2C:Net_459\
+Aliasing \I2C:rx_wire\ to \I2C:select_s_wire\
+Aliasing \I2C:sclk_s_wire\ to \I2C:select_s_wire\
+Aliasing \I2C:mosi_s_wire\ to \I2C:select_s_wire\
+Aliasing \I2C:miso_m_wire\ to \I2C:select_s_wire\
+Aliasing zero to \I2C:select_s_wire\
 Aliasing one to \I2C:tmpOE__sda_net_0\
 Aliasing \I2C:tmpOE__scl_net_0\ to \I2C:tmpOE__sda_net_0\
-Aliasing \I2C:Net_747\ to \I2C:Net_459\
+Aliasing \I2C:cts_wire\ to \I2C:select_s_wire\
 Aliasing tmpOE__BLUELED_net_0 to \I2C:tmpOE__sda_net_0\
-Removing Lhs of wire \I2C:Net_652\[3] = \I2C:Net_459\[2]
-Removing Lhs of wire \I2C:Net_452\[4] = \I2C:Net_459\[2]
-Removing Lhs of wire \I2C:Net_1194\[5] = \I2C:Net_459\[2]
-Removing Lhs of wire \I2C:Net_1195\[6] = \I2C:Net_459\[2]
-Removing Lhs of wire \I2C:Net_1196\[7] = \I2C:Net_459\[2]
-Removing Lhs of wire \I2C:Net_654\[8] = \I2C:Net_459\[2]
-Removing Lhs of wire \I2C:Net_1170\[11] = \I2C:Net_847\[1]
-Removing Lhs of wire \I2C:Net_990\[12] = \I2C:Net_459\[2]
-Removing Lhs of wire \I2C:Net_909\[13] = \I2C:Net_459\[2]
-Removing Lhs of wire \I2C:Net_663\[14] = \I2C:Net_459\[2]
-Removing Rhs of wire zero[17] = \I2C:Net_459\[2]
-Removing Rhs of wire one[21] = \I2C:tmpOE__sda_net_0\[16]
-Removing Lhs of wire \I2C:tmpOE__scl_net_0\[24] = one[21]
-Removing Lhs of wire \I2C:Net_1175\[33] = zero[17]
-Removing Lhs of wire \I2C:Net_747\[34] = zero[17]
-Removing Lhs of wire tmpOE__BLUELED_net_0[57] = one[21]
+Removing Lhs of wire \I2C:rx_wire\[3] = \I2C:select_s_wire\[2]
+Removing Lhs of wire \I2C:Net_1170\[6] = \I2C:Net_847\[1]
+Removing Lhs of wire \I2C:sclk_s_wire\[7] = \I2C:select_s_wire\[2]
+Removing Lhs of wire \I2C:mosi_s_wire\[8] = \I2C:select_s_wire\[2]
+Removing Lhs of wire \I2C:miso_m_wire\[9] = \I2C:select_s_wire\[2]
+Removing Rhs of wire zero[12] = \I2C:select_s_wire\[2]
+Removing Rhs of wire one[16] = \I2C:tmpOE__sda_net_0\[11]
+Removing Lhs of wire \I2C:tmpOE__scl_net_0\[19] = one[16]
+Removing Lhs of wire \I2C:cts_wire\[28] = zero[12]
+Removing Lhs of wire tmpOE__BLUELED_net_0[53] = one[16]
 
 ------------------------------------------------------
-Aliased 0 equations, 16 wires.
+Aliased 0 equations, 10 wires.
 ------------------------------------------------------
 
 ----------------------------------------------------------
@@ -195,20 +195,20 @@ Circuit simplification results:
 
 topld:  No errors.
 
-CYPRESS_DIR    : C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp
-Warp Program   : C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\bin/warp.exe
-Warp Arguments : -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=Z:\Documents\creekproj\creekFirmware\p4bootloader.cydsn\p4bootloader.cyprj -dcpsoc3 p4bootloader.v -verilog
+CYPRESS_DIR    : C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp
+Warp Program   : C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\bin\warp.exe
+Warp Arguments : -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=\\Mac\Home\Documents\iotexpert-projects\creekproj\creekFirmware\p4bootloader.cydsn\p4bootloader.cyprj -dcpsoc3 p4bootloader.v -verilog
 </CYPRESSTAG>
-Warp synthesis phase: Elapsed time ==> 0s.239ms
+Warp synthesis phase: Elapsed time ==> 1s.796ms
 <CYPRESSTAG name="Fitter results...">
 <CYPRESSTAG name="Fitter startup details...">
-cyp3fit: V3.3.0.7343, Family: PSoC3, Started at: Monday, 08 February 2016 05:30:40
-Options: -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=Z:\Documents\creekproj\creekFirmware\p4bootloader.cydsn\p4bootloader.cyprj -d CY8C4245AXI-483 p4bootloader.v -verilog
+cyp3fit: V4.2.0.641, Family: PSoC3, Started at: Sunday, 30 June 2019 06:28:33
+Options: -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=\\Mac\Home\Documents\iotexpert-projects\creekproj\creekFirmware\p4bootloader.cydsn\p4bootloader.cyprj -d CY8C4245AXI-483 p4bootloader.v -verilog
 </CYPRESSTAG>
 <CYPRESSTAG name="Design parsing">
-Design parsing phase: Elapsed time ==> 0s.019ms
+Design parsing phase: Elapsed time ==> 0s.125ms
 </CYPRESSTAG>
-<CYPRESSTAG name="Tech mapping">
+<CYPRESSTAG name="Tech Mapping">
 <CYPRESSTAG name="Initial Mapping" icon="FILE_RPT_TECHM">
 <CYPRESSTAG name="Global Clock Selection" icon="FILE_RPT_TECHM">
     Fixed Function Clock 2: Automatic-assigning  clock 'I2C_SCBCLK'. Signal=\I2C:Net_847_ff2\
@@ -264,12 +264,12 @@ Design Equations
             SIO Vtrip: MULTIPLIER_0_5
             SIO Multiplier Index: 0
             SIO RefSel: VCC_IO
-            Required Capabilitites: DIGITAL
+            Required Capabilities: DIGITAL
             Initial Value: 1
             IO Voltage: 0
         PORT MAP (
             pa_out => \I2C:sda(0)\__PA ,
-            fb => \I2C:Net_581\ ,
+            fb => Net_40 ,
             pad => \I2C:sda(0)_PAD\ );
         Properties:
         {
@@ -304,12 +304,12 @@ Design Equations
             SIO Vtrip: MULTIPLIER_0_5
             SIO Multiplier Index: 0
             SIO RefSel: VCC_IO
-            Required Capabilitites: DIGITAL
+            Required Capabilities: DIGITAL
             Initial Value: 1
             IO Voltage: 0
         PORT MAP (
             pa_out => \I2C:scl(0)\__PA ,
-            fb => \I2C:Net_580\ ,
+            fb => Net_39 ,
             pad => \I2C:scl(0)_PAD\ );
         Properties:
         {
@@ -344,7 +344,7 @@ Design Equations
             SIO Vtrip: MULTIPLIER_0_5
             SIO Multiplier Index: 0
             SIO RefSel: VCC_IO
-            Required Capabilitites: DIGITAL, ROUTABLE
+            Required Capabilities: DIGITAL, ROUTABLE
             Initial Value: 1
             IO Voltage: 0
         PORT MAP (
@@ -378,10 +378,11 @@ Design Equations
 
     interrupt: Name =\I2C:SCB_IRQ\
         PORT MAP (
-            interrupt => Net_5 );
+            interrupt => Net_22 );
         Properties:
         {
             int_type = "10"
+            is_nmi = 0
         }
     </CYPRESSTAG>
 </CYPRESSTAG>
@@ -415,20 +416,33 @@ DAC                           :      :      :      :
   7-bit IDAC                  :    0 :    1 :    1 :  0.00 %
   8-bit IDAC                  :    0 :    1 :    1 :  0.00 %
 </CYPRESSTAG>
-Technology Mapping: Elapsed time ==> 0s.009ms
-Tech mapping phase: Elapsed time ==> 0s.039ms
+Technology Mapping: Elapsed time ==> 0s.296ms
+Tech Mapping phase: Elapsed time ==> 0s.468ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Analog Placement">
-<CYPRESSTAG name="Analog Placement">
-Elapsed time ==> 0.0956279s
+<CYPRESSTAG name="FFB & IO Pre Placement">
+<CYPRESSTAG name="Placement" icon="FILE_RPT_PLACEMENT">
+
+Cell                                : Block                              
+=========================================================================
+\I2C:sda(0)\                        : [IOP=(3)][IoId=(1)]                
+\I2C:scl(0)\                        : [IOP=(3)][IoId=(0)]                
+BLUELED(0)                          : [IOP=(0)][IoId=(3)]                
+ClockGenBlock                       : CLK_GEN_[FFB(CLK_GEN,0)]           
+\I2C:SCB\                           : SCB_[FFB(SCB,1)]                   
+
 </CYPRESSTAG>
-Analog Placement phase: Elapsed time ==> 0s.239ms
+</CYPRESSTAG>
+<CYPRESSTAG name="Real Analog Placement">
+Elapsed time ==> 0.1977138s
+</CYPRESSTAG>
+Analog Placement phase: Elapsed time ==> 0s.546ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Analog Routing">
 <CYPRESSTAG name="Analog Routing">
-Route success=True, Iterations=1 Elapsed=0.0007244 secs
+Route success=True, Iterations=1 Elapsed=0.0044489 secs
 </CYPRESSTAG>
-Analog Routing phase: Elapsed time ==> 0s.000ms
+Analog Routing phase: Elapsed time ==> 0s.015ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Analog Code Generation">
 ============ Analog Final Answer Routes ============
@@ -439,32 +453,26 @@ Map of item to net {
 }
 Mux Info {
 }
-Analog Code Generation phase: Elapsed time ==> 0s.029ms
+Analog Code Generation phase: Elapsed time ==> 0s.078ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Digital Placement">
 <CYPRESSTAG name="Detailed placement messages">
 I2659: No Constrained paths were found. The placer will run in non-timing driven mode.
-I2076: Total run-time: 0.2 sec.
+I2076: Total run-time: 0.3 sec.
 
 </CYPRESSTAG>
 <CYPRESSTAG name="PLD Packing">
 <CYPRESSTAG name="PLD Packing Summary">
 No PLDs were packed.
 </CYPRESSTAG>
-PLD Packing: Elapsed time ==> 0s.000ms
+PLD Packing: Elapsed time ==> 0s.015ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Partitioning">
 <CYPRESSTAG name="Initial Partitioning Summary">
 Initial Partitioning Summary not displayed at this verbose level.</CYPRESSTAG>
 <CYPRESSTAG name="Final Partitioning Summary">
 Final Partitioning Summary not displayed at this verbose level.</CYPRESSTAG>
-Partitioning: Elapsed time ==> 0s.009ms
-</CYPRESSTAG>
-<CYPRESSTAG name="Simulated Annealing">
-Annealing: Elapsed time ==> 0s.000ms
-<CYPRESSTAG name="Simulated Annealing Results">
-The seed used for moves was 114161200.
-Inital cost was 8, final cost is 8 (0.00% improvement).</CYPRESSTAG>
+Partitioning: Elapsed time ==> 0s.093ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Final Placement Summary">
 
@@ -489,10 +497,11 @@ Intr container @ [IntrContainer=(0)]:
   Intr@ [IntrContainer=(0)][IntrId=(11)] 
     interrupt: Name =\I2C:SCB_IRQ\
         PORT MAP (
-            interrupt => Net_5 );
+            interrupt => Net_22 );
         Properties:
         {
             int_type = "10"
+            is_nmi = 0
         }
 Port 0 contains the following IO cells:
 [IoId=3]: 
@@ -525,7 +534,7 @@ Pin : Name = BLUELED(0)
         SIO Vtrip: MULTIPLIER_0_5
         SIO Multiplier Index: 0
         SIO RefSel: VCC_IO
-        Required Capabilitites: DIGITAL, ROUTABLE
+        Required Capabilities: DIGITAL, ROUTABLE
         Initial Value: 1
         IO Voltage: 0
     PORT MAP (
@@ -535,8 +544,8 @@ Pin : Name = BLUELED(0)
     {
     }
 
-Port 1 is empty
-Port 2 is empty
+Port 1 contains the following IO cells:
+Port 2 contains the following IO cells:
 Port 3 contains the following IO cells:
 [IoId=0]: 
 Pin : Name = \I2C:scl(0)\
@@ -568,12 +577,12 @@ Pin : Name = \I2C:scl(0)\
         SIO Vtrip: MULTIPLIER_0_5
         SIO Multiplier Index: 0
         SIO RefSel: VCC_IO
-        Required Capabilitites: DIGITAL
+        Required Capabilities: DIGITAL
         Initial Value: 1
         IO Voltage: 0
     PORT MAP (
         pa_out => \I2C:scl(0)\__PA ,
-        fb => \I2C:Net_580\ ,
+        fb => Net_39 ,
         pad => \I2C:scl(0)_PAD\ );
     Properties:
     {
@@ -609,20 +618,21 @@ Pin : Name = \I2C:sda(0)\
         SIO Vtrip: MULTIPLIER_0_5
         SIO Multiplier Index: 0
         SIO RefSel: VCC_IO
-        Required Capabilitites: DIGITAL
+        Required Capabilities: DIGITAL
         Initial Value: 1
         IO Voltage: 0
     PORT MAP (
         pa_out => \I2C:sda(0)\__PA ,
-        fb => \I2C:Net_581\ ,
+        fb => Net_40 ,
         pad => \I2C:sda(0)_PAD\ );
     Properties:
     {
     }
 
-Port 4 is empty
+Port 4 contains the following IO cells:
+ARM group 0: empty
 Clock group 0: 
-    M0S8 Clock Block @ F(Clock,0): 
+    Clock Block @ F(Clock,0): 
     m0s8clockblockcell: Name =ClockBlock
         PORT MAP (
             hfclk => ClockBlock_HFCLK ,
@@ -637,43 +647,40 @@ Clock group 0:
         Properties:
         {
         }
-PM group 0: empty
-SPC group 0: empty
-WDT group 0: empty
-FSS group 0: empty
-LP Comparator group 0: empty
-Serial Communication (SCB) group 0: 
+LCD group 0: empty
+PICU group 0: empty
+LPCOMP group 0: empty
+SCB group 0: 
     SCB Block @ F(SCB,1): 
     m0s8scbcell: Name =\I2C:SCB\
         PORT MAP (
             clock => \I2C:Net_847_ff2\ ,
-            interrupt => Net_5 ,
-            tx => \I2C:Net_1062\ ,
-            rts => \I2C:Net_1053\ ,
-            mosi_m => \I2C:Net_1061\ ,
-            select_m_3 => \I2C:ss_3\ ,
-            select_m_2 => \I2C:ss_2\ ,
-            select_m_1 => \I2C:ss_1\ ,
-            select_m_0 => \I2C:ss_0\ ,
-            sclk_m => \I2C:Net_1059\ ,
-            miso_s => \I2C:Net_1055\ ,
-            scl => \I2C:Net_580\ ,
-            sda => \I2C:Net_581\ ,
-            tx_req => Net_19 ,
-            rx_req => Net_18 );
+            interrupt => Net_22 ,
+            uart_tx => \I2C:tx_wire\ ,
+            uart_rts => \I2C:rts_wire\ ,
+            mosi_m => \I2C:mosi_m_wire\ ,
+            select_m_3 => \I2C:select_m_wire_3\ ,
+            select_m_2 => \I2C:select_m_wire_2\ ,
+            select_m_1 => \I2C:select_m_wire_1\ ,
+            select_m_0 => \I2C:select_m_wire_0\ ,
+            sclk_m => \I2C:sclk_m_wire\ ,
+            miso_s => \I2C:miso_s_wire\ ,
+            i2c_scl => Net_39 ,
+            i2c_sda => Net_40 ,
+            tr_tx_req => Net_25 ,
+            tr_rx_req => Net_24 );
         Properties:
         {
             cy_registers = ""
             scb_mode = 0
         }
-CapSense group 0: empty
-8-bit IDAC group 0: empty
-7-bit IDAC group 0: empty
-Timer/Counter/PWM group 0: empty
-Comparator/Opamp group 0: empty
-Die Temp group 0: empty
-SAR ADC group 0: empty
-Segment LCD group 0: empty
+CSD group 0: empty
+CSIDAC8 group 0: empty
+CSIDAC7 group 0: empty
+TCPWM group 0: empty
+OA group 0: empty
+TEMP group 0: empty
+SARADC group 0: empty
 CLK_GEN group 0: 
     M0S8 Clock Gen Block @ F(CLK_GEN,0): 
     m0s8clockgenblockcell: Name =ClockGenBlock
@@ -685,7 +692,10 @@ CLK_GEN group 0:
         }
 LPCOMPBLOCK group 0: empty
 PASSBLOCK group 0: empty
-ANAPUMP group 0: empty
+WCO group 0: empty
+SRSS group 0: empty
+CPUSS group 0: empty
+EXCO group 0: empty
 </CYPRESSTAG>
 <CYPRESSTAG name="Port Configuration Details">
 
@@ -694,41 +704,42 @@ Port Configuration report
 ------------------------------------------------------------
      |     |       | Interrupt |                  |              | 
 Port | Pin | Fixed |      Type |       Drive Mode |         Name | Connections
------+-----+-------+-----------+------------------+--------------+------------------
+-----+-----+-------+-----------+------------------+--------------+------------
    0 |   3 |     * |      NONE |         CMOS_OUT |   BLUELED(0) | 
------+-----+-------+-----------+------------------+--------------+------------------
-   3 |   0 |     * |      NONE |    OPEN_DRAIN_LO | \I2C:scl(0)\ | FB(\I2C:Net_580\)
-     |   1 |     * |      NONE |    OPEN_DRAIN_LO | \I2C:sda(0)\ | FB(\I2C:Net_581\)
-------------------------------------------------------------------------------------
+-----+-----+-------+-----------+------------------+--------------+------------
+   3 |   0 |     * |      NONE |    OPEN_DRAIN_LO | \I2C:scl(0)\ | FB(Net_39)
+     |   1 |     * |      NONE |    OPEN_DRAIN_LO | \I2C:sda(0)\ | FB(Net_40)
+------------------------------------------------------------------------------
 </CYPRESSTAG>
 </CYPRESSTAG>
 </CYPRESSTAG>
-Digital component placer commit/Report: Elapsed time ==> 0s.000ms
-Digital Placement phase: Elapsed time ==> 0s.369ms
+Digital component placer commit/Report: Elapsed time ==> 0s.203ms
+Digital Placement phase: Elapsed time ==> 1s.265ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Digital Routing">
+"C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\bin/sjrouter.exe" --xml-path "C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\dev\psoc4/psoc4a/route_arch-rrg.cydata" --vh2-path "p4bootloader_r.vh2" --pcf-path "p4bootloader.pco" --des-name "p4bootloader" --dsf-path "p4bootloader.dsf" --sdc-path "p4bootloader.sdc" --lib-path "p4bootloader_r.lib"
 Routing successful.
-Digital Routing phase: Elapsed time ==> 0s.360ms
+Digital Routing phase: Elapsed time ==> 0s.734ms
 </CYPRESSTAG>
-<CYPRESSTAG name="Bitstream and API generation">
-Bitstream and API generation phase: Elapsed time ==> 0s.179ms
+<CYPRESSTAG name="Bitstream Generation">
+Bitstream Generation phase: Elapsed time ==> 1s.999ms
 </CYPRESSTAG>
-<CYPRESSTAG name="Bitstream verification">
-Bitstream verification phase: Elapsed time ==> 0s.019ms
+<CYPRESSTAG name="Bitstream Verification">
+Bitstream Verification phase: Elapsed time ==> 0s.109ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Static timing analysis">
 Timing report is in p4bootloader_timing.html.
-Static timing analysis phase: Elapsed time ==> 0s.099ms
+Static timing analysis phase: Elapsed time ==> 0s.281ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Data reporting">
-Data reporting phase: Elapsed time ==> 0s.000ms
+Data reporting phase: Elapsed time ==> 0s.015ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Database update...">
-Design database save phase: Elapsed time ==> 0s.189ms
+Design database save phase: Elapsed time ==> 7s.406ms
 </CYPRESSTAG>
-cydsfit: Elapsed time ==> 1s.569ms
+cydsfit: Elapsed time ==> 13s.281ms
 </CYPRESSTAG>
-Fitter phase: Elapsed time ==> 1s.599ms
-API generation phase: Elapsed time ==> 2s.139ms
-Dependency generation phase: Elapsed time ==> 0s.039ms
-Cleanup phase: Elapsed time ==> 0s.009ms
+Fitter phase: Elapsed time ==> 13s.312ms
+API generation phase: Elapsed time ==> 1s.937ms
+Dependency generation phase: Elapsed time ==> 0s.078ms
+Cleanup phase: Elapsed time ==> 0s.031ms

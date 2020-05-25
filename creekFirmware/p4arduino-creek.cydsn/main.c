@@ -46,12 +46,18 @@ int main()
         if(adc_IsEndConversion(adc_RETURN_STATUS))
         {
             dp.pressureCounts = adc_GetResult16(PRESSURE_CHAN);
-            //408 is the baseline 0 with no pressure = 51.1ohm * 4ma * 2mv/count
+            // 408 is the baseline 0 with no pressure = 51.1ohm * 4ma * 2mv/count
             // 3.906311 is the conversion to ft
             // Whole range in counts = (20mA - 4mA)* 51.1 ohm * 2 mv/count = 1635.2 counts
             // Range in Feet = 15PSI / 0.42PSI/Ft = 34.88 Ft
             // Count/Ft = 1635.2 / 34.88 = 46.8807 Counts/Ft 
-            dp.depth = (((((float)dp.pressureCounts)-408)/46.8807) + 7*previousDepth ) / 8.0;  // IIR Filter
+            
+            float depth =( ((float)dp.pressureCounts)-408)/46.8807;
+            
+            // Apply the USC correction model
+            depth = 1.0106 * depth + 1.5589;
+            
+            dp.depth = ( depth + 7*previousDepth ) / 8.0;  // IIR Filter
             
             if(dp.depth<0.0)
                 dp.depth=0.0;
@@ -60,7 +66,6 @@ int main()
             dp.centiTemp = 10*tempMv - 5000; 
             
             dp.temperature = (((float)dp.centiTemp / 100.0) + 7*previousTemp ) / 8  ; // IIR Filter
-            
             
             previousTemp = dp.temperature;
             previousDepth = dp.depth;

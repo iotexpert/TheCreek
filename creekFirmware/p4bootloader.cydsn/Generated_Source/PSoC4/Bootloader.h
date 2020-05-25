@@ -1,6 +1,6 @@
 /****************************************************************************//**
 * \file Bootloader.c
-* \version 1.50
+* \version 1.60
 *
 * \brief
 *   Provides an API for the Bootloader. The API includes functions for starting

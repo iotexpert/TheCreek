@@ -1,0 +1,21 @@
+--------------- Rebuild Started: 06/30/2019 06:19:11 Project: p4arduino-creek, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+Deleting file ".\p4arduino-creek.cycdx"
+Deleting file ".\p4arduino-creek.svd"
+Deleting file ".\p4arduino-creek.rpt"
+Deleting file ".\p4arduino-creek_timing.html"
+cydsfit.exe -.appdatapath "C:\Users\arh\AppData\Local\Cypress Semiconductor\PSoC Creator\4.2" -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p \\Mac\Home\Documents\iotexpert-projects\creekproj\creekFirmware\p4arduino-creek.cydsn\p4arduino-creek.cyprj -d CY8C4245AXI-483 -s \\Mac\Home\Documents\iotexpert-projects\creekproj\creekFirmware\p4arduino-creek.cydsn\Generated_Source\PSoC4 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
+Elaborating Design...
+ADD: sdb.M0033: error: The instance 'ezi2c', of component SCB_P4_v3_10, contains an error. Unable to locate and customize component 'SCB_P4_v3_10' used in schematic '\\Mac\Home\Documents\iotexpert-projects\creekproj\creekFirmware\p4arduino-creek.cydsn\TopDesign\TopDesign.cysch'.
+ *  (Component Update Tool)
+ * \\Mac\Home\Documents\iotexpert-projects\creekproj\creekFirmware\p4arduino-creek.cydsn\TopDesign\TopDesign.cysch (Instance:ezi2c)
+ADD: sdb.M0033: error: The instance 'adc', of component ADC_SAR_SEQ_P4_v2_30, contains an error. Unable to locate and customize component 'ADC_SAR_SEQ_P4_v2_30' used in schematic '\\Mac\Home\Documents\iotexpert-projects\creekproj\creekFirmware\p4arduino-creek.cydsn\TopDesign\TopDesign.cysch'.
+ *  (Component Update Tool)
+ * \\Mac\Home\Documents\iotexpert-projects\creekproj\creekFirmware\p4arduino-creek.cydsn\TopDesign\TopDesign.cysch (Instance:adc)
+ADD: sdb.M0065: information: Analog terminal "V036.analog_0" on TopDesign is unconnected.
+ * \\Mac\Home\Documents\iotexpert-projects\creekproj\creekFirmware\p4arduino-creek.cydsn\TopDesign\TopDesign.cysch (Signal: Net_405)
+ * \\Mac\Home\Documents\iotexpert-projects\creekproj\creekFirmware\p4arduino-creek.cydsn\TopDesign\TopDesign.cysch (Shape_209.3)
+ADD: sdb.M0065: information: Analog terminal "highside.analog_0" on TopDesign is unconnected.
+ * \\Mac\Home\Documents\iotexpert-projects\creekproj\creekFirmware\p4arduino-creek.cydsn\TopDesign\TopDesign.cysch (Signal: Net_359)
+ * \\Mac\Home\Documents\iotexpert-projects\creekproj\creekFirmware\p4arduino-creek.cydsn\TopDesign\TopDesign.cysch (Shape_3.3)
+Error: fit.M0050: The fitter aborted due to errors, please address all errors and rebuild. (App=cydsfit)
+--------------- Rebuild Failed: 06/30/2019 06:19:19 ---------------

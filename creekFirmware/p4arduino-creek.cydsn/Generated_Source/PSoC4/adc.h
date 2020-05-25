@@ -1,6 +1,6 @@
 /*******************************************************************************
 * File Name: adc.h
-* Version 2.30
+* Version 2.50
 *
 * Description:
 *  This file contains the function prototypes and constants used in
@@ -9,7 +9,7 @@
 * Note:
 *
 ********************************************************************************
-* Copyright 2008-2015, Cypress Semiconductor Corporation.  All rights reserved.
+* Copyright 2008-2017, Cypress Semiconductor Corporation.  All rights reserved.
 * You may use this file only in accordance with the license, terms, conditions,
 * disclaimers, and limitations in the end user license agreement accompanying
 * the software package with which this file was provided.
@@ -30,6 +30,7 @@
 typedef struct
 {
     uint8 enableState;
+    uint32 dftRegVal;
 } adc_BACKUP_STRUCT;
 
 
@@ -122,7 +123,7 @@ typedef struct
 #define adc_DEFAULT_VREF_MV_VALUE          (1024)
 #define adc_DEFAULT_BUFFER_GAIN            (0u)
 #define adc_DEFAULT_AVG_SAMPLES_NUM        (7u)
-#define adc_DEFAULT_AVG_SAMPLES_DIV        (int16)(0x100u >> (7u - 7u))
+#define adc_DEFAULT_AVG_SAMPLES_DIV        (7u < 4u) ? (int16)(0x100u >> (7u - 7u)) : (int16)(0x100u >> 4u)
 #define adc_DEFAULT_AVG_MODE               (1u)
 #define adc_MAX_RESOLUTION                 (12u)
 #define adc_DEFAULT_LOW_LIMIT              (0u)
@@ -239,81 +240,81 @@ extern volatile int32 adc_countsPer10Volt[adc_TOTAL_CHANNELS_NUM];
 #define adc_SAR_RANGE_COND_REG          (*(reg32 *) adc_cy_psoc4_sar__SAR_RANGE_COND )
 #define adc_SAR_RANGE_COND_PTR          ( (reg32 *) adc_cy_psoc4_sar__SAR_RANGE_COND )
 
-#define adc_SAR_CHAN_EN_REG             (*(reg32 *) CYREG_SAR_CHAN_EN )
-#define adc_SAR_CHAN_EN_PTR             ( (reg32 *) CYREG_SAR_CHAN_EN )
+#define adc_SAR_CHAN_EN_REG             (*(reg32 *) adc_cy_psoc4_sar__SAR_CHAN_EN )
+#define adc_SAR_CHAN_EN_PTR             ( (reg32 *) adc_cy_psoc4_sar__SAR_CHAN_EN )
 
-#define adc_SAR_START_CTRL_REG          (*(reg32 *) CYREG_SAR_START_CTRL )
-#define adc_SAR_START_CTRL_PTR          ( (reg32 *) CYREG_SAR_START_CTRL )
+#define adc_SAR_START_CTRL_REG          (*(reg32 *) adc_cy_psoc4_sar__SAR_START_CTRL )
+#define adc_SAR_START_CTRL_PTR          ( (reg32 *) adc_cy_psoc4_sar__SAR_START_CTRL )
 
-#define adc_SAR_DFT_CTRL_REG            (*(reg32 *) CYREG_SAR_DFT_CTRL )
-#define adc_SAR_DFT_CTRL_PTR            ( (reg32 *) CYREG_SAR_DFT_CTRL )
+#define adc_SAR_DFT_CTRL_REG            (*(reg32 *) adc_cy_psoc4_sar__SAR_DFT_CTRL )
+#define adc_SAR_DFT_CTRL_PTR            ( (reg32 *) adc_cy_psoc4_sar__SAR_DFT_CTRL )
 
-#define adc_SAR_CHAN_CONFIG_REG         (*(reg32 *) CYREG_SAR_CHAN_CONFIG00 )
-#define adc_SAR_CHAN_CONFIG_PTR         ( (reg32 *) CYREG_SAR_CHAN_CONFIG00 )
-#define adc_SAR_CHAN_CONFIG_IND         CYREG_SAR_CHAN_CONFIG00
+#define adc_SAR_CHAN_CONFIG_REG         (*(reg32 *) adc_cy_psoc4_sar__SAR_CHAN_CONFIG00 )
+#define adc_SAR_CHAN_CONFIG_PTR         ( (reg32 *) adc_cy_psoc4_sar__SAR_CHAN_CONFIG00 )
+#define adc_SAR_CHAN_CONFIG_IND         adc_cy_psoc4_sar__SAR_CHAN_CONFIG00
 
-#define adc_SAR_CHAN_WORK_REG           (*(reg32 *) CYREG_SAR_CHAN_WORK00 )
-#define adc_SAR_CHAN_WORK_PTR           ( (reg32 *) CYREG_SAR_CHAN_WORK00 )
+#define adc_SAR_CHAN_WORK_REG           (*(reg32 *) adc_cy_psoc4_sar__SAR_CHAN_WORK00 )
+#define adc_SAR_CHAN_WORK_PTR           ( (reg32 *) adc_cy_psoc4_sar__SAR_CHAN_WORK00 )
 
-#define adc_SAR_CHAN_RESULT_REG         (*(reg32 *) CYREG_SAR_CHAN_RESULT00 )
-#define adc_SAR_CHAN_RESULT_PTR         ( (reg32 *) CYREG_SAR_CHAN_RESULT00 )
-#define adc_SAR_CHAN_RESULT_IND         CYREG_SAR_CHAN_RESULT00
+#define adc_SAR_CHAN_RESULT_REG         (*(reg32 *) adc_cy_psoc4_sar__SAR_CHAN_RESULT00 )
+#define adc_SAR_CHAN_RESULT_PTR         ( (reg32 *) adc_cy_psoc4_sar__SAR_CHAN_RESULT00 )
+#define adc_SAR_CHAN_RESULT_IND         adc_cy_psoc4_sar__SAR_CHAN_RESULT00
 
-#define adc_SAR_CHAN0_RESULT_REG         (*(reg32 *) CYREG_SAR_CHAN_RESULT00 )
-#define adc_SAR_CHAN0_RESULT_PTR         ( (reg32 *) CYREG_SAR_CHAN_RESULT00 )
+#define adc_SAR_CHAN0_RESULT_REG         (*(reg32 *) adc_cy_psoc4_sar__SAR_CHAN_RESULT00 )
+#define adc_SAR_CHAN0_RESULT_PTR         ( (reg32 *) adc_cy_psoc4_sar__SAR_CHAN_RESULT00 )
 
-#define adc_SAR_CHAN1_RESULT_REG         (*(reg32 *) CYREG_SAR_CHAN_RESULT01 )
-#define adc_SAR_CHAN1_RESULT_PTR         ( (reg32 *) CYREG_SAR_CHAN_RESULT01 )
+#define adc_SAR_CHAN1_RESULT_REG         (*(reg32 *) adc_cy_psoc4_sar__SAR_CHAN_RESULT01 )
+#define adc_SAR_CHAN1_RESULT_PTR         ( (reg32 *) adc_cy_psoc4_sar__SAR_CHAN_RESULT01 )
 
-#define adc_SAR_CHAN2_RESULT_REG         (*(reg32 *) CYREG_SAR_CHAN_RESULT02 )
-#define adc_SAR_CHAN2_RESULT_PTR         ( (reg32 *) CYREG_SAR_CHAN_RESULT02 )
+#define adc_SAR_CHAN2_RESULT_REG         (*(reg32 *) adc_cy_psoc4_sar__SAR_CHAN_RESULT02 )
+#define adc_SAR_CHAN2_RESULT_PTR         ( (reg32 *) adc_cy_psoc4_sar__SAR_CHAN_RESULT02 )
 
-#define adc_SAR_CHAN3_RESULT_REG         (*(reg32 *) CYREG_SAR_CHAN_RESULT03 )
-#define adc_SAR_CHAN3_RESULT_PTR         ( (reg32 *) CYREG_SAR_CHAN_RESULT03 )
+#define adc_SAR_CHAN3_RESULT_REG         (*(reg32 *) adc_cy_psoc4_sar__SAR_CHAN_RESULT03 )
+#define adc_SAR_CHAN3_RESULT_PTR         ( (reg32 *) adc_cy_psoc4_sar__SAR_CHAN_RESULT03 )
 
-#define adc_SAR_CHAN4_RESULT_REG         (*(reg32 *) CYREG_SAR_CHAN_RESULT04 )
-#define adc_SAR_CHAN4_RESULT_PTR         ( (reg32 *) CYREG_SAR_CHAN_RESULT04 )
+#define adc_SAR_CHAN4_RESULT_REG         (*(reg32 *) adc_cy_psoc4_sar__SAR_CHAN_RESULT04 )
+#define adc_SAR_CHAN4_RESULT_PTR         ( (reg32 *) adc_cy_psoc4_sar__SAR_CHAN_RESULT04 )
 
-#define adc_SAR_CHAN5_RESULT_REG         (*(reg32 *) CYREG_SAR_CHAN_RESULT05 )
-#define adc_SAR_CHAN5_RESULT_PTR         ( (reg32 *) CYREG_SAR_CHAN_RESULT05 )
+#define adc_SAR_CHAN5_RESULT_REG         (*(reg32 *) adc_cy_psoc4_sar__SAR_CHAN_RESULT05 )
+#define adc_SAR_CHAN5_RESULT_PTR         ( (reg32 *) adc_cy_psoc4_sar__SAR_CHAN_RESULT05 )
 
-#define adc_SAR_CHAN6_RESULT_REG         (*(reg32 *) CYREG_SAR_CHAN_RESULT06 )
-#define adc_SAR_CHAN6_RESULT_PTR         ( (reg32 *) CYREG_SAR_CHAN_RESULT06 )
+#define adc_SAR_CHAN6_RESULT_REG         (*(reg32 *) adc_cy_psoc4_sar__SAR_CHAN_RESULT06 )
+#define adc_SAR_CHAN6_RESULT_PTR         ( (reg32 *) adc_cy_psoc4_sar__SAR_CHAN_RESULT06 )
 
-#define adc_SAR_CHAN7_RESULT_REG         (*(reg32 *) CYREG_SAR_CHAN_RESULT07 )
-#define adc_SAR_CHAN7_RESULT_PTR         ( (reg32 *) CYREG_SAR_CHAN_RESULT07 )
+#define adc_SAR_CHAN7_RESULT_REG         (*(reg32 *) adc_cy_psoc4_sar__SAR_CHAN_RESULT07 )
+#define adc_SAR_CHAN7_RESULT_PTR         ( (reg32 *) adc_cy_psoc4_sar__SAR_CHAN_RESULT07 )
 
 #if(adc_CY_SAR_IP_VER != adc_CY_SAR_IP_VER0)
-    #define adc_SAR_CHAN8_RESULT_REG         (*(reg32 *) CYREG_SAR_CHAN_RESULT08 )
-    #define adc_SAR_CHAN8_RESULT_PTR         ( (reg32 *) CYREG_SAR_CHAN_RESULT08 )
+    #define adc_SAR_CHAN8_RESULT_REG     (*(reg32 *) adc_cy_psoc4_sar__SAR_CHAN_RESULT08 )
+    #define adc_SAR_CHAN8_RESULT_PTR     ( (reg32 *) adc_cy_psoc4_sar__SAR_CHAN_RESULT08 )
 
-    #define adc_SAR_CHAN9_RESULT_REG         (*(reg32 *) CYREG_SAR_CHAN_RESULT09 )
-    #define adc_SAR_CHAN9_RESULT_PTR         ( (reg32 *) CYREG_SAR_CHAN_RESULT09 )
+    #define adc_SAR_CHAN9_RESULT_REG     (*(reg32 *) adc_cy_psoc4_sar__SAR_CHAN_RESULT09 )
+    #define adc_SAR_CHAN9_RESULT_PTR     ( (reg32 *) adc_cy_psoc4_sar__SAR_CHAN_RESULT09 )
 
-    #define adc_SAR_CHAN10_RESULT_REG         (*(reg32 *) CYREG_SAR_CHAN_RESULT010 )
-    #define adc_SAR_CHAN10_RESULT_PTR         ( (reg32 *) CYREG_SAR_CHAN_RESULT010 )
+    #define adc_SAR_CHAN10_RESULT_REG    (*(reg32 *) adc_cy_psoc4_sar__SAR_CHAN_RESULT10 )
+    #define adc_SAR_CHAN10_RESULT_PTR    ( (reg32 *) adc_cy_psoc4_sar__SAR_CHAN_RESULT10 )
 
-    #define adc_SAR_CHAN11_RESULT_REG         (*(reg32 *) CYREG_SAR_CHAN_RESULT011 )
-    #define adc_SAR_CHAN11_RESULT_PTR         ( (reg32 *) CYREG_SAR_CHAN_RESULT011 )
+    #define adc_SAR_CHAN11_RESULT_REG    (*(reg32 *) adc_cy_psoc4_sar__SAR_CHAN_RESULT11 )
+    #define adc_SAR_CHAN11_RESULT_PTR    ( (reg32 *) adc_cy_psoc4_sar__SAR_CHAN_RESULT11 )
 
-    #define adc_SAR_CHAN12_RESULT_REG         (*(reg32 *) CYREG_SAR_CHAN_RESULT012 )
-    #define adc_SAR_CHAN12_RESULT_PTR         ( (reg32 *) CYREG_SAR_CHAN_RESULT012 )
+    #define adc_SAR_CHAN12_RESULT_REG    (*(reg32 *) adc_cy_psoc4_sar__SAR_CHAN_RESULT12 )
+    #define adc_SAR_CHAN12_RESULT_PTR    ( (reg32 *) adc_cy_psoc4_sar__SAR_CHAN_RESULT12 )
 
-    #define adc_SAR_CHAN13_RESULT_REG         (*(reg32 *) CYREG_SAR_CHAN_RESULT013 )
-    #define adc_SAR_CHAN13_RESULT_PTR         ( (reg32 *) CYREG_SAR_CHAN_RESULT013 )
+    #define adc_SAR_CHAN13_RESULT_REG    (*(reg32 *) adc_cy_psoc4_sar__SAR_CHAN_RESULT13 )
+    #define adc_SAR_CHAN13_RESULT_PTR    ( (reg32 *) adc_cy_psoc4_sar__SAR_CHAN_RESULT13 )
 
-    #define adc_SAR_CHAN14_RESULT_REG         (*(reg32 *) CYREG_SAR_CHAN_RESULT014 )
-    #define adc_SAR_CHAN14_RESULT_PTR         ( (reg32 *) CYREG_SAR_CHAN_RESULT014 )
+    #define adc_SAR_CHAN14_RESULT_REG    (*(reg32 *) adc_cy_psoc4_sar__SAR_CHAN_RESULT14 )
+    #define adc_SAR_CHAN14_RESULT_PTR    ( (reg32 *) adc_cy_psoc4_sar__SAR_CHAN_RESULT14 )
 
-    #define adc_SAR_CHAN15_RESULT_REG         (*(reg32 *) CYREG_SAR_CHAN_RESULT015 )
-    #define adc_SAR_CHAN15_RESULT_PTR         ( (reg32 *) CYREG_SAR_CHAN_RESULT015 )
+    #define adc_SAR_CHAN15_RESULT_REG    (*(reg32 *) adc_cy_psoc4_sar__SAR_CHAN_RESULT15 )
+    #define adc_SAR_CHAN15_RESULT_PTR    ( (reg32 *) adc_cy_psoc4_sar__SAR_CHAN_RESULT15 )
 #endif /* (adc_CY_SAR_IP_VER != adc_CY_SAR_IP_VER0) */
 
-#define adc_SAR_CHAN_WORK_VALID_REG     (*(reg32 *) CYREG_SAR_CHAN_WORK_VALID)
-#define adc_SAR_CHAN_WORK_VALID_PTR     ( (reg32 *) CYREG_SAR_CHAN_WORK_VALID)
+#define adc_SAR_CHAN_WORK_VALID_REG     (*(reg32 *) adc_cy_psoc4_sar__SAR_CHAN_WORK_VALID)
+#define adc_SAR_CHAN_WORK_VALID_PTR     ( (reg32 *) adc_cy_psoc4_sar__SAR_CHAN_WORK_VALID)
 
-#define adc_SAR_CHAN_RESULT_VALID_REG   ( *(reg32 *) CYREG_SAR_CHAN_RESULT_VALID )
-#define adc_SAR_CHAN_RESULT_VALID_PTR   ( (reg32 *) CYREG_SAR_CHAN_RESULT_VALID )
+#define adc_SAR_CHAN_RESULT_VALID_REG  ( *(reg32 *) adc_cy_psoc4_sar__SAR_CHAN_RESULT_VALID )
+#define adc_SAR_CHAN_RESULT_VALID_PTR  ( (reg32 *) adc_cy_psoc4_sar__SAR_CHAN_RESULT_VALID )
 
 #define adc_SAR_STATUS_REG              (*(reg32 *) adc_cy_psoc4_sar__SAR_STATUS )
 #define adc_SAR_STATUS_PTR              ( (reg32 *) adc_cy_psoc4_sar__SAR_STATUS )
@@ -333,22 +334,22 @@ extern volatile int32 adc_countsPer10Volt[adc_TOTAL_CHANNELS_NUM];
 #define adc_SAR_INTR_MASKED_REG         (*(reg32 *) adc_cy_psoc4_sar__SAR_INTR_MASKED )
 #define adc_SAR_INTR_MASKED_PTR         ( (reg32 *) adc_cy_psoc4_sar__SAR_INTR_MASKED )
 
-#define adc_SAR_SATURATE_INTR_REG       (*(reg32 *) CYREG_SAR_SATURATE_INTR )
-#define adc_SAR_SATURATE_INTR_PTR       ( (reg32 *) CYREG_SAR_SATURATE_INTR )
+#define adc_SAR_SATURATE_INTR_REG       (*(reg32 *) adc_cy_psoc4_sar__SAR_SATURATE_INTR )
+#define adc_SAR_SATURATE_INTR_PTR       ( (reg32 *) adc_cy_psoc4_sar__SAR_SATURATE_INTR )
 
 #define adc_SAR_SATURATE_INTR_SET_REG   (*(reg32 *) adc_cy_psoc4_sar__SAR_SATURATE_INTR_SET )
 #define adc_SAR_SATURATE_INTR_SET_PTR   ( (reg32 *) adc_cy_psoc4_sar__SAR_SATURATE_INTR_SET )
 
-#define adc_SAR_SATURATE_INTR_MASK_REG  (*(reg32 *) adc_cy_psoc4_sar__SAR_SATURATE_INTR_MASK )
-#define adc_SAR_SATURATE_INTR_MASK_PTR  ( (reg32 *) adc_cy_psoc4_sar__SAR_SATURATE_INTR_MASK )
+#define adc_SAR_SATURATE_INTR_MASK_REG (*(reg32 *) adc_cy_psoc4_sar__SAR_SATURATE_INTR_MASK )
+#define adc_SAR_SATURATE_INTR_MASK_PTR ( (reg32 *) adc_cy_psoc4_sar__SAR_SATURATE_INTR_MASK )
 
 #define adc_SAR_SATURATE_INTR_MASKED_REG \
                                                  (*(reg32 *) adc_cy_psoc4_sar__SAR_SATURATE_INTR_MASKED )
 #define adc_SAR_SATURATE_INTR_MASKED_PTR \
                                                  ( (reg32 *) adc_cy_psoc4_sar__SAR_SATURATE_INTR_MASKED )
 
-#define adc_SAR_RANGE_INTR_REG          (*(reg32 *) CYREG_SAR_RANGE_INTR )
-#define adc_SAR_RANGE_INTR_PTR          ( (reg32 *) CYREG_SAR_RANGE_INTR )
+#define adc_SAR_RANGE_INTR_REG          (*(reg32 *) adc_cy_psoc4_sar__SAR_RANGE_INTR )
+#define adc_SAR_RANGE_INTR_PTR          ( (reg32 *) adc_cy_psoc4_sar__SAR_RANGE_INTR )
 
 #define adc_SAR_RANGE_INTR_SET_REG      (*(reg32 *) adc_cy_psoc4_sar__SAR_RANGE_INTR_SET )
 #define adc_SAR_RANGE_INTR_SET_PTR      ( (reg32 *) adc_cy_psoc4_sar__SAR_RANGE_INTR_SET )
@@ -362,26 +363,30 @@ extern volatile int32 adc_countsPer10Volt[adc_TOTAL_CHANNELS_NUM];
 #define adc_SAR_INTR_CAUSE_REG          (*(reg32 *) adc_cy_psoc4_sar__SAR_INTR_CAUSE )
 #define adc_SAR_INTR_CAUSE_PTR          ( (reg32 *) adc_cy_psoc4_sar__SAR_INTR_CAUSE )
 
-#define adc_SAR_INJ_CHAN_CONFIG_REG     (*(reg32 *) CYREG_SAR_INJ_CHAN_CONFIG)
-#define adc_SAR_INJ_CHAN_CONFIG_PTR     ( (reg32 *) CYREG_SAR_INJ_CHAN_CONFIG)
+#if(adc_INJ_CHANNEL_ENABLED)
+    #define adc_SAR_INJ_CHAN_CONFIG_REG \
+                                                 (*(reg32 *) adc_cy_psoc4_sarmux_8__SAR_INJ_CHAN_CONFIG )
+    #define adc_SAR_INJ_CHAN_CONFIG_PTR    \
+                                                 ( (reg32 *) adc_cy_psoc4_sarmux_8__SAR_INJ_CHAN_CONFIG )
 
-#define adc_SAR_INJ_RESULT_REG          (*(reg32 *) CYREG_SAR_INJ_RESULT )
-#define adc_SAR_INJ_RESULT_PTR          ( (reg32 *) CYREG_SAR_INJ_RESULT )
+    #define adc_SAR_INJ_RESULT_REG    (*(reg32 *) adc_cy_psoc4_sarmux_8__SAR_INJ_RESULT )
+    #define adc_SAR_INJ_RESULT_PTR    ( (reg32 *) adc_cy_psoc4_sarmux_8__SAR_INJ_RESULT )
+#endif /* adc_INJ_CHANNEL_ENABLED */
+    
+#define adc_MUX_SWITCH0_REG           (*(reg32 *)  adc_cy_psoc4_sar__SAR_MUX_SWITCH0 )
+#define adc_MUX_SWITCH0_PTR           ( (reg32 *)  adc_cy_psoc4_sar__SAR_MUX_SWITCH0 )
 
-#define adc_MUX_SWITCH0_REG             (*(reg32 *)  CYREG_SAR_MUX_SWITCH0 )
-#define adc_MUX_SWITCH0_PTR             ( (reg32 *)  CYREG_SAR_MUX_SWITCH0 )
+#define adc_MUX_SWITCH_HW_CTRL_REG    (*(reg32 *)  adc_cy_psoc4_sar__SAR_MUX_SWITCH_HW_CTRL )
+#define adc_MUX_SWITCH_HW_CTRL_PTR    ( (reg32 *)  adc_cy_psoc4_sar__SAR_MUX_SWITCH_HW_CTRL )
 
-#define adc_MUX_SWITCH_HW_CTRL_REG      (*(reg32 *)  CYREG_SAR_MUX_SWITCH_HW_CTRL )
-#define adc_MUX_SWITCH_HW_CTRL_PTR      ( (reg32 *)  CYREG_SAR_MUX_SWITCH_HW_CTRL )
+#define adc_PUMP_CTRL_REG             (*(reg32 *)  adc_cy_psoc4_sar__SAR_PUMP_CTRL )
+#define adc_PUMP_CTRL_PTR             ( (reg32 *)  adc_cy_psoc4_sar__SAR_PUMP_CTRL )
 
-#define adc_PUMP_CTRL_REG               (*(reg32 *)  CYREG_SAR_PUMP_CTRL )
-#define adc_PUMP_CTRL_PTR               ( (reg32 *)  CYREG_SAR_PUMP_CTRL )
+#define adc_ANA_TRIM_REG              (*(reg32 *)  adc_cy_psoc4_sar__SAR_ANA_TRIM )
+#define adc_ANA_TRIM_PTR              ( (reg32 *)  adc_cy_psoc4_sar__SAR_ANA_TRIM )
 
-#define adc_ANA_TRIM_REG                (*(reg32 *)  CYREG_SAR_ANA_TRIM )
-#define adc_ANA_TRIM_PTR                ( (reg32 *)  CYREG_SAR_ANA_TRIM )
-
-#define adc_WOUNDING_REG                (*(reg32 *)  CYREG_SAR_WOUNDING )
-#define adc_WOUNDING_PTR                ( (reg32 *)  CYREG_SAR_WOUNDING )
+#define adc_WOUNDING_REG              (*(reg32 *)  adc_cy_psoc4_sar__SAR_WOUNDING )
+#define adc_WOUNDING_PTR              ( (reg32 *)  adc_cy_psoc4_sar__SAR_WOUNDING )
 
 
 /**************************************
@@ -397,14 +402,14 @@ extern volatile int32 adc_countsPer10Volt[adc_TOTAL_CHANNELS_NUM];
 #define adc_VREF_VDDA                  (0x00000070Lu)
 #define adc_VREF_INTERNAL1024BYPASSED  (0x000000C0Lu)
 #define adc_VREF_VDDA_2BYPASSED        (0x000000E0Lu)
-#define adc_VREF_INTERNALVREF          (0x00000000Lu)
-#define adc_VREF_INTERNALVREFBYPASSED  (0x00000000Lu)
+#define adc_VREF_INTERNALVREF          (0x00000040Lu)
+#define adc_VREF_INTERNALVREFBYPASSED  (0x000000C0Lu)
 
 #define adc_NEG_VSSA_KELVIN            (0x00000000Lu)
 #define adc_NEG_VSSA                   (0x00000200Lu)
 #define adc_NEG_VREF                   (0x00000E00Lu)
 #if(adc_TOTAL_CHANNELS_NUM > 1u)
-    #define adc_NEG_OTHER              (uint16)((uint16)adc_cy_psoc4_sarmux_8__VNEG << 9u)
+    #define adc_NEG_OTHER              (uint16)((uint16)adc_cy_psoc4_sarmux_8__VNEG0 << 9u)
 #else
     #define adc_NEG_OTHER              (0)
 #endif /* adc_TOTAL_CHANNELS_NUM > 1u */

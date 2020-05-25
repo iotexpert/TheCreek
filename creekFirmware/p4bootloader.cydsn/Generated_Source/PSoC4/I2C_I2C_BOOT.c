@@ -1,16 +1,16 @@
-/*******************************************************************************
-* File Name: I2C_I2C_BOOT.c
-* Version 3.10
+/***************************************************************************//**
+* \file I2C_I2C_BOOT.c
+* \version 4.0
 *
-* Description:
+* \brief
 *  This file provides the source code of the bootloader communication APIs
 *  for the SCB Component I2C mode.
-
 *
 * Note:
 *
 ********************************************************************************
-* Copyright 2013-2015, Cypress Semiconductor Corporation.  All rights reserved.
+* \copyright
+* Copyright 2013-2017, Cypress Semiconductor Corporation.  All rights reserved.
 * You may use this file only in accordance with the license, terms, conditions,
 * disclaimers, and limitations in the end user license agreement accompanying
 * the software package with which this file was provided.
@@ -44,20 +44,17 @@ static void I2C_I2CResposeInsert(void);
 
 /*******************************************************************************
 * Function Name: I2C_I2CCyBtldrCommStart
-********************************************************************************
+****************************************************************************//**
 *
-* Summary:
 *  Starts the I2C component and enables its interrupt.
 *  Every incoming I2C write transaction is treated as a command for the
 *  bootloader.
 *  Every incoming I2C read transaction returns 0xFF until the bootloader
 *  provides a response to the executed command.
 *
-* Parameters:
-*  None
-*
-* Return:
-*  None
+* \globalvars
+*  I2C_applyBuffer - the flag to release the buffer with a response
+*  to be read by the host.
 *
 *******************************************************************************/
 void I2C_I2CCyBtldrCommStart(void)
@@ -74,16 +71,9 @@ void I2C_I2CCyBtldrCommStart(void)
 
 /*******************************************************************************
 * Function Name: I2C_I2CCyBtldrCommStop
-********************************************************************************
+****************************************************************************//**
 *
-* Summary:
 *  Disables the I2C component.
-*
-* Parameters:
-*  None
-*
-* Return:
-*  None
 *
 *******************************************************************************/
 void I2C_I2CCyBtldrCommStop(void)
@@ -94,20 +84,18 @@ void I2C_I2CCyBtldrCommStop(void)
 
 /*******************************************************************************
 * Function Name: I2C_I2CCyBtldrCommReset
-********************************************************************************
+****************************************************************************//**
 *
-* Summary:
 *  Resets read and write I2C buffers to the initial state and resets the slave
 *  status.
 *
-* Parameters:
-*  None
-*
-* Return:
-*  None
-*
-* Global variables:
-*  Refer to functions below for global variables description.
+* \globalvars
+*  I2C_slRdBufSize - used to store slave read buffer size.
+*  I2C_slRdBufIndex - used to store the current index within the
+*  slave read buffer.
+*  I2C_slWrBufIndex - used to store current index within slave
+*  write buffer.
+*  I2C_slStatus  - used to store current status of I2C slave.
 *
 *******************************************************************************/
 void I2C_I2CCyBtldrCommReset(void)
@@ -126,28 +114,27 @@ void I2C_I2CCyBtldrCommReset(void)
 
 /*******************************************************************************
 * Function Name: I2C_I2CCyBtldrCommRead
-********************************************************************************
+****************************************************************************//**
 *
-* Summary:
 *  Allows the caller to read data from the bootloader host (the host writes the
 *  data). The function handles polling to allow a block of data to be completely
 *  received from the host device.
 *
-* Parameters:
-*  pData:    Pointer to storage for the block of data to be read from the
-*            bootloader host
-*  size:     Number of bytes to be read.
-*  count:    Pointer to the variable to write the number of bytes actually
-*            read.
-*  timeOut:  Number of units in 10 ms to wait before returning because of a
-*            timeout.
+*  \param pData: Pointer to storage for the block of data to be read from the
+*   bootloader host
+*  \param size: Number of bytes to be read.
+*  \param count: Pointer to the variable to write the number of bytes actually
+*   read.
+*  \param timeOut: Number of units in 10 ms to wait before returning
+*   because of a timeout.
 *
-* Return:
-*  Returns CYRET_SUCCESS if no problem was encountered or returns the value
-*  that best describes the problem. For more information refer to the
-*  "Return Codes" section of the System Reference Guide.
+*  \return
+*   Returns CYRET_SUCCESS if no problem was encountered or returns the value
+*   that best describes the problem. For more information refer to the
+*   "Return Codes" section of the System Reference Guide.
 *
-* Global variables:
+* \globalvars
+*  I2C_slStatus  - used to store current status of I2C slave.
 *  I2C_slWriteBuf - used to store received command.
 *  I2C_slWrBufIndex - used to store current index within slave
 *  write buffer.
@@ -196,29 +183,29 @@ cystatus I2C_I2CCyBtldrCommRead(uint8 pData[], uint16 size, uint16 * count, uint
 
 /*******************************************************************************
 * Function Name: I2C_I2CCyBtldrCommWrite
-********************************************************************************
+****************************************************************************//**
 *
-* Summary:
 *  Allows the caller to write data to the bootloader host (the host reads the
 *  data). The function does not use timeout and returns after data has been
 *  copied into the slave read buffer. This data is available to be read by the
 *  bootloader host until following host data write.
 *
-* Parameters:
-*  pData:    Pointer to the block of data to be written to the bootloader host.
-*  size:     Number of bytes to be written.
-*  count:    Pointer to the variable to write the number of bytes actually
-*            written.
-*  timeOut:  The timeout is not used by this function. The function returns
-*            as soon as data is copied into the slave read buffer.
+*  \param pData: Pointer to the block of data to be written to the bootloader
+*   host.
+*  \param size: Number of bytes to be written.
+*  \param count: Pointer to the variable to write the number of bytes actually
+*   written.
+*  \param timeOut: Number of units in 10 ms to wait before returning
+*   because of a timeout.
 *
-* Return:
-*  Returns CYRET_SUCCESS if no problem was encountered or returns the value
-*  that best describes the problem. For more information refer to the
-*  "Return Codes" section of the System Reference Guide.
+*  \return
+*   Returns CYRET_SUCCESS if no problem was encountered or returns the value
+*   that best describes the problem. For more information refer to the
+*   "Return Codes" section of the System Reference Guide.
 *
-* Global variables:
-*  I2C_slReadBuf - used to store response.
+* \globalvars
+*  I2C_applyBuffer - the flag to release the buffer with
+*  to be read by the host.
 *
 *******************************************************************************/
 cystatus I2C_I2CCyBtldrCommWrite(const uint8 pData[], uint16 size, uint16 * count, uint8 timeOut)
@@ -250,25 +237,15 @@ cystatus I2C_I2CCyBtldrCommWrite(const uint8 pData[], uint16 size, uint16 * coun
 
 /*******************************************************************************
 * Function Name: I2C_I2CResposeInsert
-********************************************************************************
+****************************************************************************//**
 *
-* Summary:
 *  Releases the read buffer to be read when a response is copied to the buffer
 *  and a new read transaction starts.
 *  Closes the read buffer when write transaction is started.
 *
-* Parameters:
-*  None
-*
-* Return:
-*  None
-*
-* Global variables:
-*  I2C_slRdBufSize - used to store slave read buffer size.
-*  I2C_slRdBufIndex - used to store the current index within the
-*  slave read buffer.
-*  I2C_applyBuffer - the flag to release the buffer with
-*  a response to read.
+* \globalvars
+*  I2C_applyBuffer - the flag to release the buffer with a response
+*  to be read by the host.
 *
 *******************************************************************************/
 static void I2C_I2CResposeInsert(void)

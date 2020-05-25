@@ -1,6 +1,6 @@
 /*******************************************************************************
 * File Name: adc.c
-* Version 2.30
+* Version 2.50
 *
 * Description:
 *  This file provides the source code to the API for the Sequencing Successive
@@ -9,7 +9,7 @@
 * Note:
 *
 ********************************************************************************
-* Copyright 2008-2015, Cypress Semiconductor Corporation.  All rights reserved.
+* Copyright 2008-2017, Cypress Semiconductor Corporation.  All rights reserved.
 * You may use this file only in accordance with the license, terms, conditions,
 * disclaimers, and limitations in the end user license agreement accompanying
 * the software package with which this file was provided.

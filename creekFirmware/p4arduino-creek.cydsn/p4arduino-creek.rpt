@@ -1,13 +1,13 @@
-Loading plugins phase: Elapsed time ==> 0s.199ms
-Initializing data phase: Elapsed time ==> 0s.000ms
+Loading plugins phase: Elapsed time ==> 1s.125ms
 <CYPRESSTAG name="CyDsfit arguments...">
-cydsfit arguments: -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -p Z:\Documents\creekproj\creekFirmware\p4arduino-creek.cydsn\p4arduino-creek.cyprj -d CY8C4245AXI-483 -s Z:\Documents\creekproj\creekFirmware\p4arduino-creek.cydsn\Generated_Source\PSoC4 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE</CYPRESSTAG>
+cydsfit arguments: -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p Y:\proj\creekproj\creekFirmware\p4arduino-creek.cydsn\p4arduino-creek.cyprj -d CY8C4245AXI-483 -s Y:\proj\creekproj\creekFirmware\p4arduino-creek.cydsn\Generated_Source\PSoC4 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
+</CYPRESSTAG>
 <CYPRESSTAG name="Design elaboration results...">
 </CYPRESSTAG>
-Elaboration phase: Elapsed time ==> 1s.899ms
+Elaboration phase: Elapsed time ==> 7s.437ms
 <CYPRESSTAG name="HDL generation results...">
 </CYPRESSTAG>
-HDL generation phase: Elapsed time ==> 0s.069ms
+HDL generation phase: Elapsed time ==> 0s.109ms
 <CYPRESSTAG name="Synthesis results...">
 
      | | | | | | |
@@ -24,24 +24,24 @@ HDL generation phase: Elapsed time ==> 0s.069ms
 
 ======================================================================
 Compiling:  p4arduino-creek.v
-Program  :   C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\bin/warp.exe
-Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=Z:\Documents\creekproj\creekFirmware\p4arduino-creek.cydsn\p4arduino-creek.cyprj -dcpsoc3 p4arduino-creek.v -verilog
+Program  :   C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\bin\warp.exe
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=Y:\proj\creekproj\creekFirmware\p4arduino-creek.cydsn\p4arduino-creek.cyprj -dcpsoc3 p4arduino-creek.v -verilog
 ======================================================================
 
 ======================================================================
 Compiling:  p4arduino-creek.v
-Program  :   C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\bin/warp.exe
-Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=Z:\Documents\creekproj\creekFirmware\p4arduino-creek.cydsn\p4arduino-creek.cyprj -dcpsoc3 p4arduino-creek.v -verilog
+Program  :   C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\bin\warp.exe
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=Y:\proj\creekproj\creekFirmware\p4arduino-creek.cydsn\p4arduino-creek.cyprj -dcpsoc3 p4arduino-creek.v -verilog
 ======================================================================
 
 ======================================================================
 Compiling:  p4arduino-creek.v
 Program  :   vlogfe
-Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=Z:\Documents\creekproj\creekFirmware\p4arduino-creek.cydsn\p4arduino-creek.cyprj -dcpsoc3 -verilog p4arduino-creek.v
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=Y:\proj\creekproj\creekFirmware\p4arduino-creek.cydsn\p4arduino-creek.cyprj -dcpsoc3 -verilog p4arduino-creek.v
 ======================================================================
 
 vlogfe V6.3 IR 41:  Verilog parser
-Mon Feb 08 05:30:54 2016
+Wed May 20 13:23:40 2020
 
 
 ======================================================================
@@ -51,30 +51,30 @@ Options  :    -yv2 -q10 p4arduino-creek.v
 ======================================================================
 
 vpp V6.3 IR 41:  Verilog Pre-Processor
-Mon Feb 08 05:30:54 2016
+Wed May 20 13:23:40 2020
 
-Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\ZeroTerminal\ZeroTerminal.v'
-Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'
-Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\or_v1_0\or_v1_0.v'
-Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_analog_virtualmux_v1_0\cy_analog_virtualmux_v1_0.v'
-Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\Bus_Connect_v2_20\Bus_Connect_v2_20.v'
-Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\cypress.v'
-Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\cy_psoc3_inc.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\ZeroTerminal\ZeroTerminal.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\or_v1_0\or_v1_0.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_analog_virtualmux_v1_0\cy_analog_virtualmux_v1_0.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\Bus_Connect_v2_50\Bus_Connect_v2_50.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cypress.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cy_psoc3_inc.v'
 
 vpp:  No errors.
 
 Library 'work' => directory 'lcpsoc3'
 General_symbol_table
 General_symbol_table
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\std.vhd'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\cypress.vhd'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\work\cypress.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\ieee\work\stdlogic.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\lpmpkg.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\mod_cnst.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\mod_mthv.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\std.vhd'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cypress.vhd'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\work\cypress.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\ieee\work\stdlogic.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\lpmpkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_cnst.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_mthv.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif'.
 Using control file 'p4arduino-creek.ctl'.
 
 vlogfe:  No errors.
@@ -83,30 +83,30 @@ vlogfe:  No errors.
 ======================================================================
 Compiling:  p4arduino-creek.v
 Program  :   tovif
-Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=Z:\Documents\creekproj\creekFirmware\p4arduino-creek.cydsn\p4arduino-creek.cyprj -dcpsoc3 -verilog p4arduino-creek.v
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=Y:\proj\creekproj\creekFirmware\p4arduino-creek.cydsn\p4arduino-creek.cyprj -dcpsoc3 -verilog p4arduino-creek.v
 ======================================================================
 
 tovif V6.3 IR 41:  High-level synthesis
-Mon Feb 08 05:30:55 2016
+Wed May 20 13:23:40 2020
 
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\std.vhd'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\cypress.vhd'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\work\cypress.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\ieee\work\stdlogic.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\lpmpkg.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\mod_cnst.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\mod_mthv.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif'.
-Linking 'Z:\Documents\creekproj\creekFirmware\p4arduino-creek.cydsn\codegentemp\p4arduino-creek.ctl'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\ZeroTerminal\ZeroTerminal.v'.
-Linking 'Z:\Documents\creekproj\creekFirmware\p4arduino-creek.cydsn\codegentemp\p4arduino-creek.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\or_v1_0\or_v1_0.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_analog_virtualmux_v1_0\cy_analog_virtualmux_v1_0.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\Bus_Connect_v2_20\Bus_Connect_v2_20.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\cypress.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\cy_psoc3_inc.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\std.vhd'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cypress.vhd'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\work\cypress.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\ieee\work\stdlogic.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\lpmpkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_cnst.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_mthv.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif'.
+Linking 'Y:\proj\creekproj\creekFirmware\p4arduino-creek.cydsn\codegentemp\p4arduino-creek.ctl'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'.
+Linking 'Y:\proj\creekproj\creekFirmware\p4arduino-creek.cydsn\codegentemp\p4arduino-creek.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\ZeroTerminal\ZeroTerminal.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\or_v1_0\or_v1_0.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_analog_virtualmux_v1_0\cy_analog_virtualmux_v1_0.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\Bus_Connect_v2_50\Bus_Connect_v2_50.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cypress.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cy_psoc3_inc.v'.
 
 tovif:  No errors.
 
@@ -114,31 +114,31 @@ tovif:  No errors.
 ======================================================================
 Compiling:  p4arduino-creek.v
 Program  :   topld
-Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=Z:\Documents\creekproj\creekFirmware\p4arduino-creek.cydsn\p4arduino-creek.cyprj -dcpsoc3 -verilog p4arduino-creek.v
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=Y:\proj\creekproj\creekFirmware\p4arduino-creek.cydsn\p4arduino-creek.cyprj -dcpsoc3 -verilog p4arduino-creek.v
 ======================================================================
 
 topld V6.3 IR 41:  Synthesis and optimization
-Mon Feb 08 05:30:55 2016
+Wed May 20 13:23:41 2020
 
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\std.vhd'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\cypress.vhd'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\work\cypress.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\ieee\work\stdlogic.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\lpmpkg.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\mod_cnst.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\mod_mthv.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif'.
-Linking 'Z:\Documents\creekproj\creekFirmware\p4arduino-creek.cydsn\codegentemp\p4arduino-creek.ctl'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\ZeroTerminal\ZeroTerminal.v'.
-Linking 'Z:\Documents\creekproj\creekFirmware\p4arduino-creek.cydsn\codegentemp\p4arduino-creek.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\or_v1_0\or_v1_0.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_analog_virtualmux_v1_0\cy_analog_virtualmux_v1_0.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\Bus_Connect_v2_20\Bus_Connect_v2_20.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\cypress.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\cy_psoc3_inc.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\lcpsoc3\stdlogic\cpsoc3.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\std.vhd'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cypress.vhd'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\work\cypress.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\ieee\work\stdlogic.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\lpmpkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_cnst.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_mthv.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif'.
+Linking 'Y:\proj\creekproj\creekFirmware\p4arduino-creek.cydsn\codegentemp\p4arduino-creek.ctl'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'.
+Linking 'Y:\proj\creekproj\creekFirmware\p4arduino-creek.cydsn\codegentemp\p4arduino-creek.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\ZeroTerminal\ZeroTerminal.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\or_v1_0\or_v1_0.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_analog_virtualmux_v1_0\cy_analog_virtualmux_v1_0.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\Bus_Connect_v2_50\Bus_Connect_v2_50.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cypress.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cy_psoc3_inc.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\lcpsoc3\stdlogic\cpsoc3.vif'.
 
 ----------------------------------------------------------
 Detecting unused logic.
@@ -148,71 +148,71 @@ Detecting unused logic.
 	\ezi2c:uncfg_rx_irq\
 	\ezi2c:Net_1099\
 	\ezi2c:Net_1258\
-	\ezi2c:Net_547\
-	\ezi2c:Net_891\
-	\ezi2c:Net_1001\
-	\ezi2c:Net_899\
+	Net_486
+	Net_495
+	Net_496
+	Net_497
+	Net_498
+	Net_499
+	Net_500
+	Net_501
+	Net_503
+	Net_506
 	\adc:Net_3125\
 	\adc:Net_3126\
 
 
-Deleted 10 User equations/components.
+Deleted 16 User equations/components.
 Deleted 0 Synthesized equations/components.
 
 ------------------------------------------------------
 Alias Detection
 ------------------------------------------------------
-Aliasing \ezi2c:Net_452\ to \ezi2c:Net_459\
-Aliasing \ezi2c:Net_1194\ to \ezi2c:Net_459\
-Aliasing \ezi2c:Net_1195\ to \ezi2c:Net_459\
-Aliasing \ezi2c:Net_1196\ to \ezi2c:Net_459\
-Aliasing zero to \ezi2c:Net_459\
+Aliasing \ezi2c:rx_wire\ to \ezi2c:select_s_wire\
+Aliasing \ezi2c:sclk_s_wire\ to \ezi2c:select_s_wire\
+Aliasing \ezi2c:mosi_s_wire\ to \ezi2c:select_s_wire\
+Aliasing \ezi2c:miso_m_wire\ to \ezi2c:select_s_wire\
+Aliasing zero to \ezi2c:select_s_wire\
 Aliasing one to \ezi2c:tmpOE__sda_net_0\
 Aliasing \ezi2c:tmpOE__scl_net_0\ to \ezi2c:tmpOE__sda_net_0\
-Aliasing \ezi2c:Net_747\ to \ezi2c:Net_459\
-Aliasing \adc:Net_3107\ to \ezi2c:Net_459\
-Aliasing \adc:Net_3106\ to \ezi2c:Net_459\
-Aliasing \adc:Net_3105\ to \ezi2c:Net_459\
-Aliasing \adc:Net_3104\ to \ezi2c:Net_459\
-Aliasing \adc:Net_3103\ to \ezi2c:Net_459\
-Aliasing \adc:Net_3207_1\ to \ezi2c:Net_459\
-Aliasing \adc:Net_3207_0\ to \ezi2c:Net_459\
-Aliasing \adc:Net_3235\ to \ezi2c:Net_459\
-Aliasing tmpOE__highside_net_0 to \ezi2c:tmpOE__sda_net_0\
+Aliasing \ezi2c:cts_wire\ to \ezi2c:select_s_wire\
+Aliasing \adc:Net_3107\ to \ezi2c:select_s_wire\
+Aliasing \adc:Net_3106\ to \ezi2c:select_s_wire\
+Aliasing \adc:Net_3105\ to \ezi2c:select_s_wire\
+Aliasing \adc:Net_3104\ to \ezi2c:select_s_wire\
+Aliasing \adc:Net_3103\ to \ezi2c:select_s_wire\
+Aliasing \adc:Net_3207_1\ to \ezi2c:select_s_wire\
+Aliasing \adc:Net_3207_0\ to \ezi2c:select_s_wire\
+Aliasing \adc:Net_3235\ to \ezi2c:select_s_wire\
+Aliasing tmpOE__pressure_net_0 to \ezi2c:tmpOE__sda_net_0\
 Aliasing tmpOE__BLUELED_net_0 to \ezi2c:tmpOE__sda_net_0\
 Aliasing tmpOE__REDLED_net_0 to \ezi2c:tmpOE__sda_net_0\
 Aliasing tmpOE__V036_net_0 to \ezi2c:tmpOE__sda_net_0\
-Removing Lhs of wire \ezi2c:Net_652\[3] = \ezi2c:Net_459\[2]
-Removing Lhs of wire \ezi2c:Net_452\[4] = \ezi2c:Net_459\[2]
-Removing Lhs of wire \ezi2c:Net_1194\[5] = \ezi2c:Net_459\[2]
-Removing Lhs of wire \ezi2c:Net_1195\[6] = \ezi2c:Net_459\[2]
-Removing Lhs of wire \ezi2c:Net_1196\[7] = \ezi2c:Net_459\[2]
-Removing Lhs of wire \ezi2c:Net_654\[8] = \ezi2c:Net_459\[2]
-Removing Lhs of wire \ezi2c:Net_1170\[11] = \ezi2c:Net_847\[1]
-Removing Lhs of wire \ezi2c:Net_990\[12] = \ezi2c:Net_459\[2]
-Removing Lhs of wire \ezi2c:Net_909\[13] = \ezi2c:Net_459\[2]
-Removing Lhs of wire \ezi2c:Net_663\[14] = \ezi2c:Net_459\[2]
-Removing Rhs of wire zero[17] = \ezi2c:Net_459\[2]
-Removing Rhs of wire one[21] = \ezi2c:tmpOE__sda_net_0\[16]
-Removing Lhs of wire \ezi2c:tmpOE__scl_net_0\[24] = one[21]
-Removing Lhs of wire \ezi2c:Net_1175\[33] = zero[17]
-Removing Lhs of wire \ezi2c:Net_747\[34] = zero[17]
-Removing Lhs of wire \adc:Net_3107\[130] = zero[17]
-Removing Lhs of wire \adc:Net_3106\[131] = zero[17]
-Removing Lhs of wire \adc:Net_3105\[132] = zero[17]
-Removing Lhs of wire \adc:Net_3104\[133] = zero[17]
-Removing Lhs of wire \adc:Net_3103\[134] = zero[17]
-Removing Lhs of wire \adc:Net_17\[179] = \adc:Net_1845\[58]
-Removing Lhs of wire \adc:Net_3207_1\[201] = zero[17]
-Removing Lhs of wire \adc:Net_3207_0\[202] = zero[17]
-Removing Lhs of wire \adc:Net_3235\[203] = zero[17]
-Removing Lhs of wire tmpOE__highside_net_0[273] = one[21]
-Removing Lhs of wire tmpOE__BLUELED_net_0[282] = one[21]
-Removing Lhs of wire tmpOE__REDLED_net_0[288] = one[21]
-Removing Lhs of wire tmpOE__V036_net_0[300] = one[21]
+Removing Lhs of wire \ezi2c:rx_wire\[3] = \ezi2c:select_s_wire\[2]
+Removing Lhs of wire \ezi2c:Net_1170\[6] = \ezi2c:Net_847\[1]
+Removing Lhs of wire \ezi2c:sclk_s_wire\[7] = \ezi2c:select_s_wire\[2]
+Removing Lhs of wire \ezi2c:mosi_s_wire\[8] = \ezi2c:select_s_wire\[2]
+Removing Lhs of wire \ezi2c:miso_m_wire\[9] = \ezi2c:select_s_wire\[2]
+Removing Rhs of wire zero[12] = \ezi2c:select_s_wire\[2]
+Removing Rhs of wire one[16] = \ezi2c:tmpOE__sda_net_0\[11]
+Removing Lhs of wire \ezi2c:tmpOE__scl_net_0\[19] = one[16]
+Removing Lhs of wire \ezi2c:cts_wire\[28] = zero[12]
+Removing Lhs of wire \adc:Net_3107\[126] = zero[12]
+Removing Lhs of wire \adc:Net_3106\[127] = zero[12]
+Removing Lhs of wire \adc:Net_3105\[128] = zero[12]
+Removing Lhs of wire \adc:Net_3104\[129] = zero[12]
+Removing Lhs of wire \adc:Net_3103\[130] = zero[12]
+Removing Lhs of wire \adc:Net_17\[175] = \adc:Net_1845\[54]
+Removing Lhs of wire \adc:Net_3207_1\[197] = zero[12]
+Removing Lhs of wire \adc:Net_3207_0\[198] = zero[12]
+Removing Lhs of wire \adc:Net_3235\[199] = zero[12]
+Removing Lhs of wire tmpOE__pressure_net_0[269] = one[16]
+Removing Lhs of wire tmpOE__BLUELED_net_0[278] = one[16]
+Removing Lhs of wire tmpOE__REDLED_net_0[284] = one[16]
+Removing Lhs of wire tmpOE__V036_net_0[296] = one[16]
 
 ------------------------------------------------------
-Aliased 0 equations, 28 wires.
+Aliased 0 equations, 22 wires.
 ------------------------------------------------------
 
 ----------------------------------------------------------
@@ -232,20 +232,20 @@ Circuit simplification results:
 
 topld:  No errors.
 
-CYPRESS_DIR    : C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp
-Warp Program   : C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\bin/warp.exe
-Warp Arguments : -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=Z:\Documents\creekproj\creekFirmware\p4arduino-creek.cydsn\p4arduino-creek.cyprj -dcpsoc3 p4arduino-creek.v -verilog
+CYPRESS_DIR    : C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp
+Warp Program   : C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\bin\warp.exe
+Warp Arguments : -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=Y:\proj\creekproj\creekFirmware\p4arduino-creek.cydsn\p4arduino-creek.cyprj -dcpsoc3 p4arduino-creek.v -verilog
 </CYPRESSTAG>
-Warp synthesis phase: Elapsed time ==> 0s.419ms
+Warp synthesis phase: Elapsed time ==> 1s.531ms
 <CYPRESSTAG name="Fitter results...">
 <CYPRESSTAG name="Fitter startup details...">
-cyp3fit: V3.3.0.7343, Family: PSoC3, Started at: Monday, 08 February 2016 05:30:55
-Options: -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=Z:\Documents\creekproj\creekFirmware\p4arduino-creek.cydsn\p4arduino-creek.cyprj -d CY8C4245AXI-483 p4arduino-creek.v -verilog
+cyp3fit: V4.2.0.641, Family: PSoC3, Started at: Wednesday, 20 May 2020 13:23:41
+Options: -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=Y:\proj\creekproj\creekFirmware\p4arduino-creek.cydsn\p4arduino-creek.cyprj -d CY8C4245AXI-483 p4arduino-creek.v -verilog
 </CYPRESSTAG>
 <CYPRESSTAG name="Design parsing">
-Design parsing phase: Elapsed time ==> 0s.019ms
+Design parsing phase: Elapsed time ==> 0s.093ms
 </CYPRESSTAG>
-<CYPRESSTAG name="Tech mapping">
+<CYPRESSTAG name="Tech Mapping">
 <CYPRESSTAG name="Initial Mapping" icon="FILE_RPT_TECHM">
 <CYPRESSTAG name="Global Clock Selection" icon="FILE_RPT_TECHM">
     Fixed Function Clock 2: Automatic-assigning  clock 'ezi2c_SCBCLK'. Signal=\ezi2c:Net_847_ff2\
@@ -302,12 +302,12 @@ Design Equations
             SIO Vtrip: MULTIPLIER_0_5
             SIO Multiplier Index: 0
             SIO RefSel: VCC_IO
-            Required Capabilitites: DIGITAL
+            Required Capabilities: DIGITAL
             Initial Value: 1
             IO Voltage: 0
         PORT MAP (
             pa_out => \ezi2c:sda(0)\__PA ,
-            fb => \ezi2c:Net_581\ ,
+            fb => Net_505 ,
             pad => \ezi2c:sda(0)_PAD\ );
         Properties:
         {
@@ -342,18 +342,18 @@ Design Equations
             SIO Vtrip: MULTIPLIER_0_5
             SIO Multiplier Index: 0
             SIO RefSel: VCC_IO
-            Required Capabilitites: DIGITAL
+            Required Capabilities: DIGITAL
             Initial Value: 1
             IO Voltage: 0
         PORT MAP (
             pa_out => \ezi2c:scl(0)\__PA ,
-            fb => \ezi2c:Net_580\ ,
+            fb => Net_504 ,
             pad => \ezi2c:scl(0)_PAD\ );
         Properties:
         {
         }
 
-    Pin : Name = highside(0)
+    Pin : Name = pressure(0)
         Attributes:
             In Group/Port: True
             In Sync Option: AUTO
@@ -382,14 +382,14 @@ Design Equations
             SIO Vtrip: MULTIPLIER_0_5
             SIO Multiplier Index: 0
             SIO RefSel: VCC_IO
-            Required Capabilitites: ANALOG
+            Required Capabilities: ANALOG
             Initial Value: 1
             IO Voltage: 0
         PORT MAP (
-            pa_out => highside(0)__PA ,
+            pa_out => pressure(0)__PA ,
             analog_term => Net_359 ,
             annotation => Net_366 ,
-            pad => highside(0)_PAD );
+            pad => pressure(0)_PAD );
         Properties:
         {
         }
@@ -423,7 +423,7 @@ Design Equations
             SIO Vtrip: MULTIPLIER_0_5
             SIO Multiplier Index: 0
             SIO RefSel: VCC_IO
-            Required Capabilitites: DIGITAL
+            Required Capabilities: DIGITAL
             Initial Value: 1
             IO Voltage: 0
         PORT MAP (
@@ -462,7 +462,7 @@ Design Equations
             SIO Vtrip: MULTIPLIER_0_5
             SIO Multiplier Index: 0
             SIO RefSel: VCC_IO
-            Required Capabilitites: DIGITAL, ROUTABLE
+            Required Capabilities: DIGITAL, ROUTABLE
             Initial Value: 1
             IO Voltage: 0
         PORT MAP (
@@ -501,7 +501,7 @@ Design Equations
             SIO Vtrip: MULTIPLIER_0_5
             SIO Multiplier Index: 0
             SIO RefSel: VCC_IO
-            Required Capabilitites: ANALOG
+            Required Capabilities: ANALOG
             Initial Value: 1
             IO Voltage: 0
         PORT MAP (
@@ -537,10 +537,11 @@ Design Equations
 
     interrupt: Name =\ezi2c:SCB_IRQ\
         PORT MAP (
-            interrupt => Net_162 );
+            interrupt => Net_487 );
         Properties:
         {
             int_type = "10"
+            is_nmi = 0
         }
 
     interrupt: Name =\adc:IRQ\
@@ -549,6 +550,7 @@ Design Equations
         Properties:
         {
             int_type = "10"
+            is_nmi = 0
         }
     </CYPRESSTAG>
 </CYPRESSTAG>
@@ -582,27 +584,44 @@ DAC                           :      :      :      :
   7-bit IDAC                  :    0 :    1 :    1 :  0.00 %
   8-bit IDAC                  :    0 :    1 :    1 :  0.00 %
 </CYPRESSTAG>
-Technology Mapping: Elapsed time ==> 0s.009ms
-Tech mapping phase: Elapsed time ==> 0s.049ms
+Technology Mapping: Elapsed time ==> 0s.359ms
+Tech Mapping phase: Elapsed time ==> 0s.484ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Analog Placement">
-<CYPRESSTAG name="Analog Placement">
-Elapsed time ==> 0.1104781s
+<CYPRESSTAG name="FFB & IO Pre Placement">
+<CYPRESSTAG name="Placement" icon="FILE_RPT_PLACEMENT">
+
+Cell                                : Block                              
+=========================================================================
+\ezi2c:sda(0)\                      : [IOP=(3)][IoId=(1)]                
+\ezi2c:scl(0)\                      : [IOP=(3)][IoId=(0)]                
+pressure(0)                         : [IOP=(2)][IoId=(2)]                
+BLUELED(0)                          : [IOP=(0)][IoId=(3)]                
+REDLED(0)                           : [IOP=(1)][IoId=(6)]                
+V036(0)                             : [IOP=(2)][IoId=(1)]                
+ClockGenBlock                       : CLK_GEN_[FFB(CLK_GEN,0)]           
+\ezi2c:SCB\                         : SCB_[FFB(SCB,1)]                   
+\adc:cy_psoc4_sar\                  : SARADC_[FFB(SARADC,0)]             
+
 </CYPRESSTAG>
-Analog Placement phase: Elapsed time ==> 0s.249ms
+</CYPRESSTAG>
+<CYPRESSTAG name="Real Analog Placement">
+Elapsed time ==> 0.1974640s
+</CYPRESSTAG>
+Analog Placement phase: Elapsed time ==> 0s.546ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Analog Routing">
 <CYPRESSTAG name="Analog Routing">
-Route success=True, Iterations=1 Elapsed=0.0101994 secs
+Route success=True, Iterations=1 Elapsed=0.0569159 secs
 </CYPRESSTAG>
-Analog Routing phase: Elapsed time ==> 0s.019ms
+Analog Routing phase: Elapsed time ==> 0s.063ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Analog Code Generation">
 ============ Analog Final Answer Routes ============
 Dump of CyAnalogRoutingResultsDB
 Map of net to items {
   Net: Net_359 {
-    p2_0
+    p2_2
   }
   Net: Net_405 {
     p2_1
@@ -623,7 +642,7 @@ Map of net to items {
     sarmux_vplus
   }
   Net: AMuxNet::\adc:cy_psoc4_sarmux_8\_CYAMUXSIDE_A {
-    SARMUX0_sw0
+    SARMUX0_sw2
     SARMUX0_sw1
   }
   Net: \adc:muxout_minus\ {
@@ -633,10 +652,10 @@ Map of net to items {
   }
 }
 Map of item to net {
-  p2_0                                             -> Net_359
+  p2_2                                             -> Net_359
   p2_1                                             -> Net_405
   sarmux_vplus                                     -> \adc:muxout_plus\
-  SARMUX0_sw0                                      -> AMuxNet::\adc:cy_psoc4_sarmux_8\_CYAMUXSIDE_A
+  SARMUX0_sw2                                      -> AMuxNet::\adc:cy_psoc4_sarmux_8\_CYAMUXSIDE_A
   SARMUX0_sw1                                      -> AMuxNet::\adc:cy_psoc4_sarmux_8\_CYAMUXSIDE_A
   sarmux_vminus                                    -> \adc:muxout_minus\
 }
@@ -649,11 +668,11 @@ Mux Info {
      IsAtMostOneSwitch: True
     Arm: 0 {
       Net:   Net_359
-      Outer: SARMUX0_sw0
+      Outer: SARMUX0_sw2
       Inner: __open__
       Path {
-        SARMUX0_sw0
-        p2_0
+        SARMUX0_sw2
+        p2_2
       }
     }
     Arm: 1 {
@@ -688,32 +707,26 @@ Mux Info {
     }
   }
 }
-Analog Code Generation phase: Elapsed time ==> 0s.029ms
+Analog Code Generation phase: Elapsed time ==> 0s.108ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Digital Placement">
 <CYPRESSTAG name="Detailed placement messages">
 I2659: No Constrained paths were found. The placer will run in non-timing driven mode.
-I2076: Total run-time: 0.2 sec.
+I2076: Total run-time: 0.4 sec.
 
 </CYPRESSTAG>
 <CYPRESSTAG name="PLD Packing">
 <CYPRESSTAG name="PLD Packing Summary">
 No PLDs were packed.
 </CYPRESSTAG>
-PLD Packing: Elapsed time ==> 0s.000ms
+PLD Packing: Elapsed time ==> 0s.015ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Partitioning">
 <CYPRESSTAG name="Initial Partitioning Summary">
 Initial Partitioning Summary not displayed at this verbose level.</CYPRESSTAG>
 <CYPRESSTAG name="Final Partitioning Summary">
 Final Partitioning Summary not displayed at this verbose level.</CYPRESSTAG>
-Partitioning: Elapsed time ==> 0s.009ms
-</CYPRESSTAG>
-<CYPRESSTAG name="Simulated Annealing">
-Annealing: Elapsed time ==> 0s.000ms
-<CYPRESSTAG name="Simulated Annealing Results">
-The seed used for moves was 114161200.
-Inital cost was 16, final cost is 16 (0.00% improvement).</CYPRESSTAG>
+Partitioning: Elapsed time ==> 0s.062ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Final Placement Summary">
 
@@ -738,10 +751,11 @@ Intr container @ [IntrContainer=(0)]:
   Intr@ [IntrContainer=(0)][IntrId=(11)] 
     interrupt: Name =\ezi2c:SCB_IRQ\
         PORT MAP (
-            interrupt => Net_162 );
+            interrupt => Net_487 );
         Properties:
         {
             int_type = "10"
+            is_nmi = 0
         }
   Intr@ [IntrContainer=(0)][IntrId=(14)] 
     interrupt: Name =\adc:IRQ\
@@ -750,6 +764,7 @@ Intr container @ [IntrContainer=(0)]:
         Properties:
         {
             int_type = "10"
+            is_nmi = 0
         }
 Port 0 contains the following IO cells:
 [IoId=3]: 
@@ -782,7 +797,7 @@ Pin : Name = BLUELED(0)
         SIO Vtrip: MULTIPLIER_0_5
         SIO Multiplier Index: 0
         SIO RefSel: VCC_IO
-        Required Capabilitites: DIGITAL
+        Required Capabilities: DIGITAL
         Initial Value: 1
         IO Voltage: 0
     PORT MAP (
@@ -823,7 +838,7 @@ Pin : Name = REDLED(0)
         SIO Vtrip: MULTIPLIER_0_5
         SIO Multiplier Index: 0
         SIO RefSel: VCC_IO
-        Required Capabilitites: DIGITAL, ROUTABLE
+        Required Capabilities: DIGITAL, ROUTABLE
         Initial Value: 1
         IO Voltage: 0
     PORT MAP (
@@ -834,48 +849,6 @@ Pin : Name = REDLED(0)
     }
 
 Port 2 contains the following IO cells:
-[IoId=0]: 
-Pin : Name = highside(0)
-    Attributes:
-        In Group/Port: True
-        In Sync Option: AUTO
-        Out Sync Option: AUTO
-        Interrupt generated: False
-        Interrupt mode: NONE
-        Drive mode: HI_Z_ANALOG
-        VTrip: EITHER
-        Slew: FAST
-        Input Sync needed: False
-        Output Sync needed: False
-        SC shield enabled: False
-        POR State: ANY
-        LCD Mode: COMMON
-        Register Mode: RegComb
-        CaSense Mode: NEITHER
-        Treat as pin: True
-        Is OE Registered: False
-        Uses Analog: True
-        Can contain Digital: False
-        Is SIO: False
-        SIO Output Buf: NONREGULATED
-        SIO Input Buf: SINGLE_ENDED
-        SIO HiFreq: LOW
-        SIO Hyst: DISABLED
-        SIO Vtrip: MULTIPLIER_0_5
-        SIO Multiplier Index: 0
-        SIO RefSel: VCC_IO
-        Required Capabilitites: ANALOG
-        Initial Value: 1
-        IO Voltage: 0
-    PORT MAP (
-        pa_out => highside(0)__PA ,
-        analog_term => Net_359 ,
-        annotation => Net_366 ,
-        pad => highside(0)_PAD );
-    Properties:
-    {
-    }
-
 [IoId=1]: 
 Pin : Name = V036(0)
     Attributes:
@@ -906,7 +879,7 @@ Pin : Name = V036(0)
         SIO Vtrip: MULTIPLIER_0_5
         SIO Multiplier Index: 0
         SIO RefSel: VCC_IO
-        Required Capabilitites: ANALOG
+        Required Capabilities: ANALOG
         Initial Value: 1
         IO Voltage: 0
     PORT MAP (
@@ -914,6 +887,48 @@ Pin : Name = V036(0)
         analog_term => Net_405 ,
         annotation => Net_480 ,
         pad => V036(0)_PAD );
+    Properties:
+    {
+    }
+
+[IoId=2]: 
+Pin : Name = pressure(0)
+    Attributes:
+        In Group/Port: True
+        In Sync Option: AUTO
+        Out Sync Option: AUTO
+        Interrupt generated: False
+        Interrupt mode: NONE
+        Drive mode: HI_Z_ANALOG
+        VTrip: EITHER
+        Slew: FAST
+        Input Sync needed: False
+        Output Sync needed: False
+        SC shield enabled: False
+        POR State: ANY
+        LCD Mode: COMMON
+        Register Mode: RegComb
+        CaSense Mode: NEITHER
+        Treat as pin: True
+        Is OE Registered: False
+        Uses Analog: True
+        Can contain Digital: False
+        Is SIO: False
+        SIO Output Buf: NONREGULATED
+        SIO Input Buf: SINGLE_ENDED
+        SIO HiFreq: LOW
+        SIO Hyst: DISABLED
+        SIO Vtrip: MULTIPLIER_0_5
+        SIO Multiplier Index: 0
+        SIO RefSel: VCC_IO
+        Required Capabilities: ANALOG
+        Initial Value: 1
+        IO Voltage: 0
+    PORT MAP (
+        pa_out => pressure(0)__PA ,
+        analog_term => Net_359 ,
+        annotation => Net_366 ,
+        pad => pressure(0)_PAD );
     Properties:
     {
     }
@@ -949,12 +964,12 @@ Pin : Name = \ezi2c:scl(0)\
         SIO Vtrip: MULTIPLIER_0_5
         SIO Multiplier Index: 0
         SIO RefSel: VCC_IO
-        Required Capabilitites: DIGITAL
+        Required Capabilities: DIGITAL
         Initial Value: 1
         IO Voltage: 0
     PORT MAP (
         pa_out => \ezi2c:scl(0)\__PA ,
-        fb => \ezi2c:Net_580\ ,
+        fb => Net_504 ,
         pad => \ezi2c:scl(0)_PAD\ );
     Properties:
     {
@@ -990,20 +1005,21 @@ Pin : Name = \ezi2c:sda(0)\
         SIO Vtrip: MULTIPLIER_0_5
         SIO Multiplier Index: 0
         SIO RefSel: VCC_IO
-        Required Capabilitites: DIGITAL
+        Required Capabilities: DIGITAL
         Initial Value: 1
         IO Voltage: 0
     PORT MAP (
         pa_out => \ezi2c:sda(0)\__PA ,
-        fb => \ezi2c:Net_581\ ,
+        fb => Net_505 ,
         pad => \ezi2c:sda(0)_PAD\ );
     Properties:
     {
     }
 
-Port 4 is empty
+Port 4 contains the following IO cells:
+ARM group 0: empty
 Clock group 0: 
-    M0S8 Clock Block @ F(Clock,0): 
+    Clock Block @ F(Clock,0): 
     m0s8clockblockcell: Name =ClockBlock
         PORT MAP (
             hfclk => ClockBlock_HFCLK ,
@@ -1019,43 +1035,41 @@ Clock group 0:
         Properties:
         {
         }
-PM group 0: empty
-SPC group 0: empty
-WDT group 0: empty
-FSS group 0: empty
-LP Comparator group 0: empty
-Serial Communication (SCB) group 0: 
+LCD group 0: empty
+PICU group 0: empty
+LPCOMP group 0: empty
+SCB group 0: 
     SCB Block @ F(SCB,1): 
     m0s8scbcell: Name =\ezi2c:SCB\
         PORT MAP (
             clock => \ezi2c:Net_847_ff2\ ,
-            interrupt => Net_162 ,
-            tx => \ezi2c:Net_1062\ ,
-            rts => \ezi2c:Net_1053\ ,
-            mosi_m => \ezi2c:Net_1061\ ,
-            select_m_3 => \ezi2c:ss_3\ ,
-            select_m_2 => \ezi2c:ss_2\ ,
-            select_m_1 => \ezi2c:ss_1\ ,
-            select_m_0 => \ezi2c:ss_0\ ,
-            sclk_m => \ezi2c:Net_1059\ ,
-            miso_s => \ezi2c:Net_1055\ ,
-            scl => \ezi2c:Net_580\ ,
-            sda => \ezi2c:Net_581\ ,
-            tx_req => Net_456 ,
-            rx_req => Net_455 );
+            interrupt => Net_487 ,
+            uart_tx => \ezi2c:tx_wire\ ,
+            uart_rts => \ezi2c:rts_wire\ ,
+            mosi_m => \ezi2c:mosi_m_wire\ ,
+            select_m_3 => \ezi2c:select_m_wire_3\ ,
+            select_m_2 => \ezi2c:select_m_wire_2\ ,
+            select_m_1 => \ezi2c:select_m_wire_1\ ,
+            select_m_0 => \ezi2c:select_m_wire_0\ ,
+            sclk_m => \ezi2c:sclk_m_wire\ ,
+            miso_s => \ezi2c:miso_s_wire\ ,
+            i2c_scl => Net_504 ,
+            i2c_sda => Net_505 ,
+            tr_tx_req => Net_490 ,
+            tr_rx_req => Net_489 );
         Properties:
         {
             cy_registers = ""
             scb_mode = 0
         }
-CapSense group 0: empty
-8-bit IDAC group 0: empty
-7-bit IDAC group 0: empty
-Timer/Counter/PWM group 0: empty
-Comparator/Opamp group 0: empty
-Die Temp group 0: empty
-SAR ADC group 0: 
-    PSoC4 SAR ADC @ F(SARADC,0): 
+CSD group 0: empty
+CSIDAC8 group 0: empty
+CSIDAC7 group 0: empty
+TCPWM group 0: empty
+OA group 0: empty
+TEMP group 0: empty
+SARADC group 0: 
+    SAR ADC @ F(SARADC,0): 
     p4sarcell: Name =\adc:cy_psoc4_sar\
         PORT MAP (
             vplus => \adc:muxout_plus\ ,
@@ -1063,7 +1077,7 @@ SAR ADC group 0:
             vref => \adc:Net_3113\ ,
             ext_vref => \adc:Net_3225\ ,
             clock => \adc:Net_1845_ff7\ ,
-            sample_done => Net_351 ,
+            sample_done => Net_508 ,
             chan_id_valid => \adc:Net_3108\ ,
             chan_id_3 => \adc:Net_3109_3\ ,
             chan_id_2 => \adc:Net_3109_2\ ,
@@ -1082,13 +1096,12 @@ SAR ADC group 0:
             data_2 => \adc:Net_3111_2\ ,
             data_1 => \adc:Net_3111_1\ ,
             data_0 => \adc:Net_3111_0\ ,
-            eos_intr => Net_124 ,
+            eos_intr => Net_509 ,
             irq => \adc:Net_3112\ );
         Properties:
         {
             cy_registers = ""
         }
-Segment LCD group 0: empty
 CLK_GEN group 0: 
     M0S8 Clock Gen Block @ F(CLK_GEN,0): 
     m0s8clockgenblockcell: Name =ClockGenBlock
@@ -1100,21 +1113,25 @@ CLK_GEN group 0:
         }
 LPCOMPBLOCK group 0: empty
 PASSBLOCK group 0: empty
-ANAPUMP group 0: empty
+WCO group 0: empty
+SRSS group 0: empty
+CPUSS group 0: empty
+EXCO group 0: empty
 
 Blocks not positioned by the digital component placer:
-    PSoC4 SAR Muxes @ <No Location>: 
+    SAR Muxes @ <No Location>: 
     p4sarmuxcell: Name =\adc:cy_psoc4_sarmux_8\
         PORT MAP (
             muxin_plus_1 => Net_405 ,
             muxin_plus_0 => Net_359 ,
             muxin_minus_1 => \adc:mux_bus_minus_1\ ,
             muxin_minus_0 => \adc:mux_bus_minus_0\ ,
-            cmn_neg => \adc:Net_1851\ ,
+            cmn_neg_0 => \adc:Net_1851\ ,
             vout_plus => \adc:muxout_plus\ ,
             vout_minus => \adc:muxout_minus\ );
         Properties:
         {
+            cmn_neg_width = 1
             cy_registers = ""
             input_mode = "00"
             muxin_width = 2
@@ -1127,46 +1144,47 @@ Port Configuration report
 ------------------------------------------------------------
      |     |       | Interrupt |                  |                | 
 Port | Pin | Fixed |      Type |       Drive Mode |           Name | Connections
------+-----+-------+-----------+------------------+----------------+--------------------
+-----+-----+-------+-----------+------------------+----------------+----------------
    0 |   3 |     * |      NONE |         CMOS_OUT |     BLUELED(0) | 
------+-----+-------+-----------+------------------+----------------+--------------------
+-----+-----+-------+-----------+------------------+----------------+----------------
    1 |   6 |     * |      NONE |         CMOS_OUT |      REDLED(0) | 
------+-----+-------+-----------+------------------+----------------+--------------------
-   2 |   0 |     * |      NONE |      HI_Z_ANALOG |    highside(0) | Analog(Net_359)
-     |   1 |     * |      NONE |      HI_Z_ANALOG |        V036(0) | Analog(Net_405)
------+-----+-------+-----------+------------------+----------------+--------------------
-   3 |   0 |     * |      NONE |    OPEN_DRAIN_LO | \ezi2c:scl(0)\ | FB(\ezi2c:Net_580\)
-     |   1 |     * |      NONE |    OPEN_DRAIN_LO | \ezi2c:sda(0)\ | FB(\ezi2c:Net_581\)
-----------------------------------------------------------------------------------------
+-----+-----+-------+-----------+------------------+----------------+----------------
+   2 |   1 |     * |      NONE |      HI_Z_ANALOG |        V036(0) | Analog(Net_405)
+     |   2 |     * |      NONE |      HI_Z_ANALOG |    pressure(0) | Analog(Net_359)
+-----+-----+-------+-----------+------------------+----------------+----------------
+   3 |   0 |     * |      NONE |    OPEN_DRAIN_LO | \ezi2c:scl(0)\ | FB(Net_504)
+     |   1 |     * |      NONE |    OPEN_DRAIN_LO | \ezi2c:sda(0)\ | FB(Net_505)
+------------------------------------------------------------------------------------
 </CYPRESSTAG>
 </CYPRESSTAG>
 </CYPRESSTAG>
-Digital component placer commit/Report: Elapsed time ==> 0s.000ms
-Digital Placement phase: Elapsed time ==> 0s.339ms
+Digital component placer commit/Report: Elapsed time ==> 0s.202ms
+Digital Placement phase: Elapsed time ==> 1s.125ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Digital Routing">
+"C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\bin/sjrouter.exe" --xml-path "C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\dev\psoc4/psoc4a/route_arch-rrg.cydata" --vh2-path "p4arduino-creek_r.vh2" --pcf-path "p4arduino-creek.pco" --des-name "p4arduino-creek" --dsf-path "p4arduino-creek.dsf" --sdc-path "p4arduino-creek.sdc" --lib-path "p4arduino-creek_r.lib"
 Routing successful.
-Digital Routing phase: Elapsed time ==> 0s.369ms
+Digital Routing phase: Elapsed time ==> 0s.640ms
 </CYPRESSTAG>
-<CYPRESSTAG name="Bitstream and API generation">
-Bitstream and API generation phase: Elapsed time ==> 0s.219ms
+<CYPRESSTAG name="Bitstream Generation">
+Bitstream Generation phase: Elapsed time ==> 0s.453ms
 </CYPRESSTAG>
-<CYPRESSTAG name="Bitstream verification">
-Bitstream verification phase: Elapsed time ==> 0s.029ms
+<CYPRESSTAG name="Bitstream Verification">
+Bitstream Verification phase: Elapsed time ==> 0s.078ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Static timing analysis">
 Timing report is in p4arduino-creek_timing.html.
-Static timing analysis phase: Elapsed time ==> 0s.169ms
+Static timing analysis phase: Elapsed time ==> 0s.265ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Data reporting">
 Data reporting phase: Elapsed time ==> 0s.000ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Database update...">
-Design database save phase: Elapsed time ==> 0s.129ms
+Design database save phase: Elapsed time ==> 0s.156ms
 </CYPRESSTAG>
-cydsfit: Elapsed time ==> 1s.649ms
+cydsfit: Elapsed time ==> 4s.078ms
 </CYPRESSTAG>
-Fitter phase: Elapsed time ==> 1s.679ms
-API generation phase: Elapsed time ==> 1s.619ms
-Dependency generation phase: Elapsed time ==> 0s.029ms
-Cleanup phase: Elapsed time ==> 0s.009ms
+Fitter phase: Elapsed time ==> 4s.093ms
+API generation phase: Elapsed time ==> 1s.859ms
+Dependency generation phase: Elapsed time ==> 0s.030ms
+Cleanup phase: Elapsed time ==> 0s.015ms

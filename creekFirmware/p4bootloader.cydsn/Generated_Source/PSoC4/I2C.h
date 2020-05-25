@@ -1,14 +1,15 @@
-/*******************************************************************************
-* File Name: I2C.h
-* Version 3.10
+/***************************************************************************//**
+* \file I2C.h
+* \version 4.0
 *
-* Description:
+* \brief
 *  This file provides constants and parameter values for the SCB Component.
 *
 * Note:
 *
 ********************************************************************************
-* Copyright 2013-2015, Cypress Semiconductor Corporation.  All rights reserved.
+* \copyright
+* Copyright 2013-2017, Cypress Semiconductor Corporation.  All rights reserved.
 * You may use this file only in accordance with the license, terms, conditions,
 * disclaimers, and limitations in the end user license agreement accompanying
 * the software package with which this file was provided.
@@ -29,14 +30,18 @@
 /* SCB IP block v2 is available in all other devices */
 #define I2C_CY_SCBIP_V2    (CYIPBLOCK_m0s8scb_VERSION >= 2u)
 
-#define I2C_SCB_MODE                     (1u)
+/** Component version major.minor */
+#define I2C_COMP_VERSION_MAJOR    (4)
+#define I2C_COMP_VERSION_MINOR    (0)
+    
+#define I2C_SCB_MODE           (1u)
 
 /* SCB modes enum */
-#define I2C_SCB_MODE_I2C                 (0x01u)
-#define I2C_SCB_MODE_SPI                 (0x02u)
-#define I2C_SCB_MODE_UART                (0x04u)
-#define I2C_SCB_MODE_EZI2C               (0x08u)
-#define I2C_SCB_MODE_UNCONFIG            (0xFFu)
+#define I2C_SCB_MODE_I2C       (0x01u)
+#define I2C_SCB_MODE_SPI       (0x02u)
+#define I2C_SCB_MODE_UART      (0x04u)
+#define I2C_SCB_MODE_EZI2C     (0x08u)
+#define I2C_SCB_MODE_UNCONFIG  (0xFFu)
 
 /* Condition compilation depends on operation mode: Unconfigured implies apply to all modes */
 #define I2C_SCB_MODE_I2C_CONST_CFG       (I2C_SCB_MODE_I2C       == I2C_SCB_MODE)
@@ -98,78 +103,595 @@ typedef struct
 *        Function Prototypes
 ***************************************/
 
+/**
+* \addtogroup group_general
+* @{
+*/
+
 /* Start and Stop APIs */
 void I2C_Init(void);
 void I2C_Enable(void);
 void I2C_Start(void);
 void I2C_Stop(void);
 
+/** @} general */
+
+/**
+* \addtogroup group_power
+* @{
+*/
 /* Sleep and Wakeup APis */
 void I2C_Sleep(void);
 void I2C_Wakeup(void);
+/** @} power */ 
 
+/**
+* \addtogroup group_interrupt
+* @{
+*/
 #if (I2C_SCB_IRQ_INTERNAL)
     /* Custom interrupt handler */
     void I2C_SetCustomInterruptHandler(void (*func)(void));
 #endif /* (I2C_SCB_IRQ_INTERNAL) */
+/** @} interrupt */
 
 /* Interface to internal interrupt component */
 #if (I2C_SCB_IRQ_INTERNAL)
-    #define I2C_EnableInt()        CyIntEnable      (I2C_ISR_NUMBER)
-    #define I2C_DisableInt()       CyIntDisable     (I2C_ISR_NUMBER)
+    /**
+    * \addtogroup group_interrupt
+    * @{
+    */    
+    /*******************************************************************************
+    * Function Name: I2C_EnableInt
+    ****************************************************************************//**
+    *
+    *  When using an Internal interrupt, this enables the interrupt in the NVIC. 
+    *  When using an external interrupt the API for the interrupt component must 
+    *  be used to enable the interrupt.
+    *
+    *******************************************************************************/
+    #define I2C_EnableInt()    CyIntEnable(I2C_ISR_NUMBER)
+    
+    
+    /*******************************************************************************
+    * Function Name: I2C_DisableInt
+    ****************************************************************************//**
+    *
+    *  When using an Internal interrupt, this disables the interrupt in the NVIC. 
+    *  When using an external interrupt the API for the interrupt component must 
+    *  be used to disable the interrupt.
+    *
+    *******************************************************************************/    
+    #define I2C_DisableInt()   CyIntDisable(I2C_ISR_NUMBER)
+    /** @} interrupt */
+
+    /*******************************************************************************
+    * Function Name: I2C_ClearPendingInt
+    ****************************************************************************//**
+    *
+    *  This function clears the interrupt pending status in the NVIC. 
+    *
+    *******************************************************************************/
     #define I2C_ClearPendingInt()  CyIntClearPending(I2C_ISR_NUMBER)
 #endif /* (I2C_SCB_IRQ_INTERNAL) */
 
 #if (I2C_UART_RX_WAKEUP_IRQ)
-    #define I2C_RxWakeEnableInt()        CyIntEnable      (I2C_RX_WAKE_ISR_NUMBER)
-    #define I2C_RxWakeDisableInt()       CyIntDisable     (I2C_RX_WAKE_ISR_NUMBER)
+    /*******************************************************************************
+    * Function Name: I2C_RxWakeEnableInt
+    ****************************************************************************//**
+    *
+    *  This function enables the interrupt (RX_WAKE) pending status in the NVIC. 
+    *
+    *******************************************************************************/    
+    #define I2C_RxWakeEnableInt()  CyIntEnable(I2C_RX_WAKE_ISR_NUMBER)
+    
+
+    /*******************************************************************************
+    * Function Name: I2C_RxWakeDisableInt
+    ****************************************************************************//**
+    *
+    *  This function disables the interrupt (RX_WAKE) pending status in the NVIC.  
+    *
+    *******************************************************************************/
+    #define I2C_RxWakeDisableInt() CyIntDisable(I2C_RX_WAKE_ISR_NUMBER)
+    
+    
+    /*******************************************************************************
+    * Function Name: I2C_RxWakeClearPendingInt
+    ****************************************************************************//**
+    *
+    *  This function clears the interrupt (RX_WAKE) pending status in the NVIC. 
+    *
+    *******************************************************************************/    
     #define I2C_RxWakeClearPendingInt()  CyIntClearPending(I2C_RX_WAKE_ISR_NUMBER)
 #endif /* (I2C_UART_RX_WAKEUP_IRQ) */
 
+/**
+* \addtogroup group_interrupt
+* @{
+*/
 /* Get interrupt cause */
+/*******************************************************************************
+* Function Name: I2C_GetInterruptCause
+****************************************************************************//**
+*
+*  Returns a mask of bits showing the source of the current triggered interrupt. 
+*  This is useful for modes of operation where an interrupt can be generated by 
+*  conditions in multiple interrupt source registers.
+*
+*  \return
+*   Mask with the OR of the following conditions that have been triggered.
+*    - I2C_INTR_CAUSE_MASTER - Interrupt from Master
+*    - I2C_INTR_CAUSE_SLAVE - Interrupt from Slave
+*    - I2C_INTR_CAUSE_TX - Interrupt from TX
+*    - I2C_INTR_CAUSE_RX - Interrupt from RX
+*
+*******************************************************************************/
 #define I2C_GetInterruptCause()    (I2C_INTR_CAUSE_REG)
 
+
 /* APIs to service INTR_RX register */
+/*******************************************************************************
+* Function Name: I2C_GetRxInterruptSource
+****************************************************************************//**
+*
+*  Returns RX interrupt request register. This register contains current status 
+*  of RX interrupt sources.
+*
+*  \return
+*   Current status of RX interrupt sources.
+*   Each constant is a bit field value. The value returned may have multiple 
+*   bits set to indicate the current status.
+*   - I2C_INTR_RX_FIFO_LEVEL - The number of data elements in the 
+      RX FIFO is greater than the value of RX FIFO level.
+*   - I2C_INTR_RX_NOT_EMPTY - Receiver FIFO is not empty.
+*   - I2C_INTR_RX_FULL - Receiver FIFO is full.
+*   - I2C_INTR_RX_OVERFLOW - Attempt to write to a full 
+*     receiver FIFO.
+*   - I2C_INTR_RX_UNDERFLOW - Attempt to read from an empty 
+*     receiver FIFO.
+*   - I2C_INTR_RX_FRAME_ERROR - UART framing error detected.
+*   - I2C_INTR_RX_PARITY_ERROR - UART parity error detected.
+*
+*******************************************************************************/
+#define I2C_GetRxInterruptSource() (I2C_INTR_RX_REG)
+
+
+/*******************************************************************************
+* Function Name: I2C_SetRxInterruptMode
+****************************************************************************//**
+*
+*  Writes RX interrupt mask register. This register configures which bits from 
+*  RX interrupt request register will trigger an interrupt event.
+*
+*  \param interruptMask: RX interrupt sources to be enabled (refer to 
+*   I2C_GetRxInterruptSource() function for bit fields values).
+*
+*******************************************************************************/
 #define I2C_SetRxInterruptMode(interruptMask)     I2C_WRITE_INTR_RX_MASK(interruptMask)
-#define I2C_ClearRxInterruptSource(interruptMask) I2C_CLEAR_INTR_RX(interruptMask)
-#define I2C_SetRxInterrupt(interruptMask)         I2C_SET_INTR_RX(interruptMask)
-#define I2C_GetRxInterruptSource()                (I2C_INTR_RX_REG)
-#define I2C_GetRxInterruptMode()                  (I2C_INTR_RX_MASK_REG)
-#define I2C_GetRxInterruptSourceMasked()          (I2C_INTR_RX_MASKED_REG)
+
+
+/*******************************************************************************
+* Function Name: I2C_GetRxInterruptMode
+****************************************************************************//**
+*
+*  Returns RX interrupt mask register This register specifies which bits from 
+*  RX interrupt request register will trigger an interrupt event.
+*
+*  \return 
+*   RX interrupt sources to be enabled (refer to 
+*   I2C_GetRxInterruptSource() function for bit fields values).
+*
+*******************************************************************************/
+#define I2C_GetRxInterruptMode()   (I2C_INTR_RX_MASK_REG)
+
+
+/*******************************************************************************
+* Function Name: I2C_GetRxInterruptSourceMasked
+****************************************************************************//**
+*
+*  Returns RX interrupt masked request register. This register contains logical
+*  AND of corresponding bits from RX interrupt request and mask registers.
+*  This function is intended to be used in the interrupt service routine to 
+*  identify which of enabled RX interrupt sources cause interrupt event.
+*
+*  \return 
+*   Current status of enabled RX interrupt sources (refer to 
+*   I2C_GetRxInterruptSource() function for bit fields values).
+*
+*******************************************************************************/
+#define I2C_GetRxInterruptSourceMasked()   (I2C_INTR_RX_MASKED_REG)
+
+
+/*******************************************************************************
+* Function Name: I2C_ClearRxInterruptSource
+****************************************************************************//**
+*
+*  Clears RX interrupt sources in the interrupt request register.
+*
+*  \param interruptMask: RX interrupt sources to be cleared (refer to 
+*   I2C_GetRxInterruptSource() function for bit fields values).
+*
+*  \sideeffects 
+*   The side effects are listed in the table below for each 
+*   affected interrupt source. Refer to section RX FIFO interrupt sources for 
+*   detailed description.
+*   - I2C_INTR_RX_FIFO_LEVEL Interrupt source is not cleared when 
+*     the receiver FIFO has more entries than level.
+*   - I2C_INTR_RX_NOT_EMPTY Interrupt source is not cleared when
+*     receiver FIFO is not empty.
+*   - I2C_INTR_RX_FULL Interrupt source is not cleared when 
+*      receiver FIFO is full.
+*
+*******************************************************************************/
+#define I2C_ClearRxInterruptSource(interruptMask)  I2C_CLEAR_INTR_RX(interruptMask)
+
+
+/*******************************************************************************
+* Function Name: I2C_SetRxInterrupt
+****************************************************************************//**
+*
+*  Sets RX interrupt sources in the interrupt request register.
+*
+*  \param interruptMask: RX interrupt sources to set in the RX interrupt request 
+*   register (refer to I2C_GetRxInterruptSource() function for bit 
+*   fields values).
+*
+*******************************************************************************/
+#define I2C_SetRxInterrupt(interruptMask)  I2C_SET_INTR_RX(interruptMask)
+
 void I2C_SetRxFifoLevel(uint32 level);
 
+
 /* APIs to service INTR_TX register */
-#define I2C_SetTxInterruptMode(interruptMask)     I2C_WRITE_INTR_TX_MASK(interruptMask)
-#define I2C_ClearTxInterruptSource(interruptMask) I2C_CLEAR_INTR_TX(interruptMask)
-#define I2C_SetTxInterrupt(interruptMask)         I2C_SET_INTR_TX(interruptMask)
-#define I2C_GetTxInterruptSource()                (I2C_INTR_TX_REG)
-#define I2C_GetTxInterruptMode()                  (I2C_INTR_TX_MASK_REG)
-#define I2C_GetTxInterruptSourceMasked()          (I2C_INTR_TX_MASKED_REG)
+/*******************************************************************************
+* Function Name: I2C_GetTxInterruptSource
+****************************************************************************//**
+*
+*  Returns TX interrupt request register. This register contains current status 
+*  of TX interrupt sources.
+* 
+*  \return 
+*   Current status of TX interrupt sources.
+*   Each constant is a bit field value. The value returned may have multiple 
+*   bits set to indicate the current status.
+*   - I2C_INTR_TX_FIFO_LEVEL - The number of data elements in the 
+*     TX FIFO is less than the value of TX FIFO level.
+*   - I2C_INTR_TX_NOT_FULL - Transmitter FIFO is not full.
+*   - I2C_INTR_TX_EMPTY - Transmitter FIFO is empty.
+*   - I2C_INTR_TX_OVERFLOW - Attempt to write to a full 
+*     transmitter FIFO.
+*   - I2C_INTR_TX_UNDERFLOW - Attempt to read from an empty 
+*     transmitter FIFO.
+*   - I2C_INTR_TX_UART_NACK - UART received a NACK in SmartCard 
+*   mode.
+*   - I2C_INTR_TX_UART_DONE - UART transfer is complete. 
+*     All data elements from the TX FIFO are sent.
+*   - I2C_INTR_TX_UART_ARB_LOST - Value on the TX line of the UART
+*     does not match the value on the RX line.
+*
+*******************************************************************************/
+#define I2C_GetTxInterruptSource() (I2C_INTR_TX_REG)
+
+
+/*******************************************************************************
+* Function Name: I2C_SetTxInterruptMode
+****************************************************************************//**
+*
+*  Writes TX interrupt mask register. This register configures which bits from 
+*  TX interrupt request register will trigger an interrupt event.
+*
+*  \param interruptMask: TX interrupt sources to be enabled (refer to 
+*   I2C_GetTxInterruptSource() function for bit field values).
+*
+*******************************************************************************/
+#define I2C_SetTxInterruptMode(interruptMask)  I2C_WRITE_INTR_TX_MASK(interruptMask)
+
+
+/*******************************************************************************
+* Function Name: I2C_GetTxInterruptMode
+****************************************************************************//**
+*
+*  Returns TX interrupt mask register This register specifies which bits from 
+*  TX interrupt request register will trigger an interrupt event.
+*
+*  \return 
+*   Enabled TX interrupt sources (refer to 
+*   I2C_GetTxInterruptSource() function for bit field values).
+*   
+*******************************************************************************/
+#define I2C_GetTxInterruptMode()   (I2C_INTR_TX_MASK_REG)
+
+
+/*******************************************************************************
+* Function Name: I2C_GetTxInterruptSourceMasked
+****************************************************************************//**
+*
+*  Returns TX interrupt masked request register. This register contains logical
+*  AND of corresponding bits from TX interrupt request and mask registers.
+*  This function is intended to be used in the interrupt service routine to identify 
+*  which of enabled TX interrupt sources cause interrupt event.
+*
+*  \return 
+*   Current status of enabled TX interrupt sources (refer to 
+*   I2C_GetTxInterruptSource() function for bit field values).
+*
+*******************************************************************************/
+#define I2C_GetTxInterruptSourceMasked()   (I2C_INTR_TX_MASKED_REG)
+
+
+/*******************************************************************************
+* Function Name: I2C_ClearTxInterruptSource
+****************************************************************************//**
+*
+*  Clears TX interrupt sources in the interrupt request register.
+*
+*  \param interruptMask: TX interrupt sources to be cleared (refer to 
+*   I2C_GetTxInterruptSource() function for bit field values).
+*
+*  \sideeffects 
+*   The side effects are listed in the table below for each affected interrupt 
+*   source. Refer to section TX FIFO interrupt sources for detailed description.
+*   - I2C_INTR_TX_FIFO_LEVEL - Interrupt source is not cleared when 
+*     transmitter FIFO has less entries than level.
+*   - I2C_INTR_TX_NOT_FULL - Interrupt source is not cleared when
+*     transmitter FIFO has empty entries.
+*   - I2C_INTR_TX_EMPTY - Interrupt source is not cleared when 
+*     transmitter FIFO is empty.
+*   - I2C_INTR_TX_UNDERFLOW - Interrupt source is not cleared when 
+*     transmitter FIFO is empty and I2C mode with clock stretching is selected. 
+*     Put data into the transmitter FIFO before clearing it. This behavior only 
+*     applicable for PSoC 4100/PSoC 4200 devices.
+*
+*******************************************************************************/
+#define I2C_ClearTxInterruptSource(interruptMask)  I2C_CLEAR_INTR_TX(interruptMask)
+
+
+/*******************************************************************************
+* Function Name: I2C_SetTxInterrupt
+****************************************************************************//**
+*
+*  Sets RX interrupt sources in the interrupt request register.
+*
+*  \param interruptMask: RX interrupt sources to set in the RX interrupt request 
+*   register (refer to I2C_GetRxInterruptSource() function for bit 
+*   fields values).
+*
+*******************************************************************************/
+#define I2C_SetTxInterrupt(interruptMask)  I2C_SET_INTR_TX(interruptMask)
+
 void I2C_SetTxFifoLevel(uint32 level);
 
+
 /* APIs to service INTR_MASTER register */
-#define I2C_SetMasterInterruptMode(interruptMask)    I2C_WRITE_INTR_MASTER_MASK(interruptMask)
-#define I2C_ClearMasterInterruptSource(interruptMask) I2C_CLEAR_INTR_MASTER(interruptMask)
-#define I2C_SetMasterInterrupt(interruptMask)         I2C_SET_INTR_MASTER(interruptMask)
-#define I2C_GetMasterInterruptSource()                (I2C_INTR_MASTER_REG)
-#define I2C_GetMasterInterruptMode()                  (I2C_INTR_MASTER_MASK_REG)
-#define I2C_GetMasterInterruptSourceMasked()          (I2C_INTR_MASTER_MASKED_REG)
+/*******************************************************************************
+* Function Name: I2C_GetMasterInterruptSource
+****************************************************************************//**
+*
+*  Returns Master interrupt request register. This register contains current 
+*  status of Master interrupt sources.
+*
+*  \return 
+*   Current status of Master interrupt sources. 
+*   Each constant is a bit field value. The value returned may have multiple 
+*   bits set to indicate the current status.
+*   - I2C_INTR_MASTER_SPI_DONE - SPI master transfer is complete.
+*     Refer to Interrupt sources section for detailed description.
+*   - I2C_INTR_MASTER_I2C_ARB_LOST - I2C master lost arbitration.
+*   - I2C_INTR_MASTER_I2C_NACK - I2C master received negative 
+*    acknowledgement (NAK).
+*   - I2C_INTR_MASTER_I2C_ACK - I2C master received acknowledgement.
+*   - I2C_INTR_MASTER_I2C_STOP - I2C master generated STOP.
+*   - I2C_INTR_MASTER_I2C_BUS_ERROR - I2C master bus error 
+*     (detection of unexpected START or STOP condition).
+*
+*******************************************************************************/
+#define I2C_GetMasterInterruptSource() (I2C_INTR_MASTER_REG)
+
+/*******************************************************************************
+* Function Name: I2C_SetMasterInterruptMode
+****************************************************************************//**
+*
+*  Writes Master interrupt mask register. This register configures which bits 
+*  from Master interrupt request register will trigger an interrupt event.
+*
+*  \param interruptMask: Master interrupt sources to be enabled (refer to 
+*   I2C_GetMasterInterruptSource() function for bit field values).
+*
+*******************************************************************************/
+#define I2C_SetMasterInterruptMode(interruptMask)  I2C_WRITE_INTR_MASTER_MASK(interruptMask)
+
+/*******************************************************************************
+* Function Name: I2C_GetMasterInterruptMode
+****************************************************************************//**
+*
+*  Returns Master interrupt mask register This register specifies which bits 
+*  from Master interrupt request register will trigger an interrupt event.
+*
+*  \return 
+*   Enabled Master interrupt sources (refer to 
+*   I2C_GetMasterInterruptSource() function for return values).
+*
+*******************************************************************************/
+#define I2C_GetMasterInterruptMode()   (I2C_INTR_MASTER_MASK_REG)
+
+/*******************************************************************************
+* Function Name: I2C_GetMasterInterruptSourceMasked
+****************************************************************************//**
+*
+*  Returns Master interrupt masked request register. This register contains 
+*  logical AND of corresponding bits from Master interrupt request and mask 
+*  registers.
+*  This function is intended to be used in the interrupt service routine to 
+*  identify which of enabled Master interrupt sources cause interrupt event.
+*
+*  \return 
+*   Current status of enabled Master interrupt sources (refer to 
+*   I2C_GetMasterInterruptSource() function for return values).
+*
+*******************************************************************************/
+#define I2C_GetMasterInterruptSourceMasked()   (I2C_INTR_MASTER_MASKED_REG)
+
+/*******************************************************************************
+* Function Name: I2C_ClearMasterInterruptSource
+****************************************************************************//**
+*
+*  Clears Master interrupt sources in the interrupt request register.
+*
+*  \param interruptMask: Master interrupt sources to be cleared (refer to 
+*   I2C_GetMasterInterruptSource() function for bit field values).
+*
+*******************************************************************************/
+#define I2C_ClearMasterInterruptSource(interruptMask)  I2C_CLEAR_INTR_MASTER(interruptMask)
+
+/*******************************************************************************
+* Function Name: I2C_SetMasterInterrupt
+****************************************************************************//**
+*
+*  Sets Master interrupt sources in the interrupt request register.
+*
+*  \param interruptMask: Master interrupt sources to set in the Master interrupt
+*   request register (refer to I2C_GetMasterInterruptSource() 
+*   function for bit field values).
+*
+*******************************************************************************/
+#define I2C_SetMasterInterrupt(interruptMask)  I2C_SET_INTR_MASTER(interruptMask)
+
 
 /* APIs to service INTR_SLAVE register */
-#define I2C_SetSlaveInterruptMode(interruptMask)     I2C_WRITE_INTR_SLAVE_MASK(interruptMask)
-#define I2C_ClearSlaveInterruptSource(interruptMask) I2C_CLEAR_INTR_SLAVE(interruptMask)
-#define I2C_SetSlaveInterrupt(interruptMask)         I2C_SET_INTR_SLAVE(interruptMask)
-#define I2C_GetSlaveInterruptSource()                (I2C_INTR_SLAVE_REG)
-#define I2C_GetSlaveInterruptMode()                  (I2C_INTR_SLAVE_MASK_REG)
-#define I2C_GetSlaveInterruptSourceMasked()          (I2C_INTR_SLAVE_MASKED_REG)
+/*******************************************************************************
+* Function Name: I2C_GetSlaveInterruptSource
+****************************************************************************//**
+*
+*  Returns Slave interrupt request register. This register contains current 
+*  status of Slave interrupt sources.
+*
+*  \return 
+*   Current status of Slave interrupt sources.
+*   Each constant is a bit field value. The value returned may have multiple 
+*   bits set to indicate the current status.
+*   - I2C_INTR_SLAVE_I2C_ARB_LOST - I2C slave lost arbitration: 
+*     the value driven on the SDA line is not the same as the value observed 
+*     on the SDA line.
+*   - I2C_INTR_SLAVE_I2C_NACK - I2C slave received negative 
+*     acknowledgement (NAK).
+*   - I2C_INTR_SLAVE_I2C_ACK - I2C slave received 
+*     acknowledgement (ACK).
+*   - I2C_INTR_SLAVE_I2C_WRITE_STOP - Stop or Repeated Start 
+*     event for write transfer intended for this slave (address matching 
+*     is performed).
+*   - I2C_INTR_SLAVE_I2C_STOP - Stop or Repeated Start event 
+*     for (read or write) transfer intended for this slave (address matching 
+*     is performed).
+*   - I2C_INTR_SLAVE_I2C_START - I2C slave received Start 
+*     condition.
+*   - I2C_INTR_SLAVE_I2C_ADDR_MATCH - I2C slave received matching 
+*     address.
+*   - I2C_INTR_SLAVE_I2C_GENERAL - I2C Slave received general 
+*     call address.
+*   - I2C_INTR_SLAVE_I2C_BUS_ERROR - I2C slave bus error (detection 
+*      of unexpected Start or Stop condition).
+*   - I2C_INTR_SLAVE_SPI_BUS_ERROR - SPI slave select line is 
+*      deselected at an expected time while the SPI transfer.
+*
+*******************************************************************************/
+#define I2C_GetSlaveInterruptSource()  (I2C_INTR_SLAVE_REG)
+
+/*******************************************************************************
+* Function Name: I2C_SetSlaveInterruptMode
+****************************************************************************//**
+*
+*  Writes Slave interrupt mask register. 
+*  This register configures which bits from Slave interrupt request register 
+*  will trigger an interrupt event.
+*
+*  \param interruptMask: Slave interrupt sources to be enabled (refer to 
+*   I2C_GetSlaveInterruptSource() function for bit field values).
+*
+*******************************************************************************/
+#define I2C_SetSlaveInterruptMode(interruptMask)   I2C_WRITE_INTR_SLAVE_MASK(interruptMask)
+
+/*******************************************************************************
+* Function Name: I2C_GetSlaveInterruptMode
+****************************************************************************//**
+*
+*  Returns Slave interrupt mask register.
+*  This register specifies which bits from Slave interrupt request register 
+*  will trigger an interrupt event.
+*
+*  \return 
+*   Enabled Slave interrupt sources(refer to 
+*   I2C_GetSlaveInterruptSource() function for bit field values).
+*
+*******************************************************************************/
+#define I2C_GetSlaveInterruptMode()    (I2C_INTR_SLAVE_MASK_REG)
+
+/*******************************************************************************
+* Function Name: I2C_GetSlaveInterruptSourceMasked
+****************************************************************************//**
+*
+*  Returns Slave interrupt masked request register. This register contains 
+*  logical AND of corresponding bits from Slave interrupt request and mask 
+*  registers.
+*  This function is intended to be used in the interrupt service routine to 
+*  identify which of enabled Slave interrupt sources cause interrupt event.
+*
+*  \return 
+*   Current status of enabled Slave interrupt sources (refer to 
+*   I2C_GetSlaveInterruptSource() function for return values).
+*
+*******************************************************************************/
+#define I2C_GetSlaveInterruptSourceMasked()    (I2C_INTR_SLAVE_MASKED_REG)
+
+/*******************************************************************************
+* Function Name: I2C_ClearSlaveInterruptSource
+****************************************************************************//**
+*
+*  Clears Slave interrupt sources in the interrupt request register.
+*
+*  \param interruptMask: Slave interrupt sources to be cleared (refer to 
+*   I2C_GetSlaveInterruptSource() function for return values).
+*
+*******************************************************************************/
+#define I2C_ClearSlaveInterruptSource(interruptMask)   I2C_CLEAR_INTR_SLAVE(interruptMask)
+
+/*******************************************************************************
+* Function Name: I2C_SetSlaveInterrupt
+****************************************************************************//**
+*
+*  Sets Slave interrupt sources in the interrupt request register.
+*
+*  \param interruptMask: Slave interrupt sources to set in the Slave interrupt 
+*   request register (refer to I2C_GetSlaveInterruptSource() 
+*   function for return values).
+*
+*******************************************************************************/
+#define I2C_SetSlaveInterrupt(interruptMask)   I2C_SET_INTR_SLAVE(interruptMask)
+
+/** @} interrupt */ 
 
 
 /***************************************
 *     Vars with External Linkage
 ***************************************/
 
-extern uint8 I2C_initVar;
+/**
+* \addtogroup group_globals
+* @{
+*/
 
+/** I2C_initVar indicates whether the I2C 
+*  component has been initialized. The variable is initialized to 0 
+*  and set to 1 the first time SCB_Start() is called. This allows 
+*  the component to restart without reinitialization after the first 
+*  call to the I2C_Start() routine.
+*
+*  If re-initialization of the component is required, then the 
+*  I2C_Init() function can be called before the 
+*  I2C_Start() or I2C_Enable() function.
+*/
+extern uint8 I2C_initVar;
+/** @} globals */
 
 /***************************************
 *              Registers
@@ -251,8 +773,13 @@ extern uint8 I2C_initVar;
 #define I2C_RX_FIFO_RD_SILENT_REG  (*(reg32 *) I2C_SCB__RX_FIFO_RD_SILENT)
 #define I2C_RX_FIFO_RD_SILENT_PTR  ( (reg32 *) I2C_SCB__RX_FIFO_RD_SILENT)
 
-#define I2C_EZBUF_DATA00_REG       (*(reg32 *) I2C_SCB__EZ_DATA00)
-#define I2C_EZBUF_DATA00_PTR       ( (reg32 *) I2C_SCB__EZ_DATA00)
+#ifdef I2C_SCB__EZ_DATA0
+    #define I2C_EZBUF_DATA0_REG    (*(reg32 *) I2C_SCB__EZ_DATA0)
+    #define I2C_EZBUF_DATA0_PTR    ( (reg32 *) I2C_SCB__EZ_DATA0)
+#else
+    #define I2C_EZBUF_DATA0_REG    (*(reg32 *) I2C_SCB__EZ_DATA00)
+    #define I2C_EZBUF_DATA0_PTR    ( (reg32 *) I2C_SCB__EZ_DATA00)
+#endif /* I2C_SCB__EZ_DATA00 */
 
 #define I2C_INTR_CAUSE_REG         (*(reg32 *) I2C_SCB__INTR_CAUSE)
 #define I2C_INTR_CAUSE_PTR         ( (reg32 *) I2C_SCB__INTR_CAUSE)
@@ -325,13 +852,12 @@ extern uint8 I2C_initVar;
 #define I2C_INTR_RX_MASKED_REG     (*(reg32 *) I2C_SCB__INTR_RX_MASKED)
 #define I2C_INTR_RX_MASKED_PTR     ( (reg32 *) I2C_SCB__INTR_RX_MASKED)
 
-#if (I2C_CY_SCBIP_V0 || I2C_CY_SCBIP_V1)
-    #define I2C_FF_DATA_NR_LOG2_PLUS1_MASK (0x0Fu) /* FF_DATA_NR_LOG2_PLUS1 = 4, MASK = 2^4 - 1 = 15 */
-    #define I2C_FF_DATA_NR_LOG2_MASK       (0x07u) /* FF_DATA_NR_LOG2 = 3, MASK = 2^3 - 1 = 7 */
-#else
-    #define I2C_FF_DATA_NR_LOG2_PLUS1_MASK (0x1Fu) /* FF_DATA_NR_LOG2_PLUS1 = 5, MASK = 2^5 - 1 = 31 */
-    #define I2C_FF_DATA_NR_LOG2_MASK       (0x0Fu) /* FF_DATA_NR_LOG2 = 4, MASK = 2^4 - 1 = 15 */
-#endif /* (I2C_CY_SCBIP_V0 || I2C_CY_SCBIP_V1) */
+/* Defines get from SCB IP parameters. */
+#define I2C_FIFO_SIZE      (8u)  /* TX or RX FIFO size. */
+#define I2C_EZ_DATA_NR     (32u)  /* Number of words in EZ memory. */ 
+#define I2C_ONE_BYTE_WIDTH (8u)            /* Number of bits in one byte. */
+#define I2C_FF_DATA_NR_LOG2_MASK       (0x07u)      /* Number of bits to represent a FIFO address. */
+#define I2C_FF_DATA_NR_LOG2_PLUS1_MASK (0x0Fu) /* Number of bits to represent #bytes in FIFO. */
 
 
 /***************************************
@@ -924,11 +1450,6 @@ extern uint8 I2C_initVar;
                                              I2C_INTR_RX_BAUD_DETECT  | \
                                              I2C_INTR_RX_BREAK_DETECT)
 
-/* General usage HW definitions */
-#define I2C_ONE_BYTE_WIDTH (8u)   /* Number of bits in one byte           */
-#define I2C_FIFO_SIZE      (8u)   /* Size of TX or RX FIFO: defined by HW */
-#define I2C_EZBUFFER_SIZE  (32u)  /* EZ Buffer size: defined by HW        */
-
 /* I2C and EZI2C slave address defines */
 #define I2C_I2C_SLAVE_ADDR_POS    (0x01u)    /* 7-bit address shift */
 #define I2C_I2C_SLAVE_ADDR_MASK   (0xFEu)    /* 8-bit address mask */
@@ -954,12 +1475,9 @@ extern uint8 I2C_initVar;
 * on the scb IP depending on the version:
 *  CY_SCBIP_V0: resets state, status, TX and RX FIFOs.
 *  CY_SCBIP_V1 or later: resets state, status, TX and RX FIFOs and interrupt sources.
+* Clear I2C command registers are because they are not impacted by re-enable.
 */
-#define I2C_SCB_SW_RESET \
-                        do{           \
-                            I2C_CTRL_REG &= ((uint32) ~I2C_CTRL_ENABLED); \
-                            I2C_CTRL_REG |= ((uint32)  I2C_CTRL_ENABLED); \
-                        }while(0)
+#define I2C_SCB_SW_RESET   I2C_I2CFwBlockReset()
 
 /* TX FIFO macro */
 #define I2C_CLEAR_TX_FIFO \
@@ -1253,6 +1771,14 @@ extern uint8 I2C_initVar;
                                                                   ~(I2C_I2C_CTRL_M_READY_DATA_ACK |       \
                                                                     I2C_I2C_CTRL_M_NOT_READY_DATA_NACK)); \
                             }while(0)
+/* Disables auto data ACK/NACK bits */
+#define I2C_DISABLE_AUTO_DATA \
+                do{                        \
+                    I2C_I2C_CTRL_REG &= ((uint32) ~(I2C_I2C_CTRL_M_READY_DATA_ACK      |  \
+                                                                 I2C_I2C_CTRL_M_NOT_READY_DATA_NACK |  \
+                                                                 I2C_I2C_CTRL_S_READY_DATA_ACK      |  \
+                                                                 I2C_I2C_CTRL_S_NOT_READY_DATA_NACK)); \
+                }while(0)
 
 /* Master commands */
 #define I2C_I2C_MASTER_GENERATE_START \
@@ -1470,6 +1996,10 @@ extern uint8 I2C_initVar;
 #define I2C_GET_UART_RX_CTRL_MP_MODE(mpMode)   ((0u != (mpMode)) ? \
                                                         (I2C_UART_RX_CTRL_MP_MODE) : (0u))
 
+#define I2C_GET_UART_RX_CTRL_BREAK_WIDTH(width)    (((uint32) ((uint32) (width) - 1u) << \
+                                                                    I2C_UART_RX_CTRL_BREAK_WIDTH_POS) & \
+                                                                    I2C_UART_RX_CTRL_BREAK_WIDTH_MASK)
+
 /* I2C_UART_TX_CTRL */
 #define I2C_GET_UART_TX_CTRL_MODE(stopBits)    (((uint32) (stopBits) - 1u) & \
                                                                 I2C_UART_RX_CTRL_STOP_BITS_MASK)
@@ -1517,7 +2047,7 @@ extern uint8 I2C_initVar;
 
 /* I2C_TX_CTRL */
 #define I2C_GET_TX_CTRL_DATA_WIDTH(dataWidth)  (((uint32) (dataWidth) - 1u) & \
-                                                                I2C_RX_CTRL_DATA_WIDTH_MASK)
+                                                                I2C_TX_CTRL_DATA_WIDTH_MASK)
 
 #define I2C_GET_TX_CTRL_BIT_ORDER(bitOrder)    ((0u != (bitOrder)) ? \
                                                                 (I2C_TX_CTRL_MSB_FIRST) : (0u))
@@ -1585,6 +2115,10 @@ extern uint8 I2C_initVar;
 #endif /* (!I2C_CY_SCBIP_V1) */
 
 #define I2C_CY_SCBIP_V1_I2C_ONLY   (I2C_CY_SCBIP_V1)
+#define I2C_EZBUFFER_SIZE          (I2C_EZ_DATA_NR)
+
+#define I2C_EZBUF_DATA00_REG   I2C_EZBUF_DATA0_REG
+#define I2C_EZBUF_DATA00_PTR   I2C_EZBUF_DATA0_PTR
 
 #endif /* (CY_SCB_I2C_H) */
 

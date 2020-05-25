@@ -1,0 +1,12 @@
+--------------- Rebuild Started: 06/30/2019 06:18:58 Project: p4bootloader, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+Deleting file ".\p4bootloader.cycdx"
+Deleting file ".\p4bootloader.svd"
+Deleting file ".\p4bootloader.rpt"
+Deleting file ".\p4bootloader_timing.html"
+cydsfit.exe -.appdatapath "C:\Users\arh\AppData\Local\Cypress Semiconductor\PSoC Creator\4.2" -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p \\Mac\Home\Documents\iotexpert-projects\creekproj\creekFirmware\p4bootloader.cydsn\p4bootloader.cyprj -d CY8C4245AXI-483 -s \\Mac\Home\Documents\iotexpert-projects\creekproj\creekFirmware\p4bootloader.cydsn\Generated_Source\PSoC4 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
+Elaborating Design...
+ADD: sdb.M0033: error: The instance 'I2C', of component SCB_P4_v3_10, contains an error. Unable to locate and customize component 'SCB_P4_v3_10' used in schematic '\\Mac\Home\Documents\iotexpert-projects\creekproj\creekFirmware\p4bootloader.cydsn\TopDesign\TopDesign.cysch'.
+ *  (Component Update Tool)
+ * \\Mac\Home\Documents\iotexpert-projects\creekproj\creekFirmware\p4bootloader.cydsn\TopDesign\TopDesign.cysch (Instance:I2C)
+Error: fit.M0050: The fitter aborted due to errors, please address all errors and rebuild. (App=cydsfit)
+--------------- Rebuild Failed: 06/30/2019 06:19:06 ---------------

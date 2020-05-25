@@ -1,15 +1,16 @@
-/*******************************************************************************
-* File Name: ezi2c_EZI2C.c
-* Version 3.10
+/***************************************************************************//**
+* \file ezi2c_EZI2C.c
+* \version 4.0
 *
-* Description:
+* \brief
 *  This file provides the source code to the API for the SCB Component in
 *  EZI2C mode.
 *
 * Note:
 *
 *******************************************************************************
-* Copyright 2013-2015, Cypress Semiconductor Corporation.  All rights reserved.
+* \copyright
+* Copyright 2013-2017, Cypress Semiconductor Corporation.  All rights reserved.
 * You may use this file only in accordance with the license, terms, conditions,
 * disclaimers, and limitations in the end user license agreement accompanying
 * the software package with which this file was provided.
@@ -28,10 +29,10 @@ uint8 ezi2c_fsmState;           /* FSM state   */
 
 /* Variables intended to be used with Buffer 1: Primary slave address */
 volatile uint8 * ezi2c_dataBuffer1; /* Pointer to data buffer 1 */
-uint16 ezi2c_bufSizeBuf1; /* Size of buffer 1 in bytes      */
-uint16 ezi2c_protectBuf1; /* Start index of write protected area buffer 1 */
+uint16 ezi2c_bufSizeBuf1;           /* Size of buffer 1 in bytes      */
+uint16 ezi2c_protectBuf1;           /* Start index of write protected area buffer 1 */
 uint8 ezi2c_offsetBuf1; /* Current offset within buffer 1 */
-uint16 ezi2c_indexBuf1;  /* Current index within buffer 1  */
+uint16 ezi2c_indexBuf1;             /* Current index within buffer 1  */
 
 #if(ezi2c_SECONDARY_ADDRESS_ENABLE_CONST)
     uint8 ezi2c_addrBuf1; /* Primary slave address. Used for software comparison   */
@@ -39,10 +40,10 @@ uint16 ezi2c_indexBuf1;  /* Current index within buffer 1  */
 
     /* Variables intended to be used with Buffer 2: Primary slave address */
     volatile uint8 * ezi2c_dataBuffer2; /* Pointer to data buffer 2 */
-    uint16 ezi2c_bufSizeBuf2; /* Size of buffer 2 in bytes      */
-    uint16 ezi2c_protectBuf2; /* Start index of write protected area buffer 2 */
+    uint16 ezi2c_bufSizeBuf2;           /* Size of buffer 2 in bytes */
+    uint16 ezi2c_protectBuf2;           /* Start index of write protected area buffer 2 */
     uint8 ezi2c_offsetBuf2; /* Current offset within buffer 2 */
-    uint16 ezi2c_indexBuf2;  /* Current index within buffer 2  */
+    uint16 ezi2c_indexBuf2;             /* Current index within buffer 2 */
 #endif /* (ezi2c_SECONDARY_ADDRESS_ENABLE_CONST) */
 
 
@@ -75,18 +76,22 @@ uint16 ezi2c_indexBuf1;  /* Current index within buffer 1  */
 
     /*******************************************************************************
     * Function Name: ezi2c_EzI2CInit
-    ********************************************************************************
+    ****************************************************************************//**
     *
-    * Summary:
-    *  Configures the SCB for the EZI2C operation.
+    *  Configures the ezi2c for EZI2C operation.
     *
-    * Parameters:
-    *  config:  Pointer to a structure that contains the following ordered list of
-    *           fields. These fields match the selections available in the
-    *           customizer.
+    *  This function is intended specifically to be used when the ezi2c 
+    *  configuration is set to “Unconfigured ezi2c” in the customizer. 
+    *  After initializing the ezi2c in EZI2C mode using this function, 
+    *  the component can be enabled using the ezi2c_Start() or 
+    * ezi2c_Enable() function.
+    *  This function uses a pointer to a structure that provides the configuration 
+    *  settings. This structure contains the same information that would otherwise 
+    *  be provided by the customizer settings.
     *
-    * Return:
-    *  None
+    * \param config: pointer to a structure that contains the following list of 
+    *  fields. These fields match the selections available in the customizer. 
+    *  Refer to the customizer for further description of the settings.
     *
     *******************************************************************************/
     void ezi2c_EzI2CInit(const ezi2c_EZI2C_INIT_STRUCT *config)
@@ -198,16 +203,9 @@ uint16 ezi2c_indexBuf1;  /* Current index within buffer 1  */
 
     /*******************************************************************************
     * Function Name: ezi2c_EzI2CInit
-    ********************************************************************************
+    ****************************************************************************//**
     *
-    * Summary:
     *  Configures the SCB for the EZI2C operation.
-    *
-    * Parameters:
-    *  None
-    *
-    * Return:
-    *  None
     *
     *******************************************************************************/
     void ezi2c_EzI2CInit(void)
@@ -276,16 +274,9 @@ uint16 ezi2c_indexBuf1;  /* Current index within buffer 1  */
 
 /*******************************************************************************
 * Function Name: ezi2c_EzI2CStop
-********************************************************************************
+****************************************************************************//**
 *
-* Summary:
 *  Resets the EZI2C FSM into the default state.
-*
-* Parameters:
-*  None
-*
-* Return:
-*  None
 *
 *******************************************************************************/
 void ezi2c_EzI2CStop(void)
@@ -296,19 +287,43 @@ void ezi2c_EzI2CStop(void)
 
 /*******************************************************************************
 * Function Name: ezi2c_EzI2CGetActivity
-********************************************************************************
+****************************************************************************//**
 *
-* Summary:
 *  Returns the EZI2C slave status.
 *  The read, write and error status flags reset to zero after this function
 *  call. The busy status flag is cleared when the transaction intended for
 *  the EZI2C slave completes.
 *
-* Parameters:
-*  None
-*
-* Return:
+* \return
 *  Returns the status of the EZI2C Slave activity.
+*  - ezi2c_EZI2C_STATUS_READ1 - Read transfer complete. The transfer 
+*    used the primary slave address. The error condition status bit must be 
+*    checked to ensure that read transfer was completed successfully.
+*  - ezi2c_EZI2C_STATUS_WRITE1 - Write transfer complete. The buffer 
+*    content was modified. The transfer used the primary slave address. 
+*    The error condition status bit must be checked to ensure that write 
+*    transfer was completed successfully.
+*  - ezi2c_EZI2C_STATUS_READ2 - Read transfer complete. The transfer
+*    used the secondary slave address. The error condition status bit must be 
+*    checked to ensure that read transfer was completed successfully.
+*  - ezi2c_EZI2C_STATUS_WRITE2 - Write transfer complete. The buffer
+*    content was modified. The transfer used the secondary slave address. 
+*    The error condition status bit must be checked to ensure that write 
+*    transfer was completed successfully.
+*  - ezi2c_EZI2C_STATUS_BUSY - A transfer intended for the primary 
+*    or secondary address is in progress. The status bit is set after an 
+*    address match and cleared on a Stop or ReStart condition.
+*  - ezi2c_EZI2C_STATUS_ERR - An error occurred during a transfer 
+*    intended for the primary or secondary slave address. The sources of error
+*    are: misplaced Start or Stop condition or lost arbitration while slave 
+*    drives SDA.
+*    The write buffer may contain invalid byte or part of the transaction when 
+*    ezi2c_EZI2C_STATUS_ERR and ezi2c_EZI2C_STATUS_WRITE1/2 
+*    is set. It is recommended to discard buffer content in this case.
+*
+* \globalvars
+*  ezi2c_curStatus - used to store the current status of the EZI2C 
+*  slave.
 *
 *******************************************************************************/
 uint32 ezi2c_EzI2CGetActivity(void)
@@ -347,19 +362,20 @@ uint32 ezi2c_EzI2CGetActivity(void)
 
 /*******************************************************************************
 * Function Name: ezi2c_EzI2CSetAddress1
-********************************************************************************
+****************************************************************************//**
 *
-* Summary:
-*  Sets the primary I2C slave address.
+*  Sets the primary EZI2C slave address.
 *
-* Parameters:
-*  address: I2C slave address for the secondary device.
-*           This address is the 7-bit right-justified slave address and does
-*           not include the R/W bit.
-*           This value may be any address between 0 and 127 (0x00 to 0x7F).
+* \param address: I2C slave address for the secondary device.
+*  This address is the 7-bit right-justified slave address and does not 
+*   include the R/W bit.
 *
-* Return:
-*  None
+*  The address value is not checked to see if it violates the I2C spec. 
+*  The preferred addresses are in the range between 8 and 120 (0x08 to 0x78).
+*
+* \globalvars
+*  ezi2c_addrBuf1 - used to store the primary 7-bit slave address 
+*  value.
 *
 *******************************************************************************/
 void ezi2c_EzI2CSetAddress1(uint32 address)
@@ -368,8 +384,8 @@ void ezi2c_EzI2CSetAddress1(uint32 address)
     {
         ezi2c_addrBuf1 = (uint8) address;
 
-        ezi2c_RX_MATCH_REG = ezi2c_EzI2CUpdateRxMatchReg(address,
-                                                                               (uint32) ezi2c_addrBuf2);
+        ezi2c_RX_MATCH_REG = 
+                        ezi2c_EzI2CUpdateRxMatchReg(address, (uint32) ezi2c_addrBuf2);
     }
     #else
     {
@@ -377,8 +393,9 @@ void ezi2c_EzI2CSetAddress1(uint32 address)
 
         matchReg = ezi2c_RX_MATCH_REG;
 
-        matchReg &= ((uint32) ~ezi2c_RX_MATCH_ADDR_MASK);            /* Clear address bits */
-        matchReg |= ((uint32)  ezi2c_GET_I2C_8BIT_ADDRESS(address)); /* Set mask */
+        /* Set address. */
+        matchReg &= (uint32) ~ezi2c_RX_MATCH_ADDR_MASK;
+        matchReg |= (uint32)  ezi2c_GET_I2C_8BIT_ADDRESS(address);
 
         ezi2c_RX_MATCH_REG = matchReg;
     }
@@ -388,19 +405,18 @@ void ezi2c_EzI2CSetAddress1(uint32 address)
 
 /*******************************************************************************
 * Function Name: ezi2c_EzI2CGetAddress1
-********************************************************************************
+****************************************************************************//**
 *
-* Summary:
-*  Gets the primary I2C slave 7-bit address.
+*  Returns primary the EZ I2C slave address.
+*  This address is the 7-bit right-justified slave address and does not include 
+*  the R/W bit.
 *
-* Parameters:
-*  None
+* \return
+*  Primary EZI2C slave address.
 *
-* Return:
-*  Returns I2C slave address for the primary device.
-*  This address is the 7-bit right-justified slave address and does not
-*  include the R/W bit.
-*  This value may be any address between 0 and 127 (0x00 to 0x7F).
+* \globalvars
+*  ezi2c_addrBuf1 - used to store the primary 7-bit slave address 
+*  value.
 *
 *******************************************************************************/
 uint32 ezi2c_EzI2CGetAddress1(void)
@@ -424,21 +440,30 @@ uint32 ezi2c_EzI2CGetAddress1(void)
 
 /*******************************************************************************
 * Function Name: ezi2c_EzI2CSetBuffer1
-********************************************************************************
+****************************************************************************//**
 *
-* Summary:
 *  Sets up the data buffer to be exposed to the I2C master on a primary slave
 *  address request.
 *
-* Parameters:
-*  bufSize: Size of the buffer in bytes.
-*  rwBoundary: Sets how many bytes are writeable in the beginning of the buffer.
-*              This value must be less than or equal to the buffer size.
-*              Data located at offset rwBoundry and greater are read only.
-*  buffer: Pointer to the data buffer.
+* \param bufSize: Size of the buffer in bytes.
+* \param rwBoundary: Number of data bytes starting from the beginning of the 
+*  buffer with read and write access. Data bytes located at offset rwBoundary 
+*  or greater are read only.
+*  This value must be less than or equal to the buffer size.
+* \param buffer: Pointer to the data buffer.
 *
-* Return:
-*  None
+* \sideeffect
+*  Calling this function in the middle of a transaction intended for the 
+*  primary slave address leads to unexpected behavior.
+*
+* \globalvars
+*  ezi2c_dataBuffer1 – the pointer to the buffer to be exposed to the
+*  master on a primary address.
+*  ezi2c_bufSizeBuf1 - the size of the buffer to be exposed to the 
+*  master on a primary address.
+*  ezi2c_protectBuf1 - the start index of the read-only region in the
+*  buffer to be exposed to the master on a primary address. The read-only region
+*  continues up to the end the buffer.
 *
 *******************************************************************************/
 void ezi2c_EzI2CSetBuffer1(uint32 bufSize, uint32 rwBoundary, volatile uint8 * buffer)
@@ -458,19 +483,24 @@ void ezi2c_EzI2CSetBuffer1(uint32 bufSize, uint32 rwBoundary, volatile uint8 * b
 
 /*******************************************************************************
 * Function Name: ezi2c_EzI2CSetReadBoundaryBuffer1
-********************************************************************************
+****************************************************************************//**
 *
-* Summary:
 *  Sets the read only boundary in the data buffer to be exposed to the I2C
 *  master on a primary slave address request.
 *
-* Parameters:
-*  rwBoundry: Sets how many bytes are writeable in the beginning of the buffer.
-*             This value must be less than or equal to the buffer size.
-*             Data located at offset rwBoundry and greater are read only.
+* \param rwBoundry: Number of data bytes starting from the beginning of the 
+*  buffer with read and write access. Data bytes located at offset rwBoundary 
+*  or greater are read only.
+*  This value must be less than or equal to the buffer size.
 *
-* Return:
-*  None
+* \sideeffect
+*  Calling this function in the middle of a transaction intended for the 
+*  primary slave address leads to unexpected behavior.
+*
+* \globalvars
+*  ezi2c_protectBuf1 - the start index of the read-only region in the
+*  buffer to be exposed to the master on a primary address. The read-only region
+*  continues up to the end the buffer.
 *
 *******************************************************************************/
 void ezi2c_EzI2CSetReadBoundaryBuffer1(uint32 rwBoundary)
@@ -482,23 +512,20 @@ void ezi2c_EzI2CSetReadBoundaryBuffer1(uint32 rwBoundary)
 #if(ezi2c_SECONDARY_ADDRESS_ENABLE_CONST)
     /*******************************************************************************
     * Function Name: ezi2c_EzI2CUpdateRxMatchReg
-    ********************************************************************************
+    ****************************************************************************//**
     *
-    * Summary:
     *  Returns the value of the RX MATCH register for addr1 and addr2. The addr1 is
     *  accepted as the primary address and it is written to RX_MATCH.ADDRESS
     *  (addr1 << 0x01).
     *  The RX_MATCH.MASK is set as follow: addr1 and addr2 equal bits set to 1
     *  otherwise 0.
     *
-    * Parameters:
-    *  addr1: I2C slave address for the primary device.
-    *  addr2: I2C slave address for the secondary device.
-    *         This address is the 7-bit right-justified slave address and does
-    *         not include the R/W bit.
-    *         This value may be any address between 0 and 127 (0x00 to 0x7F).
+    * \param addr1: I2C slave address for the primary device.
+    * \param addr2: I2C slave address for the secondary device.
+    *  This address is the 7-bit right-justified slave address and does
+    *  not include the R/W bit.
     *
-    * Return:
+    * \return
     *  Value of RX MATCH register.
     *
     *******************************************************************************/
@@ -516,45 +543,44 @@ void ezi2c_EzI2CSetReadBoundaryBuffer1(uint32 rwBoundary)
 
     /*******************************************************************************
     * Function Name: ezi2c_EzI2CSetAddress2
-    ********************************************************************************
+    ****************************************************************************//**
     *
-    * Summary:
-    *  Sets the secondary I2C slave address.
+    *  Sets the secondary EZI2C slave address.
     *
-    * Parameters:
-    *  address: I2C slave address for the secondary device.
-    *           This address is the 7-bit right-justified slave address and does
-    *           not include the R/W bit.
-    *           This value may be any address between 0 and 127 (0x00 to 0x7F).
+    * \param address: secondary I2C slave address.
+    *  This address is the 7-bit right-justified slave address and does not 
+    *  include the R/W bit.
+    *  The address value is not checked to see if it violates the I2C spec. 
+    *  The preferred addresses are in the range between 8 and 120 (0x08 to 0x78).
     *
-    * Return:
-    *  None
+    * \globalvars
+    *  ezi2c_addrBuf2 - used to store the secondary 7-bit slave address 
+    *  value.
     *
     *******************************************************************************/
     void ezi2c_EzI2CSetAddress2(uint32 address)
     {
         ezi2c_addrBuf2 = (uint8) address;
 
-        ezi2c_RX_MATCH_REG = ezi2c_EzI2CUpdateRxMatchReg((uint32) ezi2c_addrBuf1,
-                                                                               address);
+        ezi2c_RX_MATCH_REG = 
+                        ezi2c_EzI2CUpdateRxMatchReg((uint32) ezi2c_addrBuf1, address);
     }
 
 
     /*******************************************************************************
     * Function Name: ezi2c_EzI2CGetAddress2
-    ********************************************************************************
+    ****************************************************************************//**
     *
-    * Summary:
-    *  Gets secondary the I2C slave 7-bit address.
+    *  Returns the secondary EZ I2C slave address.
+    *  This address is the 7-bit right-justified slave address and does not include 
+    *  the R/W bit.
     *
-    * Parameters:
-    *  None
+    * \return
+    *  Secondary I2C slave address.
     *
-    * Return:
-    *  Returns the I2C slave address for the secondary device.
-    *  This address is a 7-bit right-justified slave address and does not
-    *  include the R/W bit.
-    *  This value may be any address between 0 and 127 (0x00 to 0x7F).
+    * \globalvars
+    *  ezi2c_addrBuf2 - used to store the secondary 7-bit slave address 
+    *  value.
     *
     *******************************************************************************/
     uint32 ezi2c_EzI2CGetAddress2(void)
@@ -565,21 +591,30 @@ void ezi2c_EzI2CSetReadBoundaryBuffer1(uint32 rwBoundary)
 
     /*******************************************************************************
     * Function Name: ezi2c_EzI2CSetBuffer2
-    ********************************************************************************
+    ****************************************************************************//**
     *
-    * Summary:
     *  Sets up the data buffer to be exposed to the I2C master on a secondary slave
     *  address request.
     *
-    * Parameters:
-    *  bufSize: Size of the buffer in bytes.
-    *  rwBoundary: Sets how many bytes are writeable in the beginning of the buffer.
-    *              This value must be less than or equal to the buffer size.
-    *              Data located at offset rwBoundry and greater are read only.
-    *  buffer: Pointer to the data buffer.
+    * \param bufSize: Size of the buffer in bytes.
+    * \param rwBoundary: Number of data bytes starting from the beginning of the 
+    *  buffer with read and write access. Data bytes located at offset rwBoundary 
+    *  or greater are read only.
+    *  This value must be less than or equal to the buffer size.
+    * \param buffer: Pointer to the data buffer.
     *
-    * Return:
-    *  None
+    * \sideeffects
+    *  Calling this function in the middle of a transaction intended for the 
+    *  secondary slave address leads to unexpected behavior.
+    *
+    * \globalvars
+    *  ezi2c_dataBuffer2 – the pointer to the buffer to be exposed to the
+    *  master on a secondary address.
+    *  ezi2c_bufSizeBuf2 - the size of the buffer to be exposed to the 
+    *  master on a secondary address.
+    *  ezi2c_protectBuf2 - the start index of the read-only region in the
+    *  buffer to be exposed to the master on a secondary address. The read-only 
+    *  region continues up to the end the buffer.
     *
     *******************************************************************************/
     void ezi2c_EzI2CSetBuffer2(uint32 bufSize, uint32 rwBoundary, volatile uint8 * buffer)
@@ -599,19 +634,24 @@ void ezi2c_EzI2CSetReadBoundaryBuffer1(uint32 rwBoundary)
 
     /*******************************************************************************
     * Function Name: ezi2c_EzI2CSetReadBoundaryBuffer2
-    ********************************************************************************
+    ****************************************************************************//**
     *
-    * Summary:
     *  Sets the read only boundary in the data buffer to be exposed to the I2C
     *  master on a secondary address request.
     *
-    * Parameters:
-    *  rwBoundary: Sets how many bytes are writeable at the beginning of the buffer.
-    *              This value must be less than or equal to the buffer size.
-    *              Data located at offset rwBoundry and greater are read only.
+    *  \param rwBoundary: Number of data bytes starting from the beginning of the
+    *   buffer with read and write access. Data bytes located at offset rwBoundary 
+    *   or greater are read only.
+    *   This value must be less than or equal to the buffer size.
     *
-    * Return:
-    *  None
+    *  \sideeffect
+    *   Calling this function in the middle of a transaction intended for the 
+    *   secondary slave address leads to unexpected behavior.
+    *
+    * \globalvars
+    *  ezi2c_protectBuf2 - the start index of the read-only region in the
+    *  buffer to be exposed to the master on a secondary address. The read-only 
+    *  region continues up to the end the buffe
     *
     *******************************************************************************/
     void ezi2c_EzI2CSetReadBoundaryBuffer2(uint32 rwBoundary)
@@ -625,9 +665,8 @@ void ezi2c_EzI2CSetReadBoundaryBuffer1(uint32 rwBoundary)
 #if(ezi2c_EZI2C_WAKE_ENABLE_CONST)
     /*******************************************************************************
     * Function Name: ezi2c_EzI2CSaveConfig
-    ********************************************************************************
+    ****************************************************************************//**
     *
-    * Summary:
     *  Clock stretching is  enabled: Enables INTR_I2C_EC.WAKE_UP interrupt source.
     *  It triggers on the slave address match.
     *  Clock stretching is disabled: Waits until the I2C slave becomes free and
@@ -636,12 +675,6 @@ void ezi2c_EzI2CSetReadBoundaryBuffer1(uint32 rwBoundary)
     *  interrupt source and disables the INTR_S and INTR_TX interrupt sources.
     *  The block is disabled before reconfiguration and enabled when
     *  it is completed.
-    *
-    * Parameters:
-    *  None
-    *
-    * Return:
-    *  None
     *
     *******************************************************************************/
     void ezi2c_EzI2CSaveConfig(void)
@@ -726,9 +759,8 @@ void ezi2c_EzI2CSetReadBoundaryBuffer1(uint32 rwBoundary)
 
     /*******************************************************************************
     * Function Name: ezi2c_EzI2CRestoreConfig
-    ********************************************************************************
+    ****************************************************************************//**
     *
-    * Summary:
     *  Clock stretching is  enabled: Disables the INTR_I2C_EC.WAKE_UP interrupt
     *  source.
     *  Clock stretching is disabled: Reconfigures the EZI2C component from
@@ -737,12 +769,6 @@ void ezi2c_EzI2CSetReadBoundaryBuffer1(uint32 rwBoundary)
     *  interrupt sources to operate in the active mode.
     *  The block is disabled before reconfiguration and enabled when
     *  it is completed.
-    *
-    * Parameters:
-    *  None
-    *
-    * Return:
-    *  None
     *
     *******************************************************************************/
     void ezi2c_EzI2CRestoreConfig(void)
